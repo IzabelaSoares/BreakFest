@@ -1,0 +1,151 @@
+/* banner */
+
+#banner-info img, form, input {
+    display: inline-block;
+}
+
+#banner-info img {
+    position: absolute;
+    top: 166px;
+    left: 483px;
+    width: 34px;
+    height: 34px;
+}
+
+#banner-info h1{
+    margin-bottom: 10px;
+}
+
+#banner-info {
+    widht: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding: 50px;
+    
+}
+
+#cuppa {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    top: 150px;
+}
+
+/* about */ 
+
+#about-section {
+    text-align: center;
+    background-color: #995a1a;
+    color: white;
+    padding-top: 50px;
+    height: 350px;
+}
+
+#about-section h2 {
+    margin-bottom: 20px;
+}
+
+#about-section p {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 30px;
+
+}
+
+/* padarias */
+
+#padarias-section {
+    margin-top: -100px;
+    background-color: #FFF;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+}
+
+#padarias-section .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.padarias-container {
+    flex: 1 1 1;
+    text-align: center;
+    padding: 60px 25px;
+}
+
+.central {
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+
+.padarias-container h3 {
+    color: #995a1a;
+    font-size: 20px;
+}
+
+.padarias-container img {
+    width: 300px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-top: 1px solid #995a1a;
+    border-left: 1px solid #995a1a;
+    border-right: 4px solid #995a1a;
+    border-bottom: 4px solid #995a1a;
+}
+
+.padarias-container .subtitle {
+    font-weight: bold;
+    color: #995a1a;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.padarias-container p {
+    line-height: 25px;
+}
+
+.padarias-container button {
+    padding-top: 5px;
+}
+
+/* footer */ 
+
+footer {
+    padding: 50px 0px;
+    background-color: #995a1a;
+    color: #FFF;
+    text-align: center;
+}
+
+footer img {
+    height: 90px;
+    margin: 30px 0px;
+}
+
+footer p {
+    margin-top: 25px;
+}
+
+footer form {
+    widht: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+footer input, footer textarea {
+    border: none;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 399px;
+    display: block;
+}
+
+footer .detail {
+    font-weight: bold;
+}

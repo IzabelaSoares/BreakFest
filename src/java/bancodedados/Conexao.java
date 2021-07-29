@@ -1,4 +1,4 @@
-package Conexao;
+package bancodedados;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ public class Conexao {
         Connection con = null;
         String url = "jdbc:postgresql://localhost:5432/breakfest";
         String user = "postgres";
-        String password = "baunilha";
+        String password = "itzdowz13";
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, password);

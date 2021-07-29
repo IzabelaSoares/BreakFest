@@ -1,0 +1,99 @@
+/* 
+Aqui temos a NavBar e o Footer que são iguais independentemente da tela
+em que foi aplicado, o CSS geral do programa.
+*/
+
+/* geral */
+
+body, p, h1, h2, input, textarea {
+    margin: 0;
+    font-family: Mukta;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+/* navbar */
+
+#navbar {
+    background-color: #995a1a;
+    color: white;
+    padding: 0 15px;
+    height: 60px;
+}
+
+#navbar h2, #navbar ul, #navbar-list li, #navbar nav {
+    display: inline-block;
+}
+
+#navbar h2 {
+    margin: 0;
+    line-height: 60px;
+    margin-left: 55px;
+}
+
+#navbar img {
+    width: 40px;
+    position: absolute;
+    top: 10px;
+}
+
+#navbar nav {
+    float: right;
+}
+
+#navbar ul {
+    margin-top: 22px;
+}
+
+#navbar li {
+    margin: 0 10px;
+}
+
+#navbar-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+#navbar-list li a:hover {
+    border-bottom: 1px solid #FFF;
+}
+
+/* footer */ 
+
+footer {
+    padding: 50px 0px;
+    background-color: #995a1a;
+    color: #FFF;
+    text-align: center;
+}
+
+footer img {
+    height: 90px;
+    margin: 30px 0px;
+}
+
+footer p {
+    margin-top: 25px;
+}
+
+footer form {
+    widht: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+footer input, footer textarea {
+    border: none;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 399px;
+    display: block;
+}
+
+footer .detail {
+    font-weight: bold;
+}                                                                       
+
