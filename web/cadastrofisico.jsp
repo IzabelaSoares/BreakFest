@@ -64,7 +64,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         <div class="form-group">
                             <!-- Input do CPF -->
                             <div class="form-row form-row-3">
-                                <input type="text" name="cpf" class="business" id="business" placeholder="CPF" required maxlength="14">
+                                <input type="text" name="cpf" onkeydown="javascript: fMasc( this, mCPF );" placeholder="CPF" required maxlength="14">
                             </div>
                             <!-- Input do telefone -->
                             <div class="form-row form-row-3">
