@@ -12,6 +12,8 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Pessoa</title>
+        <script src="scripts/validacaoDados.js"></script>
+        
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +68,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                             </div>
                             <!-- Input do telefone -->
                             <div class="form-row form-row-3">
-                                <input type="text" name="telefone" placeholder="Telefone">
+                                <input type="text" name="telefone" id="telefone" placeholder="Telefone">
                             </div>
                         </div>
                         <!-- Input da senha -->
