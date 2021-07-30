@@ -4,24 +4,24 @@ package dominio;
 
 public class Categoria {
     //criação de variáveis
-    private Integer idcategoria;
-    private String titulocategoria;
+    private Integer idCategoria;
+    private String tituloCategoria;
 
     //getters e setters
-    public int getIdcategoria() {
-        return idcategoria;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setIdCategoria(int idcategoria) {
+        this.idCategoria = idcategoria;
     }
 
-    public String getTitulocategoria() {
-        return titulocategoria;
+    public String getTituloCategoria() {
+        return tituloCategoria;
     }
 
-    public void setTitulocategoria(String titulocategoria) {
-        this.titulocategoria = titulocategoria;
+    public void setTituloCategoria(String titulocategoria) {
+        this.tituloCategoria = titulocategoria;
     }
 
 }

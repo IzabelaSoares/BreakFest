@@ -6,10 +6,12 @@ import java.sql.Date;
 
 public class PessoaFisica {
     //criação de variáveis
-    private Integer idfisica; 
+    private Integer idFisica; 
     private String nome;
     private int cpf;
-    private Date datanascimento;
+    private String login;
+    private String senha;
+    private Date dataNascimento;
     private String email;
     private String celular;
     private String cep; 
@@ -21,12 +23,12 @@ public class PessoaFisica {
     private String complemento;
 
     //getters e setters
-    public int getIdfisica() {
-        return idfisica;
+    public Integer getIdFisica() {
+        return idFisica;
     }
 
-    public void setIdfisica(int idfisica) {
-        this.idfisica = idfisica;
+    public void setIdFisica(Integer idFisica) {
+        this.idFisica = idFisica;
     }
 
     public String getNome() {
@@ -45,12 +47,28 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 
-    public Date getDatanascimento() {
-        return datanascimento;
+    public String getLogin() {
+        return login;
     }
 
-    public void setDatanascimento(Date datanascimento) {
-        this.datanascimento = datanascimento;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEmail() {
@@ -109,11 +127,11 @@ public class PessoaFisica {
         this.rua = rua;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 

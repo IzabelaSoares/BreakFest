@@ -4,24 +4,24 @@ package dominio;
 
 public class Produto {
     //criação de variáveis
-    private Integer idproduto;
+    private Integer idProduto;
     private String titulo;
     private byte[] imagem;
-    private Integer fkidcategoria;
-    private String fkcnpj;
+    private Integer fkIdCategoria;
+    private String fkCnpj;
     private String descricao;
     private float preco;
     private String tamanho;
-    private String unidadedemedida;
+    private String unidadeDeMedida;
     private float peso;
 
     //getters e setters
-    public int getIdproduto() {
-        return idproduto;
+    public Integer getIdProduto() {
+        return idProduto;
     }
 
-    public void setIdproduto(int idproduto) {
-        this.idproduto = idproduto;
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getTitulo() {
@@ -40,20 +40,20 @@ public class Produto {
         this.imagem = imagem;
     }
 
-    public int getFkidcategoria() {
-        return fkidcategoria;
+    public Integer getFkIdCategoria() {
+        return fkIdCategoria;
     }
 
-    public void setFkidcategoria(int fkidcategoria) {
-        this.fkidcategoria = fkidcategoria;
+    public void setFkIdCategoria(Integer fkIdCategoria) {
+        this.fkIdCategoria = fkIdCategoria;
     }
 
-    public String getFkcnpj() {
-        return fkcnpj;
+    public String getFkCnpj() {
+        return fkCnpj;
     }
 
-    public void setFkcnpj(String fkcnpj) {
-        this.fkcnpj = fkcnpj;
+    public void setFkCnpj(String fkCnpj) {
+        this.fkCnpj = fkCnpj;
     }
 
     public String getDescricao() {
@@ -80,12 +80,11 @@ public class Produto {
         this.tamanho = tamanho;
     }
 
-    public String getUnidadedemedida() {
-        return unidadedemedida;
+    public String getUnidadeDeMedida() {
+        return unidadeDeMedida;
     }
-
-    public void setUnidadedemedida(String unidadedemedida) {
-        this.unidadedemedida = unidadedemedida;
+    public void setUnidadeDeMedida(String unidadedeMedida) {
+        this.unidadeDeMedida = unidadedeMedida;
     }
 
     public float getPeso() {
