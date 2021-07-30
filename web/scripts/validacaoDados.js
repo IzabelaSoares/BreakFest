@@ -1,5 +1,9 @@
 //@Izabela @Ricardo
 
+// CPF
+
+// -------- A ser feito ainda --------
+
 //Telefone
 function mascaraTelefone(o,f){
     v_obj=o
@@ -23,4 +27,5 @@ window.onload = function(){
 		mascaraTelefone( this, mtel );
 	}
 }
+
 

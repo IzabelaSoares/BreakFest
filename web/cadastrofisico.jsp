@@ -68,7 +68,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                             </div>
                             <!-- Input do telefone -->
                             <div class="form-row form-row-3">
-                                <input type="text" name="telefone" id="telefone" placeholder="Telefone">
+                                <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15">
                             </div>
                         </div>
                         <!-- Input da senha -->
