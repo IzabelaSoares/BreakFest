@@ -1,5 +1,5 @@
 /* 
-Aqui temos a NavBar e o Footer que são iguais independentemente da tela
+Aqui temos a NavBar que é igual independentemente da tela
 em que foi aplicado, o CSS geral do programa.
 */
 
@@ -95,5 +95,6 @@ footer input, footer textarea {
 
 footer .detail {
     font-weight: bold;
-}                                                                       
+}
+                                                    
 
