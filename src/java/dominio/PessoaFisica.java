@@ -1,9 +1,12 @@
+///@author Maria
+
 package dominio;
 
 import java.sql.Date;
 
 public class PessoaFisica {
-    private int idfisica; 
+    //criação de variáveis
+    private Integer idfisica; 
     private String nome;
     private int cpf;
     private Date datanascimento;
@@ -14,9 +17,10 @@ public class PessoaFisica {
     private String cidade;
     private String bairro;
     private String rua;
-    private int numero;
+    private Integer numero;
     private String complemento;
 
+    //getters e setters
     public int getIdfisica() {
         return idfisica;
     }

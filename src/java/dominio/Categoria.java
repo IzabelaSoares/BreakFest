@@ -1,9 +1,13 @@
+///@author Maria
+
 package dominio;
 
 public class Categoria {
-    private int idcategoria;
+    //criação de variáveis
+    private Integer idcategoria;
     private String titulocategoria;
 
+    //getters e setters
     public int getIdcategoria() {
         return idcategoria;
     }

@@ -1,10 +1,13 @@
+///@author Maria
+
 package dominio;
 
 public class Produto {
-    private int idproduto;
+    //criação de variáveis
+    private Integer idproduto;
     private String titulo;
     private byte[] imagem;
-    private int fkidcategoria;
+    private Integer fkidcategoria;
     private String fkcnpj;
     private String descricao;
     private float preco;
@@ -12,6 +15,7 @@ public class Produto {
     private String unidadedemedida;
     private float peso;
 
+    //getters e setters
     public int getIdproduto() {
         return idproduto;
     }
