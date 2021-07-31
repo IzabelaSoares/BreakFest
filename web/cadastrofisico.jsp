@@ -23,7 +23,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     </head>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
-        <a href="index.html>"<img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <img src="imagens/cuppa-inicio.gif" alt="Cuppa">
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -73,7 +73,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         </div>
                         <!-- Input da senha -->
                         <div class="form-row">
-                            <input type="text" name="senha" placeholder="Senha" >
+                            <input type="password" name="senha" placeholder="Senha" >
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->
