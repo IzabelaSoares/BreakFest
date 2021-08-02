@@ -1,4 +1,4 @@
-//@author Izabela
+//@author Iza
 package dominio;
 
 public class PessoaJuridica {
@@ -24,6 +24,7 @@ public class PessoaJuridica {
     private String senha;
     
     //metodos
+    String teste;
     
     
     //getters e setters
