@@ -14,7 +14,6 @@ public class Categoria {
     //criação de variáveis
     private Integer idCategoria;
     private String tituloCategoria;
-    String testando;
     
     public List<Categoria> consultaGeral(){
         List<Categoria> lista = new ArrayList<>();
