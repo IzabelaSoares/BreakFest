@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Padarias</title>
-        <link href="styles/start.css" rel="stylesheet">
+        <link href="styles/inicial.css" rel="stylesheet">
     </head>
     <body>
         <div class="topnav">

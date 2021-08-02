@@ -1,0 +1,97 @@
+/* about */ 
+* {
+    font-family: Mukta;
+}
+#about-section {
+    text-align: center;
+    background-color: #995a1a;
+    color: white;
+    padding-top: 45.5px;
+    height: 250px;
+}
+
+#about-section p {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 30px;
+
+}
+
+/* container do tipopessoa */
+
+#tipopess-section {
+    margin-top: -100px;
+    background-color: #FFF;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+}
+
+#tipopess-section .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tipopess-container {
+    flex: 1 1;
+    text-align: center;
+    padding: 60px 25px;
+}
+
+.central {
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+
+.tipopess-container h3 {
+    color: #995a1a;
+    font-size: 20px;
+}
+
+.tipopess-container img {
+    width: 200px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.tipopess-container .subtitle {
+    font-weight: bold;
+    color: #995a1a;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.tipopess-container p {
+    line-height: 25px;
+}
+
+.tipopess-container button {
+    padding-top: 5px;
+}
+
+/* botões de input */
+
+button {
+    font: mukta;
+    font-size: 20px;
+    font-weight: 700;
+    background-color:#995a1a; 
+    margin: 0;
+    cursor:pointer;
+    border: none;
+}
+button:hover {
+    background-color: #995a1a;
+    box-shadow:0 5px #995a1a;
+}
+button:active {
+    position:relative;
+    top:5px;
+    background-color: #995a1a;
+    box-shadow:none;
+}
+
