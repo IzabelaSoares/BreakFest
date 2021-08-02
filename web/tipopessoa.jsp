@@ -44,7 +44,7 @@
                 <h3>Cadastro Físico</h3>
                 <p>Para quem deseja consumir produtos dos mais variados estilos e conhecer padarias/lojas novas.</p>
                 <br>
-                <a href="cadastrofisico.jsp"><button name="conhecer" class="btn btn-outline-dark">Cadastrar</button></a>
+                <a href="cadastrofisico.jsp"><button name="conhecer">Cadastrar</button></a>
             </div>
             <hr>
             <!-- Segundo container -->
@@ -54,7 +54,7 @@
                 <p>Redirecionado para empresas e padarias
                 que desejam vender seus produtos.</p>
                 <br>
-                <a href="cadastrojuridico.jsp"><button name="conhecer" class="btn btn-outline-dark">Cadastrar</button></a>
+                <a href="cadastrojuridico.jsp"><button name="conhecer">Cadastrar</button></a>
             </div>
         </div>
     </section>

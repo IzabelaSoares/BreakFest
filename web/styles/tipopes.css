@@ -81,17 +81,19 @@ button {
     font-weight: 700;
     background-color:#995a1a; 
     margin: 0;
+    padding:10px;
     cursor:pointer;
     border: none;
+    box-shadow:0 5px #834d16;
 }
 button:hover {
-    background-color: #995a1a;
-    box-shadow:0 5px #995a1a;
+    background-color:#995a1a;
+    box-shadow:0 5px #834d16;
 }
 button:active {
     position:relative;
     top:5px;
-    background-color: #995a1a;
+    background-color:#9c5a17;
     box-shadow:none;
 }
 
