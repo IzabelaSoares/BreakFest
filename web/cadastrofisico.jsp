@@ -13,7 +13,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Pessoa</title>
         <script src="scripts/validacaoPessoaFisica.js"></script>
-
+        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,11 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         </div>
                         <!-- Input da senha -->
                         <div class="form-row">
-                            <input type="password" name="senha" placeholder="Senha" >
+                            <input type="password" name="senha" id="senha" placeholder="Senha" >
+                        </div>
+                        <!-- Confirmação de senha -->
+                        <div class="form-row">
+                            <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha" >
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->
