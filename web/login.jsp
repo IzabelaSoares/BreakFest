@@ -18,7 +18,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        <img src="imagens/cuppa-inicio.gif" class="brand_logo" alt="Cuppa">
+                        <img src="imagens/CuppaLogin Background.gif" class="brand_logo" alt="Cuppa">
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
