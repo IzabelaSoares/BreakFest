@@ -35,7 +35,7 @@ public class PessoaJuridica {
     String teste;
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO public.pessoafisica " 
+        String sql = "INSERT INTO pessoajuridica " 
                    +"(razaosocial, nomefantasia, cnpj, login, senha, email, telefone, cep, "
                    +"estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook) " 
                    +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
