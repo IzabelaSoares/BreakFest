@@ -104,67 +104,57 @@ public class Produto {
         
         return true;
     }
-    /*
-    public PessoaFisica consultarProduto(String pCpf){
-        this.id = pCpf;
-        String sql = "SELECT idfisica, nome, cpf, login, senha, "
-                   + "datanascimento, email, celular, cep, estado, cidade, "
-                   + "bairro, rua, numero, complemento FROM pessoafisica where cpf = ?";
+    
+    public Produto consultarProduto(String pTitulo){
+        this.titulo = pTitulo;
+        String sql = "SELECT titulo, imagem, fkidcategoria, fkcnpj, descricao, preco, tamanho, " 
+                + "unidadedemedida, peso FROM produto where titulo = ?";
         Connection con = Conexao.conectar();
-        PessoaFisica pessoa = null;
+        Produto produto = null;
         try{
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cpf);
+            stm.setString(1, this.titulo);
             ResultSet rs = stm.executeQuery();
                 if(rs.next()){
-                   pessoa = new PessoaFisica();
-                   pessoa.setNome(rs.getString("nome"));
-                   pessoa.setCpf(rs.getString("cpf"));
-                   pessoa.setLogin(rs.getString("login"));
-                   pessoa.setSenha(rs.getString("senha"));
-                   pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                   pessoa.setEmail(rs.getString("email"));
-                   pessoa.setCelular(rs.getString("celular"));
-                   pessoa.setCep(rs.getString("cep")); 
-                   pessoa.setEstado(rs.getString("estado"));
-                   pessoa.setCidade(rs.getString("cidade"));
-                   pessoa.setBairro(rs.getString("bairro"));
-                   pessoa.setRua(rs.getString("rua"));
-                   pessoa.setNumero(rs.getInt("numero"));
-                   pessoa.setComplemento(rs.getString("complemento"));
+                   produto = new Produto();
+                   produto.setTitulo(rs.getString("titulo"));
+                   produto.setImagem(rs.getString("imagem"));
+                   produto.setFkIdCategoria(rs.getInt("fkidcategoria"));
+                   produto.setFkCnpj(rs.getString("fkcnpj"));
+                   produto.setDescricao(rs.getString("descricao"));
+                   produto.setPreco(rs.getInt("preco"));
+                   produto.setTamanho(rs.getString("tamanho"));
+                   produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.setPeso(rs.getInt("peso"));
                 } 
         } catch (SQLException ex) {
                 System.out.println("Erro:" + ex.getMessage());
             }
         
-        return pessoa;
+        return produto;
         
     }
     
-    public List<PessoaFisica> consultarGeral(){
-        List<PessoaFisica> lista = new ArrayList<>();
-        String sql = "select * from pessoafisica order by cpf";
+    public List<Produto> consultarGeral(){
+        List<Produto> lista = new ArrayList<>();
+        String sql = "SELECT titulo, imagem, fkidcategoria, fkcnpj, descricao, preco, tamanho, " 
+                + "unidadedemedida, peso FROM produto order by titulo";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
-                PessoaFisica pessoa = new PessoaFisica();
-                pessoa.setNome(rs.getString("nome"));
-                pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setLogin(rs.getString("login"));
-                pessoa.setSenha(rs.getString("senha"));
-                pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                pessoa.setEmail(rs.getString("email"));
-                pessoa.setCelular(rs.getString("celular"));
-                pessoa.setCep(rs.getString("cep")); 
-                pessoa.setEstado(rs.getString("estado"));
-                pessoa.setCidade(rs.getString("cidade"));
-                pessoa.setBairro(rs.getString("bairro"));
-                pessoa.setRua(rs.getString("rua"));
-                pessoa.setNumero(rs.getInt("numero"));
-                pessoa.setComplemento(rs.getString("complemento"));
-                lista.add(pessoa);
+                Produto produto = new Produto();
+                produto.setTitulo(rs.getString("titulo"));
+                produto.setImagem(rs.getString("imagem"));
+                produto.setFkIdCategoria(rs.getInt("fkidcategoria"));
+                produto.setFkCnpj(rs.getString("fkcnpj"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPreco(rs.getInt("preco"));
+                produto.setTamanho(rs.getString("tamanho"));
+                produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                produto.setPeso(rs.getInt("peso"));
+                lista.add(produto);
            }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
@@ -173,7 +163,6 @@ public class Produto {
         return lista;
         
     }
-*/
     
     //getters e setters
     public Integer getIdProduto() {
