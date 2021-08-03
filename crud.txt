@@ -3,6 +3,7 @@ create database breakfest;
 create table pessoafisica(
 	idfisica serial not null,
     nome varchar(30) not null,
+    sobrenome varchar(30) not null,
     cpf varchar(14) not null unique,
     login varchar(20) not null unique,
     senha varchar(20) not null,
