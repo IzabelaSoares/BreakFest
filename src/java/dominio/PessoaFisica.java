@@ -8,8 +8,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PessoaFisica {
     //criação de variáveis
@@ -154,39 +152,6 @@ public class PessoaFisica {
             }
         
         return pessoa;
-        
-    }
-    
-    public List<PessoaFisica> consultarGeral(){
-        List<PessoaFisica> lista = new ArrayList<>();
-        String sql = "select * from pessoafisica order by cpf";
-        Connection con = Conexao.conectar();
-        try{
-            PreparedStatement stm = con.prepareStatement(sql);     
-            ResultSet rs = stm.executeQuery();
-            while(rs.next()){
-                PessoaFisica pessoa = new PessoaFisica();
-                pessoa.setNome(rs.getString("nome"));
-                pessoa.setCpf(rs.getString("cpf"));
-                pessoa.setLogin(rs.getString("login"));
-                pessoa.setSenha(rs.getString("senha"));
-                pessoa.setDataNascimento(rs.getDate("datanascimento"));
-                pessoa.setEmail(rs.getString("email"));
-                pessoa.setCelular(rs.getString("celular"));
-                pessoa.setCep(rs.getString("cep")); 
-                pessoa.setEstado(rs.getString("estado"));
-                pessoa.setCidade(rs.getString("cidade"));
-                pessoa.setBairro(rs.getString("bairro"));
-                pessoa.setRua(rs.getString("rua"));
-                pessoa.setNumero(rs.getInt("numero"));
-                pessoa.setComplemento(rs.getString("complemento"));
-                lista.add(pessoa);
-           }
-        } catch (SQLException ex) {
-          System.out.println("Erro:" + ex.getMessage());
-        }
-        
-        return lista;
         
     }
 
