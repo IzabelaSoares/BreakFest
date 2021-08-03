@@ -5,14 +5,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Padarias</title>
         <link href="styles/inicial.css" rel="stylesheet">
+        <link href="styles/util.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="topnav">
-            <a href="index.html"> BreakFest </a>
-            <a href="https://projetobreakfest.carrd.co/"> Sobre Nós </a>
-            <a href="criarcadastro.jsp"> Criar cadastro </a>
-            <a href="login.jsp"> Logar </a>
-        </div>
+        <!-- Inicio da NavBar de cima -->
+    <header id="navbar">
+        <img src="imagens/cuppa-inicio.gif" alt="Cuppa">
+        <h2> Break Fest </h2>
+        <nav>
+            <ul id="navbar-list">
+                <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
+                <li><a href="tipopessoa.jsp">Cadastro</a></li>
+                <li><a href="login.jsp">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Fim da NavBar de cima -->
         <br>
         <div class="container">
             <img src="imagens/padaria1.png" width="300px" height="250px">
