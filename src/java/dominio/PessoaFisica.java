@@ -41,21 +41,20 @@ public class PessoaFisica {
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.idFisica); 
-            stm.setString(2, this.nome);
-            stm.setString(3, this.cpf);
-            stm.setString(4, this.login);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.cpf);
+            stm.setString(3, this.login);
             stm.setString(4, this.senha);
-            stm.setDate(6, this.dataNascimento);
-            stm.setString(7, this.email);
-            stm.setString(8, this.celular);
-            stm.setString(9, this.cep); 
-            stm.setString(10, this.estado);
-            stm.setString(11, this.cidade);
-            stm.setString(12, this.bairro);
-            stm.setString(13, this.rua);
-            stm.setInt(14, this.numero);
-            stm.setString(15, this.complemento);
+            stm.setDate(5, this.dataNascimento);
+            stm.setString(6, this.email);
+            stm.setString(7, this.celular);
+            stm.setString(8, this.cep); 
+            stm.setString(9, this.estado);
+            stm.setString(10, this.cidade);
+            stm.setString(11, this.bairro);
+            stm.setString(12, this.rua);
+            stm.setInt(13, this.numero);
+            stm.setString(14, this.complemento);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
