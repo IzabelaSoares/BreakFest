@@ -32,7 +32,7 @@ public class PessoaFisica {
         String sql = "INSERT INTO pessoafisica " 
                    +"(nome, sobrenome, cpf, datanascimento, email, celular, cep, estado, cidade, "
                    +"bairro, rua, numero, complemento) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
