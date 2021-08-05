@@ -5,8 +5,6 @@ create table pessoafisica(
     nome varchar(30) not null,
     sobrenome varchar(30) not null,
     cpf varchar(14) not null unique,
-    login varchar(20) not null unique,
-    senha varchar(20) not null,
     datanascimento date not null,
     email varchar(30) not null,
     celular varchar(14) not null,
@@ -25,8 +23,6 @@ create table pessoajuridica(
     razaosocial varchar(30) not null,
     nomefantasia varchar(30) not null,
     cnpj varchar(20) not null unique,
-    login varchar(20) not null unique,
-    senha varchar(20) not null,
     email varchar(30) not null,
     telefone varchar(14) not null,
     cep varchar(9) not null, 
@@ -77,4 +73,11 @@ create table pedido(
     foreign key (fkcpf) references pessoafisica(cpf),
     foreign key (fkcnpj) references pessoajuridica(cnpj),
     foreign key (fkidproduto) references produto(idproduto)
+);
+
+create table config (
+	idusuario varchar(25) not null,
+	email varchar(50) not null,
+	senha varchar(20) not null,
+	primary key (idusuario)
 );
