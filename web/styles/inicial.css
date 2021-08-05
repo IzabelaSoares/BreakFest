@@ -149,20 +149,21 @@ footer .detail {
     font-weight: bold;
 }
 /*Barra de pesquisa*/
+
 #txtBusca{
   float:right;
   background-color:#ffffff;
   padding-left:3px;
   font-size:20px;
-  border:none;
-  height:43px;
-  width:372px;
+  border: none;
+  height:45px;
+  width:374px;
   margin: -1px -1px;
 }
 #divBusca{
-  border:solid 10px #995a1a;
+  border:solid 8px #995a1a;
   border-radius:10px;
   height:60px;
   width:390px;
-  margin: 10px 570px;
+  margin: 10px 36%;
 }

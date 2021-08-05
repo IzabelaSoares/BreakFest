@@ -8,7 +8,7 @@ public class Conexao {
         Connection con = null;
         String url = "jdbc:postgresql://localhost:5432/breakfest";
         String user = "postgres";
-        String password = "null"; 
+        String password = "admin"; 
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, password);
