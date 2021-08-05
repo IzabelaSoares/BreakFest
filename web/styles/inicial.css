@@ -169,3 +169,12 @@ footer .detail {
   width:390px;
   margin: 10px 76vh;
 }
+
+#destaque {
+    font-size: 20px;
+}
+
+#parag {
+    font-size: 30px;
+    padding-top: 6px;
+}
