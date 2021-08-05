@@ -75,8 +75,9 @@ create table pedido(
     foreign key (fkidproduto) references produto(idproduto)
 );
 
-create table config (
-	idusuario varchar(25) not null,
+create table usuario (
+	idusuario serial not null,
+	nickusuario varchar(20) not null,
 	email varchar(50) not null,
 	senha varchar(20) not null,
 	primary key (idusuario)
