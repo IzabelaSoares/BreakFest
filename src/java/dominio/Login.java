@@ -107,7 +107,7 @@ public class Login {
     public Login consultarUsuario(String pNickUsuario){
         Connection con = Conexao.conectar();
         String sql = "select nickusuario, email, senha ";
-               sql+= " from config where nickusuario = ?";
+               sql+= " from usuario where nickusuario = ?";
         Login login = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
