@@ -22,14 +22,15 @@
     <!-- Fim da NavBar de cima -->
         <br>
         <div class="container">
-            <img src="imagens/pad1.jpg" width="300px" height="250px">
+            <img src="imagens/Padaria-Central.png" width="300px" height="250px">
             <center>
-            <p>Padaria Feocruz</p>
-            <p> Localizada na rua Pedro de Queirós, especializada em pães,
-            funcionando desde 1850, é a padaria mais velha de Mogi das Cruzes,
-            com ótimos funcionários e extremamente qualificada para servir nossos clientes.
+            <p>Padaria Central</p>
+            <p> Localizada na rua Pedro de Queirós,</p>
+            <p>especializada em pães,funcionando desde 1850,</p>
+            <p>é a padaria mais velha de Mogi das Cruzes,</p>
+            <p>com ótimos funcionários e extremamente qualificada para servir nossos clientes.</p>
             Confira já: </p>
-            <input type="submit" name="checa" value="Checar">
+            <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
             </center>
         </div>
         <br><br><br>
