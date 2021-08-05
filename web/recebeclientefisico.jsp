@@ -3,59 +3,45 @@
     Created on : 03/08/2021, 08:25:16
     Author     : Ricardo
 --%>
-
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="dominio.Login"%>
 <%@page import="java.sql.Date"%>
 <%@page import="dominio.PessoaFisica"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <%
-        //recebe os valores da tela HTML  
-            
-            String nomesobrenome = request.getParameter("nome" + "sobrenome");
-            String cpf = request.getParameter("cpf");
-            String login = request.getParameter("email");
-            String senha = request.getParameter("senha");
-            String dataNascimento = request.getParameter("nascimento");
-            String email  = request.getParameter("email");
-            String telefone = request.getParameter("telefone");
-            String cep = request.getParameter("cep");
-            String estado = request.getParameter("estado");
-            String cidade = request.getParameter("cidade");
-            String bairro = request.getParameter("bairro");
-            String rua = request.getParameter("rua");
-            String numero = request.getParameter("numero");
-            String complemento = request.getParameter("complemento");
-          
-            //instancia a pessoa fÃ­sica = PF
+        <%  //instancia a pessoa física = PF
             PessoaFisica pf = new PessoaFisica();
-
-            pf.setNome(nomesobrenome);
-            pf.setCpf(cpf);
-            pf.setLogin(login);
-            pf.setSenha(senha);
-            pf.setDataNascimento(Date.valueOf(dataNascimento));
-            pf.setEmail(email);
-            pf.setCelular(telefone);
-            pf.setCep(cep);
-            pf.setEstado(estado);
-            pf.setCidade(cidade);
-            pf.setBairro(bairro);
-            pf.setRua(rua);
-            pf.setNumero(Integer.parseInt(numero));
-            pf.setComplemento(complemento);
-          
+            
+            //transformar a data para entrar no banco de dados
+            SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
+            
+            //recebe os valores da tela HTML
+            pf.setNome(request.getParameter("nome"));
+            pf.setSobrenome(request.getParameter("sobrenome"));
+            pf.setCpf(request.getParameter("cpf"));
+            pf.setDataNascimento(Date.valueOf(request.getParameter("nascimento")));
+            pf.setEmail(request.getParameter("email"));
+            pf.setCelular(request.getParameter("telefone"));
+            pf.setCep(request.getParameter("cep"));
+            pf.setEstado(request.getParameter("UF"));
+            pf.setCidade(request.getParameter("cidade"));
+            pf.setBairro(request.getParameter("bairro"));
+            pf.setRua(request.getParameter("rua"));
+            pf.setNumero(Integer.parseInt(request.getParameter("numero")));
+            pf.setComplemento(request.getParameter("complemento"));            
+            
+            //se cadastrar a pessoa fisica
             if(pf.cadastrarConta()){
+                //instanciar o login da = PF
+                Login login = new Login();
+                
+                //Passar valores da tela e cadastrar o usuário
+                login.setEmail(request.getParameter("email"));
+                login.setSenha(request.getParameter("senha"));
+                login.cadastarUsuario();
+                
                 response.sendRedirect("cadastrofisico.jsp?pmensagem=Cliente-salvo-com-sucesso");
             } else {
                 response.sendRedirect("cadastrofisico.jsp?pmensagem=Problemas-ao-editar-cliente");
-            }          
+            }                  
         %>        
-    </body>
-</html>
+
 

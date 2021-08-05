@@ -32,25 +32,25 @@ public class PessoaFisica {
         String sql = "INSERT INTO pessoafisica " 
                    +"(nome, sobrenome, cpf, datanascimento, email, celular, cep, estado, cidade, "
                    +"bairro, rua, numero, complemento) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
-            stm.setString(1, this.sobrenome);
-            stm.setString(2, this.cpf);
-            stm.setDate(3, this.dataNascimento);
-            stm.setString(4, this.email);
-            stm.setString(5, this.celular);
-            stm.setString(6, this.cep); 
-            stm.setString(7, this.estado);
-            stm.setString(8, this.cidade);
-            stm.setString(9, this.bairro);
-            stm.setString(10, this.rua);
-            stm.setInt(11, this.numero);
-            stm.setString(12, this.complemento);
+            stm.setString(2, this.sobrenome);
+            stm.setString(3, this.cpf);
+            stm.setDate(4, this.dataNascimento);
+            stm.setString(5, this.email);
+            stm.setString(6, this.celular);
+            stm.setString(7, this.cep); 
+            stm.setString(8, this.estado);
+            stm.setString(9, this.cidade);
+            stm.setString(10, this.bairro);
+            stm.setString(11, this.rua);
+            stm.setInt(12, this.numero);
+            stm.setString(13, this.complemento);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -73,19 +73,19 @@ public class PessoaFisica {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
-            stm.setString(1, this.sobrenome);
-            stm.setString(2, this.cpf);
-            stm.setDate(3, this.dataNascimento);
-            stm.setString(4, this.email);
-            stm.setString(5, this.celular);
-            stm.setString(6, this.cep); 
-            stm.setString(7, this.estado);
-            stm.setString(8, this.cidade);
-            stm.setString(9, this.bairro);
-            stm.setString(10, this.rua);
-            stm.setInt(11, this.numero);
-            stm.setString(12, this.complemento);
-            stm.setString(13, this.cpf);
+            stm.setString(2, this.sobrenome);
+            stm.setString(3, this.cpf);
+            stm.setDate(4, this.dataNascimento);
+            stm.setString(5, this.email);
+            stm.setString(6, this.celular);
+            stm.setString(7, this.cep); 
+            stm.setString(8, this.estado);
+            stm.setString(9, this.cidade);
+            stm.setString(10, this.bairro);
+            stm.setString(11, this.rua);
+            stm.setInt(12, this.numero);
+            stm.setString(13, this.complemento);
+            stm.setString(14, this.cpf);
             //executando comando
             stm.execute();
         }catch(SQLException ex){

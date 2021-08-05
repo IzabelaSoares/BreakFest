@@ -51,7 +51,7 @@ public class Login {
     }  
 
     public boolean cadastarUsuario(){
-        String sql = "insert into usuario(email,senha) values(?,?)";
+        String sql = "insert into usuario(fkemail,senha) values(?,?)";
         Connection con = Conexao.conectar();
        
         try {
