@@ -6,7 +6,7 @@ create table pessoafisica(
     sobrenome varchar(30) not null,
     cpf varchar(14) not null unique,
     datanascimento date not null,
-    email varchar(30) not null,
+    email varchar(30) not null unique,
     celular varchar(14) not null,
     cep varchar(9) not null, 
     estado varchar(30) not null,
@@ -75,9 +75,10 @@ create table pedido(
     foreign key (fkidproduto) references produto(idproduto)
 );
 
-create table usuario (
+create table usuariofisico (
 	idusuario serial not null,
-	email varchar(50) not null,
+	fkemail varchar(30) not null unique,
 	senha varchar(20) not null,
-	primary key (idusuario)
+	primary key (idusuario),
+	foreign key (fkemail) references pessoafisica(email)
 );
