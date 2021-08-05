@@ -15,8 +15,6 @@ public class PessoaFisica {
     private String nome;
     private String sobrenome;
     private String cpf;
-    private String login;
-    private String senha;
     private Date dataNascimento;
     private String email;
     private String celular;
@@ -31,10 +29,10 @@ public class PessoaFisica {
     //métodos
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO public.pessoafisica " 
-                   +"(nome, sobrenome, cpf, login, senha, datanascimento, email, celular, cep, estado, cidade, "
+        String sql = "INSERT INTO pessoafisica " 
+                   +"(nome, sobrenome, cpf, datanascimento, email, celular, cep, estado, cidade, "
                    +"bairro, rua, numero, complemento) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -43,18 +41,16 @@ public class PessoaFisica {
             stm.setString(1, this.nome);
             stm.setString(1, this.sobrenome);
             stm.setString(2, this.cpf);
-            stm.setString(3, this.login);
-            stm.setString(4, this.senha);
-            stm.setDate(5, this.dataNascimento);
-            stm.setString(6, this.email);
-            stm.setString(7, this.celular);
-            stm.setString(8, this.cep); 
-            stm.setString(9, this.estado);
-            stm.setString(10, this.cidade);
-            stm.setString(11, this.bairro);
-            stm.setString(12, this.rua);
-            stm.setInt(13, this.numero);
-            stm.setString(14, this.complemento);
+            stm.setDate(3, this.dataNascimento);
+            stm.setString(4, this.email);
+            stm.setString(5, this.celular);
+            stm.setString(6, this.cep); 
+            stm.setString(7, this.estado);
+            stm.setString(8, this.cidade);
+            stm.setString(9, this.bairro);
+            stm.setString(10, this.rua);
+            stm.setInt(11, this.numero);
+            stm.setString(12, this.complemento);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -68,7 +64,7 @@ public class PessoaFisica {
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
-                + "SET nome=?, sobrenome=?, cpf=?, login=?, senha=?, datanascimento=?, email=?, "
+                + "SET nome=?, sobrenome=?, cpf=?, datanascimento=?, email=?, "
                 + "celular=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? " 
                 + "WHERE cpf=?";
         //conectando com o banco
@@ -79,19 +75,17 @@ public class PessoaFisica {
             stm.setString(1, this.nome);
             stm.setString(1, this.sobrenome);
             stm.setString(2, this.cpf);
-            stm.setString(3, this.login);
-            stm.setString(4, this.senha);
-            stm.setDate(5, this.dataNascimento);
-            stm.setString(6, this.email);
-            stm.setString(7, this.celular);
-            stm.setString(8, this.cep); 
-            stm.setString(9, this.estado);
-            stm.setString(10, this.cidade);
-            stm.setString(11, this.bairro);
-            stm.setString(12, this.rua);
-            stm.setInt(13, this.numero);
-            stm.setString(14, this.complemento);
-            stm.setString(15, this.cpf);
+            stm.setDate(3, this.dataNascimento);
+            stm.setString(4, this.email);
+            stm.setString(5, this.celular);
+            stm.setString(6, this.cep); 
+            stm.setString(7, this.estado);
+            stm.setString(8, this.cidade);
+            stm.setString(9, this.bairro);
+            stm.setString(10, this.rua);
+            stm.setInt(11, this.numero);
+            stm.setString(12, this.complemento);
+            stm.setString(13, this.cpf);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -124,7 +118,7 @@ public class PessoaFisica {
     
     public PessoaFisica consultarConta(String pCpf){
         this.cpf = pCpf;
-        String sql = "SELECT nome, sobrenome, cpf, login, senha, "
+        String sql = "SELECT nome, sobrenome, "
                    + "datanascimento, email, celular, cep, estado, cidade, "
                    + "bairro, rua, numero, complemento FROM pessoafisica where cpf = ?";
         Connection con = Conexao.conectar();
@@ -138,8 +132,6 @@ public class PessoaFisica {
                    pessoa.setNome(rs.getString("nome"));
                    pessoa.setSobrenome(rs.getString("sobrenome"));
                    pessoa.setCpf(rs.getString("cpf"));
-                   pessoa.setLogin(rs.getString("login"));
-                   pessoa.setSenha(rs.getString("senha"));
                    pessoa.setDataNascimento(rs.getDate("datanascimento"));
                    pessoa.setEmail(rs.getString("email"));
                    pessoa.setCelular(rs.getString("celular"));
@@ -190,22 +182,6 @@ public class PessoaFisica {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Date getDataNascimento() {

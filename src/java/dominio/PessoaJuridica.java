@@ -28,17 +28,14 @@ public class PessoaJuridica {
     private String sobrepadaria;
     private String instagram;
     private String facebook;
-    private String login;
-    private String senha;
     
     //metodos
-    String teste;
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica " 
-                   +"(razaosocial, nomefantasia, cnpj, login, senha, email, telefone, cep, "
+                   +"(razaosocial, nomefantasia, cnpj, email, telefone, cep, "
                    +"estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -47,21 +44,19 @@ public class PessoaJuridica {
             stm.setString(1, this.razaoSocial);
             stm.setString(2, this.nomeFantasia);
             stm.setString(3, this.cnpj);
-            stm.setString(4, this.login);
-            stm.setString(5, this.senha);
-            stm.setString(6, this.email);
-            stm.setString(7, this.telefone);
-            stm.setString(8, this.cep); 
-            stm.setString(9, this.estado);
-            stm.setString(10, this.cidade);
-            stm.setString(11, this.bairro);
-            stm.setString(12, this.rua);
-            stm.setInt(13, this.numero);
-            stm.setString(14, this.complemento);
-            stm.setString(15, this.imagem);
-            stm.setString(16, this.sobrepadaria);
-            stm.setString(17, instagram);
-            stm.setString(18, facebook);
+            stm.setString(4, this.email);
+            stm.setString(5, this.telefone);
+            stm.setString(6, this.cep); 
+            stm.setString(7, this.estado);
+            stm.setString(8, this.cidade);
+            stm.setString(9, this.bairro);
+            stm.setString(10, this.rua);
+            stm.setInt(11, this.numero);
+            stm.setString(12, this.complemento);
+            stm.setString(13, this.imagem);
+            stm.setString(14, this.sobrepadaria);
+            stm.setString(15, instagram);
+            stm.setString(16, facebook);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -75,7 +70,7 @@ public class PessoaJuridica {
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
-                + "SET razaosocial=?, nomefantasia=?, cnpj=?, login=?, senha=?, email=?, "
+                + "SET razaosocial=?, nomefantasia=?, cnpj=?, email=?, "
                 + "telefone=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? "
                 + "imagem=?, sobrepadaria=?, instagram=?, facebook=? " 
                 + "WHERE cnpj=?";
@@ -87,21 +82,19 @@ public class PessoaJuridica {
             stm.setString(1, this.razaoSocial);
             stm.setString(2, this.nomeFantasia);
             stm.setString(3, this.cnpj);
-            stm.setString(4, this.login);
-            stm.setString(5, this.senha);
-            stm.setString(6, this.email);
-            stm.setString(7, this.telefone);
-            stm.setString(8, this.cep); 
-            stm.setString(9, this.estado);
-            stm.setString(10, this.cidade);
-            stm.setString(11, this.bairro);
-            stm.setString(12, this.rua);
-            stm.setInt(13, this.numero);
-            stm.setString(14, this.complemento);
-            stm.setString(15, this.imagem);
-            stm.setString(16, this.sobrepadaria);
-            stm.setString(17, instagram);
-            stm.setString(18, facebook);
+            stm.setString(4, this.email);
+            stm.setString(5, this.telefone);
+            stm.setString(6, this.cep); 
+            stm.setString(7, this.estado);
+            stm.setString(8, this.cidade);
+            stm.setString(9, this.bairro);
+            stm.setString(10, this.rua);
+            stm.setInt(11, this.numero);
+            stm.setString(12, this.complemento);
+            stm.setString(13, this.imagem);
+            stm.setString(14, this.sobrepadaria);
+            stm.setString(15, instagram);
+            stm.setString(16, facebook);
             stm.setString(19, this.cnpj);
             //executando comando
             stm.execute();
@@ -135,7 +128,7 @@ public class PessoaJuridica {
     
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
-        String sql = "SELECT razaosocial, nomefantasia, cnpj, login, senha, email, telefone, cep, "
+        String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
                    + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
                    + " FROM pessoajuridica where cnpj = ?";
         Connection con = Conexao.conectar();
@@ -149,8 +142,6 @@ public class PessoaJuridica {
                    padaria.setRazaoSocial(rs.getString("razaosocial"));
                    padaria.setNomeFantasia(rs.getString("nomefantasia"));
                    padaria.setCnpj(rs.getString("cnpj"));
-                   padaria.setLogin(rs.getString("login"));
-                   padaria.setSenha(rs.getString("senha"));
                    padaria.setEmail(rs.getString("email"));
                    padaria.setTelefone(rs.getString("telefone"));
                    padaria.setCep(rs.getString("cep")); 
@@ -175,7 +166,7 @@ public class PessoaJuridica {
     
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
-        String sql = "SELECT razaosocial, nomefantasia, cnpj, login, senha, email, telefone, cep, "
+        String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
                    + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
                    + " FROM pessoajuridica";
         Connection con = Conexao.conectar();
@@ -187,8 +178,6 @@ public class PessoaJuridica {
                 padaria.setRazaoSocial(rs.getString("razaosocial"));
                 padaria.setNomeFantasia(rs.getString("nomefantasia"));
                 padaria.setCnpj(rs.getString("cnpj"));
-                padaria.setLogin(rs.getString("login"));
-                padaria.setSenha(rs.getString("senha"));
                 padaria.setEmail(rs.getString("email"));
                 padaria.setTelefone(rs.getString("telefone"));
                 padaria.setCep(rs.getString("cep")); 
@@ -216,22 +205,6 @@ public class PessoaJuridica {
     //getters e setters
     public Integer getIdJuridica() {
         return idJuridica;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
     
     public void setIdJuridica(Integer idJuridica) {
