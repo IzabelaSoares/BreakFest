@@ -29,19 +29,19 @@
             <p>especializada em pães,funcionando desde 1850,</p>
             <p>é a padaria mais velha de Mogi das Cruzes,</p>
             <p>com ótimos funcionários e extremamente qualificada para servir nossos clientes.</p>
-            Confira já: </p>
+            <p> Confira já: </p>
             <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
             </center>
         </div>
         <br><br><br>
         <div class="container">
-            <img src="imagens/pad2.jpg" width="300px" height="250px">
+            <img src="imagens/Padaria-Multipao.png" width="300px" height="250px">
             <center>
-            <p>Padaria do seu Zé</p>
-            <p> Confeitaria extremamente refinada e os salgados mais frescos e deliciosos
-                da cidade, entregamos com frete grátis para todo o estado do Rio de Janeiro,
-                nota máxima em todos os delivery's, inclusive neste também. </p>
-            <input type="submit" name="checa" value="Checar">
+            <p>Padaria Multi Pão</p>
+            <p>Confeitaria extremamente refinada e os salgados mais frescos e deliciosos</p>
+            <p>da cidade, entregamos com frete grátis para todo o estado do Rio de Janeiro,</p>
+            <p>nota máxima em todos os delivery's, inclusive neste também. </p>
+            <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
             </center>
         </div>
     </body>
