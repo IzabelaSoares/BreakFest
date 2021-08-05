@@ -148,6 +148,7 @@ footer input, footer textarea {
 footer .detail {
     font-weight: bold;
 }
+
 /*Barra de pesquisa*/
 
 #txtBusca{
@@ -160,10 +161,11 @@ footer .detail {
   width:374px;
   margin: -1px -1px;
 }
+
 #divBusca{
   border:solid 8px #995a1a;
   border-radius:10px;
   height:60px;
   width:390px;
-  margin: 10px 36%;
+  margin: 10px 76vh;
 }

@@ -22,7 +22,7 @@
     <!-- Fim da NavBar de cima -->
         <br>
         <div class="container">
-            <img src="imagens/padaria1.png" width="300px" height="250px">
+            <img src="imagens/pad1.jpg" width="300px" height="250px">
             <center>
             <p>Padaria Feocruz</p>
             <p> Localizada na rua Pedro de Queirós, especializada em pães,
@@ -34,7 +34,7 @@
         </div>
         <br><br><br>
         <div class="container">
-            <img src="imagens/padaria2.jpg" width="300px" height="250px">
+            <img src="imagens/pad2.jpg" width="300px" height="250px">
             <center>
             <p>Padaria do seu Zé</p>
             <p> Confeitaria extremamente refinada e os salgados mais frescos e deliciosos
