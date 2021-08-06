@@ -11,7 +11,7 @@
     </head>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
-        <img src="imagens/cuppa-inicio.gif" alt="Cuppa">
+        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -23,7 +23,9 @@
     </header>
     <!-- Fim da NavBar de cima -->
     <br>
+    <!-- Barra de section -->
     <section>
+        <!-- Padaria 1 -->
         <div class="container">
             <div class="padarias-container">       
                 <img src="imagens/Padaria-Central.png" alt="Padaria Central">      
@@ -40,7 +42,9 @@
             </div>
         </div>
     </section>
+    <!-- Barra de section -->
     <section>
+        <!-- Padaria 2 -->
         <div class="container">
             <div class="padarias-container">    
                 <img src="imagens/Padaria-Multipao.png" alt="Padaria Multipão">
