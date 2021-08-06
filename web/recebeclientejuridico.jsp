@@ -14,7 +14,7 @@
     //instanciar o login da = PJ
     UsuarioJuridico login = new UsuarioJuridico();
     
-    if(login.verificaExistencia(request.getParameter("email")) && pj.verificaExistencia(request.getParameter("cnpj"))){
+    if(login.verificaExistencia(request.getParameter("email")) && pj.verificaExistenciaCnpj(request.getParameter("cnpj")) && pj.verificaExistenciaFisica(request.getParameter("email"))){
         //adicionar aqui
         response.sendRedirect("index.html");
     }else{

@@ -11,7 +11,7 @@
     //instanciar o login da = PF
     UsuarioFisico login = new UsuarioFisico();
     
-    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistencia(request.getParameter("cpf"))){
+    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaCpf(request.getParameter("cpf")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
         //adicionar aqui
         response.sendRedirect("index.html");
     }else{

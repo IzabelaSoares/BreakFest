@@ -30,6 +30,8 @@ public class PessoaJuridica {
     private String facebook;
     
     //metodos
+    
+    //cadastro de contas
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica (razaosocial, nomefantasia, "
@@ -64,6 +66,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //alteração de dados
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
@@ -103,6 +106,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //exclusão de conta
     public boolean excluirConta(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM pessoajuridica " 
@@ -123,6 +127,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //consulta uma conta específica
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
         String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
@@ -161,6 +166,7 @@ public class PessoaJuridica {
         
     }
     
+    //consulta todos
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
         String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
@@ -198,12 +204,28 @@ public class PessoaJuridica {
         
     }
     
-    public boolean verificaExistencia(String cnpj){
+    //verifica no banco se já existe o cnpj
+    public boolean verificaExistenciaCnpj(String cnpj){
         Connection con = Conexao.conectar();
         String sql = "select * from pessoajuridica where cnpj = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.cnpj);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+    }
+    
+    //verifica no banco se o email já foi usado no cadastro físico
+    public boolean verificaExistenciaFisica(String email){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoafisica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
