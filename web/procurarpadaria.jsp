@@ -38,7 +38,7 @@
                 <p>qualificada para servir nossos clientes.</p>
                 <p> Confira já: </p>
                 <br>
-                <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
+                <a href="umapadaria.jsp"><button name="Checar">Checar</button></a>
             </div>
         </div>
     </section>
@@ -54,7 +54,7 @@
                 <p>nota máxima em todos os delivery's, inclusive neste também. </p>
                 <p>Confira já:</p>
                 <br>
-                <a href="padariacentral.jsp"><button name="checar">Checar</button></a>
+                <a href="umapadaria.jsp"><button name="checar">Checar</button></a>
             </div>
         </div>
     </section>
