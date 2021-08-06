@@ -150,6 +150,21 @@ public class PessoaFisica {
         return pessoa;
         
     }
+    
+    public boolean verificaExistencia(String cpf){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoafisica where cpf = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cpf);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();            
+        } 
+            catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            }
+        return true;
+    }  
 
     //getters e setters
     public Integer getIdFisica() {

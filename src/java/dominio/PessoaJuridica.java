@@ -198,6 +198,19 @@ public class PessoaJuridica {
         
     }
     
+    public boolean verificaExistencia(String cnpj){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoajuridica where cnpj = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cnpj);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+    }
     
     //getters e setters
     public Integer getIdJuridica() {

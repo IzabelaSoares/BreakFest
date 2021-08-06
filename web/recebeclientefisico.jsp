@@ -11,7 +11,7 @@
     //instanciar o login da = PF
     UsuarioFisico login = new UsuarioFisico();
     
-    if(login.verificaExistencia(request.getParameter("email"))){
+    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistencia(request.getParameter("cpf"))){
         //adicionar aqui
         response.sendRedirect("index.html");
     }else{
@@ -36,9 +36,9 @@
 
         //se cadastrar pessoa e o login dela
         if (pf.cadastrarConta() && login.cadastrarUsuario()) {
-            response.sendRedirect("cadastrofisico.jsp?pmensagem=Cliente-salvo-com-sucesso");
+            response.sendRedirect("login.jsp");
         } else {
-            response.sendRedirect("cadastrofisico.jsp?pmensagem=Problemas-ao-editar-cliente");
+            response.sendRedirect("index.html");
         }
     }
 %>        
