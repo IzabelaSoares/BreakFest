@@ -1,91 +1,111 @@
-create database breakfest;
 
-create table pessoafisica(
-	idfisica serial not null,
-    nome varchar(30) not null,
-    sobrenome varchar(30) not null,
-    cpf varchar(14) not null unique,
-    datanascimento date not null,
-    email varchar(30) not null unique,
-    celular varchar(14) not null,
-    cep varchar(9) not null, 
-    estado varchar(30) not null,
-    cidade varchar(30) not null,
-    bairro varchar(30) not null,
-    rua varchar(30) not null,
-    numero integer not null,
-    complemento varchar(80),
-    primary key (idfisica)
+-- DROP TABLE public.categoria;
+
+CREATE TABLE public.categoria (
+	idcategoria serial NOT NULL,
+	titulocategoria varchar(30) NULL,
+	CONSTRAINT categoria_pkey PRIMARY KEY (idcategoria)
 );
 
-create table pessoajuridica(
-	idjuridica serial not null,
-    razaosocial varchar(30) not null,
-    nomefantasia varchar(30) not null,
-    cnpj varchar(20) not null unique,
-    email varchar(30) not null unique,
-    telefone varchar(14) not null,
-    cep varchar(9) not null, 
-    estado varchar(30) not null,
-    cidade varchar(30) not null,
-    bairro varchar(30) not null,
-    rua varchar(30) not null,
-    numero integer not null,
-    complemento varchar(80),
-    imagem BYTEA,
-    sobrepadaria varchar(2000) not null,
-    instagram varchar(30),
-    facebook varchar(30),
-    primary key (idjuridica)
+-- DROP TABLE public.pessoafisica;
+
+CREATE TABLE public.pessoafisica (
+	idfisica serial NOT NULL,
+	nome varchar(50) NOT NULL,
+	sobrenome varchar(50) NOT NULL,
+	cpf varchar(14) NOT NULL,
+	datanascimento date NOT NULL,
+	email text NOT NULL,
+	celular varchar(15) NOT NULL,
+	cep varchar(10) NOT NULL,
+	estado varchar(4) NOT NULL,
+	cidade varchar(30) NOT NULL,
+	bairro varchar(30) NOT NULL,
+	rua varchar(50) NOT NULL,
+	numero int4 NOT NULL,
+	complemento varchar(80) NULL,
+	CONSTRAINT pessoafisica_cpf_key UNIQUE (cpf),
+	CONSTRAINT pessoafisica_email_key UNIQUE (email),
+	CONSTRAINT pessoafisica_pkey PRIMARY KEY (idfisica)
 );
 
-create table categoria (
-	idcategoria serial not null,
-	titulocategoria varchar(30),
-	primary key (idcategoria)
+-- DROP TABLE public.pessoajuridica;
+
+CREATE TABLE public.pessoajuridica (
+	idjuridica serial NOT NULL,
+	razaosocial varchar(80) NOT NULL,
+	nomefantasia varchar(80) NOT NULL,
+	cnpj varchar(20) NOT NULL,
+	email text NOT NULL,
+	telefone varchar(15) NOT NULL,
+	cep varchar(10) NOT NULL,
+	estado varchar(4) NOT NULL,
+	cidade varchar(30) NOT NULL,
+	bairro varchar(30) NOT NULL,
+	rua varchar(50) NOT NULL,
+	numero int4 NOT NULL,
+	complemento varchar(80) NULL,
+	imagem varchar(50) NULL,
+	sobrepadaria varchar(2000) NOT NULL,
+	instagram varchar(30) NULL,
+	facebook varchar(30) NULL,
+	CONSTRAINT pessoajuridica_cnpj_key UNIQUE (cnpj),
+	CONSTRAINT pessoajuridica_email_key UNIQUE (email),
+	CONSTRAINT pessoajuridica_pkey PRIMARY KEY (idjuridica)
 );
 
-create table produto (
-	idproduto serial not null,
-    titulo varchar(30) not null,
-    imagem BYTEA,
-    fkidcategoria integer not null,
-    fkcnpj varchar(20) not null,
-    descricao varchar(100) not null,
-    preco real not null,
-    tamanho varchar(30) not null,
-    unidadedemedida varchar(15) not null,
-    peso real not null,
-    primary key  (idproduto),
-    foreign key (fkidcategoria) references categoria(idcategoria),
-    foreign key (fkcnpj) references pessoajuridica(cnpj)
+-- DROP TABLE public.produto;
+
+CREATE TABLE public.produto (
+	idproduto serial NOT NULL,
+	titulo varchar(30) NOT NULL,
+	imagem bytea NULL,
+	fkidcategoria int4 NOT NULL,
+	fkcnpj varchar(20) NOT NULL,
+	descricao varchar(100) NOT NULL,
+	preco float4 NOT NULL,
+	tamanho varchar(30) NOT NULL,
+	unidadedemedida varchar(15) NOT NULL,
+	peso float4 NOT NULL,
+	CONSTRAINT produto_pkey PRIMARY KEY (idproduto),
+	CONSTRAINT produto_fkcnpj_fkey FOREIGN KEY (fkcnpj) REFERENCES public.pessoajuridica(cnpj),
+	CONSTRAINT produto_fkidcategoria_fkey FOREIGN KEY (fkidcategoria) REFERENCES public.categoria(idcategoria)
 );
 
-create table pedido(
-	idpedido serial not null,
-	fkcpf varchar(14) not null,
-    fkcnpj varchar(20) not null,
-    fkidproduto integer not null,
-    observacao varchar(300),
-    datapedido timestamp, 
-    primary key  (idpedido),
-    foreign key (fkcpf) references pessoafisica(cpf),
-    foreign key (fkcnpj) references pessoajuridica(cnpj),
-    foreign key (fkidproduto) references produto(idproduto)
+
+-- DROP TABLE public.usuariofisico;
+
+CREATE TABLE public.usuariofisico (
+	idusuario serial NOT NULL,
+	fkemail text NOT NULL,
+	senha varchar(20) NOT NULL,
+	CONSTRAINT usuariofisico_fkemail_key UNIQUE (fkemail),
+	CONSTRAINT usuariofisico_pkey PRIMARY KEY (idusuario),
+	CONSTRAINT usuariofisico_fkemail_fkey FOREIGN KEY (fkemail) REFERENCES public.pessoafisica(email)
 );
 
-create table usuariofisico (
-	idusuario serial not null,
-	fkemail varchar(30) not null unique,
-	senha varchar(20) not null,
-	primary key (idusuario),
-	foreign key (fkemail) references pessoafisica(email)
+-- DROP TABLE public.usuariojuridico;
+
+CREATE TABLE public.usuariojuridico (
+	idusuario serial NOT NULL,
+	fkemail text NOT NULL,
+	senha varchar(20) NOT NULL,
+	CONSTRAINT usuariojuridico_fkemail_key UNIQUE (fkemail),
+	CONSTRAINT usuariojuridico_pkey PRIMARY KEY (idusuario),
+	CONSTRAINT usuariojuridico_fkemail_fkey FOREIGN KEY (fkemail) REFERENCES public.pessoajuridica(email)
 );
 
-create table usuariojuridico (
-	idusuario serial not null,
-	fkemail varchar(30) not null unique,
-	senha varchar(20) not null,
-	primary key (idusuario),
-	foreign key (fkemail) references pessoajuridica(email)
+-- DROP TABLE public.pedido;
+
+CREATE TABLE public.pedido (
+	idpedido serial NOT NULL,
+	fkcpf varchar(14) NOT NULL,
+	fkcnpj varchar(20) NOT NULL,
+	fkidproduto int4 NOT NULL,
+	observacao varchar(300) NULL,
+	datapedido timestamp NULL,
+	CONSTRAINT pedido_pkey PRIMARY KEY (idpedido),
+	CONSTRAINT pedido_fkcnpj_fkey FOREIGN KEY (fkcnpj) REFERENCES public.pessoajuridica(cnpj),
+	CONSTRAINT pedido_fkcpf_fkey FOREIGN KEY (fkcpf) REFERENCES public.pessoafisica(cpf),
+	CONSTRAINT pedido_fkidproduto_fkey FOREIGN KEY (fkidproduto) REFERENCES public.produto(idproduto)
 );
