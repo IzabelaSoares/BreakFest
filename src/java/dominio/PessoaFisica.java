@@ -178,7 +178,7 @@ public class PessoaFisica {
         String sql = "select * from pessoajuridica where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {

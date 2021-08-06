@@ -225,7 +225,7 @@ public class PessoaJuridica {
         String sql = "select * from pessoafisica where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
