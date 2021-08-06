@@ -12,7 +12,6 @@ import java.util.List;
 public class UsuarioJuridico {
     //declaração de variáveis
     private int    idUsuario;
-    private String nickUsuario;
     private String email;
     private String senha;
     

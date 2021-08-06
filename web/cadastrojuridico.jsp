@@ -11,7 +11,7 @@
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Empresa</title>
-        <script src="scripts/validacaoPessoaFisica.js"></script>
+        <script src="scripts/validacaoPessoaJuridica.js"></script>
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
-                <form class="form-detail" action="recebefisico.jsp" method="post" id="myform">
+                <form class="form-detail" action="recebeclientejuridico.jsp" method="post" id="myform">
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
                         <h2>Informações Gerais</h2>
@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <!-- Input do CNPJ -->
                             <div class="form-row form-row-3">
-                                <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required maxlength="14">
+                                <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required maxlength="18" >
                             </div>
                             <!-- Input do telefone -->
                             <div class="form-row form-row-2">
@@ -72,7 +72,8 @@
                             <input type="password" name="senha" id="senha" placeholder="Senha" >
                         </div>
                         <div class="form-row">
-                            <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha" >
+                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
+                            <p id="alertPassword"></p>
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->
@@ -89,7 +90,7 @@
                         <div class="form-group">
                             <!-- Input do estado  -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="UF" id="estado" placeholder="Estado" required readonly>
+                                <input type="text" name="estado" id="estado" placeholder="Estado" required readonly>
                             </div>
                             <!-- Input da cidade -->
                             <div class="form-row form-row-2">

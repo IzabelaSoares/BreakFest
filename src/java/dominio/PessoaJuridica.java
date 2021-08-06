@@ -32,10 +32,10 @@ public class PessoaJuridica {
     //metodos
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO pessoajuridica " 
-                   +"(razaosocial, nomefantasia, cnpj, email, telefone, cep, "
-                   +"estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO pessoajuridica (razaosocial, nomefantasia, "
+                   + "cnpj, email, telefone, cep, estado, cidade, bairro, rua, "
+                   + "numero, complemento, imagem, sobrepadaria, instagram, facebook)" 
+                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -55,8 +55,8 @@ public class PessoaJuridica {
             stm.setString(12, this.complemento);
             stm.setString(13, this.imagem);
             stm.setString(14, this.sobrepadaria);
-            stm.setString(15, instagram);
-            stm.setString(16, facebook);
+            stm.setString(15, this.instagram);
+            stm.setString(16, this.facebook);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
