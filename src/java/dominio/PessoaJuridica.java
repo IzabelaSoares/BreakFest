@@ -34,8 +34,8 @@ public class PessoaJuridica {
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica (razaosocial, nomefantasia, "
                    + "cnpj, email, telefone, cep, estado, cidade, bairro, rua, "
-                   + "numero, complemento, imagem, sobrepadaria, instagram, facebook)" 
-                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "numero, complemento, sobrepadaria)" 
+                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -53,10 +53,7 @@ public class PessoaJuridica {
             stm.setString(10, this.rua);
             stm.setInt(11, this.numero);
             stm.setString(12, this.complemento);
-            stm.setString(13, this.imagem);
-            stm.setString(14, this.sobrepadaria);
-            stm.setString(15, this.instagram);
-            stm.setString(16, this.facebook);
+            stm.setString(13, this.sobrepadaria);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
