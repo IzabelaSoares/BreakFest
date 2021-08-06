@@ -30,12 +30,14 @@ public class PessoaJuridica {
     private String facebook;
     
     //metodos
+    
+    //cadastro de contas
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica (razaosocial, nomefantasia, "
                    + "cnpj, email, telefone, cep, estado, cidade, bairro, rua, "
-                   + "numero, complemento, imagem, sobrepadaria, instagram, facebook)" 
-                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "numero, complemento, sobrepadaria)" 
+                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -53,10 +55,7 @@ public class PessoaJuridica {
             stm.setString(10, this.rua);
             stm.setInt(11, this.numero);
             stm.setString(12, this.complemento);
-            stm.setString(13, this.imagem);
-            stm.setString(14, this.sobrepadaria);
-            stm.setString(15, this.instagram);
-            stm.setString(16, this.facebook);
+            stm.setString(13, this.sobrepadaria);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -67,6 +66,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //alteração de dados
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
@@ -106,6 +106,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //exclusão de conta
     public boolean excluirConta(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM pessoajuridica " 
@@ -126,6 +127,7 @@ public class PessoaJuridica {
         return true;
     }
     
+    //consulta uma conta específica
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
         String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
@@ -164,6 +166,7 @@ public class PessoaJuridica {
         
     }
     
+    //consulta todos
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
         String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
@@ -201,6 +204,35 @@ public class PessoaJuridica {
         
     }
     
+    //verifica no banco se já existe o cnpj
+    public boolean verificaExistenciaCnpj(String cnpj){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoajuridica where cnpj = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cnpj);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+    }
+    
+    //verifica no banco se o email já foi usado no cadastro físico
+    public boolean verificaExistenciaFisica(String email){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoafisica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+    }
     
     //getters e setters
     public Integer getIdJuridica() {

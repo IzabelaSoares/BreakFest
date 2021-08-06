@@ -109,3 +109,48 @@ CREATE TABLE public.pedido (
 	CONSTRAINT pedido_fkcpf_fkey FOREIGN KEY (fkcpf) REFERENCES public.pessoafisica(cpf),
 	CONSTRAINT pedido_fkidproduto_fkey FOREIGN KEY (fkidproduto) REFERENCES public.produto(idproduto)
 );
+
+--DROP TABLE public.cartao
+
+create table cartao(
+	id serial not null,
+	fkcpf varchar(14) not null,
+	nome varchar(50) not null,
+	numero integer not null,
+	validade varchar(6) not null,
+	codseguranca varchar(4) not null,
+	primary key (id),
+	foreign key (fkcpf) references pessoafisica(cpf)
+);
+
+create table tipochave(
+	id serial not null,
+	tipo varchar(20) not null unique,
+	primary key (id)
+);
+
+create table pix (
+	id serial not null,
+	fktipochave varchar(20) not null,
+	chave text not null,
+	nome varchar(50) not null,
+	primary key(id),
+	foreign key (fktipochave) references tipochave(tipo)
+);
+
+create table agencia(
+	id serial not null,
+	agencia varchar(20) not null unique,
+	primary key (id)
+);
+
+create table deposito(
+	id serial not null,
+	nome varchar(50) not null,
+	cnpj varchar(20) not null,
+	numerobanco integer not null,
+	fkagencia varchar(20) not null,
+	conta integer not null,
+	primary key (id),
+	foreign key (fkagencia) references agencia(agencia)
+);

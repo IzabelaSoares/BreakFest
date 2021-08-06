@@ -27,6 +27,8 @@ public class PessoaFisica {
     private String complemento;
     
     //métodos
+    
+    //cadastro de conta
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoafisica " 
@@ -61,6 +63,7 @@ public class PessoaFisica {
         return true;
     }
     
+    //alteração de conta
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
@@ -96,6 +99,7 @@ public class PessoaFisica {
         return true;
     }
     
+    //exclusão de conta
     public boolean excluirConta(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM pessoafisica " 
@@ -116,6 +120,7 @@ public class PessoaFisica {
         return true;
     }
     
+    //consulta uma conta específica
     public PessoaFisica consultarConta(String pCpf){
         this.cpf = pCpf;
         String sql = "SELECT nome, sobrenome, "
@@ -149,6 +154,37 @@ public class PessoaFisica {
         
         return pessoa;
         
+    }
+    
+   //verifica no banco se o cpf já foi usado
+    public boolean verificaExistenciaCpf(String cpf){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoafisica where cpf = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cpf);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();            
+        } 
+            catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            }
+        return true;
+    }  
+    
+    //verifica no banco se o email já foi usado no cadastro jurídico
+    public boolean verificaExistenciaJuridica(String email){
+        Connection con = Conexao.conectar();
+        String sql = "select * from pessoajuridica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
     }
 
     //getters e setters
