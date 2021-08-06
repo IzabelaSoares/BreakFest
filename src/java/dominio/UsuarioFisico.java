@@ -12,14 +12,14 @@ import java.util.List;
 
 public class UsuarioFisico {
     //declaração de variáveis
-    private Integer    idUsuario;
+    private Integer idUsuario;
     private String email;
     private String senha;
     
     //métodos
     public static boolean podeLogar(String email, String senha){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuario where fkemail = ? and senha = ?";
+        String sql = "select * from usuariofisico where fkemail = ? and senha = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
@@ -37,7 +37,7 @@ public class UsuarioFisico {
 
     public boolean verificaExistencia(String email){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuario where fkemail = ?";
+        String sql = "select * from usuariofisico where fkemail = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
@@ -68,7 +68,7 @@ public class UsuarioFisico {
 
     public boolean alterarUsuario(){
         Connection con = Conexao.conectar();
-        String   sql = "update usuario set fkemail = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariofisico set fkemail = ?, senha = ? where idusuario = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
@@ -85,7 +85,7 @@ public class UsuarioFisico {
    
     public boolean excluirUsuario(){
         Connection con = Conexao.conectar();
-        String sql = "delete from usuario where idusuario = ?";
+        String sql = "delete from usuariofisico where idusuario = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.idUsuario);
@@ -100,7 +100,7 @@ public class UsuarioFisico {
    
     public UsuarioJuridico consultarUsuario(String email){
         Connection con = Conexao.conectar();
-        String sql = "select fkemail, senha from usuario where fkemail = ?";
+        String sql = "select fkemail, senha from usuariofisico where fkemail = ?";
         UsuarioJuridico login = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class UsuarioFisico {
     public List<UsuarioJuridico> consultar(){
         List<UsuarioJuridico> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String sql  = "select idusuario, fkemail from usuario order by idusuario";
+        String sql  = "select idusuario, fkemail from usuariofisico order by idusuario";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
