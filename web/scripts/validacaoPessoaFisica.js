@@ -12,6 +12,12 @@ function mascaraEx() {
 
 //Ler a pagina e aplica as mascaras automaticamente
 window.onload = function () {
+    id('nome').onkeyup = function () {
+        mascara(this, mNOME);
+    };
+    id('sobrenome').onkeyup = function () {
+        mascara(this, mNOME);
+    };
     id('telefone').onkeyup = function () {
         mascara(this, mContato);
     };
@@ -24,8 +30,14 @@ window.onload = function () {
     id('numero').onkeyup = function () {
         mascara(this, mNumero);
     };
-
-}
+    id('senha').onkeyup = function () {
+        check();
+    };
+    id('checksenha').onkeyup = function () {
+        check();
+    };   
+    id ('nascimento').onkeyup = verificarData();    
+};
 //Função para receber a id dos campos
 function id(nomeId) {
     return document.getElementById(nomeId);
@@ -34,6 +46,11 @@ function id(nomeId) {
 /*Aplicar as Mascaras*/
 
 //Nome e Sobrenome
+function mNOME(nome) {
+    nome = nome.replace(/[^a-zÀ-ú\s]/gi,""); //Remove caracteres especiais
+    nome = nome.replace(/^(.)|\s+(.)/g, c => c.toUpperCase()); //Garante que a primeira letra de cada palavra será maiuscula
+    return nome;
+}
 
 //Cpf
 function mCPF(cpf) {
@@ -43,15 +60,18 @@ function mCPF(cpf) {
     cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); //Coloca traço antes dos dois ultimos digitos
     return cpf;
 }
-//Cnpj
-function mCNPJ(cnpj) {
-    cnpj = cnpj.replace(/\D/g, ""); //Remove tudo o que não é dígito
-    cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2"); //Coloca ponto após os dois primeiros digitos
-    cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); //Coloca ponto após o quinto digito
-    cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2"); //Coloca barra após o oitavo digito
-    cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2"); //Coloca hífen antes dos dois ultimos dígitos
-    return cnpj;
-}
+//Senha
+var check = function () {
+    if (document.getElementById('senha').value === document.getElementById('checksenha').value) {
+        document.getElementById('alertPassword').style.color = '#8CC63E';
+        document.getElementById('alertPassword').innerHTML = 'Senhas Iguais!</span>';
+    } else {
+        document.getElementById('alertPassword').style.color = '#EE2B39';
+        document.getElementById('alertPassword').innerHTML = 'Senhas Diferentes!</span>';
+    }
+};
+
+
 //Telefone
 function mContato(contato) {
     contato = contato.replace(/\D/g, ""); //Remove tudo o que não é dígito
@@ -74,11 +94,10 @@ function mNumero(num) {
 }
 
 
-
 /*Verifica o cep e Retorna os Valores*/
 
 //Limpa valores do formulário de cep.
-function clearCep() { 
+function clearCep() {
     document.getElementById('rua').value = ("");
     document.getElementById('bairro').value = ("");
     document.getElementById('cidade').value = ("");
@@ -98,6 +117,7 @@ function meu_callback(conteudo) {
         alert("CEP não encontrado!");
     }
 }
+
 //Pesquisar o cep
 function pesquisacep(valor) {
     //Remove tudo o que não for numero
@@ -120,3 +140,20 @@ function pesquisacep(valor) {
     }
 };
 
+//Impedir o usuário de digitar uma data futura
+function verificarData(){
+    
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+  var yyyy = today.getFullYear();
+  if(dd<10){
+    dd='0'+dd;
+  } 
+  if(mm<10){
+    mm='0'+mm;
+  } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("nascimento").setAttribute("max", today);
+}

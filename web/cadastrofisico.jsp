@@ -58,8 +58,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         </div>            
                         <!-- Input da data de nascimento -->
                         <div class="form-row">
-                            <input type="date" name="nascimento" id="nascimento" placeholder="Data de nascimento"required>
-                        </div>
+                            <input type="date" max="" name="nascimento" id="nascimento" placeholder="Data de nascimento" required pattern="(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})"></div>
                         <!-- Dois inputs seguidos "CPF e Telefone" -->
                         <div class="form-group">
                             <!-- Input do CPF -->
@@ -77,7 +76,8 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         </div>
                         <!-- Confirmação de senha -->
                         <div class="form-row">
-                            <input type="password" name="senha2" id="senha2" placeholder="Confirmar senha" >
+                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
+                            <p id="alertPassword"></p>
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->
@@ -94,7 +94,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         <div class="form-group">
                             <!-- Input do estado  -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="UF" id="estado" placeholder="Estado" required readonly>
+                                <input type="text" name="estado" id="estado" placeholder="Estado" required readonly>
                             </div>
                             <!-- Input da cidade -->
                             <div class="form-row form-row-2">

@@ -16,7 +16,7 @@
     pf.setEmail(request.getParameter("email"));
     pf.setCelular(request.getParameter("telefone"));
     pf.setCep(request.getParameter("cep"));
-    pf.setEstado(request.getParameter("UF"));
+    pf.setEstado(request.getParameter("estado"));
     pf.setCidade(request.getParameter("cidade"));
     pf.setBairro(request.getParameter("bairro"));
     pf.setRua(request.getParameter("rua"));
