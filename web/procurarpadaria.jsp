@@ -4,10 +4,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Padarias</title>
-        <link href="styles/inicial.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap" rel="stylesheet">
+        <link href="styles/procurarpadaria.css" rel="stylesheet">
+        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
     </head>
-        <!-- Inicio da NavBar de cima -->
+    <!-- Inicio da NavBar de cima -->
     <header id="navbar">
         <img src="imagens/cuppa-inicio.gif" alt="Cuppa">
         <h2> Break Fest </h2>
@@ -20,29 +22,37 @@
         </nav>
     </header>
     <!-- Fim da NavBar de cima -->
-        <br>
+    <br>
+    <section>
         <div class="container">
-            <img src="imagens/Padaria-Central.png" width="300px" height="250px">
-            <center>
-            <p>Padaria Central</p>
-            <p> Localizada na rua Pedro de Queirós,</p>
-            <p>especializada em pães,funcionando desde 1850,</p>
-            <p>é a padaria mais velha de Mogi das Cruzes,</p>
-            <p>com ótimos funcionários e extremamente qualificada para servir nossos clientes.</p>
-            <p> Confira já: </p>
-            <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
-            </center>
+            <div class="padarias-container">       
+                <img src="imagens/Padaria-Central.png" alt="Padaria Central">      
+                <h3>Padaria Central</h3>
+                <p class="parag"></p>
+                <p> Localizada na rua Pedro de Queirós,</p>
+                <p>especializada em pães,funcionando desde 1850,</p>
+                <p>é a padaria mais velha de Mogi das Cruzes,</p>
+                <p>com ótimos funcionários e extremamente </p>
+                <p>qualificada para servir nossos clientes.</p>
+                <p> Confira já: </p>
+                <br>
+                <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
+            </div>
         </div>
-        <br><br><br>
+    </section>
+    <section>
         <div class="container">
-            <img src="imagens/Padaria-Multipao.png" width="300px" height="250px">
-            <center>
-            <p>Padaria Multi Pão</p>
-            <p>Confeitaria extremamente refinada e os salgados mais frescos e deliciosos</p>
-            <p>da cidade, entregamos com frete grátis para todo o estado do Rio de Janeiro,</p>
-            <p>nota máxima em todos os delivery's, inclusive neste também. </p>
-            <a href="padariacentral.jsp"><button name="Checar">Checar</button></a>
-            </center>
+            <div class="padarias-container">    
+                <img src="imagens/Padaria-Multipao.png" alt="Padaria Multipão">
+                <h3>Padaria Multipão</h3>
+                <p>Confeitaria extremamente refinada e os salgados mais frescos e deliciosos</p>
+                <p>da cidade, entregamos com frete grátis para todo o estado do Rio de Janeiro,</p>
+                <p>nota máxima em todos os delivery's, inclusive neste também. </p>
+                <p>Confira já:</p>
+                <br>
+                <a href="padariacentral.jsp"><button name="checar">Checar</button></a>
+            </div>
         </div>
-    </body>
+    </section>
+</body>
 </html>

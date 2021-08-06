@@ -22,7 +22,7 @@
     </head>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
-        <img src="imagens/cuppa-inicio.gif" alt="Cuppa">
+        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
