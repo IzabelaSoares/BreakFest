@@ -41,11 +41,10 @@ public class UsuarioJuridico {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
-            return rs.next();            
-        } 
-            catch (SQLException ex) {
+            return rs.next();       
+        }catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
-            }
+        }
         return true;
     }  
 

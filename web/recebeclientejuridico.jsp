@@ -10,34 +10,38 @@
 <%@page import="dominio.PessoaJuridica"%>
 <%  //instancia a pessoa física = PF
     PessoaJuridica pj = new PessoaJuridica();
-
-    //recebe os valores da tela HTML
-    pj.setRazaoSocial(request.getParameter("razaosocial"));
-    pj.setNomeFantasia(request.getParameter("nomefantasia"));
-    pj.setCnpj(request.getParameter("cnpj"));
-    pj.setEmail(request.getParameter("email"));
-    pj.setTelefone(request.getParameter("telefone"));
-    pj.setCep(request.getParameter("cep"));
-    pj.setEstado(request.getParameter("estado"));
-    pj.setCidade(request.getParameter("cidade"));
-    pj.setBairro(request.getParameter("bairro"));
-    pj.setRua(request.getParameter("rua"));
-    pj.setNumero(Integer.parseInt(request.getParameter("numero")));
-    pj.setComplemento(request.getParameter("complemento"));
-    pj.setSobrepadaria(request.getParameter("sobre"));
     
-
     //instanciar o login da = PJ
     UsuarioJuridico login = new UsuarioJuridico();
+    
+    if(login.verificaExistencia(request.getParameter("email")) && pj.verificaExistenciaCnpj(request.getParameter("cnpj")) && pj.verificaExistenciaFisica(request.getParameter("email"))){
+        //adicionar aqui
+        response.sendRedirect("index.html");
+    }else{
+        //recebe os valores da tela HTML
+        pj.setRazaoSocial(request.getParameter("razaosocial"));
+        pj.setNomeFantasia(request.getParameter("nomefantasia"));
+        pj.setCnpj(request.getParameter("cnpj"));
+        pj.setEmail(request.getParameter("email"));
+        pj.setTelefone(request.getParameter("telefone"));
+        pj.setCep(request.getParameter("cep"));
+        pj.setEstado(request.getParameter("estado"));
+        pj.setCidade(request.getParameter("cidade"));
+        pj.setBairro(request.getParameter("bairro"));
+        pj.setRua(request.getParameter("rua"));
+        pj.setNumero(Integer.parseInt(request.getParameter("numero")));
+        pj.setComplemento(request.getParameter("complemento"));
+        pj.setSobrepadaria(request.getParameter("sobre"));
 
-    //Passar valores da tela e cadastrar o usuário
-    login.setEmail(request.getParameter("email"));
-    login.setSenha(request.getParameter("senha"));
+        //Passar valores da tela e cadastrar o usuário
+        login.setEmail(request.getParameter("email"));
+        login.setSenha(request.getParameter("senha"));
 
-    //se cadastrar pessoa e o login dela
-    if (pj.cadastrarConta() && login.cadastrarUsuario()) {
-        response.sendRedirect("cadastrojuridico.jsp?pmensagem=Padaria-salvo-com-sucesso");
-    } else {
-        response.sendRedirect("cadastrojuridico.jsp?pmensagem=Problemas-ao-salvar-padaria");
+        //se cadastrar pessoa e o login dela
+        if (pj.cadastrarConta() && login.cadastrarUsuario()) {
+            response.sendRedirect("login.jsp");
+        } else {
+            response.sendRedirect("index.html");
+        }
     }
 %>        

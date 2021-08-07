@@ -1,0 +1,88 @@
+body {
+    background-color:  #F0E68C;
+    font-family: Mukta;
+}
+
+section {
+    margin-top: 50px;
+    background-color: #fff8b8;
+    width: 42%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+}
+
+section .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.padarias-container {
+    flex: 1;
+    text-align: center;
+    padding: 60px 25px;
+}
+
+.central {
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+
+.padarias-container h3 {
+    color: #995a1a;
+    font-size: 5vh;
+}
+
+.padarias-container img {
+    width: 36vh;
+    height: 29vh;
+    padding: 15px;
+}
+
+.padarias-container .subtitle {
+    font-weight: bold;
+    color: #995a1a;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.padarias-container p {
+    line-height: 25px;
+    font-size: 3vh;
+}
+
+.padarias-container button {
+    padding-top: 5px;
+}
+
+.parag {
+    font-size: 4vh;
+    padding-top: 3px;
+}
+
+/* botões */
+
+button {
+    font: mukta;
+    font-size: 20px;
+    font-weight: 700;
+    background-color:#995a1a; 
+    margin: 0;
+    padding:6px;
+    cursor:pointer;
+    border: none;
+    box-shadow:0 5px #834d16;
+    color: #F0E68C;
+}
+button:hover {
+    background-color:#995a1a;
+    box-shadow:0 5px #834d16;
+}
+button:active {
+    position:relative;
+    top:5px;
+    background-color:#9c5a17;
+    box-shadow:none;
+}

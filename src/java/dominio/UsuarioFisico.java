@@ -40,7 +40,7 @@ public class UsuarioFisico {
         String sql = "select * from usuariofisico where fkemail = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, email);
+            stm.setString(1, this.email);
             ResultSet rs = stm.executeQuery();
             return rs.next();            
         } 
