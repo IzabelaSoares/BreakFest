@@ -144,9 +144,9 @@ create table pix (
 	foreign key (fktipochave) references tipochave(tipo)
 );
 
-create table agencia(
+create table banco(
 	id serial not null,
-	agencia varchar(20) not null unique,
+	banco varchar(20) not null unique,
 	numero integer not null,
 	primary key (id)
 );
