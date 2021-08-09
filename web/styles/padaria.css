@@ -67,3 +67,126 @@
     height: 47vh;
     padding: 3px;
 }
+.paoqueijo-container img{
+    position: relative;
+    left: -15vh;
+    top:  10vh;
+    width: 36vh;
+    height: 33vh;
+    padding: 2px;
+}
+.paoqueijo-container h2 { 
+    position: relative;
+    left: -15vh;
+    color: #995a1a;
+    font-size: 4vh;
+}
+.paoqueijo-container h3 { 
+    position: relative;
+    top: -40vh;
+    right: -40vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+.paoqueijo-container h7 { 
+    position: relative;
+    top: -7vh;
+    right: -42vh;
+    color: #995a1a;
+    font-size: 3.2vh;   
+}
+.paoqueijo-container h6 { 
+    position: relative;
+    top: -17.8vh;
+    right: -50vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+/* Pão frances*/
+.paofrances-container {
+    color: #995a1a;
+    font-size: 5vh;
+    left: -90vh;
+    width: 50vh; 
+    height: 47vh;
+    padding: 3px;
+}
+.paofrances-container img{
+    position: relative;
+    left: -15vh;
+    top:  10vh;
+    width: 36vh;
+    height: 33vh;
+    padding: 2px;
+}
+.paofrances-container h2 { 
+    position: relative;
+    left: -15vh;
+    color: #995a1a;
+    font-size: 4vh;
+}
+.paofrances-container h3 { 
+    position: relative;
+    top: -40vh;
+    right: -40vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+.paofrances-container h7 { 
+    position: relative;
+    top: -7vh;
+    right: -42vh;
+    color: #995a1a;
+    font-size: 3.2vh;   
+}
+.paofrances-container h6 { 
+    position: relative;
+    top: -17.8vh;
+    right: -50vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+/* Pastel */
+.pastel-container {
+    color: #995a1a;
+    font-size: 5vh;
+    left: -90vh;
+    width: 50vh; 
+    height: 47vh;
+    padding: 3px;
+}
+.pastel-container img{
+    position: relative;
+    left: -15vh;
+    top:  10vh;
+    width: 36vh;
+    height: 33vh;
+    padding: 2px;
+}
+.pastel-container h2 { 
+    position: relative;
+    left: -15vh;
+    color: #995a1a;
+    font-size: 4vh;
+}
+.pastel-container h3 { 
+    position: relative;
+    top: -40vh;
+    right: -40vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+.pastel-container h7 { 
+    position: relative;
+    top: -7vh;
+    right: -49vh;
+    color: #995a1a;
+    font-size: 3.2vh;   
+}
+.pastel-container h6 { 
+    position: relative;
+    top: -17.8vh;
+    right: -57vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}

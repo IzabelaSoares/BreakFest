@@ -53,9 +53,42 @@
             <!-- Produto(Pão de queijo) -->
             <div class="container">
                 <div class="paoqueijo-container">
-                    
+                    <h2>Pão De Queijo</h2>
+                    <img src="imagens/Pao-queijo.png" alt="Pão de queijo">  
+                    <h3>Especificação:</h3>
+                    <h7>Preço:</h7>
+                    <h6>R$ 15,00 1kg</h6>
                 </div>
             </div>            
         </section>
+        <!-- Fim do Produto(Pão de queijo) -->
+        <!-- Barra de section -->
+        <section>
+            <!-- Produto(Pão frances) -->
+            <div class="container">
+                <div class="paofrances-container">
+                    <h2>Pão Frances</h2>
+                    <img src="imagens/pao-frances.png" alt="Pão frances">  
+                    <h3>Especificação:</h3>
+                    <h7>Preço:</h7>
+                    <h6>R$ 12,00 1kg</h6>
+                </div>
+            </div>                       
+        </section>
+        <!-- Fim do Produto(Pão frances) -->
+        <!-- Barra de section -->
+        <section>
+            <!-- Produto(Pastel) -->
+            <div class="container">
+                <div class="pastel-container">
+                    <h2>Pastel</h2>
+                    <img src="imagens/pastel.png" alt="Pastel">  
+                    <h3>Especificação:</h3>
+                    <h7>Preço:</h7>
+                    <h6>R$ 6,00</h6>
+                </div>
+            </div>                       
+        </section>
+        <!-- Fim do Produto(Pão frances) -->
     </body>
 </html>
