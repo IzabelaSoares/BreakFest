@@ -1,0 +1,69 @@
+/* Padaria Central*/
+.umapadaria-container {
+    flex: 1;
+    text-align:center;
+    padding: 50px 15px;
+}
+.umapadaria-container h2 {
+    color: #995a1a;
+    font-size: 5vh;
+}
+.umapadaria-container img {
+    left: 40vh;
+    width: 37vh;
+    height: 29vh;
+    padding: 2px;
+}
+/* bolo de chocolate */
+.bolochoco-container {
+    color: #995a1a;
+    font-size: 5vh;
+    left: -90vh;
+    width: 50vh; 
+    height: 47vh;
+    padding: 3px;
+}
+.bolochoco-container img{
+    position: relative;
+    left: -15vh;
+    top:  10vh;
+    width: 36vh;
+    height: 33vh;
+    padding: 2px;
+}
+.bolochoco-container h2 { 
+    position: relative;
+    left: -15vh;
+    color: #995a1a;
+    font-size: 4vh;
+}
+.bolochoco-container h3 { 
+    position: relative;
+    top: -40vh;
+    right: -40vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+.bolochoco-container h7 { 
+    position: relative;
+    top: -7vh;
+    right: -47vh;
+    color: #995a1a;
+    font-size: 3.2vh;   
+}
+.bolochoco-container h6 { 
+    position: relative;
+    top: -17.8vh;
+    right: -55vh;
+    color: #995a1a;
+    font-size: 3vh;   
+}
+/* Pão de queijo*/
+.paoqueijo-container {
+    color: #995a1a;
+    font-size: 5vh;
+    left: -90vh;
+    width: 50vh; 
+    height: 47vh;
+    padding: 3px;
+}
