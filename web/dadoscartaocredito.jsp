@@ -3,7 +3,6 @@
     Created on : 06/08/2021, 20:26:52
     Author     : Izabela
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" >
@@ -120,24 +119,23 @@
         <div class="form-container">
             <div class="field-container">
                 <label for="name">Nome Impresso no Cartão</label>
-                <input id="name" maxlength="20" type="text">
+                <input id="name" minlength="5" maxlength="20" type="text" required>
             </div>
 
             <div class="field-container">
                 <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
-                <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input id="cardnumber" type="text" pattern="[0-9]*"  minlength="19"  inputmode="numeric" required>
                 <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
-
                 </svg>         
             </div>     
             <div class="field-container">
                 <label for="expirationdate">Expiração (mm/yy)</label>
-                <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="">
+                <input id="expirationdate" type="text" pattern="[0-9]*"  minlength="5" inputmode="" required>
             </div>
             <div class="field-container">
                 <label for="securitycode">Código de Segurança</label>
-                <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                <input id="securitycode" type="text" pattern="[0-9]*"  minlength="3"  inputmode="numeric" required>
             </div>
         </div>
         <!-- partial -->
