@@ -4,6 +4,7 @@ package dominio;
 import bancodedados.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Deposito {
@@ -88,6 +89,23 @@ public class Deposito {
             return false; 
         }
         
+        return true;
+    }
+    
+    //método para verificar se pessoa juridica possui dados de pagamento
+    public boolean verificaDados(String pCnpj){
+        //comando de execução de banco de dados
+        String sql = "select * from deposito where cnpj = ?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, pCnpj);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();         
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
         return true;
     }
     

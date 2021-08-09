@@ -186,6 +186,7 @@ public class PessoaFisica {
         }
         return true;
     }
+    
 
     //getters e setters
     public Integer getIdFisica() {
