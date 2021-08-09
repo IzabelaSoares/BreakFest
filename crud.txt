@@ -1,5 +1,10 @@
-
 -- DROP TABLE public.categoria;
+select * from pessoafisica;
+select * from usuariofisico;
+
+select * from pessoajuridica;
+select * from usuariojuridico;
+
 
 CREATE TABLE public.categoria (
 	idcategoria serial NOT NULL,
@@ -7,7 +12,7 @@ CREATE TABLE public.categoria (
 	CONSTRAINT categoria_pkey PRIMARY KEY (idcategoria)
 );
 
--- DROP TABLE public.pessoafisica;
+--DROP TABLE public.pessoafisica;
 
 CREATE TABLE public.pessoafisica (
 	idfisica serial NOT NULL,
@@ -29,7 +34,7 @@ CREATE TABLE public.pessoafisica (
 	CONSTRAINT pessoafisica_pkey PRIMARY KEY (idfisica)
 );
 
--- DROP TABLE public.pessoajuridica;
+--DROP TABLE public.pessoajuridica;
 
 CREATE TABLE public.pessoajuridica (
 	idjuridica serial NOT NULL,
@@ -54,7 +59,7 @@ CREATE TABLE public.pessoajuridica (
 	CONSTRAINT pessoajuridica_pkey PRIMARY KEY (idjuridica)
 );
 
--- DROP TABLE public.produto;
+--DROP TABLE public.produto;
 
 CREATE TABLE public.produto (
 	idproduto serial NOT NULL,
@@ -95,15 +100,16 @@ CREATE TABLE public.usuariojuridico (
 	CONSTRAINT usuariojuridico_fkemail_fkey FOREIGN KEY (fkemail) REFERENCES public.pessoajuridica(email)
 );
 
--- DROP TABLE public.pedido;
+--DROP TABLE public.pedido;
 
 CREATE TABLE public.pedido (
 	idpedido serial NOT NULL,
 	fkcpf varchar(14) NOT NULL,
 	fkcnpj varchar(20) NOT NULL,
 	fkidproduto int4 NOT NULL,
-	observacao varchar(300) NULL,
-	datapedido timestamp NULL,
+	observacao varchar(300),
+	datapedido timestamp not null,
+	statuspagto varchar(20) not null,
 	CONSTRAINT pedido_pkey PRIMARY KEY (idpedido),
 	CONSTRAINT pedido_fkcnpj_fkey FOREIGN KEY (fkcnpj) REFERENCES public.pessoajuridica(cnpj),
 	CONSTRAINT pedido_fkcpf_fkey FOREIGN KEY (fkcpf) REFERENCES public.pessoafisica(cpf),
