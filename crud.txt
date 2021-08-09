@@ -147,6 +147,7 @@ create table pix (
 create table agencia(
 	id serial not null,
 	agencia varchar(20) not null unique,
+	numero integer not null,
 	primary key (id)
 );
 
