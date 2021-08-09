@@ -89,6 +89,6 @@
                 </div>
             </div>                       
         </section>
-        <!-- Fim do Produto(Pão frances) -->
+        <!-- Fim do Produto(Pastel) -->
     </body>
 </html>
