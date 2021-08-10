@@ -12,13 +12,14 @@ import java.util.List;
 public class UsuarioJuridico {
     //declaração de variáveis
     private int    idUsuario;
+    private String fkCnpj;
     private String email;
     private String senha;
     
     //métodos
     public static boolean podeLogar(String email, String senha){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuariojuridico where fkemail = ? and senha = ?";
+        String sql = "select * from usuariojuridico where email = ? and senha = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
@@ -36,7 +37,7 @@ public class UsuarioJuridico {
 
     public boolean verificaExistencia(String email){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuariojuridico where fkemail = ?";
+        String sql = "select * from usuariojuridico where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
@@ -49,7 +50,7 @@ public class UsuarioJuridico {
     }  
 
     public boolean cadastrarUsuario(){
-        String sql = "insert into usuariojuridico(fkemail,senha) values(?,?)";
+        String sql = "insert into usuariojuridico(email,senha) values(?,?)";
         Connection con = Conexao.conectar();
        
         try {
@@ -66,7 +67,7 @@ public class UsuarioJuridico {
 
     public boolean alterarUsuario(){
         Connection con = Conexao.conectar();
-        String   sql = "update usuariojuridico set fkemail = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariojuridico set email = ?, senha = ? where idusuario = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
@@ -98,7 +99,7 @@ public class UsuarioJuridico {
    
     public UsuarioJuridico consultarUsuario(String email){
         Connection con = Conexao.conectar();
-        String sql = "select fkemail, senha from usuariojuridico where fkemail = ?";
+        String sql = "select fkemail, senha from usuariojuridico where email = ?";
         UsuarioJuridico login = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -119,7 +120,7 @@ public class UsuarioJuridico {
     public List<UsuarioJuridico> consultar(){
         List<UsuarioJuridico> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String sql  = "select idusuario, fkemail from usuariojuridico order by idusuario";
+        String sql  = "select idusuario, email from usuariojuridico order by idusuario";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -137,6 +138,14 @@ public class UsuarioJuridico {
     }
     
     //getters e setters  
+    public String getFkCnpj() {
+        return fkCnpj;
+    }
+
+    public void setFkCnpj(String fkCnpj) {
+        this.fkCnpj = fkCnpj;
+    }
+    
     public String getEmail() {
         return email;
     }

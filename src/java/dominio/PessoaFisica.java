@@ -10,11 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PessoaFisica {
-    //criação de variáveis
-    private Integer idFisica; 
+    //criação de variáveis 
+    private String cpf;
     private String nome;
     private String sobrenome;
-    private String cpf;
     private Date dataNascimento;
     private String email;
     private String celular;
@@ -32,7 +31,7 @@ public class PessoaFisica {
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoafisica " 
-                   +"(nome, sobrenome, cpf, datanascimento, email, celular, cep, estado, cidade, "
+                   +"(cpf, nome, sobrenome, datanascimento, email, celular, cep, estado, cidade, "
                    +"bairro, rua, numero, complemento) " 
                    +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
@@ -40,9 +39,9 @@ public class PessoaFisica {
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
-            stm.setString(2, this.sobrenome);
-            stm.setString(3, this.cpf);
+            stm.setString(1, this.cpf);
+            stm.setString(2, this.nome);
+            stm.setString(3, this.sobrenome);
             stm.setDate(4, this.dataNascimento);
             stm.setString(5, this.email);
             stm.setString(6, this.celular);
@@ -67,7 +66,7 @@ public class PessoaFisica {
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
-                + "SET nome=?, sobrenome=?, cpf=?, datanascimento=?, email=?, "
+                + "SET cpf=?, nome=?, sobrenome=?, datanascimento=?, email=?, "
                 + "celular=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? " 
                 + "WHERE cpf=?";
         //conectando com o banco
@@ -75,9 +74,9 @@ public class PessoaFisica {
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
-            stm.setString(2, this.sobrenome);
-            stm.setString(3, this.cpf);
+            stm.setString(1, this.cpf);
+            stm.setString(2, this.nome);
+            stm.setString(3, this.sobrenome);
             stm.setDate(4, this.dataNascimento);
             stm.setString(5, this.email);
             stm.setString(6, this.celular);
@@ -123,7 +122,7 @@ public class PessoaFisica {
     //consulta uma conta específica
     public PessoaFisica consultarConta(String pCpf){
         this.cpf = pCpf;
-        String sql = "SELECT nome, sobrenome, "
+        String sql = "SELECT cpf, nome, sobrenome, "
                    + "datanascimento, email, celular, cep, estado, cidade, "
                    + "bairro, rua, numero, complemento FROM pessoafisica where cpf = ?";
         Connection con = Conexao.conectar();
@@ -134,9 +133,9 @@ public class PessoaFisica {
             ResultSet rs = stm.executeQuery();
                 if(rs.next()){
                    pessoa = new PessoaFisica();
+                   pessoa.setCpf(rs.getString("cpf"));
                    pessoa.setNome(rs.getString("nome"));
                    pessoa.setSobrenome(rs.getString("sobrenome"));
-                   pessoa.setCpf(rs.getString("cpf"));
                    pessoa.setDataNascimento(rs.getDate("datanascimento"));
                    pessoa.setEmail(rs.getString("email"));
                    pessoa.setCelular(rs.getString("celular"));
@@ -189,14 +188,6 @@ public class PessoaFisica {
     
 
     //getters e setters
-    public Integer getIdFisica() {
-        return idFisica;
-    }
-
-    public void setIdFisica(Integer idFisica) {
-        this.idFisica = idFisica;
-    }
-
     public String getNome() {
         return nome;
     }
