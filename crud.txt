@@ -1,8 +1,7 @@
 create table pessoajuridica(
-	id serial not null,
+	cnpj varchar(20) not null,
 	razaosocial varchar(80) not null,
 	nomefantasia varchar(80) not null,
-	cnpj varchar(20) not null,
 	email text not null,
 	telefone varchar(15) not null,
 	cep varchar(10) not null,
@@ -15,31 +14,30 @@ create table pessoajuridica(
 	sobrepadaria text not null,
 	instagram text,
 	facebook text,
-	primary key(id)
+	primary key(cnpj)
 );
 
 create table imagempadaria(
 	id serial not null,
 	localizacao text not null,
-	fkidpadaria integer not null,
+	fkcnpj varchar(20) not null,
 	primary key(id),
-	foreign key(fkidpadaria) references pessoajuridica(id)
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
 create table usuariojuridico(
 	id serial not null,
-	fkidpadaria integer not null,
+	fkcnpj varchar(20) not null,
 	email text not null,
 	senha varchar(20) not null,
 	primary key(id),
-	foreign key(fkidpadaria) references pessoajuridica(id)
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
 create table pessoafisica(
-	id serial not null,
+	cpf varchar(14) not null,
 	nome varchar(50) not null,
 	sobrenome varchar(50) not null,
-	cpf varchar(14) not null,
 	datanascimento date not null,
 	email text not null,
 	celular varchar(15) not null,
@@ -50,72 +48,71 @@ create table pessoafisica(
 	rua varchar(50) not null,
 	numero int4 not null,
 	complemento varchar(80),
-	primary key(id)
+	primary key(cpf)
 );
 
 create table usuariofisico(
 	id serial not null,
-	fkidfisico integer not null,
+	fkcpf varchar(14) not null,
 	email text not null,
 	senha varchar(20) not null,
 	primary key(id),
-	foreign key(fkidfisico) REFERENCES pessoafisica(id)
+	foreign key(fkcpf) REFERENCES pessoafisica(cpf)
 );
 
 create table categoria(
 	id serial not null,
-	titulocategoria varchar(30),
+	titulocategoria varchar(30) not null,
 	primary key(id)
 );
 
 create table produto(
 	id serial not null,
 	titulo varchar(30) not null,
-	fkidcategoria integer not null,
-	fkidpadaria integer not null,
+	categoria varchar(30) not null,
+	fkcnpj varchar(20) not null,
 	descricao varchar(100) not null,
 	preco float4 not null,
 	tamanho varchar(30) not null,
 	unidadedemedida varchar(15) not null,
 	peso float4 not null,
 	primary key(id),
-	foreign key(fkidcategoria) references categoria(id),
-	foreign key(fkidpadaria) references pessoajuridica(id)
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
 create table imagemproduto(
 	id serial not null,
 	fkidproduto integer not null,
 	localizacao text not null,
-	fkidpadaria integer not null,
+	fkcnpj varchar(20) not null,
 	primary key(id),
 	foreign key(fkidproduto) references produto(id),
-	foreign key(fkidpadaria) references pessoajuridica(id)
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
-create table pedido (
+create table pedido(
 	id serial not null,
-	fkidfisico integer not null,
-	fkidpadaria integer not null,
+	fkcpf varchar(14) not null,
+	fkcnpj varchar(20) not null,
 	fkidproduto integer not null,
 	observacao varchar(300),
 	datapedido timestamp not null,
 	statuspagto varchar(20) not null,
 	primary key(id),
-	foreign key(fkidfisico) references pessoafisica(id),
-	foreign key(fkidpadaria) references pessoajuridica(id),
+	foreign key(fkcpf) references pessoafisica(cpf),
+	foreign key(fkcnpj) references pessoajuridica(cnpj),
 	foreign key(fkidproduto) references produto(id)
 );
 
 create table cartao(
 	id serial not null,
-	fkidfisico integer not null,
+	fkcpf varchar(14) not null,
 	nome varchar(50) not null,
 	numero integer not null,
 	validade varchar(6) not null,
 	codseguranca varchar(4) not null,
 	primary key (id),
-	foreign key (fkidfisico) references pessoafisica(id)
+	foreign key (fkcpf) references pessoafisica(cpf)
 );
 
 create table tipochave(
@@ -126,27 +123,28 @@ create table tipochave(
 
 create table pix (
 	id serial not null,
-	fkidtipochave integer not null,
+	fkcnpj varchar(20) not null,
+	tipochave integer not null,
 	chave text not null,
 	nome varchar(50) not null,
 	primary key(id),
-	foreign key (fkidtipochave) references tipochave(id)
+	foreign key (fkcnpj) references pessoajuridica(cnpj)
 );
 
 create table banco(
 	id serial not null,
 	numero integer not null,
 	banco text not null unique,
-	primary key (id)
+	primary key(id)
 );
 
 create table deposito(
 	id serial not null,
 	nome varchar(50) not null,
-	cnpj varchar(20) not null,
+	fkcnpj varchar(20) not null,
 	numerobanco integer not null,
-	fkidbanco integer not null,
+	banco integer not null,
 	conta integer not null,
-	primary key (id),
-	foreign key (fkidbanco) references banco(id)
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
