@@ -9,7 +9,6 @@ public class ImagemPasta {
 
     //Inserir a imagem em uma pasta do projeto
     public boolean inserirArquivo(InputStream is, String path) {
-        boolean test = false;
         try {
             byte[] imagem = new byte[is.available()];
             is.read(imagem);
@@ -17,11 +16,11 @@ public class ImagemPasta {
                 fileos.write(imagem);
                 fileos.flush();
             }
-            test = true;
         } catch (IOException ex) {
             ex.getMessage();
+            return false;
         }
-        return test;
+        return true;
     }
     
     //Alterar a imagem na pasta do projeto
