@@ -35,7 +35,7 @@
         login.setSenha(request.getParameter("senha"));
 
         //se cadastrar pessoa e o login dela
-        if (pf.cadastrarConta() && login.cadastrarUsuario()) {
+        if (pf.cadastrarConta() && login.cadastrarUsuario()) { 
             response.sendRedirect("login.jsp");
         } else {
             response.sendRedirect("index.html");
