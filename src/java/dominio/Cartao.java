@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Cartao {
     //declaração de variáveis
     int id;
-    String fkcpf;
+    String fkCpf;
     String nome;
     int numero;
     String validade;
@@ -24,14 +24,14 @@ public class Cartao {
     public boolean cadastrarCartao(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO cartao " 
-                   +"(fkidcpf, nome, numero, validade, codseguranca) " 
+                   +"(fkcpf, nome, numero, validade, codseguranca) " 
                    +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkcpf);
+            stm.setString(1, this.fkCpf);
             stm.setString(2, this.nome);
             stm.setInt(3, this.numero);
             stm.setString(4, this.validade);
@@ -50,14 +50,14 @@ public class Cartao {
     public boolean alterarCartao(){
         //comando de execução de banco de dados 
         String sql = "UPDATE cartao " 
-                + "SET fkidcpf=?, nome=?, numero=?, validade=?, codseguranca=?, "
+                + "SET fkcpf=?, nome=?, numero=?, validade=?, codseguranca=?, "
                 + "WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkcpf);
+            stm.setString(1, this.fkCpf);
             stm.setString(2, this.nome);
             stm.setInt(3, this.numero);
             stm.setString(4, this.validade);
@@ -121,11 +121,11 @@ public class Cartao {
     }
 
     public String getFkcpf() {
-        return fkcpf;
+        return fkCpf;
     }
 
     public void setFkcpf(String fkcpf) {
-        this.fkcpf = fkcpf;
+        this.fkCpf = fkcpf;
     }
 
     public String getNome() {

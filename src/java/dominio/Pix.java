@@ -10,10 +10,11 @@ import java.sql.SQLException;
 
 public class Pix {
     //declaração de variáveis
-    int id;
-    String fkTipoChave;
-    String chave;
-    String nome;
+    private int id;
+    private String fkCnpj;
+    private String tipoChave;
+    private String chave;
+    private String nome;
     
     //métodos
         
@@ -21,16 +22,17 @@ public class Pix {
     public boolean cadastrarPix(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pix " 
-                   +"(fktipochave, chave, nome) " 
-                   +"VALUES(?, ?, ?)";
+                   +"(fkcnpj, tipochave, chave, nome) " 
+                   +"VALUES(?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkTipoChave);
-            stm.setString(2, this.chave);
-            stm.setString(3, this.nome);
+            stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.tipoChave);
+            stm.setString(3, this.chave);
+            stm.setString(4, this.nome);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -45,17 +47,18 @@ public class Pix {
     public boolean alterarpix(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pix " 
-                + "SET fktipochave=?, chave=?, nome=?, validade=? "
+                + "SET fkcnpj=?, tipochave=?, chave=?, nome=?, validade=? "
                 + "WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkTipoChave);
-            stm.setString(2, this.chave);
-            stm.setString(3, this.nome);
-            stm.setInt(4, this.id);
+            stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.tipoChave);
+            stm.setString(3, this.chave);
+            stm.setString(4, this.nome);
+            stm.setInt(5, this.id);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -112,13 +115,14 @@ public class Pix {
     public void setId(int id) {
         this.id = id;
     }
+    
 
     public String getFkTipoChave() {
-        return fkTipoChave;
+        return tipoChave;
     }
 
     public void setFkTipoChave(String fkTipoChave) {
-        this.fkTipoChave = fkTipoChave;
+        this.tipoChave = fkTipoChave;
     }
 
     public String getChave() {
@@ -135,6 +139,14 @@ public class Pix {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getFkCnpj() {
+        return fkCnpj;
+    }
+
+    public void setFkCnpj(String fkCnpj) {
+        this.fkCnpj = fkCnpj;
     }
     
 }

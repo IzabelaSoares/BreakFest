@@ -17,14 +17,14 @@ public class ImagemPerfil {
     //inserir imagem perfil
     public boolean incluirImagemPerfil() {
         //comando de execução de banco de dados 
-        String sql = "INSERT INTO public.imagemperfil (fkcnpj, localizacao) VALUES(?,?)";
+        String sql = "INSERT INTO public.imagempadaria (localizacao, fkcnpj) VALUES(?,?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
             stm.setString(2, this.localizacao);
+            stm.setString(1, this.fkCnpj);
             //executando comando
             stm.execute();
         } catch (SQLException ex) {
@@ -38,7 +38,7 @@ public class ImagemPerfil {
     public ImagemPerfil ConsultarImagemPerfil(String parametro) {
         this.fkCnpj = parametro;
         //comando de execução de banco de dados 
-        String sql = "SELECT fkcnpj, localizacao FROM public.imagemperfil where fkcnpj=?";
+        String sql = "SELECT  localizacao, fkcnpj FROM public.imagempadaria where fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();  
         //instanciar imagem
@@ -50,8 +50,8 @@ public class ImagemPerfil {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 imagemPerfil = new ImagemPerfil();
-                imagemPerfil.setFkCnpj(rs.getString("fkcnpj"));
                 imagemPerfil.setLocalizacao(rs.getString("localizacao"));
+                imagemPerfil.setFkCnpj(rs.getString("fkcnpj"));
             }
         } catch (SQLException ex) {
             System.out.println("ERRO: " + ex.getMessage());
@@ -62,15 +62,15 @@ public class ImagemPerfil {
     //alterar imagem perfil
     public boolean alterarImagemPerfil() {
         //comando de execução de banco de dados 
-        String sql = "UPDATE INTO public.imagemperfil SET fkcnpj=?, "
-                + "localizacao=? WHERE SET fkcnpj=?";
+        String sql = "UPDATE INTO public.imagempadaria SET "
+                + "localizacao=?, fkcnpj=? WHERE SET fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
             stm.setString(2, this.localizacao);
+            stm.setString(1, this.fkCnpj);
             stm.setString(3, this.fkCnpj);
             //executando comando
             stm.execute();
@@ -84,7 +84,7 @@ public class ImagemPerfil {
     //excluir imagem perfil
     public boolean excluirImagemPerfil() {
         //comando de execução de banco de dados
-        String sql = "DELETE FROM public.imagemperfil WHERE fkcnpj=?";
+        String sql = "DELETE FROM public.imagempadaria WHERE fkcnpj=?";
 
         //conectando com o banco
         Connection con = Conexao.conectar();

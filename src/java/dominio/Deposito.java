@@ -11,9 +11,9 @@ public class Deposito {
     //declaração de variáveis
     private int id;
     private String nome;
-    private String cnpj;
+    private String fkCnpj;
     private int numeroBanco;
-    private String fkAgencia;
+    private String banco;
     private int conta;
     
     //métodos
@@ -22,7 +22,7 @@ public class Deposito {
     public boolean cadastrarDeposito(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO deposito " 
-                   +"(nome, cnpj, numerobanco, fkagencia, conta) " 
+                   +"(nome, fkcnpj, numerobanco, banco, conta) " 
                    +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -30,9 +30,9 @@ public class Deposito {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
-            stm.setString(2, this.cnpj);
+            stm.setString(2, this.fkCnpj);
             stm.setInt(3, this.numeroBanco);
-            stm.setString(4, this.fkAgencia);
+            stm.setString(4, this.banco);
             stm.setInt(5, this.conta);
             //executando comando
             stm.execute();
@@ -56,9 +56,9 @@ public class Deposito {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
-            stm.setString(2, this.cnpj);
+            stm.setString(2, this.fkCnpj);
             stm.setInt(3, this.numeroBanco);
-            stm.setString(4, this.fkAgencia);
+            stm.setString(4, this.banco);
             stm.setInt(5, this.conta);
             stm.setInt(6, this.id);
             //executando comando
@@ -128,11 +128,11 @@ public class Deposito {
     }
 
     public String getCnpj() {
-        return cnpj;
+        return fkCnpj;
     }
 
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        this.fkCnpj = cnpj;
     }
 
     public int getNumeroBanco() {
@@ -144,11 +144,11 @@ public class Deposito {
     }
 
     public String getFkAgencia() {
-        return fkAgencia;
+        return banco;
     }
 
     public void setFkAgencia(String fkAgencia) {
-        this.fkAgencia = fkAgencia;
+        this.banco = fkAgencia;
     }
 
     public int getConta() {

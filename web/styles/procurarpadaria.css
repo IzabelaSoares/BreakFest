@@ -1,5 +1,5 @@
 body {
-    background-color:  #F0E68C;
+    background-color: #FFF5EB;
     font-family: Mukta;
 }
 
@@ -17,6 +17,8 @@ section .container {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border: 4px solid #A46019;
+    border-radius: 5px;
 }
 
 .padarias-container {

@@ -2,6 +2,11 @@
 * {
     font-family: Mukta;
 }
+
+body {
+background-color: #FFF5EB;    
+}
+
 #about-section {
     text-align: center;
     background-color: #995a1a;
@@ -16,6 +21,11 @@
     margin-left: auto;
     line-height: 30px;
 
+}
+
+#barra {
+    width: 2px;
+    background-color: #E8E8E8;
 }
 
 /* container do tipopessoa */

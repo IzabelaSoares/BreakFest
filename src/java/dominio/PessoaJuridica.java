@@ -11,7 +11,6 @@ import java.util.List;
 
 public class PessoaJuridica {
     //criação de variaveis
-    private Integer idJuridica;
     private String razaoSocial;
     private String nomeFantasia;
     private String cnpj;
@@ -34,8 +33,8 @@ public class PessoaJuridica {
     //cadastro de contas
     public boolean cadastrarConta(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO pessoajuridica (razaosocial, nomefantasia, "
-                   + "cnpj, email, telefone, cep, estado, cidade, bairro, rua, "
+        String sql = "INSERT INTO pessoajuridica (cnpj, razaosocial, nomefantasia, "
+                   + "email, telefone, cep, estado, cidade, bairro, rua, "
                    + "numero, complemento, sobrepadaria)" 
                    + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
@@ -43,9 +42,9 @@ public class PessoaJuridica {
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.razaoSocial);
-            stm.setString(2, this.nomeFantasia);
-            stm.setString(3, this.cnpj);
+            stm.setString(1, this.cnpj);
+            stm.setString(2, this.razaoSocial);
+            stm.setString(3, this.nomeFantasia);
             stm.setString(4, this.email);
             stm.setString(5, this.telefone);
             stm.setString(6, this.cep); 
@@ -70,7 +69,7 @@ public class PessoaJuridica {
     public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
-                + "SET razaosocial=?, nomefantasia=?, cnpj=?, email=?, "
+                + "SET cnpj=?, razaosocial=?, nomefantasia=?, email=?, "
                 + "telefone=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? "
                 + "imagem=?, sobrepadaria=?, instagram=?, facebook=? " 
                 + "WHERE cnpj=?";
@@ -79,9 +78,9 @@ public class PessoaJuridica {
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.razaoSocial);
-            stm.setString(2, this.nomeFantasia);
-            stm.setString(3, this.cnpj);
+            stm.setString(1, this.cnpj);
+            stm.setString(2, this.razaoSocial);
+            stm.setString(3, this.nomeFantasia);
             stm.setString(4, this.email);
             stm.setString(5, this.telefone);
             stm.setString(6, this.cep); 
@@ -130,7 +129,7 @@ public class PessoaJuridica {
     //consulta uma conta específica
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
-        String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
+        String sql = "SELECT cnpj, razaosocial, nomefantasia, email, telefone, cep, "
                    + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
                    + " FROM pessoajuridica where cnpj = ?";
         Connection con = Conexao.conectar();
@@ -141,9 +140,9 @@ public class PessoaJuridica {
             ResultSet rs = stm.executeQuery();
                 if(rs.next()){
                    padaria = new PessoaJuridica();
+                   padaria.setCnpj(rs.getString("cnpj"));
                    padaria.setRazaoSocial(rs.getString("razaosocial"));
                    padaria.setNomeFantasia(rs.getString("nomefantasia"));
-                   padaria.setCnpj(rs.getString("cnpj"));
                    padaria.setEmail(rs.getString("email"));
                    padaria.setTelefone(rs.getString("telefone"));
                    padaria.setCep(rs.getString("cep")); 
@@ -169,7 +168,7 @@ public class PessoaJuridica {
     //consulta todos
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
-        String sql = "SELECT razaosocial, nomefantasia, cnpj, email, telefone, cep, "
+        String sql = "SELECT  cnpj, razaosocial, nomefantasia, email, telefone, cep, "
                    + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
                    + " FROM pessoajuridica";
         Connection con = Conexao.conectar();
@@ -178,9 +177,9 @@ public class PessoaJuridica {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 PessoaJuridica padaria = new PessoaJuridica();
+                padaria.setCnpj(rs.getString("cnpj"));
                 padaria.setRazaoSocial(rs.getString("razaosocial"));
                 padaria.setNomeFantasia(rs.getString("nomefantasia"));
-                padaria.setCnpj(rs.getString("cnpj"));
                 padaria.setEmail(rs.getString("email"));
                 padaria.setTelefone(rs.getString("telefone"));
                 padaria.setCep(rs.getString("cep")); 
@@ -235,14 +234,6 @@ public class PessoaJuridica {
     }
     
     //getters e setters
-    public Integer getIdJuridica() {
-        return idJuridica;
-    }
-    
-    public void setIdJuridica(Integer idJuridica) {
-        this.idJuridica = idJuridica;
-    }
-
     public String getRazaoSocial() {
         return razaoSocial;
     }

@@ -20,14 +20,14 @@ public class ImagemProduto {
     //inserir imagem produto
     public boolean incluirImagemProduto() {
         //comando de execução de banco de dados 
-        String sql = "INSERT INTO public.imagemproduto (fkcnpj, localizacao) VALUES(?,?)";
+        String sql = "INSERT INTO public.imagemproduto (localizacao, fkcnpj) VALUES(?,?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
             stm.setString(2, this.localizacao);
+            stm.setString(1, this.fkCnpj);
             //executando comando
             stm.execute();
         } catch (SQLException ex) {
@@ -41,7 +41,7 @@ public class ImagemProduto {
     public ImagemProduto ConsultarImagemProduto(String parametro) {
         this.fkCnpj = parametro;
         //comando de execução de banco de dados 
-        String sql = "SELECT fkcnpj, localizacao FROM public.imagemproduto where fkcnpj=?";
+        String sql = "SELECT localizacao, fkcnpj FROM public.imagemproduto where fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();  
         //instanciar imagem
@@ -53,8 +53,8 @@ public class ImagemProduto {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 imagemProduto = new ImagemProduto();
-                imagemProduto.setFkCnpj(rs.getString("fkcnpj"));
                 imagemProduto.setLocalizacao(rs.getString("localizacao"));
+                imagemProduto.setFkCnpj(rs.getString("fkcnpj"));
             }
         } catch (SQLException ex) {
             System.out.println("ERRO: " + ex.getMessage());
@@ -88,15 +88,15 @@ public class ImagemProduto {
     //alterar imagem produto
     public boolean alterarImagemProduto() {
         //comando de execução de banco de dados 
-        String sql = "UPDATE INTO public.imagemproduto SET fkcnpj=?, "
-                + "localizacao=? WHERE SET fkcnpj=?";
+        String sql = "UPDATE INTO public.imagemproduto SET "
+                + "localizacao=?, fkcnpj=? WHERE SET fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
             stm.setString(2, this.localizacao);
+            stm.setString(1, this.fkCnpj);
             stm.setString(3, this.fkCnpj);
             //executando comando
             stm.execute();

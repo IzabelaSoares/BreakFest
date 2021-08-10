@@ -13,13 +13,14 @@ import java.util.List;
 public class UsuarioFisico {
     //declaração de variáveis
     private Integer idUsuario;
+    private String fkidCpf;
     private String email;
     private String senha;
     
     //métodos
     public static boolean podeLogar(String email, String senha){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuariofisico where fkemail = ? and senha = ?";
+        String sql = "select * from usuariofisico where email = ? and senha = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);
@@ -37,7 +38,7 @@ public class UsuarioFisico {
 
     public boolean verificaExistencia(String email){
         Connection con = Conexao.conectar();
-        String sql = "select * from usuariofisico where fkemail = ?";
+        String sql = "select * from usuariofisico where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
@@ -51,7 +52,7 @@ public class UsuarioFisico {
     }  
 
     public boolean cadastrarUsuario(){
-        String sql = "insert into usuariofisico(fkemail,senha) values(?,?)";
+        String sql = "insert into usuariofisico(email,senha) values(?,?)";
         Connection con = Conexao.conectar();
        
         try {
@@ -68,7 +69,7 @@ public class UsuarioFisico {
 
     public boolean alterarUsuario(){
         Connection con = Conexao.conectar();
-        String   sql = "update usuariofisico set fkemail = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariofisico set email = ?, senha = ? where idusuario = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
@@ -100,7 +101,7 @@ public class UsuarioFisico {
    
     public UsuarioJuridico consultarUsuario(String email){
         Connection con = Conexao.conectar();
-        String sql = "select fkemail, senha from usuariofisico where fkemail = ?";
+        String sql = "select email, senha from usuariofisico where email = ?";
         UsuarioJuridico login = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -108,7 +109,7 @@ public class UsuarioFisico {
             ResultSet rs = stm.executeQuery();
             if(rs.next()){
                 login = new UsuarioJuridico();
-                login.setEmail(rs.getString("fkemail"));
+                login.setEmail(rs.getString("email"));
                 login.setSenha(rs.getString("senha"));
             }
         } 
@@ -121,14 +122,14 @@ public class UsuarioFisico {
     public List<UsuarioJuridico> consultar(){
         List<UsuarioJuridico> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String sql  = "select idusuario, fkemail from usuariofisico order by idusuario";
+        String sql  = "select idusuario, email from usuariofisico order by idusuario";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 UsuarioJuridico login = new UsuarioJuridico();
                 login.setIdUsuario(rs.getInt("idusuario"));
-                login.setEmail(rs.getString("fkemail"));
+                login.setEmail(rs.getString("email"));
                 lista.add(login);
             }
         } 
@@ -139,6 +140,14 @@ public class UsuarioFisico {
     }
     
     //getters e setters  
+    public String getFkidCpf() {
+        return fkidCpf;
+    }
+
+    public void setFkidCpf(String fkidCpf) {
+        this.fkidCpf = fkidCpf;
+    }
+    
     public String getEmail() {
         return email;
     }
