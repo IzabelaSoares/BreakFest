@@ -46,7 +46,8 @@
                 <br>
                 <a href="cadastrofisico.jsp"><button name="conhecer">Cadastrar</button></a>
             </div>
-            <hr>
+            <div id="barra">
+            </div>
             <!-- Segundo container -->
             <div class="tipopess-container">
                 <img src="imagens/cidade.png" alt="Empresa">

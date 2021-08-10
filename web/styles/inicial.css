@@ -1,5 +1,9 @@
 /* banner */
 
+body {
+    background-color: #FFF5EB;
+}
+
 #banner-info img, form, input {
     display: inline-block;
 }
