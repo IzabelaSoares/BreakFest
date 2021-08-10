@@ -1,192 +1,202 @@
-/* Padaria Central*/
-.umapadaria-container {
-    flex: 1;
-    text-align:center;
-    padding: 50px 15px;
+*{
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font: 'Mukta';
+  font-weight: 300;
 }
-.umapadaria-container h2 {
-    color: #995a1a;
-    font-size: 5vh;
+
+.pad-nome {
+    display: flex;
+    background-color: #ce8538;
+    align-content: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
-.umapadaria-container img {
-    left: 40vh;
-    width: 37vh;
-    height: 29vh;
-    padding: 2px;
+
+h2 {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: #FFF;
 }
-/* bolo de chocolate */
-.bolochoco-container {
-    color: #995a1a;
-    font-size: 5vh;
-    left: -90vh;
-    width: 50vh; 
-    height: 47vh;
-    padding: 3px;
+
+.ocultar{
+  display: none;
 }
-.bolochoco-container img{
-    position: relative;
-    left: -15vh;
-    top:  10vh;
-    width: 36vh;
-    height: 33vh;
-    padding: 2px;
+
+ul{
+  padding: 5px;
 }
-.bolochoco-container h2 { 
-    position: relative;
-    left: -15vh;
-    color: #995a1a;
-    font-size: 4vh;
+
+li{
+  list-style: none;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  
 }
-.bolochoco-container h3 { 
-    position: relative;
-    top: -40vh;
-    right: -40vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+li:hover{
+  background-color: #E8E8E8;
 }
-.bolochoco-container h7 { 
-    position: relative;
-    top: -7vh;
-    right: -47vh;
-    color: #995a1a;
-    font-size: 3.2vh;   
+
+.foto{
+  width: 60px;
+  height: 89px;
+  float: left;
+  transition: .1s cubic-bezier(.64,.64,0,.99);
 }
-.bolochoco-container h6 { 
-    position: relative;
-    top: -17.8vh;
-    right: -55vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.foto img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: contain;
 }
-/* Pão de queijo*/
-.paoqueijo-container {
-    color: #995a1a;
-    font-size: 5vh;
-    left: -90vh;
-    width: 50vh; 
-    height: 47vh;
-    padding: 3px;
+
+.conteudo{
+  width: calc(100% - 60px);
+  min-height: 60px;
+  padding: 5px 10px;
+  margin-left: 60px;
+  
+  /*   max-height: 100vw; */
+  overflow-x: auto;
 }
-.paoqueijo-container img{
-    position: relative;
-    left: -15vh;
-    top:  10vh;
-    width: 36vh;
-    height: 33vh;
-    padding: 2px;
+
+.titulo{
+  font-weight: 400;
+  font-size: 1.15em;
+  color: #4F4F4F;
 }
-.paoqueijo-container h2 { 
-    position: relative;
-    left: -15vh;
-    color: #995a1a;
-    font-size: 4vh;
+
+.preco{
+  float: right;
+  color: #9C9C9C;
+  font-weight: 500;
+  font-size: .9.29em;
+  line-height: 1.65em;
 }
-.paoqueijo-container h3 { 
-    position: relative;
-    top: -40vh;
-    right: -40vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.descricao, .mais{
+  color: #828282;
+  margin-top: 5px;
+  font-size: 1em;
 }
-.paoqueijo-container h7 { 
-    position: relative;
-    top: -7vh;
-    right: -42vh;
-    color: #995a1a;
-    font-size: 3.2vh;   
+
+.detalhes{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #FFF;
 }
-.paoqueijo-container h6 { 
-    position: relative;
-    top: -17.8vh;
-    right: -50vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.detalhes .titulo{
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
-/* Pão frances*/
-.paofrances-container {
-    color: #995a1a;
-    font-size: 5vh;
-    left: -90vh;
-    width: 50vh; 
-    height: 47vh;
-    padding: 3px;
+
+.detalhes .preco{
+  font-size: 1em;
+  line-height: 2em;
 }
-.paofrances-container img{
-    position: relative;
-    left: -15vh;
-    top:  10vh;
-    width: 36vh;
-    height: 33vh;
-    padding: 2px;
+li.detalhes{
+  padding: 0;
 }
-.paofrances-container h2 { 
-    position: relative;
-    left: -15vh;
-    color: #995a1a;
-    font-size: 4vh;
+
+li.detalhes:hover{
+  background-color: #fff;
 }
-.paofrances-container h3 { 
-    position: relative;
-    top: -40vh;
-    right: -40vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.detalhes .conteudo{
+  width: 100%;
+  margin-left: 0;
+  padding-top: 15px;
+  background-color: #FFF;
 }
-.paofrances-container h7 { 
-    position: relative;
-    top: -7vh;
-    right: -42vh;
-    color: #995a1a;
-    font-size: 3.2vh;   
+
+.detalhes .capsula{
+  width: 100%;
+  margin-left: 0;
+  height: 100vh;
+  padding-bottom: 60px;
+  padding-top: 200px;
+  overflow-y: scroll;
+  position: fixed;
 }
-.paofrances-container h6 { 
-    position: relative;
-    top: -17.8vh;
-    right: -50vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.detalhes .foto{
+  width: 100%;
+  height: 200px;
+  margin-top: -3px;
+  transition: .3s;
 }
-/* Pastel */
-.pastel-container {
-    color: #995a1a;
-    font-size: 5vh;
-    left: -90vh;
-    width: 50vh; 
-    height: 47vh;
-    padding: 3px;
+
+.detalhes .foto img{
+  object-fit: cover;
+  border-radius: 0;
 }
-.pastel-container img{
-    position: relative;
-    left: -15vh;
-    top:  10vh;
-    width: 36vh;
-    height: 33vh;
-    padding: 2px;
+
+#detalhes{
+  z-index: 999;
+  opacity: 0;
 }
-.pastel-container h2 { 
-    position: relative;
-    left: -15vh;
-    color: #995a1a;
-    font-size: 4vh;
+
+.adicionar{
+  position: fixed;
+  width: calc(100% - 10px);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  bottom: 0;
+  left: 5px;
+  border-top: 1px solid #E8E8E8;
+  background-color: #FFF;  
 }
-.pastel-container h3 { 
-    position: relative;
-    top: -40vh;
-    right: -40vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+#detalhes button{
+  font-size: .8em;
+  padding: 10px;
+  border-radius: 50px;
+  flex: 1;
+  border: none;
+  color: #FFF;
+  background-color: #bc2026;
 }
-.pastel-container h7 { 
-    position: relative;
-    top: -7vh;
-    right: -49vh;
-    color: #995a1a;
-    font-size: 3.2vh;   
+
+.quantidade{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
 }
-.pastel-container h6 { 
-    position: relative;
-    top: -17.8vh;
-    right: -57vh;
-    color: #995a1a;
-    font-size: 3vh;   
+
+.quantidade i{
+  padding: 0 5px;
+  color: #bc2026;
+  font-size: 1.8em;
+}
+
+.quantidade i.disable{
+  color: #B5B5B5;
+}
+
+.quantidade span{
+  padding: 0 5px;
+}
+
+i#fechar{
+  position: fixed;
+  font-size: 1.5em;
+  background: linear-gradient(135deg, rgba(36,36,36,0.50) 20%, rgba(0,0,0,0) 40%);
+  left: 0;
+  top: 0;
+  padding: 10px 50px 50px 10px;
+  color: #FFF;
 }
