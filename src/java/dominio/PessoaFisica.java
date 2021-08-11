@@ -184,8 +184,7 @@ public class PessoaFisica {
             System.out.println("Erro: " + ex.getMessage());
         }
         return true;
-    }
-    
+    }    
 
     //getters e setters
     public String getNome() {

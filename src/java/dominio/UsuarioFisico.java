@@ -139,6 +139,28 @@ public class UsuarioFisico {
         return lista;
     }
     
+    //métodos para alterar senha
+    public boolean alterarSenha(){
+        //comando de execução de banco de dados 
+        String sql = "UPDATE usuariofisico " 
+                + "SET senha=? " 
+                + "WHERE email=?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.senha);
+            stm.setString(2, this.email);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
     //getters e setters  
     public String getFkidCpf() {
         return fkidCpf;
