@@ -1,0 +1,28 @@
+<%-- 
+    Document   : receberecuperarsenha
+    Created on : 11/08/2021, 14:52:08
+    Author     : Maria
+--%>
+<%@page import="dominio.UsuarioFisico"%>
+<%@page import="dominio.UsuarioJuridico"%>
+<% //instancia o usuariofisico = uf
+    UsuarioFisico uf = new UsuarioFisico();
+    
+    //recebe os valores da tela HTML
+    uf.setEmail(request.getParameter("email"));
+    uf.setSenha(request.getParameter("senhanova"));
+    
+    //instancia o usuariojuridico = uj
+    UsuarioJuridico uj = new UsuarioJuridico();
+    
+    //recebe os valores da tela HTML
+    uj.setEmail(request.getParameter("email"));
+    uj.setSenha(request.getParameter("senhanova"));
+    
+    //se cadastrar pessoa e o login dela
+    if (uf.alterarSenha() || uj.alterarSenha()) {
+        response.sendRedirect("index.html");
+    } else {
+        response.sendRedirect("login.jsp");
+    }
+%>
