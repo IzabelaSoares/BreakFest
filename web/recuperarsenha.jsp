@@ -16,15 +16,19 @@
     </head>
     <body>
         <div class="body">
+            <!-- Inicio do Form -->
            <form action="#" method="post">
+               <!-- Container -->
             <div class="container">
                 <h2 id="title">Recuperar senha</h2>
+                <!-- Inputs -->
                 <input type="text" id="email" class="login-element" placeholder="E-mail">
                 <input type="password" id="senhanova" class="login-element" placeholder="Nova senha">
                 <input type="password" id="confirmarsenha" class="login-element" placeholder="Confirme-a">
                 <input type="submit" id="login-btn" value="Criar nova senha">
             </div>
            </form>
+            <!-- Fim do form -->
         </div>
         <script>
             <!-- Fazer a validação das senhas aqui -->
