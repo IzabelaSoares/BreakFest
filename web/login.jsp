@@ -46,7 +46,6 @@
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <button type="submit" name="button" class="btn login_btn">Entrar</button>
-                            <span id="erro" style="color: transparent;">Deu bosta</span>
                         </div>
                     </form>
                 </div>
