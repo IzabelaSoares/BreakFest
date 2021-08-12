@@ -6,7 +6,7 @@
 <%@page import="dominio.Deposito"%>
 <% //instancia o depósito = dep  
     Deposito dep = new Deposito();
-
+    
     //recebe os valores da tela HTML
     dep.setNome(request.getParameter("nome"));
     dep.setCnpj(request.getParameter("cnpj"));
