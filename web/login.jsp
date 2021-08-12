@@ -57,7 +57,7 @@
                         Não possui uma conta? <a href="tipopessoa.jsp" class="ml-2">Registrar-se</a>
                     </div>
                     <div class="d-flex justify-content-center links">
-                        <a href="#">Esqueceu sua senha?</a>
+                        Esqueceu sua senha? <a href="recuperarsenha.jsp" class="ml-2">Recupere-a</a>
                     </div>
                 </div>
             </div>

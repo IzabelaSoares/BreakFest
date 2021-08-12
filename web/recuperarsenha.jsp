@@ -1,7 +1,7 @@
 <%-- 
     Document   : recuperarsenha
     Created on : 11 de ago. de 2021, 14:02:59
-    Author     : Ricardo.Schvambach
+    Author     : Ricardo.Schvambach e Maria
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
     <body>
         <div class="body">
             <!-- Inicio do Form -->
-           <form action="#" method="post">
+           <form action="receberecuperarsenha.jsp" method="post">
                <!-- Container -->
             <div class="container">
                 <h2 id="title">Recuperar senha</h2>
