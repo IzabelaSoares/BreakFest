@@ -15,7 +15,7 @@
         <link href="styles/preferenciapagamento.css" rel="stylesheet">
     </head>
     <body>
-        <br><br><br><br><br><br><br><br><br>
+        <br>
         <form id="msform">
             <!-- Barra de progressão -->
             <ul id="progressbar">
