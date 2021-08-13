@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recuperarsenha
-    Created on : 11 de ago. de 2021, 14:02:59
-    Author     : Ricardo.Schvambach e Maria
+    Document   : emailrecuperarsenha
+    Created on : 13/08/2021, 09:41:38
+    Author     : Maria
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,20 +17,17 @@
     <body>
         <div class="body">
             <!-- Inicio do Form -->
-            <form action="receberecuperarsenha.jsp" method="post">
+           <form action="recebeemail.jsp" method="post">
                <!-- Container -->
             <div class="container">
-                <h2 id="title">Recuperar senha</h2>
+                <h2 id="title">Digite seu email</h2>
                 <!-- Inputs -->
-                <input type="password" name="senhanova" class="login-element" placeholder="Nova senha">
-                <input type="password" id="confirmarsenha" class="login-element" placeholder="Confirme-a">
-                <input type="submit" id="login-btn" value="Criar nova senha">
+                <input type="text" name="email" class="login-element" placeholder="E-mail">
+                <input type="submit" id="login-btn" value="Enviar email">
             </div>
            </form>
             <!-- Fim do form -->
         </div>
-        <script>
-            <!-- Fazer a validação das senhas aqui -->
-        </script>
     </body>
 </html>
+

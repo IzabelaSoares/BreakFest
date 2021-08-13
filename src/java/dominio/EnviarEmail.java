@@ -1,7 +1,6 @@
 //@author Maria
 package dominio;
 
-import java.util.Properties;
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -19,7 +18,8 @@ public class EnviarEmail {
     //métodos
     
     //método para enviar email
-    public boolean enviaEmail(){
+    public boolean enviaEmail(String pEmail){
+        this.email = pEmail;
         Properties props = new Properties();
         /** Parâmetros de conexão com servidor Gmail */
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -34,8 +34,8 @@ public class EnviarEmail {
                       @Override
                       protected PasswordAuthentication getPasswordAuthentication()
                       {
-                          return new PasswordAuthentication("mariaclaraperon@gmail.com",
-                                  "hihoney1gmail");
+                          return new PasswordAuthentication("projetobreakfest@gmail.com",
+                                  "projetobreakfestentra21");
                       }
                   });
 
@@ -45,15 +45,18 @@ public class EnviarEmail {
         try {
 
           Message message = new MimeMessage(session);
-          message.setFrom(new InternetAddress("mariaclaraperon@gmail.com"));
+          message.setFrom(new InternetAddress("projetobreakfest@gmail.com"));
           //Remetente
 
           //Destinatário(s)
           Address[] toUser = InternetAddress.parse(this.email);
 
           message.setRecipients(Message.RecipientType.TO, toUser);
-          message.setSubject("Oiii");//Assunto
-          message.setText("Se vc esqueceu a senha problema seu");
+          message.setSubject("Recupere sua senha!");//Assunto
+          message.setText("Olá!\n"
+                  + "Siga este link: http://localhost:8080/BreakFest/recuperarsenha.jsp para criar uma nova senha.\n"
+                  + "Atenciosamente,\n"
+                  + "-Equipe BreakFest :)");
           /**Método para enviar a mensagem criada*/
           Transport.send(message);
 
@@ -63,6 +66,26 @@ public class EnviarEmail {
     
         return true;
     }
+   /* 
+    public EnviarEmail(){
+        super("Exemplo com Label");
+        Container tela = getContentPane();
+        tela.setLayout(null);
+        JLabel link = new JLabel ("Nome");
+        link.setBounds(50,20,80,20);
+        link.setForeground(Color.red);
+        link.setFont(new Font("Arial",Font.BOLD,14));
+        tela.add(link);
+        tela.setSize(400, 250);
+        tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
+    }
+
+
+    public static void Jlabel(String args[])
+   {    ExemploLabel app = new ExemploLabel();
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   } */
     
     //área de getters e setters
     public String getEmail() {

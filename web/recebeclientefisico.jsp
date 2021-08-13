@@ -31,6 +31,7 @@
         pf.setComplemento(request.getParameter("complemento"));
 
         //Passar valores da tela e cadastrar o usuário
+        login.setFkidCpf(request.getParameter("cpf"));
         login.setEmail(request.getParameter("email"));
         login.setSenha(request.getParameter("senha"));
 

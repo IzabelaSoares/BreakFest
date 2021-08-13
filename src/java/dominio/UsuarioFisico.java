@@ -41,7 +41,7 @@ public class UsuarioFisico {
         String sql = "select * from usuariofisico where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();            
         } 
@@ -52,13 +52,14 @@ public class UsuarioFisico {
     }  
 
     public boolean cadastrarUsuario(){
-        String sql = "insert into usuariofisico(email,senha) values(?,?)";
+        String sql = "insert into usuariofisico(fkcpf, email,senha) values(?, ?, ?)";
         Connection con = Conexao.conectar();
        
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
-            stm.setString(2, this.senha);
+            stm.setString(1, this.fkidCpf);
+            stm.setString(2, this.email);
+            stm.setString(3, this.senha);
             stm.execute();           
         }    catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -69,12 +70,13 @@ public class UsuarioFisico {
 
     public boolean alterarUsuario(){
         Connection con = Conexao.conectar();
-        String   sql = "update usuariofisico set email = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariofisico set fkcpf = ?, email = ?, senha = ? where idusuario = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
-            stm.setString(2, this.senha);    
-            stm.setInt(3, this.idUsuario);
+            stm.setString(1, this.fkidCpf);
+            stm.setString(2, this.email);
+            stm.setString(3, this.senha);    
+            stm.setInt(4, this.idUsuario);
             stm.execute();           
         } 
             catch (SQLException ex) {
@@ -86,10 +88,10 @@ public class UsuarioFisico {
    
     public boolean excluirUsuario(){
         Connection con = Conexao.conectar();
-        String sql = "delete from usuariofisico where idusuario = ?";
+        String sql = "delete from usuariofisico where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.idUsuario);
+            stm.setString(1, this.email);
             stm.execute();           
        } 
             catch (SQLException ex) {
@@ -101,7 +103,7 @@ public class UsuarioFisico {
    
     public UsuarioJuridico consultarUsuario(String email){
         Connection con = Conexao.conectar();
-        String sql = "select email, senha from usuariofisico where email = ?";
+        String sql = "select fkcpf, email from usuariofisico where email = ?";
         UsuarioJuridico login = null;
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -109,8 +111,8 @@ public class UsuarioFisico {
             ResultSet rs = stm.executeQuery();
             if(rs.next()){
                 login = new UsuarioJuridico();
+                login.setEmail(rs.getString("fkcpf"));
                 login.setEmail(rs.getString("email"));
-                login.setSenha(rs.getString("senha"));
             }
         } 
             catch (SQLException ex) {
@@ -122,13 +124,13 @@ public class UsuarioFisico {
     public List<UsuarioJuridico> consultar(){
         List<UsuarioJuridico> lista = new ArrayList<>();
         Connection con = Conexao.conectar();
-        String sql  = "select idusuario, email from usuariofisico order by idusuario";
+        String sql  = "select fkcpf, email from usuariofisico order by idusuario";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 UsuarioJuridico login = new UsuarioJuridico();
-                login.setIdUsuario(rs.getInt("idusuario"));
+                login.setEmail(rs.getString("fkcpf"));
                 login.setEmail(rs.getString("email"));
                 lista.add(login);
             }
