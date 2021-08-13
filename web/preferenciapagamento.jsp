@@ -1,7 +1,7 @@
 <%-- 
     Document   : preferenciapagamento
     Created on : 11 de ago. de 2021, 14:44:57
-    Author     : Ricardo.Schvambach
+    Author     : Ricardo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
         <link href="styles/preferenciapagamento.css" rel="stylesheet">
     </head>
     <body>
-        <br>
+        <br> 
         <form id="msform">
             <!-- Barra de progressão -->
             <ul id="progressbar">
@@ -63,7 +63,7 @@
                 <input type="submit" name="submit" class="submit action-button" value="Enviar" />
             </fieldset>
         </form>
-        <!-- partial -->
+        <!-- Úteis -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script><script  src="scripts/preferenciapagamento.js"></script>
     </body>
