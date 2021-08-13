@@ -12,6 +12,7 @@ public class Pix {
     //declaração de variáveis
     private int id;
     private String fkCnpj;
+    private String email;
     private String tipoChave;
     private String chave;
     private String nome;
@@ -22,7 +23,7 @@ public class Pix {
     public boolean cadastrarPix(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pix " 
-                   +"(fkcnpj, tipochave, chave, nome) " 
+                   +"(fkCnpj, email, tipochave, chave, nome) " 
                    +"VALUES(?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -30,6 +31,7 @@ public class Pix {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.email);
             stm.setString(2, this.tipoChave);
             stm.setString(3, this.chave);
             stm.setString(4, this.nome);
@@ -47,18 +49,19 @@ public class Pix {
     public boolean alterarpix(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pix " 
-                + "SET fkcnpj=?, tipochave=?, chave=?, nome=?, validade=? "
-                + "WHERE id=?";
+                + "SET email=?, tipochave=?, chave=?, nome=?, validade=? "
+                + "WHERE fkCnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.tipoChave);
-            stm.setString(3, this.chave);
-            stm.setString(4, this.nome);
-            stm.setInt(5, this.id);
+            stm.setString(2, this.email);
+            stm.setString(3, this.tipoChave);
+            stm.setString(4, this.chave);
+            stm.setString(5, this.nome);
+            stm.setString(6, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -73,13 +76,13 @@ public class Pix {
     public boolean excluirPix(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM pix " 
-                + "WHERE id=?";
+                + "WHERE fkCnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.id);
+            stm.setString(1, this.fkCnpj);
             //executando comando
             stm.execute();   
         } catch (SQLException ex) {
@@ -91,14 +94,14 @@ public class Pix {
     }
     
     //método para verificar se pessoa juridica possui dados de pagamento
-    public boolean verificaDados(String pCnpj){
+    public boolean verificaDados(String email){
         //comando de execução de banco de dados
-        String sql = "select * from pix where cnpj = ?";
+        String sql = "select * from pix where email = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCnpj);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
@@ -148,5 +151,14 @@ public class Pix {
     public void setFkCnpj(String fkCnpj) {
         this.fkCnpj = fkCnpj;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     
 }

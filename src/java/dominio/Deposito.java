@@ -12,6 +12,7 @@ public class Deposito {
     private int id;
     private String nome;
     private String fkCnpj;
+    private String email;
     private int numeroBanco;
     private String banco;
     private int conta;
@@ -22,8 +23,8 @@ public class Deposito {
     public boolean cadastrarDeposito(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO deposito " 
-                   +"(nome, fkcnpj, numerobanco, banco, conta) " 
-                   +"VALUES(?, ?, ?, ?, ?)";
+                   +"(nome, fkcnpj, email, numerobanco, banco, conta) " 
+                   +"VALUES(?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -31,9 +32,10 @@ public class Deposito {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
             stm.setString(2, this.fkCnpj);
-            stm.setInt(3, this.numeroBanco);
-            stm.setString(4, this.banco);
-            stm.setInt(5, this.conta);
+            stm.setString(3, this.email);
+            stm.setInt(4, this.numeroBanco);
+            stm.setString(6, this.banco);
+            stm.setInt(7, this.conta);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -48,8 +50,8 @@ public class Deposito {
     public boolean alterarDeposito(){
         //comando de execução de banco de dados 
         String sql = "UPDATE deposito " 
-                + "SET nome=?, cnpj=?, numerobanco=?, fkagencia=?, conta=? "
-                + "WHERE id=?";
+                + "SET nome=?, cnpj=?, email=?, numerobanco=?, fkagencia=?, conta=? "
+                + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -57,10 +59,11 @@ public class Deposito {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
             stm.setString(2, this.fkCnpj);
-            stm.setInt(3, this.numeroBanco);
-            stm.setString(4, this.banco);
-            stm.setInt(5, this.conta);
-            stm.setInt(6, this.id);
+            stm.setString(3, this.email);
+            stm.setInt(4, this.numeroBanco);
+            stm.setString(5, this.banco);
+            stm.setInt(6, this.conta);
+            stm.setString(7, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -75,13 +78,13 @@ public class Deposito {
     public boolean excluirDeposito(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM deposito " 
-                + "WHERE id=?";
+                + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.id);
+            stm.setString(1, this.fkCnpj);
             //executando comando
             stm.execute();   
         } catch (SQLException ex) {
@@ -93,14 +96,14 @@ public class Deposito {
     }
     
     //método para verificar se pessoa juridica possui dados de pagamento
-    public boolean verificaDados(String pCnpj){
+    public boolean verificaDados(String email){
         //comando de execução de banco de dados
-        String sql = "select * from deposito where cnpj = ?";
+        String sql = "select * from deposito where email = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCnpj);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
@@ -158,5 +161,32 @@ public class Deposito {
     public void setConta(int conta) {
         this.conta = conta;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFkCnpj() {
+        return fkCnpj;
+    }
+
+    public void setFkCnpj(String fkCnpj) {
+        this.fkCnpj = fkCnpj;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+    
+    
+    
     
 }

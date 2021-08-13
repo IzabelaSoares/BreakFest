@@ -233,6 +233,21 @@ public class PessoaJuridica {
         return true;
     }
     
+    //método para verificar se a pessoa possue redes sociais cadastradas no perfil
+    public boolean verificaSociais(String email){
+        Connection con = Conexao.conectar();
+        String sql = "select facebook, instagram from pessoajuridica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();       
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+    } 
+    
     //getters e setters
     public String getRazaoSocial() {
         return razaoSocial;
