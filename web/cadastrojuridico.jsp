@@ -14,9 +14,6 @@
         <script src="scripts/validacaoPessoaJuridica.js"></script>
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
     </head>
@@ -63,17 +60,19 @@
                                 <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15">
                             </div>
                         </div>
-                        <!-- Input do "sobre" da padaria -->
-                        <div class="form-row">
-                            <textarea type="text" name="sobre" id="sobre" placeholder="Sobre a padaria..." rows="4" cols="70" maxlength="500"></textarea>
-                        </div>
-                        <!-- Input da senha -->
-                        <div class="form-row">
-                            <input type="password" name="senha" id="senha" placeholder="Senha" >
-                        </div>
-                        <div class="form-row">
-                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
-                            <p id="alertPassword"></p>
+                        
+                            <!-- Input do "sobre" da padaria -->
+                            <div class="form-row">
+                                <textarea type="text" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
+                            </div>
+                            <!-- Input da senha -->
+                            <div class="form-row">
+                                <input type="password" name="senha" id="senha" placeholder="Senha" >
+                            </div>
+                            <div class="form-row">
+                                <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
+                                <p id="alertPassword"></p><br>
+
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->

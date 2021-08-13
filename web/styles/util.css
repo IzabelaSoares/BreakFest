@@ -4,6 +4,7 @@ em que foi aplicado, o CSS geral do programa.
 */
 
 /* geral */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
 body, p, h1, h2, input, textarea {
     margin: 0;

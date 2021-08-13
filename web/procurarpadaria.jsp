@@ -5,7 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Padarias</title>
         <link href="styles/util.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap" rel="stylesheet">
         <link href="styles/procurarpadaria.css" rel="stylesheet">
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
     </head>
