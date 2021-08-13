@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Cartao {
     //declaração de variáveis
     int id;
-    String fkCpf;
+    String email;
     String nome;
     int numero;
     String validade;
@@ -24,14 +24,14 @@ public class Cartao {
     public boolean cadastrarCartao(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO cartao " 
-                   +"(fkcpf, nome, numero, validade, codseguranca) " 
+                   +"(email, nome, numero, validade, codseguranca) " 
                    +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCpf);
+            stm.setString(1, this.email);
             stm.setString(2, this.nome);
             stm.setInt(3, this.numero);
             stm.setString(4, this.validade);
@@ -50,14 +50,14 @@ public class Cartao {
     public boolean alterarCartao(){
         //comando de execução de banco de dados 
         String sql = "UPDATE cartao " 
-                + "SET fkcpf=?, nome=?, numero=?, validade=?, codseguranca=?, "
+                + "SET email=?, nome=?, numero=?, validade=?, codseguranca=?, "
                 + "WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCpf);
+            stm.setString(1, this.email);
             stm.setString(2, this.nome);
             stm.setInt(3, this.numero);
             stm.setString(4, this.validade);
@@ -77,13 +77,13 @@ public class Cartao {
     public boolean excluirCartao(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM cartao " 
-                + "WHERE id=?";
+                + "WHERE email=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.id);
+            stm.setString(1, this.email);
             //executando comando
             stm.execute();   
         } catch (SQLException ex) {
@@ -95,14 +95,14 @@ public class Cartao {
     }
     
     //método para verificar se pessoa física possui dados de pagamento
-    public boolean verificaDados(String pCpf){
+    public boolean verificaDados(String pEmail){
         //comando de execução de banco de dados
-        String sql = "select * from cartao where fkcpf = ?";
+        String sql = "select * from cartao where email = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCpf);
+            stm.setString(1, pEmail);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
@@ -120,12 +120,12 @@ public class Cartao {
         this.id = id;
     }
 
-    public String getFkcpf() {
-        return fkCpf;
+    public String getFkEmail() {
+        return email;
     }
 
-    public void setFkcpf(String fkcpf) {
-        this.fkCpf = fkcpf;
+    public void setFkcpf(String email) {
+        this.email = email;
     }
 
     public String getNome() {

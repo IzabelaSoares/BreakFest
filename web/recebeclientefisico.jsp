@@ -1,6 +1,7 @@
 <%-- 
     Author     : Ricardo, Izabela e Maria
 --%>
+<%@page import="dominio.Cartao"%>
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
@@ -11,9 +12,15 @@
     //instanciar o login da = PF
     UsuarioFisico login = new UsuarioFisico();
     
-    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaCpf(request.getParameter("cpf")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
+    //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
+    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
         //adicionar aqui
-        response.sendRedirect("index.html");
+        //email já está sendo utilizado
+        response.sendRedirect("cadastrofisico.jsp");
+    //se o cpf já está sendo utilizado não faz cadastro
+    }else if(pf.verificaExistenciaCpf(request.getParameter("cpf"))){
+        //cpf já está sendo utilizado
+        response.sendRedirect("cadastrofisico.jsp");
     }else{
         //recebe os valores da tela HTML
         pf.setNome(request.getParameter("nome"));
@@ -37,9 +44,11 @@
 
         //se cadastrar pessoa e o login dela
         if (pf.cadastrarConta() && login.cadastrarUsuario()) { 
+            //cadastro efetuado com sucesso
             response.sendRedirect("login.jsp");
         } else {
-            response.sendRedirect("index.html");
+            //erro no cadastro
+            response.sendRedirect("cadastrofisico.jsp");
         }
     }
 %>        
