@@ -17,7 +17,7 @@
     <body>
         <div class="body">
             <!-- Inicio do Form -->
-            <form action="receberecuperarsenha.jsp" method="post">
+            <form action="recebe-dados/receberecuperarsenha.jsp" method="post">
                <!-- Container -->
             <div class="container">
                 <h2 id="title">Recuperar senha</h2>
