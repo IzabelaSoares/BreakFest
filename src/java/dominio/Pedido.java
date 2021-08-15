@@ -1,7 +1,7 @@
 //@author Izabela
 package dominio;
 
-import bancodedados.Conexao;
+import database.Conexao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

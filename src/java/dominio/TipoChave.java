@@ -2,7 +2,7 @@
 
 package dominio;
 
-import bancodedados.Conexao;
+import database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
