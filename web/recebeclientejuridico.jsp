@@ -14,10 +14,16 @@
     //instanciar o login da = PJ
     UsuarioJuridico login = new UsuarioJuridico();
     
-    if(login.verificaExistencia(request.getParameter("email")) && pj.verificaExistenciaCnpj(request.getParameter("cnpj")) && pj.verificaExistenciaFisica(request.getParameter("email"))){
-        //adicionar aqui
+    String email = request.getParameter("email");
+    String cnpj = request.getParameter("cnpj");
+    
+    if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
         //email já está sendo utilizado
-        request.getSession().setAttribute("resultado", "LoginJaUtilizado");
+        request.getSession().setAttribute("resultado", "EmailJaRegistrado");
+        response.sendRedirect("login.jsp");
+    }else if(pj.verificaExistenciaCnpj(cnpj)){
+        //email já está sendo utilizado
+        request.getSession().setAttribute("resultado", "CnpjJaRegistrado");
         response.sendRedirect("login.jsp");
     }else{
         //recebe os valores da tela HTML
@@ -46,6 +52,6 @@
         } else {
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
-            response.sendRedirect("cadastrofisico.jsp");
+            response.sendRedirect("login.jsp");
     }
 %>        

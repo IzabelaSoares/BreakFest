@@ -3,8 +3,27 @@
 //@Izabela e Maria
 
 function alertar(parametro) {
+    //Deu certo login
+    if (parametro === "SucessoLogin") {
+        Swal.fire({
+            title: 'Bem vindo de volta!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+    
+    //Login deu certo
+    else if (parametro === "ProblemaLogar") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ops...',
+            text: 'Email ou senha incorretos!'
+        });
+    }
+    
     //Cadastro salvo
-    if (parametro === "UsuarioCadastrado") {
+    else if (parametro === "UsuarioCadastrado") {
         Swal.fire({
             title: 'Usuário Cadastrado!',
             icon: 'success',
@@ -37,15 +56,6 @@ function alertar(parametro) {
             icon: 'error',
             title: 'Ops...',
             text: 'CNPJ já cadastrado.'
-        });
-    }
-    
-    //Não foi possível efetuar cadastro
-    else if (parametro === "CnpjJaRegistrado") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Ops...',
-            text: 'Não foi possível efetuar cadastro.'
         });
     }
     

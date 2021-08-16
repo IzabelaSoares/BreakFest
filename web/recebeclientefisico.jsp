@@ -12,13 +12,16 @@
     //instanciar o login da = PF
     UsuarioFisico login = new UsuarioFisico();
     
+    String email = request.getParameter("email");
+    String cnpj = request.getParameter("cnpj");
+    
     //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
-    if(login.verificaExistencia(request.getParameter("email")) || pf.verificaExistenciaJuridica(request.getParameter("email"))){
+    if(login.verificaExistencia(email) || pf.verificaExistenciaJuridica(email)){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
         response.sendRedirect("login.jsp");
     //se o cpf já está sendo utilizado não faz cadastro
-    }else if(pf.verificaExistenciaCpf(request.getParameter("cpf"))){
+    }else if(pf.verificaExistenciaCpf(cnpj)){
         //cpf já está sendo utilizado
         request.getSession().setAttribute("resultado", "CpfJaRegistrado");
         response.sendRedirect("login.jsp");

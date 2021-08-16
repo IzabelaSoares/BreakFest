@@ -42,12 +42,12 @@
             response.sendRedirect("cadastroredes.jsp");
         //se não, redireciona para o index
         }else{
-            request.getSession().setAttribute("resultado", "LoginRegistrado");
+            request.getSession().setAttribute("resultado", "SucessoLogin");
             response.sendRedirect("perfil.jsp");
         }
     } else {
         //login não deu certo
-        request.getSession().setAttribute("resultado", "LoginNaoRegistrado");
+        request.getSession().setAttribute("resultado", "ProblemaLogar");
         response.sendRedirect("login.jsp");
     }
 %>
