@@ -23,10 +23,10 @@
     if(uf.verificaExistencia(request.getParameter("email")) || uj.verificaExistencia(request.getParameter("email"))){
         if(email.enviaEmail(endereco)){
             response.sendRedirect("login.jsp");
+            request.getSession().setAttribute("resultado", "EnviadoEmailRecuperarSenha");
         }else{
             response.sendRedirect("index.html");
-        }
-    }else{
+            request.getSession().setAttribute("resultado", "NaoEnviadoEmailRecuperarSenha");
         //alerta de email não existende no banco
         
     }

@@ -16,6 +16,11 @@
         <link href="styles/util.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+        <script src="scripts/alertas-erro.js"></script>
+        <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
+
     </head>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
@@ -30,17 +35,17 @@
         </nav>
     </header>
     <!-- Fim da NavBar de cima -->
-    <body class="form-v10">
+    <body class="form-v10" onload="javascript: alertar(resultado)">
         <div class="page-content">
             <div class="form-v10-content">
                 <form class="form-detail" action="recebe-dados/recebeclientejuridico.jsp" method="post" id="myform">
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
                         <h2>Informações Gerais</h2>
-                            <!-- Input da razão social -->
-                            <div class="form-row form-row-1">
-                                <input type="text" name="razaosocial" id="razaosocial" class="input-text" placeholder="Razão Social" required>
-                            </div>
+                        <!-- Input da razão social -->
+                        <div class="form-row form-row-1">
+                            <input type="text" name="razaosocial" id="razaosocial" class="input-text" placeholder="Razão Social" required>
+                        </div>
                         <!-- Input do e-mail -->
                         <div class="form-row">
                             <input type="text" name="email" id="email" class="input-text" placeholder="E-mail" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>
@@ -60,18 +65,18 @@
                                 <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15">
                             </div>
                         </div>
-                        
-                            <!-- Input do "sobre" da padaria -->
-                            <div class="form-row">
-                                <textarea type="text" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
-                            </div>
-                            <!-- Input da senha -->
-                            <div class="form-row">
-                                <input type="password" name="senha" id="senha" placeholder="Senha" >
-                            </div>
-                            <div class="form-row">
-                                <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
-                                <p id="alertPassword"></p><br>
+
+                        <!-- Input do "sobre" da padaria -->
+                        <div class="form-row">
+                            <textarea type="text" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
+                        </div>
+                        <!-- Input da senha -->
+                        <div class="form-row">
+                            <input type="password" name="senha" id="senha" placeholder="Senha" >
+                        </div>
+                        <div class="form-row">
+                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
+                            <p id="alertPassword"></p><br>
 
                         </div>
                     </div>

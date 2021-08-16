@@ -21,8 +21,11 @@
 
     //se cadastrar pessoa e o login dela
     if (uf.alterarSenha() || uj.alterarSenha()) {
+        request.getSession().setAttribute("resultado", "SenhaAlterada");
         response.sendRedirect("login.jsp");
     } else {
         //alert que não deu certo
+        request.getSession().setAttribute("resultado", "SenhaNaoAlterada");
+        response.sendRedirect("login.jsp");
     }
 %>

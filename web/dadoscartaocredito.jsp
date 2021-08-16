@@ -12,8 +12,13 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet">
         <link rel="stylesheet" href="styles/cartaoestilo.css">
         <script src="scripts/cartao-de-credito.js"></script>
+        
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+        <script src="scripts/alertas-erro.js"></script>
+        <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
+
     </head>
-    <body>
+    <body onload="javascript: alertar(resultado)">
         <!-- partial:index.partial.html -->
         <div class="payment-title">
             <h1>Informe os Dados do Cartão</h1>

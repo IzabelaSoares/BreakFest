@@ -16,7 +16,9 @@
     
     if(login.verificaExistencia(request.getParameter("email")) && pj.verificaExistenciaCnpj(request.getParameter("cnpj")) && pj.verificaExistenciaFisica(request.getParameter("email"))){
         //adicionar aqui
-        response.sendRedirect("index.html");
+        //email já está sendo utilizado
+        request.getSession().setAttribute("resultado", "LoginJaUtilizado");
+        response.sendRedirect("login.jsp");
     }else{
         //recebe os valores da tela HTML
         pj.setRazaoSocial(request.getParameter("razaosocial"));
@@ -39,9 +41,11 @@
 
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
-            response.sendRedirect("login.jsp");
+            request.getSession().setAttribute("resultado", "UsuarioCadastrado");
+            response.sendRedirect("login.jsp");     
         } else {
-            response.sendRedirect("index.html");
-        }
+            //erro no cadastro
+            request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
+            response.sendRedirect("cadastrofisico.jsp");
     }
 %>        

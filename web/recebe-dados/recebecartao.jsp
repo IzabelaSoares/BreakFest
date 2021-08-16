@@ -16,10 +16,12 @@
     card.setValidade(request.getParameter("validade"));
     card.setCodSeguranca(request.getParameter("codseguranca"));
     
-    //se cadastrar pessoa e o login dela
+    //se cadastrar cartao
     if (card.cadastrarCartao()) {
-        response.sendRedirect("index.html");
+        request.getSession().setAttribute("resultado", "CartaoSalvo");
+        response.sendRedirect("perfil.jsp");
     } else {
-        response.sendRedirect("cadastrocartao.jsp");
+        request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
+        response.sendRedirect("perfil.jsp");
     }
 %> 

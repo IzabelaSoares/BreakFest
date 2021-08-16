@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/util.css">
+
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+    <script src="scripts/alertas-erro.js"></script>
+    <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 </head>
 <!-- Início do modelo da foto -->
-<body>
+<body onload="javascript: alertar(resultado)">
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
             <div class="user_card">
