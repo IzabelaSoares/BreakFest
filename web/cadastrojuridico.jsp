@@ -23,7 +23,7 @@
 
     </head>
     <!-- Inicio da NavBar de cima -->
-    <header id="navbar">
+    <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
@@ -35,7 +35,7 @@
         </nav>
     </header>
     <!-- Fim da NavBar de cima -->
-    <body class="form-v10" onload="javascript: alertar(resultado)">
+    <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
                 <form class="form-detail" action="recebeclientejuridico.jsp" method="post" id="myform">
