@@ -22,12 +22,15 @@
     //se o email existir em algum dos tipos de usuário, ele envia o email para a recuperação de senha
     if(uf.verificaExistencia(request.getParameter("email")) || uj.verificaExistencia(request.getParameter("email"))){
         if(email.enviaEmail(endereco)){
+            request.getSession().setAttribute("resultado", "EmailEnviado");
             response.sendRedirect("login.jsp");
-            request.getSession().setAttribute("resultado", "EnviadoEmailRecuperarSenha");
         }else{
+            request.getSession().setAttribute("resultado", "EmailNaoEnviado");
             response.sendRedirect("index.html");
-            request.getSession().setAttribute("resultado", "NaoEnviadoEmailRecuperarSenha");
-        //alerta de email não existende no banco
-        
+        }
+    //alerta de email não existende no banco
+    }else{
+        request.getSession().setAttribute("resultado", "EmailNaoExistente");
+        response.sendRedirect("emailrecuperarsenha.jsp");
     }
 %>
