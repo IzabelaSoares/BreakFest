@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                         <h3>Como deseja receber seu pagamento?</h3>
                         <label>Escolha uma opção</label> <br/>
-                        <form action="recebe-dados/recebepagamento.jsp" method="post" >
+                        <form action="recebepagamento.jsp" method="post" >
                             <select id="pagamento" name="pagamento" onchange="formaPagamento()">
                                 <option value="NA" selected=""></option>
                                 <option value="pix">Pix</option>

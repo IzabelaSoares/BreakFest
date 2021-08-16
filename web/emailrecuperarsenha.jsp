@@ -22,7 +22,7 @@
     <body onload="javascript: alertar(resultado)">
         <div class="body">
             <!-- Inicio do Form -->
-            <form action="recebe-dados/recebeemail.jsp" method="post">
+            <form action="recebeemail.jsp" method="post">
                 <!-- Container -->
                 <div class="container">
                     <h2 id="title">Digite seu email</h2>

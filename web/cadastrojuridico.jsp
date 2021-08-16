@@ -38,7 +38,7 @@
     <body class="form-v10" onload="javascript: alertar(resultado)">
         <div class="page-content">
             <div class="form-v10-content">
-                <form class="form-detail" action="recebe-dados/recebeclientejuridico.jsp" method="post" id="myform">
+                <form class="form-detail" action="recebeclientejuridico.jsp" method="post" id="myform">
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
                         <h2>Informações Gerais</h2>

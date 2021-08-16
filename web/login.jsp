@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
-                    <form action="recebe-dados/recebelogin.jsp" method="post">
+                    <form action="recebelogin.jsp" method="post">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>

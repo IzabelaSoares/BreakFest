@@ -39,7 +39,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
-                <form class="form-detail" action="recebe-dados/recebeclientefisico.jsp" method="post" id="myform">
+                <form class="form-detail" action="recebeclientefisico.jsp" method="post" id="myform">
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
                         <h2>Informações Gerais</h2>
