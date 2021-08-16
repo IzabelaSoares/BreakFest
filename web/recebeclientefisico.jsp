@@ -16,12 +16,12 @@
     if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
-        response.sendRedirect("cadastrofisico.jsp");
+        response.sendRedirect("login.jsp");
     //se o cpf já está sendo utilizado não faz cadastro
     }else if(pf.verificaExistenciaCpf(request.getParameter("cpf"))){
         //cpf já está sendo utilizado
         request.getSession().setAttribute("resultado", "CpfJaRegistrado");
-        response.sendRedirect("cadastrofisico.jsp");
+        response.sendRedirect("login.jsp");
     }else{
         //recebe os valores da tela HTML
         pf.setNome(request.getParameter("nome"));
