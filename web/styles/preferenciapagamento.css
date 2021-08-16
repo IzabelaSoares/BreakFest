@@ -1,125 +1,150 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
-* {
-    margin: 0; padding: 0;
-}
+
+
+/*General Styles*/
 
 html {
-	height: 100%;
-	background-color: #D9D6D5;
+    font-size: 12px;
+    font: Roboto, sans-serif;
 }
 
-body {
-	font-family: montserrat, arial, verdana;
+@media (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
 }
 
-#msform {
-	width: 400px;
-	margin: 50px auto;
-	text-align: center;
-	position: relative;
+
+
+/*Subscription Page Content Styles*/
+
+.container {
+    max-width: 960px;
 }
 
-#msform fieldset {
-	background: white;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-        background: #1f1f1f;
-	padding: 20px 30px;
-	box-sizing: border-box;
-	width: 80%;
-	margin: 0 10%;
-	position: relative;
+.pricing-header {
+    max-width: 700px;
 }
 
-#msform fieldset:not(:first-of-type) {
-	display: none;
+.card-deck .card {
+    min-width: 200px;
+    height: 400px;
 }
 
-#msform input, select, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
+.card-body li { /* Adds line spacing for card descriptions */
+    padding: 8px 0;
 }
 
-#msform .action-button {
-	width: 100px;
-	background: #995a1a;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
+
+.card-header {
+    border-bottom: 4px solid #086495;
+
 }
 
-.fs-title {
-	font-size: 15px;
-	text-transform: uppercase;
-	color: white;
-	margin-bottom: 10px;
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-.fs-subtitle {
-	font-weight: normal;
-	font-size: 13px;
-	color: #666;
-	margin-bottom: 20px;
+.img-responsive { /* Measurements for KPC Logo on top */
+    height: 90px;
+    width: 150px;
 }
 
-#progressbar {
-	margin-bottom: 30px;
-	overflow: hidden;
-	counter-reset: step;
+.font-weight-normal { /* For the title on the cards */
+    text-transform: uppercase;
 }
 
-#progressbar li {
-	list-style-type: none;
-	color: black;
-	text-transform: uppercase;
-	font-size: 11px;
-	width: 33.33%;
-	float: left;
-	position: relative;
+.btn-primary { /* Sign up Button Style */
+    background: #086495;
+    color: #ffffff;
+    border: none;
+
 }
 
-#progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
+.btn-primary:hover {
+    background: #0a7ab6;
+    color: #ffffff;
+
 }
 
-#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; 
-}
-#progressbar li:first-child:after {
-	content: none; 
+
+/*Print and Online Page Styles*/
+
+.stepwizard-step p {
+    margin-top: 10px;
+    color: #086495;
 }
 
-#progressbar li.active:before,  #progressbar li.active:after{
-	background: #995a1a;
-	color: white;
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #086495;
+
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+
+}
+
+h3 {
+    font: Roboto, sans-serif;
+    font-weight: 400;
+}
+
+label {
+    color: #086495;
+    font: Roboto, sans-serif;
+    font-weight: 200;
+}
+
+
+
+.nextBtn {
+    background-color: #086495;
+    width: 100px;
+    margin-right: 150px;
+}
+
+.form-control {
+    width: 50%;
+}
+
+.selectpicker {
+    width: 50%;
+    height: 35px;
+}
+
+select {
+    width: 50%;
+    height: 32px;
 }
