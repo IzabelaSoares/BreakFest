@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="submit" name="button" class="btn login_btn">Entrar</button>
+                            <button type="submit" name="button" onclick="confirmaLogin()" class="btn login_btn">Entrar</button>
                         </div>
                     </form>
                 </div>
@@ -65,5 +65,6 @@
             </div>
         </div>
     </div>
+        <script src="scripts/confirmacao-de-login.js"></script>
 </body>
 </html>
