@@ -24,12 +24,12 @@
 
         <link href="styles/preferenciapagamento.css" rel="stylesheet">
         <script src="scripts/preferencia-de-pagamento.js"></script>
-        
+
         <%
             Banco lista = new Banco();
             List<Banco> listabanco = lista.consultarGeral();
         %>
-        
+
     </head>
     <body>
         <div class="center-div">
@@ -38,78 +38,80 @@
                     <div class="col-md-12">
                         <h3>Como deseja receber seu pagamento?</h3>
                         <label>Escolha uma opção</label> <br/>
-                        <select id="pagamento" onchange="formaPagamento()">
-                            <option value="NA" selected=""></option>
-                            <option value="pix">Pix</option>
-                            <option value="deposito">Depósito Bancário</option>
-                        </select>
-                        <br/> <br/><br/><br/>
-                        <div id="pix-pagamento" class="payment" style="display:none">           
-                            <div class="form-group owner">
-                                <label for="pix_metodo">Escolha sua Chave Pix</label><br>
-                                <select id="pix_metodo" onchange="chavePix()">
-                                    <option value="NA" selected=""></option>
-                                    <option value="cnpj">CNPJ</option>
-                                    <option value="email">Email</option>
-                                    <option value="telefone">Telefone</option>
-                                </select>
-                            </div>
-                            <div id="cnpj-pagamento" class="form-group"style="display:none">
-                                <label for="chave-cnpj">Informe seu CNPJ</label>
-                                <input type="text" class="form-control" id="chave-cnpj">
-                            </div>
-                            <div id="email-pagamento" class="form-group"style="display:none">
-                                <label for="chave-email">Informe seu Email</label>
-                                <input type="text" class="form-control" id="chave-email">
-                            </div>
-                            <div id="telefone-pagamento" class="form-group"style="display:none">
-                                <label for="chave-telefone">Informe seu Telefone</label>
-                                <input type="text" class="form-control" id="chave-telefone">
-                            </div>
-                        </div>  
+                        <form action="recebe-dados/recebepagamento.jsp" method="post" >
+                            <select id="pagamento" onchange="formaPagamento()">
+                                <option value="NA" selected=""></option>
+                                <option value="pix">Pix</option>
+                                <option value="deposito">Depósito Bancário</option>
+                            </select>
+                            <br/> <br/><br/><br/>
+                            <div id="pix-pagamento" class="payment" style="display:none">           
+                                <div class="form-group owner">
+                                    <label for="pix_metodo">Escolha sua Chave Pix</label><br>
+                                    <select id="pix_metodo" onchange="chavePix()">
+                                        <option value="NA" selected=""></option>
+                                        <option value="cnpj">CNPJ</option>
+                                        <option value="email">Email</option>
+                                        <option value="telefone">Telefone</option>
+                                    </select>
+                                </div>
+                                <div id="cnpj-pagamento" class="form-group"style="display:none">
+                                    <label for="chave-cnpj">Informe seu CNPJ</label>
+                                    <input type="text" class="form-control" id="chave-cnpj">
+                                </div>
+                                <div id="email-pagamento" class="form-group"style="display:none">
+                                    <label for="chave-email">Informe seu Email</label>
+                                    <input type="text" class="form-control" id="chave-email">
+                                </div>
+                                <div id="telefone-pagamento" class="form-group"style="display:none">
+                                    <label for="chave-telefone">Informe seu Telefone</label>
+                                    <input type="text" class="form-control" id="chave-telefone">
+                                </div>
+                            </div>  
 
 
-                        <div id="deposito-pagamento" class ="payment" style="display:none">
-                            <div class="form-group">
-                                <label for="conta-cnpj">Informe o CNPJ</label>
-                                <input type="text" class="form-control" id="conta-cnpj"> 
-                            </div>
-                            <div class="form-group" id="accttype">
-                                <label>Banco</label> <br/>
-                                <select name="tipo-banco" id="accounttype">
-                                    <option value=""> </option>
-                                    <% for(Banco bancos: listabanco){ %>  
-                                    <option value="<% out.write(String.valueOf(bancos.getNumero()));%>">
-                                        <% out.write(String.valueOf(bancos.getNumero() +" | "+ bancos.getBanco())); %>
-                                    </option>
-                                    <%}%>
-                                </select><br/>
-                            </div>
-                            <div class="form-group">
-                                <label for="conta-bancaria">Conta Bancaria</label>
-                                <input type="text" class="form-control" id="conta-bancaria"> 
-                            </div>
-                            <div class="form-group" id="accttype">
-                                <label>Tipo da Conta</label> <br/>
-                                <select name="tipo-conta" id="accounttype">
-                                    <option value=""> </option>
-                                    <option value="poupanca">Poupança</option>
-                                    <option value="corrente">Corrente</option>
-                                </select> <br/> </div>
-                            <div class="form-group">
-                                <label for="agencia">Agência</label>
-                                <input type="text" class="form-control" id="agencia"> </div>
-                            <div class="form-group">
-                                <label for="dia">Selecione o dia que deseja receber o pagamento</label> <br/>
-                                <select name="dia" id="dia">
-                                    <option value=""></option>
-                                    <option value="10"> 05</option>
-                                    <option value="10"> 10</option>
-                                    <option value="25"> 25</option>
-                                </select> 
-                            </div>
-                        </div>        
-                        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Salvar</button>
+                            <div id="deposito-pagamento" class ="payment" style="display:none">
+                                <div class="form-group">
+                                    <label for="conta-cnpj">Informe o CNPJ</label>
+                                    <input type="text" class="form-control" id="conta-cnpj"> 
+                                </div>
+                                <div class="form-group" id="accttype">
+                                    <label>Banco</label> <br/>
+                                    <select name="tipo-banco" id="accounttype">
+                                        <option value=""> </option>
+                                        <% for (Banco bancos : listabanco) { %>  
+                                        <option value="<% out.write(String.valueOf(bancos.getNumero()));%>">
+                                            <% out.write(String.valueOf(bancos.getNumero() + " | " + bancos.getBanco())); %>
+                                        </option>
+                                        <%}%>
+                                    </select><br/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="conta-bancaria">Conta Bancaria</label>
+                                    <input type="text" class="form-control" id="conta-bancaria"> 
+                                </div>
+                                <div class="form-group" id="accttype">
+                                    <label>Tipo da Conta</label> <br/>
+                                    <select name="tipo-conta" id="accounttype">
+                                        <option value=""> </option>
+                                        <option value="poupanca">Poupança</option>
+                                        <option value="corrente">Corrente</option>
+                                    </select> <br/> </div>
+                                <div class="form-group">
+                                    <label for="agencia">Agência</label>
+                                    <input type="text" class="form-control" id="agencia"> </div>
+                                <div class="form-group">
+                                    <label for="dia">Selecione o dia que deseja receber o pagamento</label> <br/>
+                                    <select name="dia" id="dia">
+                                        <option value=""></option>
+                                        <option value="10"> 05</option>
+                                        <option value="10"> 10</option>
+                                        <option value="25"> 25</option>
+                                    </select> 
+                                    </form>
+                                </div>
+                            </div>        
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Salvar</button>
                     </div>
                 </div>
             </div>
