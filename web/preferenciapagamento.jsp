@@ -1,9 +1,11 @@
 <%-- 
     Document   : preferenciapagamento
     Created on : 11 de ago. de 2021, 14:44:57
-    Author     : Ricardo
+    Author     : Ricardo e Izabela
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="dominio.Banco"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +24,12 @@
 
         <link href="styles/preferenciapagamento.css" rel="stylesheet">
         <script src="scripts/preferencia-de-pagamento.js"></script>
+        
+        <%
+            Banco lista = new Banco();
+            List<Banco> listabanco = lista.consultarGeral();
+        %>
+        
     </head>
     <body>
         <div class="center-div">
@@ -65,6 +73,17 @@
                             <div class="form-group">
                                 <label for="conta-cnpj">Informe o CNPJ</label>
                                 <input type="text" class="form-control" id="conta-cnpj"> 
+                            </div>
+                            <div class="form-group" id="accttype">
+                                <label>Banco</label> <br/>
+                                <select name="tipo-banco" id="accounttype">
+                                    <option value=""> </option>
+                                    <% for(Banco bancos: listabanco){ %>  
+                                    <option value="<% out.write(String.valueOf(bancos.getNumero()));%>">
+                                        <% out.write(String.valueOf(bancos.getNumero() +" | "+ bancos.getBanco())); %>
+                                    </option>
+                                    <%}%>
+                                </select><br/>
                             </div>
                             <div class="form-group">
                                 <label for="conta-bancaria">Conta Bancaria</label>
