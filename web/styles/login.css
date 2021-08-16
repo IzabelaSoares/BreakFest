@@ -1,4 +1,4 @@
-/* geral */
+/* Para todo a página */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
 body, html {
@@ -9,7 +9,7 @@ body, html {
     font-family: Mukta;
 }
 
-/* card principal */ 
+/* Card principal da página */ 
 
 .user_card {
     height: 400px;
@@ -29,7 +29,7 @@ body, html {
 
 }
 
-/* logo-cuppa */
+/* Logo do Cuppa */
 
 .brand_logo_container {
     position: absolute;
@@ -48,13 +48,13 @@ body, html {
     border: 2px;
 }
 
-/* container de dados */
+/* Container */
 
 .form_container {
     margin-top: 100px;
 }
 
-/* login */
+/* Parte de login */
 
 .login_btn {
     width: 100%;

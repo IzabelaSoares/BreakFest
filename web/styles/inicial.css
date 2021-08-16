@@ -1,9 +1,11 @@
-/* banner */
+/* Para todo a página */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
 body {
     background-color: #FFF5EB;
 }
+
+/* Cuppa inicial junto com a barra de pesquisa */
 
 #banner-info img, form, input {
     display: inline-block;
@@ -27,7 +29,7 @@ body {
     margin-left: auto;
     text-align: center;
     padding: 50px;
-    
+
 }
 
 #cuppa {
@@ -37,7 +39,39 @@ body {
     top: 150px;
 }
 
-/* about */ 
+#txtBusca{
+    float:right;
+    background-color:#ffffff;
+    padding-left:3px;
+    font-size:20px;
+    border: none;
+    height:50px;
+    width:388px;
+    margin: -1px -1px;
+}
+
+#divBusca{
+    border:solid 2px #995a1a;
+    height:52px;
+    width:390px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
+
+/* Titulos para melhor leitura, usados em toda a página */ 
+
+#destaque {
+    font-size: 20px;
+}
+
+#parag {
+    font-size: 30px;
+    padding-top: 6px;
+}
+
+/* About (sobre) da página */ 
 
 #about-section {
     text-align: center;
@@ -59,7 +93,7 @@ body {
 
 }
 
-/* padarias */
+/* As padarias que estão em destaques */
 
 #padarias-section {
     margin-top: -100px;
@@ -118,7 +152,7 @@ body {
     padding-top: 5px;
 }
 
-/* footer */ 
+/* Footer de dúvidas da página */ 
 
 footer {
     padding: 50px 0px;
@@ -153,37 +187,4 @@ footer input, footer textarea {
 }
 footer .detail {
     font-weight: bold;
-}
-
-/*Barra de pesquisa*/
-
-#txtBusca{
-  float:right;
-  background-color:#ffffff;
-  padding-left:3px;
-  font-size:20px;
-  border: none;
-  height:50px;
-  width:388px;
-  margin: -1px -1px;
-}
-
-#divBusca{
-  border:solid 2px #995a1a;
-  height:52px;
-  width:390px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 3%;
-  margin-bottom: 1%;
-}
- /* Titulos para melhor leitura, usados em toda a página */ 
- 
-#destaque {
-    font-size: 20px;
-}
-
-#parag {
-    font-size: 30px;
-    padding-top: 6px;
 }
