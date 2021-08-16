@@ -1,9 +1,7 @@
+/* Para toda a página */
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
-
-
-
-/*General Styles*/
 
 html {
     font-size: 12px;
@@ -18,7 +16,7 @@ html {
 
 
 
-/*Subscription Page Content Styles*/
+/* Formato do container */
 
 .container {
     max-width: 960px;
@@ -33,7 +31,7 @@ html {
     height: 400px;
 }
 
-.card-body li { /* Adds line spacing for card descriptions */
+.card-body li { /* Adiciona a linha para espaçamento dos cards */
     padding: 8px 0;
 }
 
@@ -47,16 +45,16 @@ html {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-.img-responsive { /* Measurements for KPC Logo on top */
+.img-responsive { 
     height: 90px;
     width: 150px;
 }
 
-.font-weight-normal { /* For the title on the cards */
+.font-weight-normal { /* Para os títulos nos cards */
     text-transform: uppercase;
 }
 
-.btn-primary { /* Sign up Button Style */
+.btn-primary { /* Estilo do botão de login */
     background: #086495;
     color: #ffffff;
     border: none;
@@ -68,9 +66,6 @@ html {
     color: #ffffff;
 
 }
-
-
-/*Print and Online Page Styles*/
 
 .stepwizard-step p {
     margin-top: 10px;

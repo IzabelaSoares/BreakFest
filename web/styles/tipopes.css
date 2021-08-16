@@ -1,4 +1,4 @@
-/* about */
+/* Para toda a página */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
 * {
@@ -8,6 +8,8 @@
 body {
 background-color: #FFF5EB;    
 }
+
+/* Informação para melhor entendimento do usuário */
 
 #about-section {
     text-align: center;
@@ -30,7 +32,7 @@ background-color: #FFF5EB;
     background-color: #E8E8E8;
 }
 
-/* container do tipopessoa */
+/* Container do tipo de pessoa */
 
 #tipopess-section {
     margin-top: -100px;
@@ -85,7 +87,7 @@ background-color: #FFF5EB;
     padding-top: 5px;
 }
 
-/* botões de input */
+/* Botões personalizados */
 
 button {
     font: mukta;

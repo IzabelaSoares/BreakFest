@@ -1,6 +1,6 @@
 /* 
 Aqui temos a NavBar que é igual independentemente da tela
-em que foi aplicado, o CSS geral do programa.
+em que foi aplicada.
 */
 
 /* geral */
@@ -59,41 +59,4 @@ h2 {
 
 #navbar-list li a:hover {
     border-bottom: 1px solid #FFF;
-}
-
-/* footer */ 
-
-footer {
-    padding: 50px 0px;
-    background-color: #995a1a;
-    color: #FFF;
-    text-align: center;
-}
-
-footer img {
-    height: 90px;
-    margin: 30px 0px;
-}
-
-footer p {
-    margin-top: 25px;
-}
-
-footer form {
-    widht: 400px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-footer input, footer textarea {
-    border: none;
-    padding: 15px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    width: 399px;
-    display: block;
-}
-
-footer .detail {
-    font-weight: bold;
 }
