@@ -12,7 +12,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Pessoa</title>
-        <script src="scripts/validacaoPessoaFisica.js"></script>
+        <script src="scripts/pessoa-fisica.js"></script>
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">

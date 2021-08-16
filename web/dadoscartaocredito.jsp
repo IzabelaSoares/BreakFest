@@ -11,7 +11,7 @@
         <title>CodePen - cartão para o cuppa</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet">
         <link rel="stylesheet" href="styles/cartaoestilo.css">
-        <script src="scripts/cartaoCredito.js"></script>
+        <script src="scripts/cartao-de-credito.js"></script>
     </head>
     <body>
         <!-- partial:index.partial.html -->
