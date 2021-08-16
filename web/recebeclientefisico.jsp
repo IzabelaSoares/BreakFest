@@ -13,7 +13,7 @@
     UsuarioFisico login = new UsuarioFisico();
     
     //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
-    if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
+    if(login.verificaExistencia(request.getParameter("email")) || pf.verificaExistenciaJuridica(request.getParameter("email"))){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
         response.sendRedirect("login.jsp");
@@ -51,7 +51,7 @@
         } else {
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
-            response.sendRedirect("cadastrofisico.jsp");
+            response.sendRedirect("login.jsp");
         }
     }
 %>        

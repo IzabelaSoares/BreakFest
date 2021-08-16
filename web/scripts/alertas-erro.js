@@ -13,6 +13,15 @@ function alertar(parametro) {
         });
     }
    
+   //Cadastro não cadastrado
+    else if (parametro === "UsuarioNaoCadastrado") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ops...',
+            text: 'Problemas ao cadastrar!'
+        });
+    }
+   
     //Cadastro não salvo CFP já existente
     else if (parametro === "CpfJaRegistrado") {
         Swal.fire({
