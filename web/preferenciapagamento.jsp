@@ -39,7 +39,7 @@
                         <h3>Como deseja receber seu pagamento?</h3>
                         <label>Escolha uma opção</label> <br/>
                         <form action="recebe-dados/recebepagamento.jsp" method="post" >
-                            <select id="pagamento" onchange="formaPagamento()">
+                            <select id="pagamento" name="pagamento" onchange="formaPagamento()">
                                 <option value="NA" selected=""></option>
                                 <option value="pix">Pix</option>
                                 <option value="deposito">Depósito Bancário</option>
@@ -48,7 +48,7 @@
                             <div id="pix-pagamento" class="payment" style="display:none">           
                                 <div class="form-group owner">
                                     <label for="pix_metodo">Escolha sua Chave Pix</label><br>
-                                    <select id="pix_metodo" onchange="chavePix()">
+                                    <select name="fktipochave" id="pix_metodo" onchange="chavePix()">
                                         <option value="NA" selected=""></option>
                                         <option value="cnpj">CNPJ</option>
                                         <option value="email">Email</option>
@@ -57,15 +57,15 @@
                                 </div>
                                 <div id="cnpj-pagamento" class="form-group"style="display:none">
                                     <label for="chave-cnpj">Informe seu CNPJ</label>
-                                    <input type="text" class="form-control" id="chave-cnpj">
+                                    <input type="text" name="chave-cnpj" class="form-control" id="chave-cnpj">
                                 </div>
                                 <div id="email-pagamento" class="form-group"style="display:none">
                                     <label for="chave-email">Informe seu Email</label>
-                                    <input type="text" class="form-control" id="chave-email">
+                                    <input type="text" class="form-control" name="chave-email" id="chave-email">
                                 </div>
                                 <div id="telefone-pagamento" class="form-group"style="display:none">
                                     <label for="chave-telefone">Informe seu Telefone</label>
-                                    <input type="text" class="form-control" id="chave-telefone">
+                                    <input type="text" class="form-control" name="chave-telefone" id="chave-telefone">
                                 </div>
                             </div>  
 
