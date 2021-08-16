@@ -14,10 +14,9 @@
     
     //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
     if(login.verificaExistencia(request.getParameter("email")) && pf.verificaExistenciaJuridica(request.getParameter("email"))){
-        //adicionar aqui
         //email já está sendo utilizado
-        request.getSession().setAttribute("resultado", "LoginJaUtilizado");
-        response.sendRedirect("login.jsp");
+        request.getSession().setAttribute("resultado", "EmailJaRegistrado");
+        response.sendRedirect("cadastrofisico.jsp");
     //se o cpf já está sendo utilizado não faz cadastro
     }else if(pf.verificaExistenciaCpf(request.getParameter("cpf"))){
         //cpf já está sendo utilizado
