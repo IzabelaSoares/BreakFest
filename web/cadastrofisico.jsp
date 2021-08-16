@@ -18,13 +18,13 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <link href="styles/util.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
     </head>
     <!-- Inicio da NavBar de cima -->
-    <header id="navbar">
+    <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
@@ -36,7 +36,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         </nav>
     </header>
     <!-- Fim da NavBar de cima -->
-    <body class="form-v10" onload="javascript: alertar(resultado)" >
+    <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
                 <form class="form-detail" action="recebe-dados/recebeclientefisico.jsp" method="post" id="myform">
