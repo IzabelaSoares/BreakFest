@@ -36,7 +36,7 @@
                                 <td>
                                     <div class="col-md-3">
                                         <div class="wsk-cp-product">
-                                            <div class="wsk-cp-img"><img src="4.png" alt="Padaria" class="img-responsive" /></div>
+                                            <div class="wsk-cp-img"><img src="imagens/pad1.jpg" alt="Padaria" class="img-responsive" /></div>
                                             <div class="wsk-cp-text">
                                                 <div class="title-product"><h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3></div>
                                                 <div class="description-prod">
