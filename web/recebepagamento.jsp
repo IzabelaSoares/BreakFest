@@ -45,11 +45,12 @@
         Deposito dep = new Deposito();
 
         //recebe os valores da tela HTML
-        dep.setNome(request.getParameter("nome"));
-        dep.setCnpj(request.getParameter("cnpj"));
-        dep.setNumeroBanco(Integer.parseInt(request.getParameter("numerobanco")));
-        dep.setFkAgencia(request.getParameter("fkagencia"));
-        dep.setConta(Integer.parseInt(request.getParameter("conta")));
+        dep.setFkCnpj(request.getParameter("cnpj"));
+        dep.setConta(request.getParameter("banco"));
+        dep.setBanco(request.getParameter("conta"));
+        dep.setTipoConta(request.getParameter("tipo-conta"));
+        dep.setAgencia(request.getParameter("agencia"));
+        dep.setDataPagto(request.getParameter("dia"));
 
         //se cadastrar pessoa e o login dela
         if (dep.cadastrarDeposito()) {
@@ -57,7 +58,7 @@
             response.sendRedirect("perfil.jsp");
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-            response.sendRedirect("perfil.jsp");
+            response.sendRedirect("preferenciapagamento.jsp");
         }
     }
 %>

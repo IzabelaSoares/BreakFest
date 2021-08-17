@@ -3,143 +3,109 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
-html {
-    font-size: 12px;
-    font: Roboto, sans-serif;
+body {
+    background-color: #e5e5e5;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 14px;
-    }
-}
-
-
-
-/* Formato do container */
-
-.container {
-    max-width: 960px;
-}
-
-.pricing-header {
-    max-width: 700px;
-}
-
-.card-deck .card {
-    min-width: 200px;
-    height: 400px;
-}
-
-.card-body li { /* Adiciona a linha para espaçamento dos cards */
-    padding: 8px 0;
-}
-
-
-.card-header {
-    border-bottom: 4px solid #086495;
-
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-.img-responsive { 
-    height: 90px;
-    width: 150px;
-}
-
-.font-weight-normal { /* Para os títulos nos cards */
-    text-transform: uppercase;
-}
-
-.btn-primary { /* Estilo do botão de login */
-    background: #086495;
-    color: #ffffff;
-    border: none;
-
-}
-
-.btn-primary:hover {
-    background: #0a7ab6;
-    color: #ffffff;
-
-}
-
-.stepwizard-step p {
-    margin-top: 10px;
-    color: #086495;
-}
-
-.stepwizard-row {
-    display: table-row;
-}
-
-.stepwizard {
-    display: table;
-    width: 100%;
-    position: relative;
-}
-
-
-.stepwizard-row:before {
-    top: 14px;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 100%;
-    height: 2px;
-    background-color: #086495;
-
-}
-
-.stepwizard-step {
-    display: table-cell;
-    text-align: center;
-    position: relative;
-}
-
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-
-}
+/* Título */
 
 h3 {
     font: Roboto, sans-serif;
     font-weight: 400;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* form */
+
+#far{
+    padding-top: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 28.3%;
+}
+
+.container button {
+    width: 12%;
+    height: 4%;
+    position: relative;
+    left: 9%;
 }
 
 label {
-    color: #086495;
+    color: #995a1a;
     font: Roboto, sans-serif;
     font-weight: 200;
 }
 
-
-
-.nextBtn {
-    background-color: #086495;
-    width: 100px;
-    margin-right: 150px;
-}
-
 .form-control {
-    width: 50%;
+    width: 30%;
 }
 
-.selectpicker {
-    width: 50%;
+select{
+    width: 30%;
     height: 35px;
+    border-radius: 5px;
 }
 
-select {
-    width: 50%;
-    height: 32px;
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
+/* Botão de submit */
+
+div.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 30vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button{
+    padding-bottom: 5px;
+    padding-top: 10px;
+    font-size: 22px;
+    border: 2px solid #995a1a;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer; 
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+button p{
+    position: relative;
+    z-index: 1;
+    color: #995a1a;    
+}
+
+button span{
+    width: 0;
+    height: calc(100% + 2px);
+    background-color: #995a1a;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) skewX(40deg);
+}
+
+button:hover span{
+    width: 150%;
+}
+
+button:hover p{
+    color: white;
 }
