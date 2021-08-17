@@ -50,13 +50,14 @@ public class UsuarioJuridico {
     }  
 
     public boolean cadastrarUsuario(){
-        String sql = "insert into usuariojuridico(email,senha) values(?,?)";
+        String sql = "insert into usuariojuridico(fkcnpj, email,senha) values(?, ?, ?)";
         Connection con = Conexao.conectar();
        
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
-            stm.setString(2, this.senha);
+            stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.email);
+            stm.setString(3, this.senha);
             stm.execute();           
         }    catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
