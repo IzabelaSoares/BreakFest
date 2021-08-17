@@ -60,6 +60,12 @@ body {
     margin-bottom: 1%;
 }
 
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
 /* Titulos para melhor leitura, usados em toda a página */ 
 
 #destaque {
@@ -130,6 +136,7 @@ body {
 .padarias-container img {
     width: 90%;
     padding: 15px;
+    border-radius: 10px;
     margin-bottom: 25px;
     border-top: 1px solid #995a1a;
     border-left: 1px solid #995a1a;

@@ -1,66 +1,193 @@
+<%@page import="java.util.List"%>
+<%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Padarias</title>
-        <link href="styles/util.css" rel="stylesheet">
-        <link href="styles/procurarpadaria.css" rel="stylesheet">
-        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title>Padarias</title>
+  <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="300" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="./style.css">
 
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
-        <script src="scripts/alertas-erro.js"></script>
-        <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>  
-    </head>
-    <!-- Inicio da NavBar de cima -->
-    <body onload="javascript: alertar(resultado)">
-        <header id="navbar">
-            <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-            <h2> Break Fest </h2>
-            <nav>
-                <ul id="navbar-list">
-                    <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
-                    <li><a href="tipopessoa.jsp">Cadastro</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Fim da NavBar de cima -->
-        <br>
-        <!-- Barra de section -->
-        <section>
-            <!-- Padaria 1 -->
-            <div class="container">
-                <div class="padarias-container">       
-                    <img src="imagens/Padaria-Central.png" alt="Padaria Central">      
-                    <h3>Padaria Central</h3>
-                    <p class="parag"></p>
-                    <p> Localizada na rua Pedro de Queirós,</p>
-                    <p>especializada em pães,funcionando desde 1850,</p>
-                    <p>é a padaria mais velha de Mogi das Cruzes,</p>
-                    <p>com ótimos funcionários e extremamente </p>
-                    <p>qualificada para servir nossos clientes.</p>
-                    <p> Confira já: </p>
-                    <br>
-                    <a href="umapadaria.jsp"><button name="Checar">Checar</button></a>
-                </div>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container text-center">
+    <h1>Abaixo você encontrará todas as nossas cadastradas</h1>
+    <br>
+</div>
+
+<% 
+    PessoaJuridica pj = new PessoaJuridica();
+    List<PessoaJuridica> listageral = pj.consultarGeral();
+    
+    %>
+<div class="shell">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="title-product">
+                <% for (PessoaJuridica tudo : listageral) { %>
+              <h3><%out.write(String.valueOf(tudo.getNomeFantasia()));}%></h3>
             </div>
-        </section>
-        <!-- Barra de section -->
-        <section>
-            <!-- Padaria 2 -->
-            <div class="container">
-                <div class="padarias-container">    
-                    <img src="imagens/Padaria-Multipao.png" alt="Padaria Multipão">
-                    <h3>Padaria Multipão</h3>
-                    <p>Confeitaria extremamente refinada e os salgados mais frescos e deliciosos</p>
-                    <p>da cidade, entregamos com frete grátis para todo o estado do Rio de Janeiro,</p>
-                    <p>nota máxima em todos os delivery's, inclusive neste também. </p>
-                    <p>Confira já:</p>
-                    <br>
-                    <a href="umapadaria.jsp"><button name="checar">Checar</button></a>
-                </div>
+            <div class="description-prod">
+              <p></p>
             </div>
-        </section>
-    </body>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-XL_Ba-178Fo/WVSvm5AbApI/AAAAAAAAAK4/X5109HTqUiAhPjbmz4NFVHcpL7ZWe6T3ACPcBGAYYCw/s1600/wow-29.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://3.bp.blogspot.com/-iUes8qr4uC8/WVSvl6Wf_fI/AAAAAAAAAKs/JiTUUVvdbqEC_QGGaQhuVJiezIN3LIqEgCPcBGAYYCw/s1600/IMG_5367-bp.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="title-product">
+              <h3>My face not my heart cvf ggf gfg g</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Ethnic</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Introvert</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-XL_Ba-178Fo/WVSvm5AbApI/AAAAAAAAAK4/X5109HTqUiAhPjbmz4NFVHcpL7ZWe6T3ACPcBGAYYCw/s1600/wow-29.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Beauty</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://3.bp.blogspot.com/-iUes8qr4uC8/WVSvl6Wf_fI/AAAAAAAAAKs/JiTUUVvdbqEC_QGGaQhuVJiezIN3LIqEgCPcBGAYYCw/s1600/IMG_5367-bp.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Drama</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart cvf ggf gfg g</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
 </html>
