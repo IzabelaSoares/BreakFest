@@ -9,6 +9,6 @@
         <title>Padarias</title>
     </head>
     <body>
-        <p> pastel </p>
+        <p>Pastel</p>
     </body>
 </html>
