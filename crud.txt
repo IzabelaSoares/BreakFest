@@ -66,6 +66,12 @@ create table categoria(
 	primary key(id)
 );
 
+create table unidadedemedida(
+	id serial not null,
+	nome varchar(40) not null,
+	primary key (id)
+);
+
 create table produto(
 	id serial not null,
 	titulo varchar(30) not null,
@@ -73,10 +79,12 @@ create table produto(
 	fkcnpj varchar(20) not null,
 	descricao varchar(100) not null,
 	preco float4 not null,
-	medida varchar(30) not null,
-	unidadedemedida varchar(15) not null,
+	tamanho varchar(30) not null,
+	fkunidadedemedida int not null,
+	peso float4 not null,
 	primary key(id),
-	foreign key(fkcnpj) references pessoajuridica(cnpj)
+	foreign key(fkcnpj) references pessoajuridica(cnpj),
+	foreign key(fkunidadedemedida) references unidadedemedida(id)
 );
 
 create table imagemproduto(
