@@ -13,6 +13,7 @@ public class Deposito {
     private String fkCnpj;
     private String conta;
     private String banco;
+    private String tipoConta;
     private String agencia;
     private String dataPagto;
     
@@ -22,8 +23,8 @@ public class Deposito {
     public boolean cadastrarDeposito(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO deposito " 
-                   +"(fkcnpj, conta, banco, agencia, datapagto) " 
-                   +"VALUES(?, ?, ?, ?, ?)";
+                   +"(fkcnpj, conta, banco, tipoconta, agencia, datapagto) " 
+                   +"VALUES(?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -32,8 +33,9 @@ public class Deposito {
             stm.setString(1, this.fkCnpj);
             stm.setString(2, this.conta);
             stm.setString(3, this.banco);
-            stm.setString(4, this.agencia);
-            stm.setString(5, this.dataPagto);
+            stm.setString(4, this.tipoConta);
+            stm.setString(5, this.agencia);
+            stm.setString(6, this.dataPagto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -48,7 +50,7 @@ public class Deposito {
     public boolean alterarDeposito(){
         //comando de execução de banco de dados 
         String sql = "UPDATE deposito " 
-                + "SET fkcnpj=?, conta=?, banco=?, agencia=? , datapagto=? "
+                + "SET fkcnpj=?, conta=?, banco=?, tipoconta=?, agencia=? , datapagto=? "
                 + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -58,9 +60,10 @@ public class Deposito {
             stm.setString(1, this.fkCnpj);
             stm.setString(2, this.conta);
             stm.setString(3, this.banco);
-            stm.setString(4, this.agencia);
-            stm.setString(5, this.dataPagto);
-            stm.setString(6, this.fkCnpj);
+            stm.setString(4, tipoConta);
+            stm.setString(5, this.agencia);
+            stm.setString(6, this.dataPagto);
+            stm.setString(7, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -156,6 +159,14 @@ public class Deposito {
 
     public void setDataPagto(String dataPagto) {
         this.dataPagto = dataPagto;
+    }
+
+    public String getTipoConta() {
+        return tipoConta;
+    }
+
+    public void setTipoConta(String tipoConta) {
+        this.tipoConta = tipoConta;
     }
     
     

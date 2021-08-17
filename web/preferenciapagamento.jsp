@@ -85,11 +85,11 @@
                 <!-- Input do CNPJ -->
                 <div id="deposito-pagamento" style="display:none">
                     <label for="conta-cnpj">Informe o CNPJ</label>
-                    <input type="text" class="form-control" id="conta-cnpj" placeholder="Informe o CNPJ"> 
+                    <input name="cnpj" type="text" class="form-control" id="conta-cnpj" placeholder="Informe o CNPJ"> 
                     <br>
                     <!-- Input do banco -->
                     <label>Banco</label> <br/>
-                    <select name="tipo-banco" id="accounttype">
+                    <select name="banco" id="accounttype">
                         <option value="NA" selected disabled hidden>Selecione aqui seu banco</option>
                         <% for (Banco bancos : listabanco) { %>  
                         <option value="<% out.write(String.valueOf(bancos.getNumero()));%>">
@@ -100,7 +100,7 @@
                     <br><br>
                     <!-- Input do número da conta -->
                     <label for="conta-bancaria">Conta Bancaria</label>
-                    <input type="text" class="form-control" id="conta-bancaria" placeholder="Informe o número da conta"> 
+                    <input name="conta" type="text" class="form-control" id="conta-bancaria" placeholder="Informe o número da conta"> 
                     <br>
 
                     <!-- Input do tipo da conta -->
@@ -113,7 +113,7 @@
                     <br><br>
                     <!-- Input do número da agência -->
                     <label for="agencia">Agência</label>
-                    <input type="text" class="form-control" id="agencia" placeholder="Informe a agência">
+                    <input name="agencia" type="text" class="form-control" id="agencia" placeholder="Informe a agência">
                     <br>
 
                     <!-- Input do dia de recebimento -->

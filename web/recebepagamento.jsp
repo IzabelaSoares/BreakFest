@@ -45,9 +45,10 @@
         Deposito dep = new Deposito();
 
         //recebe os valores da tela HTML
-        dep.setFkCnpj(request.getParameter("conta-cnpj"));
-        dep.setConta(request.getParameter("tipo-banco"));
-        dep.setBanco(request.getParameter("conta-bancaria"));
+        dep.setFkCnpj(request.getParameter("cnpj"));
+        dep.setConta(request.getParameter("banco"));
+        dep.setBanco(request.getParameter("conta"));
+        dep.setTipoConta(request.getParameter("tipo-conta"));
         dep.setAgencia(request.getParameter("agencia"));
         dep.setDataPagto(request.getParameter("dia"));
 
