@@ -35,8 +35,8 @@ public class PessoaJuridica {
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica (cnpj, razaosocial, nomefantasia, "
                    + "email, telefone, cep, estado, cidade, bairro, rua, "
-                   + "numero, complemento, sobrepadaria)" 
-                   + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "numero, complemento, sobrepadaria) " 
+                   + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{

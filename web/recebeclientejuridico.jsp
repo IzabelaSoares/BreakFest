@@ -43,6 +43,7 @@
 
         //Passar valores da tela e cadastrar o usuário
         login.setEmail(request.getParameter("email"));
+        login.setFkCnpj(request.getParameter("cnpj"));
         login.setSenha(request.getParameter("senha"));
 
         //se cadastrar pessoa e o login dela
@@ -53,5 +54,6 @@
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
             response.sendRedirect("login.jsp");
+        }
     }
 %>        
