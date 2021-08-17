@@ -10,12 +10,11 @@ import java.sql.SQLException;
 public class Deposito {
     //declaração de variáveis
     private int id;
-    private String nome;
     private String fkCnpj;
-    private String email;
-    private int numeroBanco;
+    private String conta;
     private String banco;
-    private int conta;
+    private String agencia;
+    private String dataPagto;
     
     //métodos
     
@@ -23,19 +22,18 @@ public class Deposito {
     public boolean cadastrarDeposito(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO deposito " 
-                   +"(nome, fkcnpj, email, numerobanco, banco, conta) " 
-                   +"VALUES(?, ?, ?, ?, ?, ?)";
+                   +"(fkcnpj, conta, banco, agencia, datapagto) " 
+                   +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
-            stm.setString(2, this.fkCnpj);
-            stm.setString(3, this.email);
-            stm.setInt(4, this.numeroBanco);
-            stm.setString(6, this.banco);
-            stm.setInt(7, this.conta);
+            stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.conta);
+            stm.setString(3, this.banco);
+            stm.setString(4, this.agencia);
+            stm.setString(5, this.dataPagto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -50,20 +48,19 @@ public class Deposito {
     public boolean alterarDeposito(){
         //comando de execução de banco de dados 
         String sql = "UPDATE deposito " 
-                + "SET nome=?, cnpj=?, email=?, numerobanco=?, fkagencia=?, conta=? "
+                + "SET fkcnpj=?, conta=?, banco=?, agencia=? , datapagto=? "
                 + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.nome);
-            stm.setString(2, this.fkCnpj);
-            stm.setString(3, this.email);
-            stm.setInt(4, this.numeroBanco);
-            stm.setString(5, this.banco);
-            stm.setInt(6, this.conta);
-            stm.setString(7, this.fkCnpj);
+            stm.setString(1, this.fkCnpj);
+            stm.setString(2, this.conta);
+            stm.setString(3, this.banco);
+            stm.setString(4, this.agencia);
+            stm.setString(5, this.dataPagto);
+            stm.setString(6, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -96,14 +93,14 @@ public class Deposito {
     }
     
     //método para verificar se pessoa juridica possui dados de pagamento
-    public boolean verificaDados(String email){
+    public boolean verificaDados(String cnpj){
         //comando de execução de banco de dados
-        String sql = "select * from deposito where email = ?";
+        String sql = "select * from deposito where fkcnpj = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, email);
+            stm.setString(1, cnpj);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
@@ -113,61 +110,12 @@ public class Deposito {
     }
     
     //área de getters e setters
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCnpj() {
-        return fkCnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.fkCnpj = cnpj;
-    }
-
-    public int getNumeroBanco() {
-        return numeroBanco;
-    }
-
-    public void setNumeroBanco(int numerobanco) {
-        this.numeroBanco = numerobanco;
-    }
-
-    public String getFkAgencia() {
-        return banco;
-    }
-
-    public void setFkAgencia(String fkAgencia) {
-        this.banco = fkAgencia;
-    }
-
-    public int getConta() {
-        return conta;
-    }
-
-    public void setConta(int conta) {
-        this.conta = conta;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getFkCnpj() {
@@ -178,6 +126,14 @@ public class Deposito {
         this.fkCnpj = fkCnpj;
     }
 
+    public String getConta() {
+        return conta;
+    }
+
+    public void setConta(String conta) {
+        this.conta = conta;
+    }
+
     public String getBanco() {
         return banco;
     }
@@ -185,8 +141,22 @@ public class Deposito {
     public void setBanco(String banco) {
         this.banco = banco;
     }
-    
-    
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getDataPagto() {
+        return dataPagto;
+    }
+
+    public void setDataPagto(String dataPagto) {
+        this.dataPagto = dataPagto;
+    }
     
     
 }
