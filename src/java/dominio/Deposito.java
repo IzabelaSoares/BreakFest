@@ -96,14 +96,14 @@ public class Deposito {
     }
     
     //método para verificar se pessoa juridica possui dados de pagamento
-    public boolean verificaDados(String cnpj){
+    public boolean verificaDados(String email){
         //comando de execução de banco de dados
-        String sql = "select * from deposito where fkcnpj = ?";
+        String sql = "select d.fkcnpj from usuariojuridico u, deposito d where u.email = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, cnpj);
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {

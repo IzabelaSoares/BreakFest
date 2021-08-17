@@ -96,7 +96,7 @@ public class Pix {
     //método para verificar se pessoa juridica possui dados de pagamento
     public boolean verificaDados(String email){
         //comando de execução de banco de dados
-        String sql = "select * from pix where email = ?";
+        String sql = "select p.fkcnpj from usuariojuridico u, pix p where u.email = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {

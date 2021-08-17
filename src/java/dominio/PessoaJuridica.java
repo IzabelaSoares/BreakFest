@@ -236,7 +236,7 @@ public class PessoaJuridica {
     //método para verificar se a pessoa possue redes sociais cadastradas no perfil
     public boolean verificaSociais(String email){
         Connection con = Conexao.conectar();
-        String sql = "select facebook, instagram from pessoajuridica where email = ?";
+        String sql = "select instagram from pessoajuridica where email = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, email);

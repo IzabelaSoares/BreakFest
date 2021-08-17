@@ -27,7 +27,7 @@
     
     String email = request.getParameter("email");
     
-    //se login for válido no UsuarioJuridico ou UsuarioFisico
+    //se login for válido  UsuarioFisico
     if (uf.podeLogar(email, request.getParameter("senha"))) {
         //instancia Cartao = card
         Cartao card = new Cartao();
@@ -41,10 +41,10 @@
         }
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){    
-        if (dep.verificaDados(email) || pix.verificaDados(email)){
+        if (!dep.verificaDados(email) || !pix.verificaDados(email)){
             response.sendRedirect("preferenciapagamento.jsp");
-        //se for pessoa jurídica, verifica se ela possue redes sociais cadastradas
-        }else if(!pj.verificaSociais(email)){
+        //verifica se ela possue redes sociais cadastradas
+        }else if(pj.verificaSociais(email)){
             response.sendRedirect("cadastroredes.jsp");
         //se não, redireciona para o index
         }else{
