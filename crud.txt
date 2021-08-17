@@ -80,10 +80,11 @@ create table produto(
 	descricao varchar(100) not null,
 	preco float4 not null,
 	tamanho varchar(30) not null,
-	unidadedemedida varchar(15) not null,
+	fkunidadedemedida int not null,
 	peso float4 not null,
 	primary key(id),
-	foreign key(fkcnpj) references pessoajuridica(cnpj)
+	foreign key(fkcnpj) references pessoajuridica(cnpj),
+	foreign key(fkunidadedemedida) references unidadedemedida(id)
 );
 
 create table imagemproduto(
