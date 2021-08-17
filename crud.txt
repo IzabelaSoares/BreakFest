@@ -146,11 +146,12 @@ create table banco(
 
 create table deposito(
 	id serial not null,
-	nome varchar(50) not null,
 	fkcnpj varchar(20) not null,
-	numerobanco integer not null,
-	banco integer not null,
-	conta integer not null,
+	conta text not null,
+	banco text not null,
+	tipoconta varchar(30) not null,
+	agencia varchar(30) not null,
+	datapagto varchar(3) not null,
 	primary key(id),
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
