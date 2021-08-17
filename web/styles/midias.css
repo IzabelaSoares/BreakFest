@@ -1,0 +1,60 @@
+input[type="file"].custom {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* De toda a pag */
+
+body {
+    background-color: #f7f7f7;
+    padding-top: 17vh;
+}
+
+/* Para alinhamento de página */
+
+#centro {
+    padding-left: 47%;
+}
+
+#center {
+    padding-left: 25%;
+}
+
+.container input, label, button {
+    padding-left: 25%;
+}
+
+/* Título */
+
+h1 {
+    padding-left: 30%;
+}
+
+/* Container */
+
+.container {
+    width: 80%;
+    height: 100%;
+    border: 1px solid black;
+    box-shadow: 2px black;
+    border-radius: 10px;
+}
+
+.container, input {
+    background-color: #fafafa;
+}
+
+/* Retirando Atributos */
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+

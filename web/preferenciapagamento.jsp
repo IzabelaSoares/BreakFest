@@ -11,6 +11,7 @@
 <html>
     <head>
         <title>Pagamento</title>
+        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- Bootstrap core CSS -->
