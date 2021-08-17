@@ -21,6 +21,7 @@ public class Produto {
     private float preco;
     private String medida;
     private String unidadeDeMedida;
+    private String categoria;
 
     //métodos
     public boolean cadastrarProduto(){
@@ -130,8 +131,9 @@ public class Produto {
     
     public List<Produto> consultarGeral(){
         List<Produto> lista = new ArrayList<>();
-        String sql = "SELECT titulo, imagem, fkidcategoria, fkcnpj, descricao, preco, medida, " 
-                + "unidadedemedida FROM produto order by titulo";
+        String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
+                + "p.descricao, p.preco, p.medida, p.unidadedemedida from "
+                + "imagemproduto i, produto p where p.fkcnpj = i.fkcnpj and i.fkidproduto = p.id;";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
@@ -139,10 +141,11 @@ public class Produto {
             while(rs.next()){
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
-                produto.setImagem(rs.getString("imagem"));
-                produto.setFkIdCategoria(rs.getInt("fkidcategoria"));
+                produto.setImagem(rs.getString("localizacao"));
+                produto.setFkIdCategoria(rs.getInt("id"));
                 produto.setFkCnpj(rs.getString("fkcnpj"));
                 produto.setDescricao(rs.getString("descricao"));
+                produto.setCategoria(rs.getString("categoria"));
                 produto.setPreco(rs.getInt("preco"));
                 produto.setMedida(rs.getString("medida"));
                 produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
@@ -151,9 +154,7 @@ public class Produto {
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
         }
-        
-        return lista;
-        
+    return lista;  
     }
     
     //getters e setters
@@ -227,6 +228,16 @@ public class Produto {
     public void setMedida(String medida) {
         this.medida = medida;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+ 
     
     
 }
