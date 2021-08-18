@@ -20,7 +20,7 @@
         %>
     </head>
     <body>
-        <!-- partial:index.partial.html -->
+        <!-- inicio camadas de divs -->
         <div class="container text-center">
             <h1>Abaixo você encontrará todas as nossas cadastradas</h1>
             <br>
@@ -28,35 +28,37 @@
         <div class="shell">
             <div class="container">
                 <div class="row">
-                    <!-- inicio padaria -->
+                    <!-- inicio tabela -->
                     <table>
                         <tbody>
                             <tr>
+                                <!-- inicio padaria -->
                                 <% for (PessoaJuridica tudo : listageral) { %>
                                 <td>
-                                    <div class="col-md-3">
-                                        <div class="wsk-cp-product">
-                                            <div class="wsk-cp-img"><img src="imagens/pad1.jpg" alt="Padaria" class="img-responsive" /></div>
-                                            <div class="wsk-cp-text">
-                                                <div class="title-product"><h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3></div>
-                                                <div class="description-prod">
-                                                    <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="wcf-left"> <span class="price">Rp500.000</span> </div>
-                                                    <div class="wcf-right"> <a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a> </div>
-                                                </div>
+                                    <div class="wsk-cp-product">
+                                        <div class="wsk-cp-img"><img src="imagens/pad1.jpg" alt="Padaria" class="img-responsive" /></div>
+                                        <div class="wsk-cp-text">
+                                            <div class="title-product"><h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3></div>
+                                            <div class="description-prod">
+                                                <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="wcf-left"> <span class="price">Rp500.000</span> </div>
+                                                <div class="wcf-right"> <a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a> </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </td>
+                                <!-- fim padaria -->
                             </tr>
-                             <%}%>
+                            <%}%>  
                         </tbody>
                     </table>
-                    <!-- fim padaria -->
+                    <!-- fim tabela -->
                 </div>
             </div>
         </div>
+        <!-- fim camadas de divs -->
     </body>
 </html>
