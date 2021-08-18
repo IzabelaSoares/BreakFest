@@ -127,8 +127,8 @@
                     </select>
                 </div>
                 <!-- Botão de Submit -->
-                <div id="far">
-                    <button type="submit">
+                <div id="far" style="display:none">
+                    <button id="botao" type="submit">
                         <p>Enviar</p>
                         <span></span>
                     </button>
