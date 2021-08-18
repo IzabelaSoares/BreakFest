@@ -18,7 +18,9 @@
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
     </head>
-    <body onload="javascript: alertar(resultado)">
+    <header onload="javascript: alertar(resultado)"></header>
+        
+    <body>
         <!-- partial:index.partial.html -->
         <div class="payment-title">
             <h1>Informe os Dados do Cartão</h1>
