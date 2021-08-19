@@ -246,7 +246,49 @@ public class PessoaJuridica {
             System.out.println("Erro: " + ex.getMessage());
         }
         return true;
-    } 
+    }
+    
+    //método para procurar cnpj pelo email
+    public String procuraCnpj(String email){
+        String pCnpj = null;
+        Connection con = Conexao.conectar();
+        String sql = "select cnpj from pessoajuridica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                pCnpj = rs.getString("cnpj");
+            }
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        
+        return pCnpj;
+    }
+    
+     //cadastro de mídias sociais
+    public boolean cadastrarMidias(){
+        //comando de execução de banco de dados
+        String sql = "INSERT INTO pessoajuridica (instagram, facebook) " 
+                   + "VALUES(?, ?) where cnpj = ?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.instagram);
+            stm.setString(2, this.facebook);
+            stm.setString(3, this.cnpj);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        
+        return true;
+    }
     
     //getters e setters
     public String getRazaoSocial() {
