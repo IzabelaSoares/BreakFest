@@ -18,7 +18,7 @@
             <h1 class="text-xl font-black">Informações Adicionais</h1>
             <div class="py-8">
                 <!-- Form com as informações -->
-                <form action="recebemidias.jsp" method="post">
+                <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" >
                     <label for="instagram">Link para o Instagram</label>
                     <br>
                     <input type="text" name="instagram" placeholder="Instagram">

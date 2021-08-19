@@ -7,15 +7,15 @@
 <%  //instancia o usuariojuridico = uj
     RecebeImagemPerfil img = new RecebeImagemPerfil();
 
-    String cnpj = "${sessionScope.usuario}";
+    String cnpj = String.valueOf(request.getSession().getAttribute("usuario"));
 
     //se cadastrar pessoa e o login dela
-    /*if (img.) {
+    if (img.) {
         request.getSession().setAttribute("resultado", "MidiasAdicionadas");
         response.sendRedirect("index.html");
     } else {
         //alert que não deu certo
         request.getSession().setAttribute("resultado", "ImagemNaoAdicionada");
         response.sendRedirect("midias.jsp");
-    }*/
+    }
 %>

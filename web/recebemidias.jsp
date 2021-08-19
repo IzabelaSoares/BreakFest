@@ -5,22 +5,24 @@
 --%>
 <%@page import="upload.RecebeImagemPerfil"%>
 <%@page import="dominio.PessoaJuridica"%>
+<%@page import="javax.servlet.http.Part"%>
 <%  //instancia o usuariojuridico = uj
     PessoaJuridica pj = new PessoaJuridica();
 
-    String email = "${sessionScope.usuario}";
+    String email = String.valueOf(request.getSession().getAttribute("usuario"));
+    String cnpj = pj.procuraCnpj(email);
+    Part part = request.getPart("photo");
     
     //recebe os valores da tela HTML
     pj.setInstagram(request.getParameter("instagram"));
     pj.setFacebook(request.getParameter("facebook"));
-    pj.setCnpj(pj.procuraCnpj(email));
+    pj.setCnpj(cnpj);
 
     //se cadastrar pessoa e o login dela
     if (pj.cadastrarMidias()) {
-        response.sendRedirect("index.html");
-        /*
-        request.getSession().setAttribute("usuario", pj.procuraCnpj(email));
-        response.sendRedirect("recebeimagem.jsp"); */
+        request.getSession().setAttribute("usuario", cnpj);
+        request.getSession().setAttribute("photo", part);
+        response.sendRedirect("RecebeImagemPerfil");
     } else {
         //alert que não deu certo
         request.getSession().setAttribute("resultado", "MidiasNaoadicionadas");

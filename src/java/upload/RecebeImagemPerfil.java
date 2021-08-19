@@ -2,6 +2,7 @@
 package upload;
 
 import dominio.ImagemPerfil;
+import dominio.PessoaJuridica;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,50 +30,68 @@ public class RecebeImagemPerfil extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //Pegar os itens no formulário
-            Part part = request.getPart("file");
-            String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
 
-            //Pegar o nome do arquivo
-            String nomeArquivo = part.getSubmittedFileName().toLowerCase();
-            
-            //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
-            if (nomeArquivo.contains(".png")) {
-                nomeArquivo = cnpj + ".png";
-            } else if (nomeArquivo.contains(".jpeg")) {
-                nomeArquivo = cnpj + ".jpeg";
+            //instancia o usuariojuridico = uj
+            PessoaJuridica pj = new PessoaJuridica();
+
+            //recebe os valores da tela HTML
+            String email = String.valueOf(request.getSession().getAttribute("usuario"));
+            String cnpj = pj.procuraCnpj(email).replaceAll("[^0-9]+", "");
+            //para pessoa juridica especificamente
+            pj.setInstagram(request.getParameter("instagram"));
+            pj.setFacebook(request.getParameter("facebook"));
+            pj.setCnpj(cnpj);
+            if (pj.cadastrarMidias()) {
+
+                //para salvar a imagem especificamente
+                Part part = request.getPart("photo");
+
+                //Pegar o nome do arquivo
+                String nomeArquivo = part.getSubmittedFileName().toLowerCase();
+
+                //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
+                if (nomeArquivo.contains(".png")) {
+                    nomeArquivo = cnpj + ".png";
+                } else if (nomeArquivo.contains(".jpg")) {
+                    nomeArquivo = cnpj + ".jpg";
+                }
+
+                //Definir os parametros de path e Input do arquivo
+                String path = getServletContext().getRealPath("imagens/imagem-perfil" + File.separator + nomeArquivo);
+                InputStream esse = part.getInputStream(); //faz o input do arquivo
+
+                //Instanciar classe Imagem para a Pasta
+                ImagemPasta pasta = new ImagemPasta();
+
+                //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
+                if (pasta.inserirArquivo(esse, path)) {
+
+                    //Instanciar a classe Imagem para o SQL
+                    ImagemPerfil novo = new ImagemPerfil();
+
+                    //Mandar os Dados para o banco de 
+                    String localizacao = "imagem_perfil/" + nomeArquivo;
+                    novo.setLocalizacao(localizacao);
+                    novo.setFkCnpj(cnpj);
+
+                    //Inserir no database
+                    novo.incluirImagemPerfil();
+
+                    //Colocar aqui link da página recarregada
+                    out.println("File upload to " + path);
+
+                } else {
+
+                    //Colocar aqui link da página recarregada e mensagem de erro
+                    out.println("Deu ruim");
+                }
+
             }
-
-            //Definir os parametros de path e Input do arquivo
-            String path = getServletContext().getRealPath("/imagem_perfil" + File.separator + nomeArquivo);
-            InputStream esse = part.getInputStream(); //faz o input do arquivo
-
-            //Instanciar classe Imagem para a Pasta
-            ImagemPasta pasta = new ImagemPasta();
-
-            //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
-            if (pasta.inserirArquivo(esse, path)) {
-                
-                //Instanciar a classe Imagem para o SQL
-                ImagemPerfil novo = new ImagemPerfil();
-
-                //Mandar os Dados para o banco de 
-                String localizacao = "imagem_perfil/" + nomeArquivo;
-                novo.setLocalizacao(localizacao);
-                novo.setFkCnpj(cnpj);
-
-                //Inserir no database
-                novo.incluirImagemPerfil();
-
-                //Colocar aqui link da página recarregada
-                out.println("File upload to " + path);
-
-            } else {
-                
-                //Colocar aqui link da página recarregada e mensagem de erro
-                out.println("Deu ruim");
+            else{
+                //alert que não deu certo
+                request.getSession().setAttribute("resultado", "MidiasNaoadicionadas");
+                response.sendRedirect("login.jsp");
             }
-            
         }
     }
 

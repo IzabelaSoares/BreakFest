@@ -26,10 +26,10 @@
     Pix pix = new Pix();
     
     String email = request.getParameter("email");
+    request.getSession().setAttribute("usuario", email);
     
     //se login for válido  UsuarioFisico
     if (uf.podeLogar(email, request.getParameter("senha"))) {
-        request.getSession().setAttribute("usuario", email);
         //instancia Cartao = card
         Cartao card = new Cartao();
         //se a pessoa não possue dados de cartao, redireciona para a pagina de cadastro
@@ -42,7 +42,6 @@
         }
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 
-        request.getSession().setAttribute("usuario", email);
         if (!dep.verificaDados(email) || !pix.verificaDados(email)){
             response.sendRedirect("preferenciapagamento.jsp");
         //verifica se ela possue redes sociais cadastradas
