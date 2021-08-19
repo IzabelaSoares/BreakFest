@@ -1,4 +1,33 @@
+body {
+    background-color: #FFF5EB;
+}
+
 .file {
   visibility: hidden;
   position: absolute;
+}
+
+h2{
+    position: relative;
+    left: -3px;
+    color: #995a1a;
+}
+
+label{
+    position: relative;
+    left: 9px;
+    color: #995a1a;
+}
+
+button{
+    width: 140px;
+    height: 40px;
+    background-color: #995a1a;
+    color: #FFF5EB;
+}
+
+#prod-pic img {
+    position: relative;
+    left: 75vh;
+    top: -90vh;
 }
