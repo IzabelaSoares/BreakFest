@@ -155,3 +155,12 @@ create table deposito(
 	primary key(id),
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
+
+create table bairrospadaria(
+	id serial not null,
+	atendebairro varchar(100) not null,
+	fkcnpj varchar(20) not null,
+	taxaentrega float4 not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);

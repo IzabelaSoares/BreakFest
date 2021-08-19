@@ -2,7 +2,14 @@
 
 body{
   font-family: 'Muli', sans-serif;
-  background:#ddd;
+  background: rgb(255,239,213);
+}
+
+#for-title {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(255,239,213);
 }
 
 /*centralizar todo o conteudo da tela*/
@@ -10,14 +17,23 @@ body{
   text-align: center;
 }
 
-/*definir tamanho e display do bloco, espaços internos e externos, alinhamento do texto */
+/* Padarias */ 
+
+.wsk-cp-product img {
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px #995a1a;
+}
+
 .wsk-cp-product{
+  color: #995a1a;
   width: 250px;
   display: inline-block;
   padding: 10px;
   margin: 10px;
-  text-align: left;
-  background: pink; /*background rosa só para saber qual div mexer para estilizar depois*/  
+  text-align: center;
+  background: #ede6e6;
+  box-shadow: 1px 3px 3px #995a1a;
+  border-radius: 4px;
 }
 
 /*fixar o layout da tabela, centralizar e definir o tamanho*/
@@ -31,4 +47,14 @@ td{
     display: inline-block;         
     word-wrap: break-word;         
     overflow-wrap: break-word;    
+}
+
+.midias img {
+    width: 20px;
+    height: 20px;
+}
+
+.midias {
+    color: black;
+    display: inline-block;
 }
