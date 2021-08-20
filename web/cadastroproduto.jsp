@@ -35,7 +35,7 @@
     <!-- Inicio divs de container -->
     <div class="container">
         <!--  <form> -->
-        <form action="RecebeImagemProduto" method="post">
+        <form action="RecebeImagemProduto" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
@@ -94,7 +94,7 @@
                 <div class="input-group mb-3">
                     <div id="msg"></div>
                     <form method="post" id="image-form">
-                        <input type="file" name="img[]" class="file" accept="image/*">
+                        <input type="file" name="file" class="file" accept="image/*">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" disabled placeholder="Escolher Foto" id="file">
                             <div class="input-group-append">

@@ -1,7 +1,8 @@
 // @author Izabela
 package upload;
 
-import dominio.ImagemPerfil;
+import dominio.ImagemProduto;
+import dominio.PessoaJuridica;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,36 +17,36 @@ import javax.servlet.http.Part;
 @MultipartConfig
 public class RecebeImagemProduto extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //Pegar os itens no formulário
+
+            PessoaJuridica pj = new PessoaJuridica();
+
+            //Pegar os itens no formulário para salvar imagem
             Part part = request.getPart("file");
-            String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
-            String nomeProduto = request.getParameter("produto");
-            
+            String email = String.valueOf(request.getSession().getAttribute("usuario"));
+            String cnpj = pj.procuraCnpj(email);
+            String fkcnpj = cnpj;
+            cnpj = cnpj.replaceAll("[^0-9]+", "");
+            String nomeProduto = request.getParameter("titulo");
+
             //Pegar o nome do arquivo
             String nomeArquivo = part.getSubmittedFileName().toLowerCase();
-            
+
             //Alterar o nome do arquivo (cnpj + produto + tipo do arquivo) para salvar ele
             if (nomeArquivo.contains(".png")) {
                 nomeArquivo = cnpj + "-" + nomeProduto + ".png";
+            } else if (nomeArquivo.contains(".jpg")) {
+                nomeArquivo = cnpj + "-" + nomeProduto + ".jpg";
             } else if (nomeArquivo.contains(".jpeg")) {
                 nomeArquivo = cnpj + "-" + nomeProduto + ".jpeg";
             }
 
             //Definir os parametros de path e Input do arquivo
-            String path = getServletContext().getRealPath("/imagem_produtos" + File.separator + nomeArquivo);
+            String path = getServletContext().getRealPath("imagens/cliente-produto/" + File.separator + nomeArquivo);
             InputStream esse = part.getInputStream(); //faz o input do arquivo
 
             //Instanciar classe Imagem para a Pasta
@@ -53,27 +54,42 @@ public class RecebeImagemProduto extends HttpServlet {
 
             //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
             if (pasta.inserirArquivo(esse, path)) {
-                
-                //Instanciar a classe Imagem para o SQL
-                ImagemPerfil novo = new ImagemPerfil();
 
-                //Mandar os Dados para o banco de 
-                String localizacao = "imagem_produtos/" + nomeArquivo;
+                //Instanciar a classe Imagem para o SQL
+                ImagemProduto novo = new ImagemProduto();
+
+                //Mandar os Dados para o database
+                String localizacao = "imagens/cliente-produto/" + nomeArquivo;
                 novo.setLocalizacao(localizacao);
-                novo.setFkCnpj(cnpj);
+                novo.setFkCnpj(fkcnpj);
 
                 //Inserir no database
-                novo.incluirImagemPerfil();
+                novo.incluirImagemProduto();
 
-                //Colocar aqui link da página recarregada
-                out.println("File upload to " + path);
+                //Itens do formulario para salvar os produtos
+                String titulo = request.getParameter("titulo");
+                String categoria = request.getParameter("categoria");
+                String tamanho = request.getParameter("tamanho");
+                String unidadeMedida = request.getParameter("unidadedemedida");
+                String descricao = request.getParameter("descricao");
+                Float preco = Float.parseFloat(request.getParameter("preco"));
+
+                //Passar os dados para recebe cadastro do produto
+                request.getSession().setAttribute("titulo", titulo);
+                request.getSession().setAttribute("categoria", categoria);
+                request.getSession().setAttribute("preco", preco);
+                request.getSession().setAttribute("descricao", descricao);
+                request.getSession().setAttribute("unidadeMedida", unidadeMedida);
+                request.getSession().setAttribute("localizacao", localizacao);
+                request.getSession().setAttribute("tamanho", tamanho);
+
+                response.sendRedirect("recebecadastroproduto.jsp");
 
             } else {
-                
-                //Colocar aqui link da página recarregada e mensagem de erro
-                out.println("Deu ruim");
+                request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
+                response.sendRedirect("cadastroproduto.jsp");
             }
-            
+
         }
     }
 

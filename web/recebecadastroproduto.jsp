@@ -6,23 +6,35 @@
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.Cartao"%>
-<%  //instancia o produto = prdt
+<%  
+    //instancia o produto = prdt
     Produto prdt = new Produto();
     
     PessoaJuridica pj = new PessoaJuridica();
-
+    
+    //pegar o cnpj do usuario
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String fkcnpj = pj.procuraCnpj(fkemail);
     
-    //recebe os valores da tela HTML
-    prdt.setTitulo(request.getParameter("titulo"));
-    prdt.setCategoria(request.getParameter("categoria"));
+    //pegar os valores dos produtos
+    String titulo = String.valueOf(request.getSession().getAttribute("titulo"));
+    String categoria = String.valueOf(request.getSession().getAttribute("categoria"));
+    String tamanho = String.valueOf(request.getSession().getAttribute("tamanho"));
+    String unidadeMedida = String.valueOf(request.getSession().getAttribute("unidadeMedida"));
+    String descricao = String.valueOf(request.getSession().getAttribute("descricao"));
+    Float preco = Float.parseFloat(String.valueOf(request.getSession().getAttribute("preco")));
+    String localizacao = String.valueOf(request.getSession().getAttribute("localizacao"));
+    
+    //passar para a classe
+    prdt.setTitulo(titulo);
+    prdt.setCategoria(categoria);
     prdt.setFkCnpj(fkcnpj);
-    prdt.setDescricao(request.getParameter("descricao"));
-    prdt.setPreco(Float.parseFloat(request.getParameter("preco")));
-    prdt.setTamanho(request.getParameter("tamanho"));
-    prdt.setUnidadeDeMedida(request.getParameter("unidadedemedida"));
-
+    prdt.setDescricao(descricao);
+    prdt.setPreco(preco);
+    prdt.setTamanho(tamanho);
+    prdt.setUnidadeDeMedida(unidadeMedida);
+    prdt.setLocalizacao(localizacao);
+    
     //se cadastrar cartao
     if (prdt.cadastrarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");

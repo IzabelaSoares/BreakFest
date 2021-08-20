@@ -26,8 +26,8 @@ public class ImagemProduto {
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(2, this.localizacao);
-            stm.setString(1, this.fkCnpj);
+            stm.setString(1, this.localizacao);
+            stm.setString(2, this.fkCnpj);
             //executando comando
             stm.execute();
         } catch (SQLException ex) {
