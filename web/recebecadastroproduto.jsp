@@ -9,7 +9,7 @@
     Produto prdt = new Produto();
 
     //recebe os valores da tela HTML
-    prdt.setTitulo(request.getParameter("nome"));
+    prdt.setTitulo(request.getParameter("titulo"));
     prdt.setCategoria(request.getParameter("categoria"));
     prdt.setFkCnpj(request.getParameter("fkcpf"));
     prdt.setDescricao(request.getParameter("descricao"));

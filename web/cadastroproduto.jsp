@@ -35,7 +35,7 @@
     <!-- Inicio divs de container -->
     <div class="container">
         <!--  <form> -->
-        <form action="recebecadastrodeproduto.jsp" method="post">
+        <form action="recebecadastroproduto.jsp" method="post">
         <div class="row">
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
@@ -44,7 +44,7 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="first">Produto</label>
-                        <input style="height:39px; width:216px;" type="text" class="form-control" id="first" placeholder="EX: Café">
+                        <input style="height:39px; width:216px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
                     </div>
                 </div>
                 <!-- Categoria   -->
@@ -53,7 +53,7 @@
                         <label for="categoria">Categoria do Produto</label>
                         <select class="form-control" id="categoria" name="categoria">
                             <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
-                            <option value="codigojava">Puxar do Banco de Dados</option>
+                            <option value="doce">Doce</option>
                         </select>
                     </div>
                 </div>
@@ -61,16 +61,16 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="phone">Tamanho/Medida</label>
-                        <input style="height:39px; width:216px;" type="tel" class="form-control" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                        <input style="height:39px; width:216px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
                     </div>
                 </div>
                 <!-- Unidade de Medida  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="categoria">Unidade de Medida</label>
-                        <select class="form-control" id="categoria" name="categoria">
+                        <select class="form-control" id="categoria" name="unidadedemedida">
                             <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
-                            <option value="codigojava">Puxar do Banco de Dados</option>
+                            <option value="quilo">Quilo</option>
                         </select>
                     </div>
                 </div>
