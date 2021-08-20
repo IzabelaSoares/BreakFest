@@ -88,11 +88,9 @@ create table produto(
 
 create table imagemproduto(
 	id serial not null,
-	fkidproduto integer not null,
 	localizacao text not null,
 	fkcnpj varchar(20) not null,
 	primary key(id),
-	foreign key(fkidproduto) references produto(id),
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
@@ -130,9 +128,8 @@ create table tipochave(
 create table pix (
 	id serial not null,
 	fkcnpj varchar(20) not null,
-	tipochave integer not null,
+	tipochave varchar(20) not null,
 	chave text not null,
-	nome varchar(50) not null,
 	primary key(id),
 	foreign key (fkcnpj) references pessoajuridica(cnpj)
 );
