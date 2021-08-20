@@ -35,6 +35,7 @@
     <!-- Inicio divs de container -->
     <div class="container">
         <!--  <form> -->
+        <form action="recebecadastrodeproduto.jsp" method="post">
         <div class="row">
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
@@ -110,6 +111,7 @@
         </div>
         <button style="height:40px; width:120px; left:200px; position: relative; left:90px;"  type="submit">Enviar</button>
         <!--  </form> -->
+        </form>
     </div>
     <!-- Fim divs de container -->
     <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
