@@ -35,7 +35,7 @@
     <!-- Inicio divs de container -->
     <div class="container">
         <!--  <form> -->
-        <form action="recebecadastroproduto.jsp" method="post">
+        <form action="RecebeImagemProduto" method="post">
         <div class="row">
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
@@ -80,13 +80,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">R$</span>
                     </div>
-                    <input style="height:39px; width:170px;" type="text" placeholder="2,99">
+                    <input style="height:39px; width:170px;" type="text" id="preco" name="preco" placeholder="2,99">
                 </div>
                 <!-- Descrição do Produto  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="descricao">Descrição do Produto</label>
-                        <textarea style="height:70px; width:212px;" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                        <textarea style="height:70px; width:212px;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
                     </div>
                 </div>
                 <!-- Selecionar a Imagem  -->

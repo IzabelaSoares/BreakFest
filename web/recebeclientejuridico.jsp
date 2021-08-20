@@ -15,7 +15,7 @@
     UsuarioJuridico login = new UsuarioJuridico();
     
     String email = request.getParameter("email");
-    String cnpj = request.getParameter("cnpj");
+    String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
     
     if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
         //email já está sendo utilizado

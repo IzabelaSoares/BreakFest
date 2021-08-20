@@ -20,7 +20,6 @@ public class Produto {
     private float preco;
     private String tamanho;
     private String unidadeDeMedida;
-    private float peso;
     private String localizacao;
 
 
@@ -29,7 +28,7 @@ public class Produto {
         //comando de execução de banco de dados
         String sql = "INSERT INTO produto " 
                    +"(titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
-                   + "unidadedemedida, peso) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "unidadedemedida) VALUES(?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -42,7 +41,6 @@ public class Produto {
             stm.setFloat(5, this.preco);
             stm.setString(6, this.tamanho);
             stm.setString(7, this.unidadeDeMedida);
-            stm.setFloat(8, this.peso);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -57,7 +55,7 @@ public class Produto {
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
                 + "SET titulo=?, categoria=?, fkcnpj=?, descricao=?, preco=?, "
-                + "tamanho=?, unidadedemedida=?, peso=? WHERE id=?";
+                + "tamanho=?, unidadedemedida=? WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -70,8 +68,7 @@ public class Produto {
             stm.setFloat(5, this.preco);
             stm.setString(6, this.tamanho);
             stm.setString(7, this.unidadeDeMedida);
-            stm.setFloat(8, this.peso);
-            stm.setInt(9, this.idProduto);
+            stm.setInt(8, this.idProduto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -104,7 +101,7 @@ public class Produto {
     public Produto consultarProduto(String pTitulo){
         this.titulo = pTitulo;
         String sql = "SELECT titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
-                    + "unidadedemedida, peso FROM produto where titulo = ?";
+                    + "unidadedemedida FROM produto where titulo = ?";
         Connection con = Conexao.conectar();
         Produto produto = null;
         try{
@@ -120,7 +117,6 @@ public class Produto {
                    produto.setPreco(rs.getFloat("preco"));
                    produto.setTamanho(rs.getString("tamanho"));
                    produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
-                   produto.setPeso(rs.getFloat("peso"));
                 } 
         } catch (SQLException ex) {
                 System.out.println("Erro:" + ex.getMessage());
@@ -133,7 +129,7 @@ public class Produto {
     public List<Produto> consultarGeral(){
         List<Produto> lista = new ArrayList<>();
         String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
-                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida, p.peso from "
+                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida from "
                 + "imagemproduto i, produto p where p.fkcnpj = i.fkcnpj and i.fkidproduto = p.id;";
         Connection con = Conexao.conectar();
         try{
@@ -150,7 +146,6 @@ public class Produto {
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setTamanho(rs.getString("tamanho"));
                 produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
-                produto.setPreco(rs.getFloat("peso"));
                 lista.add(produto);
            }
         } catch (SQLException ex) {
@@ -221,14 +216,6 @@ public class Produto {
 
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
-    }
-
-    public float getPeso() {
-        return peso;
-    }
-
-    public void setPeso(float peso) {
-        this.peso = peso;
     }
 
     public String getLocalizacao() {
