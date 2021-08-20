@@ -46,12 +46,12 @@
         if ( dep.verificaDados(email) == false && pix.verificaDados(email) == false){
             response.sendRedirect("preferenciapagamento.jsp");
         //verifica se ela possue redes sociais cadastradas
-        }else if(pj.verificaSociais(email)){
+        }else if(pj.verificaSociais(email)==false){
             response.sendRedirect("midias.jsp");
         //se não, redireciona para o index
         }else{
             request.getSession().setAttribute("resultado", "SucessoLogin");
-            response.sendRedirect("umapadaria.jsp");
+            response.sendRedirect("cadastroproduto.jsp");
         }
     } else {
         //login não deu certo

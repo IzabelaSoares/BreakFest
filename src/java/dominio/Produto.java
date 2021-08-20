@@ -14,34 +14,35 @@ public class Produto {
     //criação de variáveis
     private Integer idProduto;
     private String titulo;
-    private String imagem;
-    private Integer fkIdCategoria;
+    private String categoria;
     private String fkCnpj;
     private String descricao;
     private float preco;
-    private String medida;
+    private String tamanho;
     private String unidadeDeMedida;
-    private String categoria;
+    private float peso;
+    private String localizacao;
+
 
     //métodos
     public boolean cadastrarProduto(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO produto " 
-                   +"(titulo, imagem, fkidcategoria, fkcnpj, descricao, preco, medida, " 
-                   + "unidadedemedida) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   +"(titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
+                   + "unidadedemedida, peso) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.titulo); 
-            stm.setString(2, this.imagem);
-            stm.setInt(3, this.fkIdCategoria);
-            stm.setString(4, this.fkCnpj);
-            stm.setString(5, this.descricao);
-            stm.setFloat(6, this.preco);
-            stm.setString(7, this.medida);
-            stm.setString(8, this.unidadeDeMedida);
+            stm.setString(2, this.categoria);;
+            stm.setString(3, this.fkCnpj);
+            stm.setString(4, this.descricao);
+            stm.setFloat(5, this.preco);
+            stm.setString(6, this.tamanho);
+            stm.setString(7, this.unidadeDeMedida);
+            stm.setFloat(8, this.peso);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -55,21 +56,21 @@ public class Produto {
     public boolean alterarProduto(){
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
-                + "SET titulo=?, imagem=?, fkidcategoria=?, fkcnpj=?, descricao=?, preco=?, "
-                + "medida=?, unidadedemedida=? WHERE id=?";
+                + "SET titulo=?, categoria=?, fkcnpj=?, descricao=?, preco=?, "
+                + "tamanho=?, unidadedemedida=?, peso=? WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.titulo); 
-            stm.setString(2, this.imagem);
-            stm.setInt(3, this.fkIdCategoria);
-            stm.setString(4, this.fkCnpj);
-            stm.setString(5, this.descricao);
-            stm.setFloat(6, this.preco);
-            stm.setString(7, this.medida);
-            stm.setString(8, this.unidadeDeMedida);
+            stm.setString(2, this.categoria);;
+            stm.setString(3, this.fkCnpj);
+            stm.setString(4, this.descricao);
+            stm.setFloat(5, this.preco);
+            stm.setString(6, this.tamanho);
+            stm.setString(7, this.unidadeDeMedida);
+            stm.setFloat(8, this.peso);
             stm.setInt(9, this.idProduto);
             //executando comando
             stm.execute();
@@ -102,8 +103,8 @@ public class Produto {
     
     public Produto consultarProduto(String pTitulo){
         this.titulo = pTitulo;
-        String sql = "SELECT titulo, imagem, fkidcategoria, fkcnpj, descricao, preco, medida, " 
-                    + "unidadedemedida FROM produto where titulo = ?";
+        String sql = "SELECT titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
+                    + "unidadedemedida, peso FROM produto where titulo = ?";
         Connection con = Conexao.conectar();
         Produto produto = null;
         try{
@@ -113,13 +114,13 @@ public class Produto {
                 if(rs.next()){
                    produto = new Produto();
                    produto.setTitulo(rs.getString("titulo"));
-                   produto.setImagem(rs.getString("imagem"));
-                   produto.setFkIdCategoria(rs.getInt("fkidcategoria"));
+                   produto.setCategoria(rs.getString("categoria"));
                    produto.setFkCnpj(rs.getString("fkcnpj"));
                    produto.setDescricao(rs.getString("descricao"));
-                   produto.setPreco(rs.getInt("preco"));
-                   produto.setMedida(rs.getString("medida"));
+                   produto.setPreco(rs.getFloat("preco"));
+                   produto.setTamanho(rs.getString("tamanho"));
                    produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.setPeso(rs.getFloat("peso"));
                 } 
         } catch (SQLException ex) {
                 System.out.println("Erro:" + ex.getMessage());
@@ -132,7 +133,7 @@ public class Produto {
     public List<Produto> consultarGeral(){
         List<Produto> lista = new ArrayList<>();
         String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
-                + "p.descricao, p.preco, p.medida, p.unidadedemedida from "
+                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida, p.peso from "
                 + "imagemproduto i, produto p where p.fkcnpj = i.fkcnpj and i.fkidproduto = p.id;";
         Connection con = Conexao.conectar();
         try{
@@ -141,14 +142,15 @@ public class Produto {
             while(rs.next()){
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
-                produto.setImagem(rs.getString("localizacao"));
-                produto.setFkIdCategoria(rs.getInt("id"));
+                produto.setLocalizacao(rs.getString("localizacao"));
+                produto.setIdProduto(rs.getInt("id"));
                 produto.setFkCnpj(rs.getString("fkcnpj"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setCategoria(rs.getString("categoria"));
-                produto.setPreco(rs.getInt("preco"));
-                produto.setMedida(rs.getString("medida"));
-                produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setTamanho(rs.getString("tamanho"));
+                produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
+                produto.setPreco(rs.getFloat("peso"));
                 lista.add(produto);
            }
         } catch (SQLException ex) {
@@ -174,20 +176,12 @@ public class Produto {
         this.titulo = titulo;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
-    public Integer getFkIdCategoria() {
-        return fkIdCategoria;
-    }
-
-    public void setFkIdCategoria(Integer fkIdCategoria) {
-        this.fkIdCategoria = fkIdCategoria;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getFkCnpj() {
@@ -221,23 +215,29 @@ public class Produto {
         this.unidadeDeMedida = unidadedeMedida;
     }
 
-    public String getMedida() {
-        return medida;
+    public String getTamanho() {
+        return tamanho;
     }
 
-    public void setMedida(String medida) {
-        this.medida = medida;
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public float getPeso() {
+        return peso;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
 
- 
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
     
-    
+
 }
