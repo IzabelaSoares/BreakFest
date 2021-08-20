@@ -119,12 +119,6 @@ create table cartao(
 	foreign key (fkcpf) references pessoafisica(cpf)
 );
 
-create table tipochave(
-	id serial not null,
-	tipo varchar(20) not null unique,
-	primary key (id)
-);
-
 create table pix (
 	id serial not null,
 	fkcnpj varchar(20) not null,
