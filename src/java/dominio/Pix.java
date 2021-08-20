@@ -47,7 +47,7 @@ public class Pix {
     public boolean alterarpix(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pix " 
-                + "SET email=?, tipochave=?, chave=?, nome=?, validade=? "
+                + "SET tipochave=?, chave=?, validade=? "
                 + "WHERE fkCnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -55,11 +55,9 @@ public class Pix {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.email);
-            stm.setString(3, this.tipoChave);
-            stm.setString(4, this.chave);
-            stm.setString(5, this.nome);
-            stm.setString(6, this.fkCnpj);
+            stm.setString(2, this.tipoChave);
+            stm.setString(3, this.chave);
+            stm.setString(4, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){

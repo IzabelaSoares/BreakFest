@@ -77,7 +77,7 @@ public class RecebeImagemPerfil extends HttpServlet {
             } else {
 
                 //Colocar aqui link da página recarregada e mensagem de erro
-                out.println("Deu ruim");
+                response.sendRedirect("midias.jsp");
             }
 
         }

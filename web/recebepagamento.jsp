@@ -49,7 +49,7 @@
             }
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("preferenciapagamento.jsp");
         }
     } else {
         //instancia o depósito = dep  
