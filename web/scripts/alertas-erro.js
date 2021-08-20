@@ -286,5 +286,21 @@ function alertar(parametro) {
         });
     }
 
+    else if (parametro === "MidiasSalva") {
+        Swal.fire({
+            title: 'Mídias Salvas!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
     
+    //Imagem não salva
+    else if (parametro === "MidiasNaoSalva") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Mídias não Salvas',
+            text: 'Por favor, verifique sua conexão!'
+        });
+    }
 }
