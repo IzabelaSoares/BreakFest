@@ -77,11 +77,11 @@ create table produto(
 	titulo varchar(30) not null,
 	categoria varchar(30) not null,
 	fkcnpj varchar(20) not null,
-	descricao varchar(100) not null,
+	descricao text not null,
 	preco float4 not null,
 	tamanho varchar(30) not null,
 	unidadedemedida varchar(40) not null,
-	peso float4 not null,
+	peso float4,
 	primary key(id),
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );

@@ -5,7 +5,22 @@ body{
   background: rgb(255,239,213);
 }
 
-#for-title {
+a, p, span {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover, p:hover, span:hover
+{
+     color: black; 
+     text-decoration:none;   
+}
+
+span {
+    font-size: 115%;
+}
+
+.for-title {
     margin: 0;
     height: 100%;
     width: 100%;
@@ -25,7 +40,7 @@ body{
 }
 
 .wsk-cp-product{
-  color: #995a1a;
+  color: black;
   width: 250px;
   display: inline-block;
   padding: 10px;

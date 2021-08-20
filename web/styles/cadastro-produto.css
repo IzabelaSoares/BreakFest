@@ -26,7 +26,7 @@ button{
     color: #FFF5EB;
 }
 
-#prod-pic img {
+#prod-pic, ml-2 {
     position: relative;
     left: 75vh;
     top: -90vh;

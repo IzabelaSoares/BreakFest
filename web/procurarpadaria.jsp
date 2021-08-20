@@ -36,10 +36,10 @@
     </header>
     <!-- Fim da NavBar de cima -->
         <!-- inicio camadas de divs -->
-        <div id="for-title">
+        <div class="for-title">
         <div class="container text-center">
             <h1>Abaixo você encontrará todas</h1>
-            <h1>as nossas cadastradas</h1>
+            <h1>as nossas padarias cadastradas</h1>
             <br><br>
         </div>
         </div>
@@ -54,7 +54,7 @@
                                 <% for (PessoaJuridica tudo : listageral) { %>
                                 <td>
                                     <div class="wsk-cp-product">
-                                        <a href="umapadaria.jsp">
+                                        <a href="">
                                         <div class="wsk-cp-img"><img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/></div>
                                         <div class="wsk-cp-text">
                                             <div class="midias"><div class="title-product"><h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3></div></div>
@@ -63,7 +63,9 @@
                                             </div>
                                             <div class="card-footer">
                                                 <div class="wcf-left"> <span class="price"><%out.write(String.valueOf(tudo.getBairro()));%></span> </div>
-                                                <div class="midias"><img src="imagens/pngwing.com.png" alt="alt"><div class="wcf-right"><p><%out.write(String.valueOf(tudo.getFacebook()));%></p></div></div>
+                                                <div class="midias"><div class="wcf-right"><p><%out.write(String.valueOf(tudo.getFacebook()));
+                                                                                                out.write("⠀⠀⠀");
+                                                                                                out.write(String.valueOf(tudo.getInstagram()));%></p></div></div>
                                             </div>
                                         </div>
                                         </a>

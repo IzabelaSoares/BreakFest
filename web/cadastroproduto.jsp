@@ -35,6 +35,7 @@
     <!-- Inicio divs de container -->
     <div class="container">
         <!--  <form> -->
+        <form action="recebecadastrodeproduto.jsp" method="post">
         <div class="row">
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
@@ -97,19 +98,19 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" disabled placeholder="Escolher Foto" id="file">
                             <div class="input-group-append">
-                                <button type="button" class="browse btn btn-primary">Browse...</button>
+                                <button type="button" class="browse btn btn-primary">Procurar</button>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="ml-2 col-sm-6">
                     <div id="prod-pic"><img src="" id="preview" class="img-thumbnail"></div> 
                 </div>
                 <!-- Fim divs do produto -->
+                 <button type="submit">Enviar</button>
             </div>
         </div>
-        <button style="height:40px; width:120px; left:200px; position: relative; left:90px;"  type="submit">Enviar</button>
         <!--  </form> -->
+        </form>
     </div>
     <!-- Fim divs de container -->
     <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
