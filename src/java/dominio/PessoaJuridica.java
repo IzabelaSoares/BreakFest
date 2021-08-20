@@ -267,7 +267,7 @@ public class PessoaJuridica {
         return pCnpj;
     }
     
-     //cadastro de mídias sociais
+    //cadastro de mídias sociais
     public boolean cadastrarMidias(){
         //comando de execução de banco de dados
         String sql = "update pessoajuridica set instagram=?, facebook=? " 

@@ -3,13 +3,18 @@
     Created on : 16/08/2021, 04:40:57
     Author     : Izabela e Maria Clara
 --%>
+<%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Pix"%>
 <%@page import="dominio.Deposito"%>
 <%
+    //instanciar a pessoa juridica
+    PessoaJuridica pj = new PessoaJuridica();
+    String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
+    String fkcnpj = pj.procuraCnpj(fkemail);
     //verificar a opção de recebimento de pagamento
     String tipoPagto = request.getParameter("pagamento");
 
-    if (tipoPagto == "pix") {
+    if (tipoPagto.contains("pix")) {
         //verifica os valores da chave
         String cnpj = request.getParameter("chave-cnpj");
         String email = request.getParameter("chave-email");
@@ -19,6 +24,7 @@
         Pix pix = new Pix();
 
         //recebe os valores da tela HTML
+        pix.setFkCnpj(fkcnpj);
         pix.setFkTipoChave(request.getParameter("fktipochave"));
 
         //Passa a chave correta
@@ -30,15 +36,20 @@
             pix.setChave(telefone);
         }
 
-        pix.setNome(request.getParameter("nome"));
-
         //se cadastrar pessoa e o login dela
         if (pix.cadastrarPix()) {
             request.getSession().setAttribute("resultado", "PreferenciaSalva");
-            response.sendRedirect("perfil.jsp");
+            //verificar se já possui midias cadastradas
+            if (pj.verificaSociais(fkemail)) {
+                response.sendRedirect("midias.jsp");
+                //se não, redireciona para o index
+            } else {
+                request.getSession().setAttribute("resultado", "SucessoLogin");
+                response.sendRedirect("umapadaria.jsp");
+            }
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-            response.sendRedirect("perfil.jsp");
+            response.sendRedirect("login.jsp");
         }
     } else {
         //instancia o depósito = dep  
@@ -55,7 +66,14 @@
         //se cadastrar pessoa e o login dela
         if (dep.cadastrarDeposito()) {
             request.getSession().setAttribute("resultado", "PreferenciaSalva");
-            response.sendRedirect("perfil.jsp");
+            //verificar se já possui midias cadastradas
+            if (pj.verificaSociais(fkemail)) {
+                response.sendRedirect("midias.jsp");
+                //se não, redireciona para o index
+            } else {
+                request.getSession().setAttribute("resultado", "SucessoLogin");
+                response.sendRedirect("umapadaria.jsp");
+            }
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
             response.sendRedirect("preferenciapagamento.jsp");

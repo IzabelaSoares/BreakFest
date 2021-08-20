@@ -11,18 +11,16 @@
 
     String email = String.valueOf(request.getSession().getAttribute("usuario"));
     String cnpj = pj.procuraCnpj(email);
-    Part part = request.getPart("photo");
     
-    //recebe os valores da tela HTML
-    pj.setInstagram(request.getParameter("instagram"));
-    pj.setFacebook(request.getParameter("facebook"));
+    //recebe os valores do RecebeImagemPerfil
+    pj.setInstagram(String.valueOf(request.getSession().getAttribute("instagram")));
+    pj.setFacebook(String.valueOf(request.getSession().getAttribute("facebook")));
     pj.setCnpj(cnpj);
 
     //se cadastrar pessoa e o login dela
     if (pj.cadastrarMidias()) {
-        request.getSession().setAttribute("usuario", cnpj);
-        request.getSession().setAttribute("photo", part);
-        response.sendRedirect("RecebeImagemPerfil");
+        //se deu certo
+        response.sendRedirect("index.html");
     } else {
         //alert que não deu certo
         request.getSession().setAttribute("resultado", "MidiasNaoadicionadas");

@@ -23,18 +23,16 @@ public class Pix {
     public boolean cadastrarPix(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pix " 
-                   +"(fkCnpj, email, tipochave, chave, nome) " 
-                   +"VALUES(?, ?, ?, ?)";
+                   +"(fkCnpj, tipochave, chave) " 
+                   +"VALUES(?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.email);
             stm.setString(2, this.tipoChave);
             stm.setString(3, this.chave);
-            stm.setString(4, this.nome);
             //executando comando
             stm.execute();
         }catch(SQLException ex){

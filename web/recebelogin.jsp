@@ -42,7 +42,8 @@
         }
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 
-        if (!dep.verificaDados(email) || !pix.verificaDados(email)){
+
+        if ( dep.verificaDados(email) == false && pix.verificaDados(email) == false){
             response.sendRedirect("preferenciapagamento.jsp");
         //verifica se ela possue redes sociais cadastradas
         }else if(pj.verificaSociais(email)){

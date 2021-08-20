@@ -6,8 +6,9 @@
     </servlet>
     <servlet>
         <servlet-name>RecebeImagemPerfil</servlet-name>
-        <servlet-class>upload.RecebeImagemProduto</servlet-class>
+        <servlet-class>upload.RecebeImagemPerfil</servlet-class>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>RecebeImagemProduto</servlet-name>
         <url-pattern>/RecebeImagemProduto</url-pattern>

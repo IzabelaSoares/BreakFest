@@ -17,15 +17,6 @@ import javax.servlet.http.Part;
 @MultipartConfig
 public class RecebeImagemPerfil extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,63 +26,60 @@ public class RecebeImagemPerfil extends HttpServlet {
             PessoaJuridica pj = new PessoaJuridica();
 
             //recebe os valores da tela HTML
+            String instagram = request.getParameter("instagram");
+            String facebook = request.getParameter("facebook");
             String email = String.valueOf(request.getSession().getAttribute("usuario"));
-            String cnpj = pj.procuraCnpj(email).replaceAll("[^0-9]+", "");
-            //para pessoa juridica especificamente
-            pj.setInstagram(request.getParameter("instagram"));
-            pj.setFacebook(request.getParameter("facebook"));
-            pj.setCnpj(cnpj);
-            if (pj.cadastrarMidias()) {
+            String cnpj = pj.procuraCnpj(email);
+            String fkcnpj = cnpj;
+            cnpj = cnpj.replaceAll("[^0-9]+", "");
+            
+            //para salvar a imagem especificamente
+            Part part = request.getPart("photo");
 
-                //para salvar a imagem especificamente
-                Part part = request.getPart("photo");
+            //Pegar o nome do arquivo
+            String nomeArquivo = part.getSubmittedFileName().toLowerCase();
 
-                //Pegar o nome do arquivo
-                String nomeArquivo = part.getSubmittedFileName().toLowerCase();
-
-                //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
-                if (nomeArquivo.contains(".png")) {
-                    nomeArquivo = cnpj + ".png";
-                } else if (nomeArquivo.contains(".jpg")) {
-                    nomeArquivo = cnpj + ".jpg";
-                }
-
-                //Definir os parametros de path e Input do arquivo
-                String path = getServletContext().getRealPath("imagens/imagem-perfil" + File.separator + nomeArquivo);
-                InputStream esse = part.getInputStream(); //faz o input do arquivo
-
-                //Instanciar classe Imagem para a Pasta
-                ImagemPasta pasta = new ImagemPasta();
-
-                //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
-                if (pasta.inserirArquivo(esse, path)) {
-
-                    //Instanciar a classe Imagem para o SQL
-                    ImagemPerfil novo = new ImagemPerfil();
-
-                    //Mandar os Dados para o banco de 
-                    String localizacao = "imagem_perfil/" + nomeArquivo;
-                    novo.setLocalizacao(localizacao);
-                    novo.setFkCnpj(cnpj);
-
-                    //Inserir no database
-                    novo.incluirImagemPerfil();
-
-                    //Colocar aqui link da página recarregada
-                    out.println("File upload to " + path);
-
-                } else {
-
-                    //Colocar aqui link da página recarregada e mensagem de erro
-                    out.println("Deu ruim");
-                }
-
+            //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
+            if (nomeArquivo.contains(".png")) {
+                nomeArquivo = cnpj + ".png";
+            } else if (nomeArquivo.contains(".jpg")) {
+                nomeArquivo = cnpj + ".jpg";
+            } else if (nomeArquivo.contains(".jpeg")) {
+                nomeArquivo = cnpj + ".jpeg";
             }
-            else{
-                //alert que não deu certo
-                request.getSession().setAttribute("resultado", "MidiasNaoadicionadas");
-                response.sendRedirect("login.jsp");
+
+            //Definir os parametros de path e Input do arquivo
+            String path = getServletContext().getRealPath("imagens/imagem-perfil" + File.separator + nomeArquivo);
+            InputStream esse = part.getInputStream(); //faz o input do arquivo
+
+            //Instanciar classe Imagem para a Pasta
+            ImagemPasta pasta = new ImagemPasta();
+
+            //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
+            if (pasta.inserirArquivo(esse, path)) {
+
+                //Instanciar a classe Imagem para o SQL
+                ImagemPerfil novo = new ImagemPerfil();
+
+                //Mandar os Dados para o banco de 
+                String localizacao = "imagens/imagem-perfil/" + nomeArquivo;
+                novo.setLocalizacao(localizacao);
+                novo.setFkCnpj(fkcnpj);
+
+                //Inserir no database
+                novo.incluirImagemPerfil();
+
+                //Tudo certo ele vai mandar para o recebe midias
+                request.getSession().setAttribute("instagram", instagram);
+                request.getSession().setAttribute("facebook", facebook);
+                response.sendRedirect("recebemidias.jsp");
+
+            } else {
+
+                //Colocar aqui link da página recarregada e mensagem de erro
+                out.println("Deu ruim");
             }
+
         }
     }
 
