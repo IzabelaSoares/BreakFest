@@ -126,6 +126,34 @@ public class Produto {
         
     }
     
+    public List<Produto> consultarProdutosBreakFest(){
+        List<Produto> lista = new ArrayList<>();
+        String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
+                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida from "
+                + "imagemproduto i, produto p where p.fkcnpj = 'XX.XXX.XXX/0001-XX' ";
+        Connection con = Conexao.conectar();
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);     
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                Produto produto = new Produto();
+                produto.setTitulo(rs.getString("titulo"));
+                produto.setLocalizacao(rs.getString("localizacao"));
+                produto.setIdProduto(rs.getInt("id"));
+                produto.setFkCnpj(rs.getString("fkcnpj"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setCategoria(rs.getString("categoria"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setTamanho(rs.getString("tamanho"));
+                produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
+                lista.add(produto);
+           }
+        } catch (SQLException ex) {
+          System.out.println("Erro:" + ex.getMessage());
+        }
+    return lista;  
+    }
+    
     public List<Produto> consultarGeral(){
         List<Produto> lista = new ArrayList<>();
         String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "

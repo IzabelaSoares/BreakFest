@@ -16,7 +16,7 @@
     <script src="scripts/galeria-de-produtos.js"></script>
         <%
             Produto novo = new Produto();
-            List<Produto> consulta = novo.consultarGeral();
+            List<Produto> consulta = novo.consultarProdutosBreakFest();
         %>
 
         <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
@@ -41,10 +41,10 @@
                     <tr>
                         <% for (Produto n : consulta) {%>
                         <td class="bs-checkbox "><input type="checkbox"></td>
-                        <td class="w-25"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="Sheep"></td>
+                        <td class="w-25"><img src="<%out.write(n.getLocalizacao());%>" class="img-fluid img-thumbnail" alt="Sheep"></td>
                         <td><%out.write(n.getCategoria()); %></td>
                         <td><%out.write(n.getDescricao()); %></td>
-                        <td><%out.write(n.getMedida() + " " + n.getUnidadeDeMedida()); %></td>
+                        <td><%out.write(n.getTamanho() + " " + n.getUnidadeDeMedida()); %></td>
                         <td>R$ <%out.write(String.valueOf(n.getPreco()));%></td>
                     </tr>
                      <%}%>
