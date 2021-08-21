@@ -46,7 +46,7 @@ public class RecebeImagemProduto extends HttpServlet {
             }
 
             //Definir os parametros de path e Input do arquivo
-            String path = getServletContext().getRealPath("imagens/cliente-produto/" + File.separator + nomeArquivo);
+            String path = getServletContext().getRealPath("imagens/cliente-produto/" + File.separator + nomeArquivo).replaceAll("\\\\build", "");
             InputStream esse = part.getInputStream(); //faz o input do arquivo
 
             //Instanciar classe Imagem para a Pasta
