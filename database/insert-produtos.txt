@@ -1,0 +1,363 @@
+insert into unidadedemedida (nome) values ('KG'), ('L'), ('ML'), ('G'), ('UN'), ('FATIA'), ('COMBO');
+
+insert into categoria (titulocategoria) values ('doces'), ('bebidas'), ('salgados') ,('frios'),('sanduiches'),('pao');
+insert into usuariojuridico (email, fkcnpj, senha) values('projetobreakfest@gmail.com', 'XX.XXX.XXX/0001-XX', '123456789');
+
+insert into pessoajuridica
+(cnpj, razaosocial, nomefantasia, email, telefone, cep, estado, cidade, bairro, rua, numero, complemento, sobrepadaria)
+values('XX.XXX.XXX/0001-XX', 'Projeto BreakFest', 'BreakFest', 'projetobreakfest@gmail.com', '', '', '', '', '', '', 0, '', '');
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('bolo de leite ninho', 'doces', 'XX.XXX.XXX/0001-XX', 'bolo de leite ninho com cobertura de chantilly', 12.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/bolo.jpg', 'XX.XXX.XXX/0001-XX');
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('agua mineral', 'bebidas', 'XX.XXX.XXX/0001-XX', 'agua mineral', 1.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/água mineral.jpg', 'XX.XXX.XXX/0001-XX');
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('agua com gas', 'bebidas', 'XX.XXX.XXX/0001-XX', 'agua com gas', 2.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/água com gás.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('baguete', 'pao', 'XX.XXX.XXX/0001-XX', ' pao frances alongado',1.50, 'grande', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/baguete.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('banoffee', 'doces', 'XX.XXX.XXX/0001-XX', 'torta de bananas com base de biscoitos esfarelados',12.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/banoffe.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('biscoitos de padaria', 'doces', 'XX.XXX.XXX/0001-XX', 'biscoitos amanteigados', 7.00, 'pequeno', 'kg');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/biscoitos de padaria.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('brigadeiro', 'doces', 'XX.XXX.XXX/0001-XX', 'brigadeiro de chocolate', 1.50, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/brigadeiro.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('cafe', 'bebidas', 'XX.XXX.XXX/0001-XX', 'cafe expresso', 5.00, 'medio', 'ml');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/café.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('capuccino', 'bebidas', 'XX.XXX.XXX/0001-XX', 'cafe expresso com leite vaporizado', 7.00, 'medio', 'ml');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/capuccino.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('cheesecake', 'doces', 'XX.XXX.XXX/0001-XX', 'torta feita com uma mistura de ovos,queijo e açucar com base de bsicoitos', 12.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/cheesecake.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('chineque', 'pao', 'XX.XXX.XXX/0001-XX', 'pao doce com farofa doce', 1.00, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/chineque.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('coca cola cafe', 'bebidas', 'XX.XXX.XXX/0001-XX', 'coca cafe possui 40% a mais de cafeína e 50% menos açúcar', 2.00, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/coca café.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('coca cola', 'bebidas', 'XX.XXX.XXX/0001-XX', 'coca cola comum', 2.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/coca cola.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('cocada', 'doces', 'XX.XXX.XXX/0001-XX', 'doce feito a base de coco', 1.00, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/cocada.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('coxinha', 'salgados', 'XX.XXX.XXX/0001-XX', 'salgado frito com recheio de frango', 4.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/coxinha.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('croissant', 'salgados', 'XX.XXX.XXX/0001-XX', 'massa folhada amanteigado', 5.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/croissant.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('cuca', 'doces', 'XX.XXX.XXX/0001-XX', 'um bolo cozido em tabuleiro de chapa com massa lêveda doce composta por farinha', 15.00, 'media', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/Cuca.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('donuts', 'doces', 'XX.XXX.XXX/0001-XX', 'bolo recheiado em forma de rosca',6.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/donuts.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('empada', 'salgado', 'XX.XXX.XXX/0001-XX', 'tortinha de massa de farinha de trigo com recheio',3.50,'medio', 'un');
+INSERT INTO public.imagemproduto ( localizacao, fkcnpj)
+VALUES('produtos/empada.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('empadao', 'salgados', 'XX.XXX.XXX/0001-XX', 'uma torta com massa de farinha de trigo recheada', 55.00, 'grande', 'un');
+INSERT INTO public.imagemproduto ( localizacao, fkcnpj)
+VALUES('produtos/empadão.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('enroladinho', 'salgados', 'XX.XXX.XXX/0001-XX', 'salsichas enroladas por uma massa frita', 3.50, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/enroladinho.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('fanta', 'bebidas', 'XX.XXX.XXX/0001-XX', 'fanta', 3.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/fanta.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('guarana antarctica', '', 'XX.XXX.XXX/0001-XX', 'guarana antarctica', 3.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/guaraná artarctica.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('matte leao', 'bebidas', 'XX.XXX.XXX/0001-XX', 'cha matte leao', 3.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/mette leão.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('misto quente', 'sanduiches', 'XX.XXX.XXX/0001-XX', 'sanduiche com queijo e presunto feito na chapa', 5.50, 'medio','un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/misto quente.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('mortadela', 'frios', 'XX.XXX.XXX/0001-XX', 'embutido feito de carne de bovinos, suínos, de aves e de cubos de gordura.', 13.00, 'medio', 'kg');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/mortadela.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao australiano', 'pao', 'XX.XXX.XXX/0001-XX', 'coloração escura, sabor potente, marcante e levemente adocicado', 20.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão australiano.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao brioche', 'pao', 'XX.XXX.XXX/0001-XX', 'pao feito com alto teor de manteiga e ovo', 3.50, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão brioche.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao com bolinho', 'sanduiches', 'XX.XXX.XXX/0001-XX', 'sanduiche feito com pao com recheio bolinho de carne', 9.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão com bolinho', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao com gergelim', 'pao', 'XX.XXX.XXX/0001-XX', 'pao com gergelim encima o famoso pao de hamburger', 0.75, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão com gergelim.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao de forma', 'pao', 'XX.XXX.XXX/0001-XX', 'pao de forma embalado cortado em fatias', 6.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão de forma.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao de massa', 'pao', 'XX.XXX.XXX/0001-XX', 'pao de massa com textura que lembra a de um bolo', 8.00 , 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão de massa.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao de mel', 'doces', 'XX.XXX.XXX/0001-XX', 'doce feito a base de mel,chocolates,especiarias e manteiga', 2.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão de mel.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao de queijo', 'salgados', 'XX.XXX.XXX/0001-XX', 'um paozinho feito a base de queijo',0.50, 'pequeno', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão de queijo.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao doce', 'pao', 'XX.XXX.XXX/0001-XX', 'pao de massa doce com creme de baunilha decorado com frutas', 1.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão doce.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao frances', 'pao', 'XX.XXX.XXX/0001-XX', 'o tradicional pao frances ', 7.45, 'medio', 'kg');
+INSERT INTO public.imagemproduto ( localizacao, fkcnpj)
+VALUES('produtos/pão francês.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pao sirio', 'pao', 'XX.XXX.XXX/0001-XX', 'um pão folha que pode ser recheado e consumido como um sanduíche',5.20, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pão sírio', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pastel de forno', 'salgados', 'XX.XXX.XXX/0001-XX', 'pastel feito no formo com massa de farinha de trigo recheado', 5.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pastel de forno.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pastel', 'salgados', 'XX.XXX.XXX/0001-XX', 'pastel frito no oleo', 4.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pastel.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pepsi', 'bebidas', 'XX.XXX.XXX/0001-XX', 'refrigerante pspsi cola', 2.47, 'medio', 'un');
+INSERT INTO public.imagemproduto ( localizacao, fkcnpj)
+VALUES('produtos/pepsi', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('presunto', 'frios', 'XX.XXX.XXX/0001-XX', 'formado pela perna inteira do porco, que é curada temperada e defumada', 25.00, 'grande', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/presunto.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('pudim', 'doces', 'XX.XXX.XXX/0001-XX', 'feito com uma mistura de ovos e leite condensado e depois e congelado', 10.00, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/pudim.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('queijo mussarela', 'frios', 'XX.XXX.XXX/0001-XX', 'produzido pela coagulação do leite de vacas,cabras',26.50 , 'grande', 'kg');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/queijo mussarela.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('queijo ricota', 'frios', 'XX.XXX.XXX/0001-XX', 'O requeijão ou ricota é um derivado de queijo de massa mole, fresco e com baixo teor de gordura.', 8.50, 'un', '');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/queijo ricota.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('queijo suiço', 'frios', 'XX.XXX.XXX/0001-XX', 'feito com leite de vaca, com pasta prensada cozinhada é mergulhado em água salgada', 65.00, 'grande', 'kg');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/queijo suico.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('quidim', 'doces', 'XX.XXX.XXX/0001-XX', ' é um doce que tem como ingredientes gema de ovo, açúcar e coco ralado', 8.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/quidim', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('rocambole', 'doces', 'XX.XXX.XXX/0001-XX', 'feito com massa comum de bolo, a cobertura é passada sobre o bolo, para que seja enrolado sobre si mesmo', 38.00, 'grande', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/rocambole.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('salame', 'frios', 'XX.XXX.XXX/0001-XX', 'preparado a base de carne bovina ou suína, com 25% de gordura, junto à especiarias', 68.00, 'grande', 'kg');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/salame.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('sonho', 'doces', 'XX.XXX.XXX/0001-XX', 'Sonhos são pães feitos com massa fermentada e fritos em óleo, recheados com doce de leite, creme de confeiteiro, geleia de goiaba,entre outros', 4.50, 'medio', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/sonho.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('sucos', 'bebidas', 'XX.XXX.XXX/0001-XX', 'sucos da polpa de variadas frutas a sua escolha', 7.00, 'medio', 'ml');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/sucos.jpg', 'XX.XXX.XXX/0001-XX');
+
+
+INSERT INTO public.produto
+(titulo, categoria, fkcnpj, descricao, preco, tamanho, unidadedemedida)
+VALUES('torta', 'doces', 'XX.XXX.XXX/0001-XX', 'base feita com biscoitos triturados e recheio ', 15.00, 'grande', 'un');
+INSERT INTO public.imagemproduto (localizacao, fkcnpj)
+VALUES('produtos/torta.jpg', 'XX.XXX.XXX/0001-XX');
