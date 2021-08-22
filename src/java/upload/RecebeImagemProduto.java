@@ -1,7 +1,6 @@
 // @author Izabela
 package upload;
 
-import dominio.ImagemProduto;
 import dominio.PessoaJuridica;
 import java.io.File;
 import java.io.IOException;
@@ -55,17 +54,6 @@ public class RecebeImagemProduto extends HttpServlet {
             //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
             if (pasta.inserirArquivo(esse, path)) {
 
-                //Instanciar a classe Imagem para o SQL
-                ImagemProduto novo = new ImagemProduto();
-
-                //Mandar os Dados para o database
-                String localizacao = "imagens/cliente-produto/" + nomeArquivo;
-                novo.setLocalizacao(localizacao);
-                novo.setFkCnpj(fkcnpj);
-
-                //Inserir no database
-                novo.incluirImagemProduto();
-
                 //Itens do formulario para salvar os produtos
                 String titulo = request.getParameter("titulo");
                 String categoria = request.getParameter("categoria");
@@ -73,6 +61,7 @@ public class RecebeImagemProduto extends HttpServlet {
                 String unidadeMedida = request.getParameter("unidadedemedida");
                 String descricao = request.getParameter("descricao");
                 Float preco = Float.parseFloat(request.getParameter("preco"));
+                String imagem = "imagens/cliente-produto/" + nomeArquivo;
 
                 //Passar os dados para recebe cadastro do produto
                 request.getSession().setAttribute("titulo", titulo);
@@ -80,8 +69,8 @@ public class RecebeImagemProduto extends HttpServlet {
                 request.getSession().setAttribute("preco", preco);
                 request.getSession().setAttribute("descricao", descricao);
                 request.getSession().setAttribute("unidadeMedida", unidadeMedida);
-                request.getSession().setAttribute("localizacao", localizacao);
                 request.getSession().setAttribute("tamanho", tamanho);
+                request.getSession().setAttribute("imagem", imagem);
 
                 response.sendRedirect("recebecadastroproduto.jsp");
 

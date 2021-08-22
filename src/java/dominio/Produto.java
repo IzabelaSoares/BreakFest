@@ -20,15 +20,15 @@ public class Produto {
     private float preco;
     private String tamanho;
     private String unidadeDeMedida;
-    private String localizacao;
+    private String imagem;
 
 
     //métodos
     public boolean cadastrarProduto(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO produto " 
-                   +"(titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
-                   + "unidadedemedida) VALUES(?, ?, ?, ?, ?, ?, ?)";
+                   +"(titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
+                   + "unidadedemedida) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -37,10 +37,11 @@ public class Produto {
             stm.setString(1, this.titulo); 
             stm.setString(2, this.categoria);;
             stm.setString(3, this.fkCnpj);
-            stm.setString(4, this.descricao);
-            stm.setFloat(5, this.preco);
-            stm.setString(6, this.tamanho);
-            stm.setString(7, this.unidadeDeMedida);
+            stm.setString(4, this.imagem);
+            stm.setString(5, this.descricao);
+            stm.setFloat(6, this.preco);
+            stm.setString(7, this.tamanho);
+            stm.setString(8, this.unidadeDeMedida);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -54,7 +55,7 @@ public class Produto {
     public boolean alterarProduto(){
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
-                + "SET titulo=?, categoria=?, fkcnpj=?, descricao=?, preco=?, "
+                + "SET titulo=?, categoria=?, fkcnpj=?, imagem=?, descricao=?, preco=?, "
                 + "tamanho=?, unidadedemedida=? WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -64,11 +65,12 @@ public class Produto {
             stm.setString(1, this.titulo); 
             stm.setString(2, this.categoria);;
             stm.setString(3, this.fkCnpj);
-            stm.setString(4, this.descricao);
-            stm.setFloat(5, this.preco);
-            stm.setString(6, this.tamanho);
-            stm.setString(7, this.unidadeDeMedida);
-            stm.setInt(8, this.idProduto);
+            stm.setString(4, this.imagem);
+            stm.setString(5, this.descricao);
+            stm.setFloat(6, this.preco);
+            stm.setString(7, this.tamanho);
+            stm.setString(8, this.unidadeDeMedida);
+            stm.setInt(9, this.idProduto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -128,9 +130,7 @@ public class Produto {
     
     public List<Produto> consultarProdutosBreakFest(){
         List<Produto> lista = new ArrayList<>();
-        String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
-                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida from "
-                + "imagemproduto i, produto p where p.fkcnpj = 'XX.XXX.XXX/0001-XX' ";
+        String sql = "select * from public.produto where fkcnpj = 'XX.XXX.XXX/0001-XX'";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
@@ -138,7 +138,7 @@ public class Produto {
             while(rs.next()){
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
-                produto.setLocalizacao(rs.getString("localizacao"));
+                produto.setImagem(rs.getString("imagem"));
                 produto.setIdProduto(rs.getInt("id"));
                 produto.setFkCnpj(rs.getString("fkcnpj"));
                 produto.setDescricao(rs.getString("descricao"));
@@ -154,11 +154,10 @@ public class Produto {
     return lista;  
     }
     
-    public List<Produto> consultarGeral(){
+    //consultar cada padaria o seu produto, passar cnpj como parametro
+    public List<Produto> consultarGeral(String cnpj){
         List<Produto> lista = new ArrayList<>();
-        String sql = "select i.localizacao, p.titulo, p.id, p.categoria, p.fkcnpj, "
-                + "p.descricao, p.preco, p.tamanho, p.unidadedemedida from "
-                + "imagemproduto i, produto p where p.fkcnpj = i.fkcnpj and i.fkidproduto = p.id;";
+        String sql = "select * from public.produto where fkcnpj= '"+ cnpj +"'";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
@@ -166,7 +165,7 @@ public class Produto {
             while(rs.next()){
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
-                produto.setLocalizacao(rs.getString("localizacao"));
+                produto.setImagem(rs.getString("imagem"));
                 produto.setIdProduto(rs.getInt("id"));
                 produto.setFkCnpj(rs.getString("fkcnpj"));
                 produto.setDescricao(rs.getString("descricao"));
@@ -246,13 +245,13 @@ public class Produto {
         this.tamanho = tamanho;
     }
 
-    public String getLocalizacao() {
-        return localizacao;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
-    
+
 
 }

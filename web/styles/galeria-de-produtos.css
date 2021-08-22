@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
+
+*{
+    font-family: 'Muli', sans-serif;
+}
+
+.table{
+    text-transform: uppercase;
+    
+}
+
+.titulo{
+    text-align: center;
+}
+/*definir para blocos em linha e quebra de palavras para se a descrição for longa*/
+td{ 
+    width: 200px;
+    text-align: center;
+    word-wrap: break-word;         
+    overflow-wrap: break-word;    
+}
+.bs-checkbox {
+    width: 20px;
+
+}
+.produto{
+    text-align: center;
+    
+}
+.categoria{
+    width: 100px;
+}
+.tamanho{
+    width: 100px;
+}
+.imagem{
+    max-width: 150px;
+    max-height: 150px;
+}
