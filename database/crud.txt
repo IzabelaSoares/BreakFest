@@ -17,7 +17,6 @@ create table pessoajuridica(
 	primary key(cnpj)
 );
 
-
 create table usuariojuridico(
 	id serial not null,
 	fkcnpj varchar(20) not null,
