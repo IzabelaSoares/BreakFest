@@ -3,12 +3,6 @@ insert into unidadedemedida (nome) values ('KG'), ('L'), ('ML'), ('G'), ('UN'), 
 
 insert into categoria (titulocategoria) values ('doces'), ('bebidas'), ('salgados') ,('frios'),('sanduiches'),('pao');
 
-INSERT INTO public.pessoajuridica
-(cnpj, razaosocial, nomefantasia, email, telefone, cep, estado, cidade, bairro, rua, numero, complemento, sobrepadaria)
-values('XX.XXX.XXX/0001-XX', 'Projeto BreakFest', 'BreakFest', 'projetobreakfest@gmail.com', '', '', '', '', '', '', 0, '', '');
-
-INSERT INTO public.usuariojuridico (email, fkcnpj, senha) values('projetobreakfest@gmail.com', 'XX.XXX.XXX/0001-XX', 'padaria');
-
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

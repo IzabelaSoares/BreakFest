@@ -17,13 +17,6 @@ create table pessoajuridica(
 	primary key(cnpj)
 );
 
-create table imagempadaria(
-	id serial not null,
-	localizacao text not null,
-	fkcnpj varchar(20) not null,
-	primary key(id),
-	foreign key(fkcnpj) references pessoajuridica(cnpj)
-);
 
 create table usuariojuridico(
 	id serial not null,
@@ -78,6 +71,7 @@ create table produto(
 	titulo varchar(30) not null,
 	categoria varchar(30) not null,
 	fkcnpj varchar(20) not null,
+	imagem text,
 	descricao varchar(1000) not null,
 	preco float4 not null,
 	tamanho varchar(30) not null,
