@@ -51,7 +51,7 @@
         //se não, redireciona para o index
         }else{
             request.getSession().setAttribute("resultado", "SucessoLogin");
-            response.sendRedirect("cadastroproduto.jsp");
+            response.sendRedirect("produtospadrao.jsp");
         }
     } else {
         //login não deu certo
