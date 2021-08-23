@@ -62,7 +62,7 @@
                         <td id="imagem" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
                         <td id="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
                         <td id="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
-                        <td> id="descricao" <%out.write(n.getDescricao().toUpperCase()); %> </td>
+                        <td id="descricao"><%out.write(n.getDescricao().toUpperCase()); %> </td>
                         <td id="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
                         <td id="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
                         <td id="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()));%> </td>

@@ -1,0 +1,115 @@
+.button {
+  font-family:Mukta;
+  font-size: 16px;
+  font-weight:400;
+  display:inline-block;
+  color:#FFF5EB;
+  border-radius: .25em;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+}
+
+.primary {
+  line-height:40px;
+  transition:ease-in-out .2s;
+  padding: 0 16px;
+}
+
+.primary:hover, .condensed:hover, .touch:hover {
+  transform:scale(1.02);
+  box-shadow:2px 2px 5px rgba(0,0,0,0.20), inset 0 0 0 99999px rgba(0,0,0,0.2);
+}
+/* 2nd alternate hover colors if hover inset shadow not working properly 
+.edit:hover {
+  background: darken($gw-blue, 10%);
+}
+
+.save:hover {
+  background: darken($gw-purple, 10%);
+}
+
+.new:hover {
+  background: darken($gw-green, 10%);
+}
+
+.cancel:hover {
+  background: darken($gw-gray-5, 10%);
+}
+
+.delete:hover {
+  background: darken($gw-red, 10%);
+}
+*/
+
+.condensed {
+  transition:ease-in-out .2s;
+  line-height:24px;
+  padding: 0 8px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+}
+
+.touch {
+  transition:ease-in-out .2s;
+  line-height:40px;
+  width:40px;
+  padding: 0px;
+  text-align: center;
+}
+
+.inlineIcon {}
+
+.edit:before, .save:before, .new:before, .cancel:before, .delete:before {
+  font-family: Mukta;
+  display: inline-block;
+  font-size:1rem;
+  padding-right:12px;
+  background:none;
+  color:#FFF;
+}
+
+.condensed.edit:before, .condensed.save:before, .condensed.new:before, .condensed.cancel:before, .condensed.delete:before {
+   content:none;
+}
+
+.touch.edit:before, .touch.save:before, .touch.new:before, .touch.cancel:before, .touch.delete:before {
+  width:100%;
+  text-align:center;
+  font-size:1.25rem;
+}
+
+.inlineIcon.edit, .inlineIcon.save, .inlineIcon.new, .inlineIcon.cancel, .inlineIcon.delete {
+  background: transparent;
+}
+
+.inlineIcon.edit:before, .inlineIcon.save:before, .inlineIcon.new:before, .inlineIcon.cancel:before, .inlineIcon.delete:before {
+  line-height:32px;
+  font-size:32px;
+  padding:4px 0px;
+}
+
+.edit {
+  width: 43px;
+  position:relative;
+  left:300px;
+  top: 65px;
+  background: #995a1a;
+}
+.save {
+  width: 43px;
+  position:relative;
+  left: 500px;
+  top: -2px;
+  background: #995a1a;
+}
+.delete {
+  width: 43px;
+  position:relative;
+  left: 400px;
+  top: -69px;
+  background: #995a1a;
+}
+table{
+    top:500px;
+    width:755px;
+    background: #ffecc4;
+    color:#995a1a;
+}
