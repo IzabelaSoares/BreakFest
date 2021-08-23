@@ -79,14 +79,6 @@ create table produto(
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
-create table imagemproduto(
-	id serial not null,
-	localizacao text not null,
-	fkcnpj varchar(20) not null,
-	primary key(id),
-	foreign key(fkcnpj) references pessoajuridica(cnpj)
-);
-
 create table pedido(
 	id serial not null,
 	fkcpf varchar(14) not null,
