@@ -22,6 +22,7 @@
         <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
     </head>
     <body>
+        <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
         <div class="container">
             <h1>Selecione produtos: </h1>
             <input id="search" type="text" class="form-control"  placeholder="Procure um produto ou informe uma categoria aqui..."><br>
@@ -35,19 +36,21 @@
                         <th class="titulo" >Categoria</th>
                         <th class="titulo" >Descrição </th>
                         <th class="titulo" >Tamanho</th>
+                        <th class="titulo" >Un. Medida</th>
                         <th class="titulo" >Preço</th>
                     </tr>
                 </thead>
                 <tbody id="table">
                     <tr>
                         <% for (Produto n : consulta) {%>
-                        <td class="bs-checkbox "><input type="checkbox"></td>
-                        <td class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
-                        <td class="produto"><%out.write(n.getTitulo()); %></td>
-                        <td class="categoria"><%out.write(n.getCategoria()); %></td>
-                        <td><%out.write(n.getDescricao().toUpperCase()); %></td>
-                        <td class="tamanho"><%out.write(n.getTamanho() + " " + n.getUnidadeDeMedida()); %></td>
-                        <td class="preco">R$ <%out.write(String.valueOf(n.getPreco()));%></td>
+                        <td class="bs-checkbox"><input type="checkbox" name="box"></td>
+                        <td id="imagem" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
+                        <td id="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
+                        <td id="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
+                        <td> id="descricao" <%out.write(n.getDescricao().toUpperCase()); %> </td>
+                        <td id="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
+                        <td id="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
+                        <td id="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()));%> </td>
                     </tr>
                      <%}%>
                 </tbody>
