@@ -21,7 +21,7 @@
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-        <h2> Break Fest </h2>
+        <h2 style="color:white;"> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
                 <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
@@ -44,14 +44,14 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="first">Produto</label>
-                        <input style="height:39px; width:216px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
+                        <input style="height:39px; width:216px; box-shadow:none; border-style:none;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
                     </div>
                 </div>
                 <!-- Categoria   -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="categoria">Categoria do Produto</label>
-                        <select class="form-control" id="categoria" name="categoria">
+                        <select style="box-shadow:none; border-style:none;" class="form-control" id="categoria" name="categoria">
                             <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
                             <option value="doce">Doce</option>
                         </select>
@@ -61,14 +61,14 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="phone">Tamanho/Medida</label>
-                        <input style="height:39px; width:216px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                        <input style="height:39px; width:216px; box-shadow:none; border-style:none;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
                     </div>
                 </div>
                 <!-- Unidade de Medida  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="categoria">Unidade de Medida</label>
-                        <select class="form-control" id="categoria" name="unidadedemedida">
+                        <select style="box-shadow:none; border-style:none;" class="form-control" id="categoria" name="unidadedemedida">
                             <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
                             <option value="quilo">Quilo</option>
                         </select>
@@ -78,15 +78,15 @@
                 <label>Preço do Produto</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">R$</span>
+                        <span style="border-style:none;" class="input-group-text">R$</span>
                     </div>
-                    <input style="height:39px; width:170px;" type="text" id="preco" name="preco" placeholder="2,99">
+                    <input style="height:39px; width:170px; box-shadow:none; border-style:none; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
                 </div>
                 <!-- Descrição do Produto  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="descricao">Descrição do Produto</label>
-                        <textarea style="height:70px; width:212px;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                        <textarea style="height:70px; width:212px; box-shadow:none; border-style:none;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
                     </div>
                 </div>
                 <!-- Selecionar a Imagem  -->
