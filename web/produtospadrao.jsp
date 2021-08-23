@@ -13,6 +13,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
     <link rel="stylesheet" href="styles/galeria-de-produtos.css">
+    <link rel="stylesheet" href="styles/util.css">
+    <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
     <script src="scripts/galeria-de-produtos.js"></script>
         <%
             Produto novo = new Produto();
@@ -21,12 +23,25 @@
 
         <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
     </head>
+    <!-- Inicio da NavBar de cima -->
+    <header id="navbar">
+        <a href="dadoscartaocredito.jsp"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <h2> Break Fest </h2>
+        <nav>
+            <ul id="navbar-list">
+                <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
+                <li><a href="tipopessoa.jsp">Cadastro</a></li>
+                <li><a id="login" href="login.jsp">Login</a></li>
+            </ul>
+        </nav>
+    </header>
     <body>
         <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
         <div class="container">
             <h1>Selecione produtos: </h1>
-            <input id="search" type="text" class="form-control"  placeholder="Procure um produto ou informe uma categoria aqui..."><br>
-            <button class="btn btn-primary">Importar Produtos</button><br>
+            <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
+            <button class="botao">Importar Produtos</button><br>
+            <div class="borda">
             <table class="table table-image">
                 <thead>
                     <tr>
@@ -55,6 +70,7 @@
                      <%}%>
                 </tbody>
             </table>
+            </div>
         </div>
     </body>
 </html>
