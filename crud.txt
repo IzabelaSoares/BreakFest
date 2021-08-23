@@ -1,0 +1,156 @@
+create table pessoajuridica(
+	cnpj varchar(20) not null,
+	razaosocial varchar(80) not null,
+	nomefantasia varchar(80) not null,
+	email text not null,
+	telefone varchar(15) not null,
+	cep varchar(10) not null,
+	estado varchar(4) not null,
+	cidade varchar(30) not null,
+	bairro varchar(30) not null,
+	rua varchar(50) not null,
+	numero integer not null,
+	complemento varchar(80),
+	sobrepadaria text not null,
+	instagram text,
+	facebook text,
+	primary key(cnpj)
+);
+
+create table imagempadaria(
+	id serial not null,
+	localizacao text not null,
+	fkcnpj varchar(20) not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table usuariojuridico(
+	id serial not null,
+	fkcnpj varchar(20) not null,
+	email text not null,
+	senha varchar(20) not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table pessoafisica(
+	cpf varchar(14) not null,
+	nome varchar(50) not null,
+	sobrenome varchar(50) not null,
+	datanascimento date not null,
+	email text not null,
+	celular varchar(15) not null,
+	cep varchar(10) not null,
+	estado varchar(4) not null,
+	cidade varchar(30) not null,
+	bairro varchar(30) not null,
+	rua varchar(50) not null,
+	numero int4 not null,
+	complemento varchar(80),
+	primary key(cpf)
+);
+
+create table usuariofisico(
+	id serial not null,
+	fkcpf varchar(14) not null,
+	email text not null,
+	senha varchar(20) not null,
+	primary key(id),
+	foreign key(fkcpf) REFERENCES pessoafisica(cpf)
+);
+
+create table categoria(
+	id serial not null,
+	titulocategoria varchar(30) not null,
+	primary key(id)
+);
+
+create table unidadedemedida(
+	id serial not null,
+	nome varchar(40) not null,
+	primary key (id)
+);
+
+create table produto(
+	id serial not null,
+	titulo varchar(30) not null,
+	categoria varchar(30) not null,
+	fkcnpj varchar(20) not null,
+	descricao text not null,
+	preco float4 not null,
+	tamanho varchar(30) not null,
+	unidadedemedida varchar(40) not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table imagemproduto(
+	id serial not null,
+	localizacao text not null,
+	fkcnpj varchar(20) not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table pedido(
+	id serial not null,
+	fkcpf varchar(14) not null,
+	fkcnpj varchar(20) not null,
+	fkidproduto integer not null,
+	observacao varchar(300),
+	datapedido timestamp not null,
+	statuspagto varchar(20) not null,
+	primary key(id),
+	foreign key(fkcpf) references pessoafisica(cpf),
+	foreign key(fkcnpj) references pessoajuridica(cnpj),
+	foreign key(fkidproduto) references produto(id)
+);
+
+create table cartao(
+	id serial not null,
+	fkcpf varchar(14) not null,
+	nome varchar(50) not null,
+	numero integer not null,
+	validade varchar(6) not null,
+	codseguranca varchar(4) not null,
+	primary key (id),
+	foreign key (fkcpf) references pessoafisica(cpf)
+);
+
+create table pix (
+	id serial not null,
+	fkcnpj varchar(20) not null,
+	tipochave varchar(20) not null,
+	chave text not null,
+	primary key(id),
+	foreign key (fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table banco(
+	id serial not null,
+	numero integer not null,
+	banco text not null unique,
+	primary key(id)
+);
+
+create table deposito(
+	id serial not null,
+	fkcnpj varchar(20) not null,
+	conta text not null,
+	banco text not null,
+	tipoconta varchar(30) not null,
+	agencia varchar(30) not null,
+	datapagto varchar(3) not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table bairrospadaria(
+	id serial not null,
+	atendebairro varchar(100) not null,
+	fkcnpj varchar(20) not null,
+	taxaentrega float4 not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
