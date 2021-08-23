@@ -21,7 +21,7 @@
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-        <h2 style="color: #FFF;"> Break Fest </h2>
+        <h2 style="color:white;"> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
                 <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
