@@ -14,27 +14,35 @@
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
         <script src="scripts/alertas-erro.js"></script>
-        <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null); %>
+        <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
         <title>Recuperando Senha</title>
     </head>
     <body onload="javascript: alertar(resultado)">
         <div class="body">
             <!-- Inicio do Form -->
             <form action="receberecuperarsenha.jsp" method="post">
-               <!-- Container -->
-            <div class="container">
-                <h2 id="title">Recuperar senha</h2>
-                <!-- Inputs -->
-                <input type="text" name="email" class="login-element" placeholder="E-mail">
-                <input type="password" name="senhanova" class="login-element" placeholder="Nova senha">
-                <input type="password" id="confirmarsenha" class="login-element" placeholder="Confirme-a">
-                <input type="submit" id="login-btn" value="Criar nova senha">
-            </div>
-           </form>
+                <!-- Container -->
+                <div class="container">
+                    <h2 id="title">Recuperar senha</h2>
+                    <!-- Inputs -->
+                    <div class="single-input">
+                        <input type="text" class="input" id="nome" required>
+                        <label for="nome">E-mail</label>
+                    </div>
+                    <div class="single-input">
+                        <input type="password" class="input" id="senha" required>
+                        <label for="senha">Senha</label>
+                    </div>
+                    <div class="single-input">
+                        <input type="password" class="input" id="confirmsenha" required>
+                        <label for="confirmsenha">Confirmar senha</label>
+                    </div>
+                </div>
+            </form>
             <!-- Fim do form -->
         </div>
         <script>
-            <!-- Fazer a validação das senhas aqui -->
+<!-- Fazer a validação das senhas aqui -->
         </script>
     </body>
 </html>
