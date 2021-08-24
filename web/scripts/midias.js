@@ -22,3 +22,8 @@ function imageData(url) {
   };
 }
 
+$(document).ready(function() {
+        $('#multiple-checkboxes').multiselect({
+          includeSelectAllOption: true
+        });
+    });
