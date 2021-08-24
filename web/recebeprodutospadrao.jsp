@@ -3,6 +3,7 @@
     Created on : 23/08/2021, 13:44:57
     Author     : Maria
 --%>
+<%@page import="java.sql.Array"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.*"%>
 <%@page import="dominio.Produto"%>
@@ -13,12 +14,20 @@
     PessoaJuridica pj = new PessoaJuridica();
     
     List<Produto> consulta = prdt.consultarProdutosBreakFest();
+    
+    if (request.getParameter("box") != null){
+    
+    String teste = request.getParameter("descricao");
+    
+    }
+    
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String fkcnpj = pj.procuraCnpj(fkemail);
     String titulo = request.getParameter("titulo");
     String categoria = request.getParameter("categoria");
     String imagem = request.getParameter("imagem");
     String descricao = request.getParameter("descricao");
+    String[] num1 = request.getParameterValues("descricao");
     String preco = request.getParameter("preco");
     String tamanho = request.getParameter("tamanho");
     String unidadedemedida = request.getParameter("unidadedemedida");

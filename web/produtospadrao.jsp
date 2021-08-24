@@ -45,7 +45,7 @@
             <table class="table table-image">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
+                        <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
                         <th class="titulo" >Imagem</th>
                         <th class="titulo" >Produto</th>
                         <th class="titulo" >Categoria</th>
@@ -58,14 +58,14 @@
                 <tbody id="table">
                     <tr>
                         <% for (Produto n : consulta) {%>
-                        <td class="bs-checkbox"><input type="checkbox" name="box"></td>
-                        <td id="imagem" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
-                        <td id="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
-                        <td id="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
-                        <td id="descricao"><%out.write(n.getDescricao().toUpperCase()); %> </td>
-                        <td id="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
-                        <td id="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
-                        <td id="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()));%> </td>
+                        <td class="check"><input type="checkbox" name="box"></td>
+                        <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
+                        <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
+                        <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
+                        <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao().toUpperCase());%>"><%out.write(n.getDescricao().toUpperCase());%></td>
+                        <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
+                        <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
+                        <td name="preco" class="preco"><%out.write(String.valueOf(n.getPreco()));%></td>
                     </tr>
                      <%}%>
                 </tbody>
