@@ -18,6 +18,7 @@
         <title>Recuperando Senha</title>
     </head>
     <body onload="javascript: alertar(resultado)" class="imagem">
+    <!-- Fim da NavBar de cima -->
         <div>
             <!-- Inicio do Form -->
             <form action="receberecuperarsenha.jsp" method="post">
