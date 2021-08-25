@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Imports de escolhas de bairro -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/bairros.css">
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Empresa</title>
@@ -123,6 +126,21 @@
                         <div class="form-row">
                             <input type="text" name="complemento" id="complemento" placeholder="Complemento (opcional)">
                         </div>
+                        <!-- Input dos bairros que ela deseja atender -->
+                        <div class="form-row">
+                            <div class="combo js-csv">
+                                <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="listbox1" class="input-wrapper">
+                                    <input
+                                        placeholder="Selecione os bairros de interesse em fornecer"
+                                        aria-activedescendant=""
+                                        aria-autocomplete="list"
+                                        id="combo1"
+                                        class="combo-input"
+                                        type="text">
+                                </div>
+                                <div class="combo-menu" role="listbox" aria-multiselectable="true" id="listbox1"></div>
+                            </div>
+                        </div>
                         <!-- Botão submit para lançar os dados do form -->
                         <div class="form-row-last">
                             <input type="submit" name="cadastrar" class="register" value="Cadastrar">
@@ -131,5 +149,6 @@
                 </form>
             </div>
         </div>
+        <script  src="scripts/bairros.js"></script>
     </body>
 </html>
