@@ -155,6 +155,25 @@ public class PessoaFisica {
         
     }
     
+//método para procurar cpf pelo email
+    public String procuraCpf(String email){
+        String pCpf = null;
+        Connection con = Conexao.conectar();
+        String sql = "select cpf from pessoafisica where email = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                pCpf = rs.getString("cpf");
+            }
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        
+        return pCpf;
+    }
+    
    //verifica no banco se o cpf já foi usado
     public boolean verificaExistenciaCpf(String cpf){
         Connection con = Conexao.conectar();
