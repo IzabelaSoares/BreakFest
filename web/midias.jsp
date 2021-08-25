@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <br>
-                    <input type="submit" id="centro" value="Enviar">
+                    <button type="submit" id="centro">Enviar</button>
                 </form>
             </div>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>

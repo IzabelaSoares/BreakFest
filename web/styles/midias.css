@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
+
 input[type="file"].custom {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -9,10 +11,17 @@ input[type="file"].custom {
   width: 1px;
 }
 
+* {
+    font-family: Mukta;
+}
+
+body, input {
+    background-color: #f7f7f7;
+}
+
 /* De toda a pag */
 
 body {
-    background-color: #f7f7f7;
     padding-top: 17vh;
 }
 
@@ -41,20 +50,12 @@ h1 {
 .container {
     width: 80%;
     height: 100%;
-    border: 1px solid black;
-    box-shadow: 2px black;
-    border-radius: 10px;
-}
-
-.container, input {
-    background-color: #fafafa;
 }
 
 /* Retirando Atributos */
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus, button:active, button:hover, button:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
 } 
-

@@ -17,13 +17,15 @@
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
         <title>Recuperando Senha</title>
     </head>
-    <body onload="javascript: alertar(resultado)">
-        <div class="body">
+    <body onload="javascript: alertar(resultado)" class="imagem">
+        <div>
             <!-- Inicio do Form -->
             <form action="receberecuperarsenha.jsp" method="post">
                 <!-- Container -->
                 <div class="container">
+                    <div class="quadrado">
                     <h2 id="title">Recuperar senha</h2>
+                    </div>
                     <!-- Inputs -->
                     <div class="single-input">
                         <input type="text" class="input" id="nome" required>
@@ -36,6 +38,9 @@
                     <div class="single-input">
                         <input type="password" class="input" id="confirmsenha" required>
                         <label for="confirmsenha">Confirmar senha</label>
+                    </div>
+                    <div class="single-input">
+                        <button type="submit">Salvar</button>
                     </div>
                 </div>
             </form>
