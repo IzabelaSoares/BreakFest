@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/util.css">
-
-    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+    <!-- Email Recuperar Senha -->
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script src="scripts/email-recuperar-senha.js"></script>
+    <!-- Alertas -->
     <script src="scripts/alertas-erro.js"></script>
     <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 </head>
@@ -59,12 +61,12 @@
                         Não possui uma conta? <a href="tipopessoa.jsp" class="ml-2">Registrar-se</a>
                     </div>
                     <div class="d-flex justify-content-center links">
-                        Esqueceu sua senha? <a href="emailrecuperarsenha.jsp" class="ml-2">Recupere-a</a>
+                        Esqueceu sua senha? <a href="#" onclick="recuperarSenha()" class="ml-2">Recupere-a</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <script src="scripts/confirmacao-de-login.js"></script>
+    <script src="scripts/confirmacao-de-login.js"></script>
 </body>
 </html>
