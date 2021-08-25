@@ -1,6 +1,6 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="dominio.PessoaFisica"%>
-<!-- Tela de alterar cadastro físico, criada por: Ricardo
+<!-- Tela de alterar cadastro físico, criada por: Iza
 Feito os inputs de endereço e informações necessárias posto no mesmo lugar, separadaos
 por dois lado pelo fato de ser mais simples.
 
@@ -39,14 +39,14 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <%
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        
+
         //Instanciar a Pessoa Fisica
         PessoaFisica pf = new PessoaFisica();
-        
+
         //Pegar o cpf dela
         String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
         String cpf = pf.procuraCpf(fkemail);
-        
+
         //Instanciar uma nova pessoa fisica e consultar os dados através do cpf
         PessoaFisica consulta = new PessoaFisica();
         consulta = consulta.consultarConta(cpf);
@@ -94,6 +94,16 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                                        placeholder="Telefone" maxlength="15">
                             </div>
                         </div>
+                        <!-- Input da senha -->
+                        <div class="form-row">
+                            <input type="password" name="senha" id="senha" placeholder="Informe sua senha ou Informe uma nova senha" minlength="8">
+                        </div>
+                        <!-- Confirmação de senha -->
+                        <div class="form-row">
+                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha atual ou confirmar senha nova" minlength="8">
+                            <p id="alertPassword"></p>
+                        </div>
+
                     </div>
                     <!-- Fim do lado esquerdo do form -->
                     <!-- Início do lado direito do form -->
@@ -143,7 +153,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         <!-- Input do complemento -->
                         <div class="form-row">
                             <input type="text" name="complemento" id="complemento" placeholder="Complemento (opcional)"
-                                   value="<%out.write(String.valueOf(consulta.getComplemento())); %>">
+                                   value="<%out.write(String.valueOf(consulta.getComplemento()));%>">
                         </div>
                         <!-- Botão submit para lançar os dados do form -->
                         <div class="form-row-last">
