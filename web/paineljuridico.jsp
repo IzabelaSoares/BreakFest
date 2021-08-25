@@ -1,9 +1,4 @@
-<%-- 
-    Document   : cadastrojuridico
-    Created on : 27 de jul. de 2021, 14:53:33
-    Author     : Ricardo.Schvambach
---%>
-
+<%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +8,7 @@
         <link rel="stylesheet" href="styles/bairros.css">
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Empresa</title>
+        <title>Break Fest</title>
         <script src="scripts/pessoa-juridica.js"></script>
         <link href="styles/cadastro.css" rel="stylesheet">
         <link href="styles/util.css" rel="stylesheet">
@@ -38,22 +33,20 @@
         </nav>
     </header>
     <div>
-        <%
-            
-        %>
     </div>
     <!-- Fim da NavBar de cima -->
     <body class="form-v10">
+        <%
+                      String cnpj = request.getParameter("cnpj");
+                        PessoaJuridica p = new PessoaJuridica();
+                          p = p.consultarConta(cnpj);   
+        %>
         <div class="page-content">
             <div class="form-v10-content">
                 <form class="form-detail" action="recebeclientejuridico.jsp" method="post" id="myform">
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
                         <h2>Informações Gerais</h2>
-                        <!-- Input da razão social -->
-                        <div class="form-row form-row-1">
-                            <input type="text" name="razaosocial" id="razaosocial" class="input-text" placeholder="Razão Social" required>
-                        </div>
                         <!-- Input do e-mail -->
                         <div class="form-row">
                             <input type="text" name="email" id="email" class="input-text" placeholder="E-mail" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>
@@ -73,10 +66,9 @@
                                 <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15">
                             </div>
                         </div>
-
                         <!-- Input do "sobre" da padaria -->
                         <div class="form-row">
-                            <textarea type="text" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
+                            <textarea style="height:135px; width:443px; box-shadow:0 0 0 0; outline: 0;" type="text" name="sobre" id="sobre" placeholder="Sobre a padaria..."></textarea>
                         </div>
                         <!-- Input da senha -->
                         <div class="form-row">
@@ -85,7 +77,6 @@
                         <div class="form-row">
                             <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha" >
                             <p id="alertPassword"></p><br>
-
                         </div>
                     </div>
                     <!-- Fim do lado esquerdo do form -->
@@ -148,12 +139,13 @@
                         </div>
                         <!-- Botão submit para lançar os dados do form -->
                         <div class="form-row-last">
-                            <input type="submit" name="cadastrar" class="register" value="Cadastrar">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="cadastrar" class="register" value="Salvar alteração">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="cadastrar" class="register" value="Cancelar alteração">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <script  src="scripts/bairros.js"></script>
+        <script src="scripts/bairros.js"></script>
     </body>
 </html>
