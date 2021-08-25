@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>                  
+        <location>/erro.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>'''java.lang.NoClassDefFoundError'''</exception-type>
+        <location>/erro.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/erro.html</location>
+    </error-page>
+    <error-page>
+        <location>/erro.html</location>
+    </error-page>    
     <servlet>
         <servlet-name>RecebeImagemProduto</servlet-name>
         <servlet-class>upload.RecebeImagemProduto</servlet-class>
@@ -8,7 +23,6 @@
         <servlet-name>RecebeImagemPerfil</servlet-name>
         <servlet-class>upload.RecebeImagemPerfil</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>RecebeImagemProduto</servlet-name>
         <url-pattern>/RecebeImagemProduto</url-pattern>

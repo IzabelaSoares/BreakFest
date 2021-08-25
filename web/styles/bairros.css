@@ -51,8 +51,8 @@ select.combo-input {
 }
 
 .combo-input:focus {
-  border-color: #0067b8;
-  box-shadow: 0 0 4px 2px #0067b8;
+/*  border-color: #0067b8;
+  box-shadow: 0 0 4px 2px #0067b8; isso faz ficar com uma sombra azul*/ 
   outline: 5px solid transparent;
 }
 
