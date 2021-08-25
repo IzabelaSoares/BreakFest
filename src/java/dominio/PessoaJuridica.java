@@ -27,6 +27,7 @@ public class PessoaJuridica {
     private String sobrepadaria;
     private String instagram;
     private String facebook;
+    private String bairros;
     
     //metodos
     
@@ -35,8 +36,8 @@ public class PessoaJuridica {
         //comando de execução de banco de dados
         String sql = "INSERT INTO pessoajuridica (cnpj, razaosocial, nomefantasia, "
                    + "email, telefone, cep, estado, cidade, bairro, rua, "
-                   + "numero, complemento, sobrepadaria) " 
-                   + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "numero, complemento, sobrepadaria, bairros) " 
+                   + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -55,6 +56,7 @@ public class PessoaJuridica {
             stm.setInt(11, this.numero);
             stm.setString(12, this.complemento);
             stm.setString(13, this.sobrepadaria);
+            stm.setString(14, this.bairros);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -71,7 +73,7 @@ public class PessoaJuridica {
         String sql = "UPDATE pessoafisica " 
                 + "SET cnpj=?, razaosocial=?, nomefantasia=?, email=?, "
                 + "telefone=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? "
-                + "imagem=?, sobrepadaria=?, instagram=?, facebook=? " 
+                + "imagem=?, sobrepadaria=?, bairros=?, instagram=?, facebook=? " 
                 + "WHERE cnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -92,9 +94,10 @@ public class PessoaJuridica {
             stm.setString(12, this.complemento);
             stm.setString(13, this.imagem);
             stm.setString(14, this.sobrepadaria);
-            stm.setString(15, instagram);
-            stm.setString(16, facebook);
-            stm.setString(19, this.cnpj);
+            stm.setString(15, this.bairro);
+            stm.setString(16, this.instagram);
+            stm.setString(17, this.facebook);
+            stm.setString(18, this.cnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -130,7 +133,7 @@ public class PessoaJuridica {
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
         String sql = "SELECT cnpj, razaosocial, nomefantasia, email, telefone, cep, "
-                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
+                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, bairros, instagram, facebook"
                    + " FROM pessoajuridica where cnpj = ?";
         Connection con = Conexao.conectar();
         PessoaJuridica padaria = null;
@@ -154,6 +157,7 @@ public class PessoaJuridica {
                    padaria.setComplemento(rs.getString("complemento"));
                    padaria.setImagem(rs.getString("imagem"));
                    padaria.setSobrepadaria(rs.getString("sobrepadaria"));
+                   padaria.setSobrepadaria(rs.getString("bairros"));
                    padaria.setInstagram(rs.getString("instagram"));
                    padaria.setFacebook(rs.getString("facebook"));
                 } 
@@ -169,7 +173,7 @@ public class PessoaJuridica {
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
         String sql = "SELECT  cnpj, razaosocial, nomefantasia, email, telefone, cep, "
-                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, instagram, facebook"
+                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, bairros, instagram, facebook"
                    + " FROM pessoajuridica";
         Connection con = Conexao.conectar();
         try{
@@ -191,6 +195,7 @@ public class PessoaJuridica {
                 padaria.setComplemento(rs.getString("complemento"));
                 padaria.setImagem(rs.getString("imagem"));
                 padaria.setSobrepadaria(rs.getString("sobrepadaria"));
+                padaria.setSobrepadaria(rs.getString("bairros"));
                 padaria.setInstagram(rs.getString("instagram"));
                 padaria.setFacebook(rs.getString("facebook"));
                 lista.add(padaria);
@@ -418,5 +423,13 @@ public class PessoaJuridica {
     public void setFacebook(String facebook) {
         this.facebook = facebook;
     }
-   
+
+    public String getBairros() {
+        return bairros;
+    }
+
+    public void setBairros(String bairros) {
+        this.bairros = bairros;
+    }
+    
 }

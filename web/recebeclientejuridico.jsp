@@ -40,6 +40,7 @@
         pj.setNumero(Integer.parseInt(request.getParameter("numero")));
         pj.setComplemento(request.getParameter("complemento"));
         pj.setSobrepadaria(request.getParameter("sobre"));
+        pj.setBairros(request.getParameter("bairros"));
 
         //Passar valores da tela e cadastrar o usuário
         login.setEmail(request.getParameter("email"));

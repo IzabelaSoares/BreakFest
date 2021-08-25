@@ -135,6 +135,7 @@
                                         aria-activedescendant=""
                                         aria-autocomplete="list"
                                         id="combo1"
+                                        name="bairros"
                                         class="combo-input"
                                         type="text">
                                 </div>
