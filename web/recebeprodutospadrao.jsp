@@ -15,11 +15,7 @@
     
     List<Produto> consulta = prdt.consultarProdutosBreakFest();
     
-    if (request.getParameter("box") != null){
     
-    String teste = request.getParameter("descricao");
-    
-    }
     
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String fkcnpj = pj.procuraCnpj(fkemail);
