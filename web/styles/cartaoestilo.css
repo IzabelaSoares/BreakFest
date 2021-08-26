@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #dbdbdb;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -355,4 +355,23 @@ input {
 .creditcard.flipped {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+}
+
+button {
+    position: relative;
+    top: 180px;
+    left: -480px;
+    width: 100px;
+    height: 40px;
+    background-color: #995a1a;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover, button:active, button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    background-color: #7a4814;
 }

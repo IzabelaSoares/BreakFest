@@ -145,6 +145,7 @@
                 <input id="securitycode" type="text" pattern="[0-9]*"  minlength="3"  inputmode="numeric" required>
             </div>
         </div>
+        <button type="submit">Salvar</button>
         <!-- partial -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="./script.js"></script>
 
