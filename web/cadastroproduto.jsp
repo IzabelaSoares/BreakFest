@@ -40,18 +40,19 @@
             <div class="input-group mb-3">
                 <!-- Inicio divs do produto -->
                 <h2>Cadastrar Produto</h2>
+                <br><br>
                 <!-- Titulo Produto  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="first">Produto</label>
-                        <input style="height:39px; width:216px; box-shadow:none; border-style:none;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
+                        <input style="height:39px; width:216px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
                     </div>
                 </div>
                 <!-- Categoria   -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="categoria">Categoria do Produto</label>
-                        <select style="box-shadow:none; border-style:none;" class="form-control" id="categoria" name="categoria">
+                        <select style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="categoria">
                             <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
                             <option value="doce">Doce</option>
                         </select>
@@ -61,14 +62,14 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="phone">Tamanho/Medida</label>
-                        <input style="height:39px; width:216px; box-shadow:none; border-style:none;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                        <input style="height:39px; width:216px; box-shadow:none;  border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
                     </div>
                 </div>
                 <!-- Unidade de Medida  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="categoria">Unidade de Medida</label>
-                        <select style="box-shadow:none; border-style:none;" class="form-control" id="categoria" name="unidadedemedida">
+                        <select style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="unidadedemedida">
                             <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
                             <option value="quilo">Quilo</option>
                         </select>
@@ -80,13 +81,13 @@
                     <div class="input-group-prepend">
                         <span style="border-style:none;" class="input-group-text">R$</span>
                     </div>
-                    <input style="height:39px; width:170px; box-shadow:none; border-style:none; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
+                    <input style="height:39px; width:170px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
                 </div>
                 <!-- Descrição do Produto  -->
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="descricao">Descrição do Produto</label>
-                        <textarea style="height:70px; width:212px; box-shadow:none; border-style:none;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                        <textarea style="height:70px; width:212px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
                     </div>
                 </div>
                 <!-- Selecionar a Imagem  -->
