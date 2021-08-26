@@ -18,6 +18,28 @@ h3 {
 
 /* form */
 
+#inputbonito input {
+    outline: none;
+    border-bottom: solid 2px #995a1a;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: transparent;
+}
+
+#inputbonito select {
+    outline: none;
+    border-bottom: solid 2px #995a1a;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: transparent;
+}
+
 #far{
     padding-top: 20px;
 }
@@ -73,8 +95,10 @@ div.conteudo{
 }
 
 button{
+    max-width: 100px;
+    max-height: 40px;
     padding-bottom: 5px;
-    padding-top: 10px;
+    padding-top: 3px;
     font-size: 22px;
     border: 2px solid #995a1a;
     border-radius: 6px;
@@ -89,6 +113,7 @@ button p{
     position: relative;
     z-index: 1;
     color: #995a1a;    
+    font-size: 20px;
 }
 
 button span{

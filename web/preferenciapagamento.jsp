@@ -39,6 +39,7 @@
     </head>
     <body onload="javascript: alertar(resultado)">
         <h3>Como deseja receber seu pagamento?</h3>
+            <div id="inputbonito">
 
         <div class="container">
 
@@ -134,6 +135,7 @@
                     </button>
                 </div>
             </form>
+        </div>
         </div>
     </body>
 </html>
