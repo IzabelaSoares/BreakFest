@@ -155,7 +155,7 @@ public class Produto {
     }
     
     //consultar cada padaria o seu produto, passar cnpj como parametro
-    public List<Produto> consultarGeral(String cnpj){
+    public List<Produto> consultarProdutosPadaria(String cnpj){
         List<Produto> lista = new ArrayList<>();
         String sql = "select * from public.produto where fkcnpj= '"+ cnpj +"'";
         Connection con = Conexao.conectar();
