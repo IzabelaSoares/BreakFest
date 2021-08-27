@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Navbar Usuário -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+        <script src="scripts/navbar-usuario.js"></script>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
         <!-- Imports de escolhas de bairro -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/bairros.css">
@@ -21,21 +26,33 @@
 
     </head>
     <!-- Inicio da NavBar de cima -->
-    <header id="navbar" onload="javascript: alertar(resultado)">
+    <header id="navbar" ">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
-                <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
-                <li><a href="tipopessoa.jsp">Cadastro</a></li>
-                <li><a href="login.jsp">Login</a></li>
+                  <div class="drop-down">
+                    <div id="dropDown" class="drop-down__button">
+                      <a>Meu Painel</a>
+                    </div>
+                    <div class="drop-down__menu-box">
+                      <ul class="drop-down__menu">
+                        <a><li data-name="profile" class="drop-down__item">Meu Cadastro</li></a>
+                        <a><li data-name="dashboard" class="drop-down__item">Meus Pedidos</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Meus Pagamentos</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Minhas Midias</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Meus Produtos</li></a>
+                      </ul>
+                    </div>
+                  </div>
+                <li><a href="login.jsp">Sair</a></li>
             </ul>
         </nav>
     </header>
     <div>
     </div>
     <!-- Fim da NavBar de cima -->
-    <body class="form-v10">
+    <body class="form-v10" onload="javascript: alertar(resultado)>
         <%
                       String cnpj = request.getParameter("cnpj");
                         PessoaJuridica p = new PessoaJuridica();
