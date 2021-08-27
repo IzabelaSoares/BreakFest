@@ -17,22 +17,11 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <!-- Script do jquery -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         
-        <!-- Navbar Usuário -->
-        <script src="scripts/navbar-usuario.js"></script>
-        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
-        
-        <!-- Título e imports -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Pessoa</title>
-        
         <!-- Script da pessoa física -->
         <script src="scripts/pessoa-fisica.js"></script>
                 
         <!-- Script do cadastro -->
         <link href="styles/cadastro.css" rel="stylesheet">
-        
-        <!-- Script da página "util" em css -->
-        <link href="styles/util.css" rel="stylesheet">
         
         <!-- Script de alerta de erro -->
         <script src="scripts/alertas-erro.js"></script>
@@ -43,6 +32,17 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+                
+        <!-- Link da página "util" em css -->
+        <link href="styles/util.css" rel="stylesheet">
+                
+        <!-- Navbar Usuário -->
+        <script src="scripts/navbar-usuario.js"></script>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        
+        <!-- Título -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Cadastro de Pessoa</title>
         
     </head>
     
@@ -94,7 +94,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     
     <!-- Fim da NavBar de cima -->
     
-    <!-- Início -->
+    <!-- Início da página -->
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">

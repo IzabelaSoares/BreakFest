@@ -8,6 +8,7 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        
         <!-- Imports de escolhas de bairro -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/bairros.css">
