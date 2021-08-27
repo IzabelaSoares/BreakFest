@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
-body {
+form {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.centrocartao {
     margin: 0;
     padding: 0;
-    background-color: #dbdbdb;
+    background-color: #FFF;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -22,7 +28,8 @@ body {
 }
 
 .payment-title {
-    width: 100%;
+    padding-top: 20px;
+    font-size: 35px;
     text-align: center;
 }
 
@@ -52,6 +59,7 @@ body {
 }
 
 .form-container {
+    height: 500px;
     display: grid;
     grid-column-gap: 10px;
     grid-template-columns: auto auto;
@@ -72,15 +80,20 @@ input {
     padding: 15px;
     font-size: 16px;
     width: 100%;
-    border-radius: 3px;
-    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    border: 1px solid #bcbcbc;
+}
+
+input:focus, input:active, input:hover {
+    outline: 0;
+    box-shadow: 0 0 0 0;
 }
 
 .ccicon {
     height: 38px;
     position: absolute;
     right: 6px;
-    top: calc(50% - 17px);
+    top: 47px;
     width: 60px;
 }
 
@@ -125,10 +138,11 @@ input {
     font-size: 12px;
     color: #fff;
     padding: 2px 4px;
-    background-color: #909090;
+    background-color: transparent;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: default;
     float:right;
+    opacity: 0%;
 }
 
 /* CHANGEABLE CARD ELEMENTS */
@@ -357,17 +371,16 @@ input {
     transform: rotateY(180deg);
 }
 
-button {
-    position: relative;
-    top: 180px;
-    left: -480px;
-    width: 100px;
+.button {
+    margin-top: 10px;
+    margin-left: 110px;
+    width: 130px;
     height: 40px;
-    background-color: #995a1a;
-    outline: 0;
-    box-shadow: 0 0 0 0;
-    color: white;
     border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    background: #995a1a;
+    color:white;
 }
 
 button:hover, button:active, button:focus {

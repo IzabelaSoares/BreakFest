@@ -32,7 +32,7 @@
     <body>
         <!-- Início -->
         <div class="payment-title">
-            <h1>Informe os Dados do Cartão</h1>
+            <p>Informe os Dados do Cartão</p>
         </div>
         <div class="container preload">
             <div class="creditcard">

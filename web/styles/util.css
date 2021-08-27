@@ -21,45 +21,45 @@ h2 {
 /* navbar */
 
 #navbar {
-    background-color: #995a1a;
-    color: white;
-    padding: 0 15px;
-    height: 60px;
+    background-color: #995a1a!important; 
+    color: white!important;
+    padding: 0 15px!important;
+    height: 60px!important;
 }
 
 #navbar h2, #navbar ul, #navbar-list li, #navbar nav {
-    display: inline-block;
+    display: inline-block!important;
 }
 
 #navbar h2 {
-    margin: 0;
-    line-height: 60px;
-    margin-left: 55px;
+    margin: 0!important;
+    line-height: 60px!important;
+    margin-left: 55px!important;
 }
 
 #navbar img {
-    width: 40px;
-    position: absolute;
-    top: 10px;
+    width: 40px!important;
+    position: absolute!important;
+    top: 10px!important;
 }
 
 #navbar nav {
-    float: right;
+    float: right !important;
 }
 
 #navbar ul {
-    margin-top: 22px;
+    margin-top: 22px!important;
 }
 
 #navbar li {
-    margin: 0 10px;
+    margin: 0 10px!important;
 }
 
 #navbar-list li a {
-    text-decoration: none;
-    color: white;
+    text-decoration: none!important;
+    color: white!important;
 }
 
 #navbar-list li a:hover {
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #FFF!important;
 }
