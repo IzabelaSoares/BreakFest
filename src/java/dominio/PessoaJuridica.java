@@ -133,7 +133,7 @@ public class PessoaJuridica {
     public PessoaJuridica consultarConta(String pCnpj){
         this.cnpj = pCnpj;
         String sql = "SELECT cnpj, razaosocial, nomefantasia, email, telefone, cep, "
-                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, bairros, instagram, facebook"
+                   + "estado, cidade, bairro, rua, numero, complemento, sobrepadaria, bairros, instagram, facebook"
                    + " FROM pessoajuridica where cnpj = ?";
         Connection con = Conexao.conectar();
         PessoaJuridica padaria = null;
@@ -155,9 +155,8 @@ public class PessoaJuridica {
                    padaria.setRua(rs.getString("rua"));
                    padaria.setNumero(rs.getInt("numero"));
                    padaria.setComplemento(rs.getString("complemento"));
-                   padaria.setImagem(rs.getString("imagem"));
                    padaria.setSobrepadaria(rs.getString("sobrepadaria"));
-                   padaria.setSobrepadaria(rs.getString("bairros"));
+                   padaria.setBairros(rs.getString("bairros"));
                    padaria.setInstagram(rs.getString("instagram"));
                    padaria.setFacebook(rs.getString("facebook"));
                 } 
@@ -195,7 +194,7 @@ public class PessoaJuridica {
                 padaria.setComplemento(rs.getString("complemento"));
                 padaria.setImagem(rs.getString("imagem"));
                 padaria.setSobrepadaria(rs.getString("sobrepadaria"));
-                padaria.setSobrepadaria(rs.getString("bairros"));
+                padaria.setBairros(rs.getString("bairros"));
                 padaria.setInstagram(rs.getString("instagram"));
                 padaria.setFacebook(rs.getString("facebook"));
                 lista.add(padaria);

@@ -41,11 +41,11 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                     </div>
                     <div class="drop-down__menu-box">
                       <ul class="drop-down__menu">
-                        <a><li data-name="profile" class="drop-down__item">Meu Cadastro</li></a>
-                        <a><li data-name="dashboard" class="drop-down__item">Meus Pedidos</li></a>
-                        <a><li data-name="activity" class="drop-down__item">Meus Pagamentos</li></a>
-                        <a><li data-name="activity" class="drop-down__item">Minhas Midias</li></a>
-                        <a><li data-name="activity" class="drop-down__item">Meus Produtos</li></a>
+                        <a><li data-name="profile" class="drop-down__item">Cadastro</li></a>
+                        <a><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Pagamentos</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Midias</li></a>
+                        <a><li data-name="activity" class="drop-down__item">Produtos</li></a>
                       </ul>
                     </div>
                   </div>
