@@ -68,36 +68,32 @@ public class PessoaJuridica {
     }
     
     //alteração de dados
-    public boolean alterarDados(){
+    public boolean alterarDados(String oldCnpj){
         //comando de execução de banco de dados 
-        String sql = "UPDATE pessoafisica " 
-                + "SET cnpj=?, razaosocial=?, nomefantasia=?, email=?, "
-                + "telefone=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? "
-                + "imagem=?, sobrepadaria=?, bairros=?, instagram=?, facebook=? " 
+        String sql = "UPDATE pessoajuridica " 
+                + "SET razaosocial=?, nomefantasia=?, email=?, "
+                + "telefone=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=?, "
+                + "sobrepadaria=?, bairros=? " 
                 + "WHERE cnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cnpj);
-            stm.setString(2, this.razaoSocial);
-            stm.setString(3, this.nomeFantasia);
-            stm.setString(4, this.email);
-            stm.setString(5, this.telefone);
-            stm.setString(6, this.cep); 
-            stm.setString(7, this.estado);
-            stm.setString(8, this.cidade);
-            stm.setString(9, this.bairro);
-            stm.setString(10, this.rua);
-            stm.setInt(11, this.numero);
-            stm.setString(12, this.complemento);
-            stm.setString(13, this.imagem);
-            stm.setString(14, this.sobrepadaria);
-            stm.setString(15, this.bairro);
-            stm.setString(16, this.instagram);
-            stm.setString(17, this.facebook);
-            stm.setString(18, this.cnpj);
+            stm.setString(1, this.razaoSocial);
+            stm.setString(2, this.nomeFantasia);
+            stm.setString(3, this.email);
+            stm.setString(4, this.telefone);
+            stm.setString(5, this.cep); 
+            stm.setString(6, this.estado);
+            stm.setString(7, this.cidade);
+            stm.setString(8, this.bairro);
+            stm.setString(9, this.rua);
+            stm.setInt(10, this.numero);
+            stm.setString(11, this.complemento);
+            stm.setString(12, this.sobrepadaria);
+            stm.setString(13, this.bairros);
+            stm.setString(14, oldCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){

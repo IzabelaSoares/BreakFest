@@ -68,15 +68,14 @@ public class UsuarioFisico {
         return true;
    }
 
-    public boolean alterarUsuario(){
+    public boolean alterarUsuario(String oldCpf){
         Connection con = Conexao.conectar();
-        String   sql = "update usuariofisico set fkcpf = ?, email = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariofisico set email = ?, senha = ? where fkcpf = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkidCpf);
-            stm.setString(2, this.email);
-            stm.setString(3, this.senha);    
-            stm.setInt(4, this.idUsuario);
+            stm.setString(1, this.email);
+            stm.setString(2, this.senha);    
+            stm.setString(3, oldCpf);
             stm.execute();           
         } 
             catch (SQLException ex) {

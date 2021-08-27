@@ -66,14 +66,14 @@ public class UsuarioJuridico {
         return true;
    }
 
-    public boolean alterarUsuario(){
+    public boolean alterarUsuario(String oldCnpj){
         Connection con = Conexao.conectar();
-        String   sql = "update usuariojuridico set email = ?, senha = ? where idusuario = ?";
+        String   sql = "update usuariojuridico set email = ?, senha = ? where fkcnpj = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.email);
             stm.setString(2, this.senha);    
-            stm.setInt(3, this.idUsuario);
+            stm.setString(3, oldCnpj);
             stm.execute();           
         } 
             catch (SQLException ex) {

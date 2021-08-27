@@ -40,12 +40,12 @@
         pf.setRua(request.getParameter("rua"));
         pf.setNumero(Integer.parseInt(request.getParameter("numero")));
         pf.setComplemento(request.getParameter("complemento"));
-
+        
         //Passar valores da tela e cadastrar o usuário
         login.setFkidCpf(request.getParameter("cpf"));
         login.setEmail(request.getParameter("email"));
         login.setSenha(request.getParameter("senha"));
-
+        
         //se cadastrar pessoa e o login dela
         if (pf.cadastrarConta() && login.cadastrarUsuario()) { 
             //cadastro efetuado com sucesso
@@ -57,6 +57,6 @@
             response.sendRedirect("login.jsp");
         }
     }
-%>        
+%>
 
 

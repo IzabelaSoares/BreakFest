@@ -63,10 +63,10 @@ public class PessoaFisica {
     }
     
     //alteração de conta
-    public boolean alterarDados(){
+    public boolean alterarDados(String oldCpf){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
-                + "SET cpf=?, nome=?, sobrenome=?, datanascimento=?, email=?, "
+                + "SET nome=?, sobrenome=?, datanascimento=?, email=?, "
                 + "celular=?, cep=?, estado=?, cidade=?, bairro=?, rua=?, numero=?, complemento=? " 
                 + "WHERE cpf=?";
         //conectando com o banco
@@ -74,20 +74,19 @@ public class PessoaFisica {
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cpf);
-            stm.setString(2, this.nome);
-            stm.setString(3, this.sobrenome);
-            stm.setDate(4, this.dataNascimento);
-            stm.setString(5, this.email);
-            stm.setString(6, this.celular);
-            stm.setString(7, this.cep); 
-            stm.setString(8, this.estado);
-            stm.setString(9, this.cidade);
-            stm.setString(10, this.bairro);
-            stm.setString(11, this.rua);
-            stm.setInt(12, this.numero);
-            stm.setString(13, this.complemento);
-            stm.setString(14, this.cpf);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.sobrenome);
+            stm.setDate(3, this.dataNascimento);
+            stm.setString(4, this.email);
+            stm.setString(5, this.celular);
+            stm.setString(6, this.cep); 
+            stm.setString(7, this.estado);
+            stm.setString(8, this.cidade);
+            stm.setString(9, this.bairro);
+            stm.setString(10, this.rua);
+            stm.setInt(11, this.numero);
+            stm.setString(12, this.complemento);
+            stm.setString(13, oldCpf);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -155,7 +154,7 @@ public class PessoaFisica {
         
     }
     
-//método para procurar cpf pelo email
+    //método para procurar cpf pelo email
     public String procuraCpf(String email){
         String pCpf = null;
         Connection con = Conexao.conectar();

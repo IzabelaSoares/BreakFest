@@ -3,12 +3,15 @@
     Created on : 06/08/2021, 14:11:58
     Author     : Maria
 --%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="dominio.UsuarioJuridico"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
 <%@page import="dominio.PessoaJuridica"%>
-<%  //instancia a pessoa física = PF
+<html>
+<%  request.setCharacterEncoding("UTF-8");
+
+    //instancia a pessoa fÃ­sica = PF
     PessoaJuridica pj = new PessoaJuridica();
     
     //instanciar o login da = PJ
@@ -18,11 +21,11 @@
     String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
     
     if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
-        //email já está sendo utilizado
+        //email jÃ¡ estÃ¡ sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
         response.sendRedirect("login.jsp");
     }else if(pj.verificaExistenciaCnpj(cnpj)){
-        //email já está sendo utilizado
+        //email jÃ¡ estÃ¡ sendo utilizado
         request.getSession().setAttribute("resultado", "CnpjJaRegistrado");
         response.sendRedirect("login.jsp");
     }else{
@@ -42,7 +45,7 @@
         pj.setSobrepadaria(request.getParameter("sobre"));
         pj.setBairros(request.getParameter("bairros"));
 
-        //Passar valores da tela e cadastrar o usuário
+        //Passar valores da tela e cadastrar o usuÃ¡rio
         login.setEmail(request.getParameter("email"));
         login.setFkCnpj(request.getParameter("cnpj"));
         login.setSenha(request.getParameter("senha"));
@@ -57,4 +60,5 @@
             response.sendRedirect("login.jsp");
         }
     }
-%>        
+%>      
+</html>
