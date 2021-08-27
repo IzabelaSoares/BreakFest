@@ -23,7 +23,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <!-- Script do cadastro -->
         <link href="styles/cadastro.css" rel="stylesheet">
         
-        <!-- Script de alerta de erro -->
+        <!-- Script de alerta -->
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
         
@@ -49,6 +49,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <!-- Fim dos Scripts, Bootstrap e etc... -->
     
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
+    <!-- Alerta -->
     <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>

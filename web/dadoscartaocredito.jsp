@@ -6,22 +6,31 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" >
-    <head>
-        <meta charset="UTF-8">
-        <title>CodePen - cartão para o cuppa</title>
-        <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet">
-        <link rel="stylesheet" href="styles/cartaoestilo.css">
-        <script src="scripts/cartao-de-credito.js"></script>
-        
+    <head> 
+        <!-- Script do SweetAlert -->
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+        
+        <!-- Script de alerta -->
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
+        <!-- Fonte -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet">
+        
+        <!-- Link da página 'util' em css -->
+        <link rel="stylesheet" href="styles/cartaoestilo.css">
+        <script src="scripts/cartao-de-credito.js"></script>
+        
+        <!-- Título -->
+        <meta charset="UTF-8">
+        <title>Break Fest</title>
+        
     </head>
+    <!-- Alerta -->
     <header onload="javascript: alertar(resultado)"></header>
         
     <body>
-        <!-- partial:index.partial.html -->
+        <!-- Início -->
         <div class="payment-title">
             <h1>Informe os Dados do Cartão</h1>
         </div>
@@ -41,6 +50,7 @@
                     </g>
                     <path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
                     </g>
+                    <!-- Parte dos dados do usuário e do cartão -->
                     <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">0123 4567 8910 1112</text>
                     <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">CUPPA BREAKFEST</text>
                     <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">Nome</text>
@@ -124,29 +134,39 @@
             </div>
         </div>
         <div class="form-container">
+            
+            <!-- Nome Impresso no Cartão -->
             <div class="field-container">
                 <label for="name">Nome Impresso no Cartão</label>
                 <input id="name" minlength="5" maxlength="20" type="text" required>
             </div>
 
+            <!-- Número do Cartão -->
             <div class="field-container">
                 <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
                 <input id="cardnumber" type="text" pattern="[0-9]*"  minlength="19"  inputmode="numeric" required>
                 <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
                 </svg>         
-            </div>     
+            </div>  
+            
+            <!-- Expiração -->
             <div class="field-container">
                 <label for="expirationdate">Expiração (mm/yy)</label>
                 <input id="expirationdate" type="text" pattern="[0-9]*"  minlength="5" inputmode="" required>
             </div>
+            
+            <!-- Código de Segurança -->
             <div class="field-container">
                 <label for="securitycode">Código de Segurança</label>
                 <input id="securitycode" type="text" pattern="[0-9]*"  minlength="3"  inputmode="numeric" required>
             </div>
         </div>
+        
+        <!-- Botão de salvar -->
         <button type="submit">Salvar</button>
-        <!-- partial -->
+        
+        <!-- Script do cloudflare -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="./script.js"></script>
 
     </body>

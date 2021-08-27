@@ -15,7 +15,7 @@ por dois lado pelo fato de ser mais simples.
         <!-- Script do SweetAlert -->
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         
-        <!-- Script do alerta de erro -->
+        <!-- Script do alerta -->
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
         
@@ -34,6 +34,7 @@ por dois lado pelo fato de ser mais simples.
         
     </head>
     <!-- Inicio da NavBar de cima -->
+    <!-- Alerta -->
     <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
