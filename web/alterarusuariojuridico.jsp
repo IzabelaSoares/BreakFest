@@ -8,10 +8,11 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
-        
+
         <!-- Imports de escolhas de bairro -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/bairros.css">
+
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Break Fest</title>
@@ -24,6 +25,13 @@
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
+
+        <!-- CSS, JS e BootStrap do cartão de crédito -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <link rel="stylesheet" href="styles/midias.css">
+        <script src="scripts/midias.js"></script>
 
     </head>
     <!-- Inicio da NavBar de cima -->
@@ -38,11 +46,11 @@
                     </div>
                     <div class="drop-down__menu-box">
                         <ul class="drop-down__menu">
-                            <a><li data-name="profile" class="drop-down__item">Cadastro</li></a>
-                            <a><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
-                            <a><li data-name="activity" class="drop-down__item">Pagamentos</li></a>
-                            <a><li data-name="activity" class="drop-down__item">Midias</li></a>
-                            <a><li data-name="activity" class="drop-down__item">Produtos</li></a>
+                            <a><li class="drop-down__item">Cadastro</li></a>
+                            <a><li class="drop-down__item">Pedidos</li></a>
+                            <a><li class="drop-down__item">Pagamentos</li></a>
+                            <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
+                            <a><li class="drop-down__item">Produtos</li></a>
                         </ul>
                     </div>
                 </div>
@@ -64,6 +72,62 @@
 
     %>
     <!-- Fim da NavBar de cima -->
+    <!-- modal de pagamento -->
+    <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container max-w-xl mx-auto flex flex-col py-8">
+                        <h1 class="text-xl font-black">Informações Adicionais</h1>
+                        <!-- Form com as informações -->
+                        <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" class="form-midias">
+                            <label for="instagram">Link para o Instagram</label>
+                            <br>
+                            <input type="text" name="instagram" placeholder="Instagram">
+                            <br><br>
+                            <label for="facebook">Link para o Facebook</label>
+                            <br>
+                            <input type="text" name="facebook" placeholder="Facebook" height="300px">
+                            <br><br><hr>
+                            <label>Foto da padaria</label>
+                            <br>
+                            <div id="center">
+                                <div x-data="imageData()" class="file-input flex items-center">
+
+                                    <!--          //////////                      Preview da Imagem                      ////////                -->
+                                    <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                        <!-- Placeholder da Imagem -->
+                                        <div class="flex items-center">
+                                            <!-- Input de foto -->
+                                            <div class="ml-5 rounded-md shadow-sm">
+                                                <input @change="updatePreview($refs)" x-ref="input"
+                                                        type="file" maxlength="50px" 
+                                                        accept="image/*,capture=camera" 
+                                                        name="photo" id="photo" 
+                                                        class="custom">
+                                                <label for="photo" style="position: relative; right: 48px; border-left: none; border-bottom: 2px solid #995a1a; border-top: none; border-right: none; padding-left: 8px; padding-right: 8px;">
+                                                    Adicionar
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center text-sm text-gray-500 mx-2">
+                                                <span x-text="fileName || emptyText"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="botaoLegal">
+                                    <input type="submit" value="Enviar"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script src="./script.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
@@ -103,7 +167,7 @@
                         <div class="form-row">
                             <textarea style="height:135px; width:443px; box-shadow:0 0 0 0; outline: 0;" 
                                       type="text" name="sobre" id="sobre">
-                                      <% out.write(String.valueOf(consulta.getSobrepadaria())); %>
+                                <% out.write(String.valueOf(consulta.getSobrepadaria())); %>
                             </textarea>
                         </div>
                         <!-- Input da senha -->
@@ -191,5 +255,8 @@
             </div>
         </div>
         <script src="scripts/bairros.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://unpkg.com/popper.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
     </body>
 </html>

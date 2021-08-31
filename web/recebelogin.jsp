@@ -38,7 +38,7 @@
         //se não, redireciona para o index
         }else{
             request.getSession().setAttribute("resultado", "SucessoLogin");
-            response.sendRedirect("perfil.jsp");
+            response.sendRedirect("alterarusuariofisico.jsp");
         }
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 

@@ -81,7 +81,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                         <ul class="drop-down__menu">
                             <a><li data-name="profile" class="drop-down__item">Cadastro</li></a>
                             <a><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
-                            <a href="#" data-toggle="modal" data-target="#basicModal"><li class="drop-down__item">Pagamentos</li></a>
+                            <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                         </ul>
                     </div>
                 </div>
@@ -111,7 +111,8 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <!-- Fim da NavBar de cima -->
 
     <!-- Início -->
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <!-- modal de pagamento -->
+    <div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">

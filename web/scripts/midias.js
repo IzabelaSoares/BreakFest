@@ -3,7 +3,7 @@ function imageData(url) {
   return {
     previewPhoto: originalUrl,
     fileName: null,
-    emptyText: originalUrl ? 'No new file chosen' : 'No file chosen',
+    emptyText: originalUrl ? 'Foto não selecionada' : 'Foto não selecionada',
     updatePreview($refs) {
       var reader,
           files = $refs.input.files;

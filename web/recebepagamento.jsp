@@ -41,7 +41,7 @@
             request.getSession().setAttribute("resultado", "PreferenciaSalva");
             //verificar se já possui midias cadastradas
             if (pj.verificaSociais(fkemail)) {
-                response.sendRedirect("midias.jsp");
+                response.sendRedirect("alterarusuariojuridico.jsp");
                 //se não, redireciona para o index
             } else {
                 request.getSession().setAttribute("resultado", "SucessoLogin");
