@@ -1,5 +1,5 @@
 INSERT INTO public.pessoajuridica
-(cnpj, razaosocial, nomefantasia, email, telefone, cep, estado, cidade, bairro, rua, numero, complemento, sobrepadaria)
-values('XX.XXX.XXX/0001-XX', 'Projeto BreakFest', 'BreakFest', 'projetobreakfest@gmail.com', '', '', '', '', '', '', 0, '', '');
+(cnpj, razaosocial, nomefantasia, email, telefone, cep, estado, cidade, bairro, rua, numero, complemento, sobrepadaria, bairros)
+values('XX.XXX.XXX/0001-XX', 'Projeto BreakFest', 'BreakFest', 'projetobreakfest@gmail.com', '', '', '', '', '', '', 0, '', '', '');
 
 INSERT INTO public.usuariojuridico (email, fkcnpj, senha) values('projetobreakfest@gmail.com', 'XX.XXX.XXX/0001-XX', 'padaria');
