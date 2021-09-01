@@ -24,7 +24,7 @@
     String descricao = String.valueOf(request.getSession().getAttribute("descricao"));
     Float preco = Float.parseFloat(String.valueOf(request.getSession().getAttribute("preco")));
     String imagem = String.valueOf(request.getSession().getAttribute("imagem"));
-    
+
     //passar para a classe
     prdt.setTitulo(titulo);
     prdt.setCategoria(categoria);

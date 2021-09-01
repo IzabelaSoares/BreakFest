@@ -16,6 +16,7 @@
     
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String cnpj = pj.procuraCnpj(fkemail);
+    boolean result = false;
     
     /*teste do array*/
     String produtosteste = request.getParameter("produtosteste");
@@ -26,14 +27,13 @@
     
     for(int i = 0; i < recebeIds.length; i++) {
         int id = Integer.parseInt(recebeIds[i]);
-        if (prdt.consultarId(id, cnpj)){
-            
-        }else {
-            //alert que não deu certo
-            request.getSession().setAttribute("resultado", "ProdutoNaoCadastrado");
-            response.sendRedirect("produtospadrao.jsp");
-
-        }
+        result = prdt.consultarId(id, cnpj);
+    }
+    
+    if (result){
+        response.sendRedirect("perfil.jsp");
+    }else{
+        response.sendRedirect("produtospadrao.jsp");
     }
     
 %>
