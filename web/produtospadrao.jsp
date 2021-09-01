@@ -11,16 +11,16 @@
     <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <link rel="stylesheet" href="styles/galeria-de-produtos.css">
     <link rel="stylesheet" href="styles/util.css">
     <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
     <script src="scripts/galeria-de-produtos.js"></script>
+    <script src="scripts/produtos-importar.js"></script>
         <%
             Produto novo = new Produto();
             List<Produto> consulta = novo.consultarProdutosBreakFest();
         %>
-
         <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
     </head>
     <!-- Inicio da NavBar de cima -->
@@ -40,7 +40,7 @@
         <div class="container">
             <h1>Selecione produtos: </h1>
             <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
-            <button class="botao">Importar Produtos</button><br>
+            <button id="botao-importar" onclick="importar()" class="botao">Importar Produtos</button><br>
             <div class="borda">
             <table class="table table-image">
                 <thead>
@@ -58,7 +58,8 @@
                 <tbody id="table">
                     <tr>
                         <% for (Produto n : consulta) {%>
-                        <td class="check"><input type="checkbox" name="box"></td>
+                        <td class="check"><input type="checkbox" 
+                        data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
                         <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
                         <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
                         <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
@@ -69,8 +70,10 @@
                     </tr>
                      <%}%>
                 </tbody>
-            </table>
+            </table>   
             </div>
         </div>
+                <input type="hidden" id="produtos-teste" name="produtosteste" value="">   
+        </form>
     </body>
 </html>

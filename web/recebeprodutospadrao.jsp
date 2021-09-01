@@ -7,6 +7,7 @@
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.*"%>
 <%@page import="dominio.Produto"%>
+<%@page import="java.util.Arrays" %>
 <%  //instancia o produto = prdt
     Produto prdt = new Produto();
     
@@ -15,6 +16,12 @@
     
     List<Produto> consulta = prdt.consultarProdutosBreakFest();
     
+    /*teste do array*/
+    String produtosteste = request.getParameter("produtosteste");
+    String[] recebeIds = produtosteste.split(",");
+    
+    String[] pTeste = recebeIds;
+   /*fim teste array*/
     
     
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
