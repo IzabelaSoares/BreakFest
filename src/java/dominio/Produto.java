@@ -102,7 +102,7 @@ public class Produto {
     
     public Produto consultarProduto(String pTitulo){
         this.titulo = pTitulo;
-        String sql = "SELECT titulo, categoria, fkcnpj, descricao, preco, tamanho, " 
+        String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
                     + "unidadedemedida FROM produto where titulo = ?";
         Connection con = Conexao.conectar();
         Produto produto = null;
@@ -116,6 +116,7 @@ public class Produto {
                    produto.setCategoria(rs.getString("categoria"));
                    produto.setFkCnpj(rs.getString("fkcnpj"));
                    produto.setDescricao(rs.getString("descricao"));
+                   produto.setImagem(rs.getString("iamgem"));
                    produto.setPreco(rs.getFloat("preco"));
                    produto.setTamanho(rs.getString("tamanho"));
                    produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
@@ -179,6 +180,35 @@ public class Produto {
           System.out.println("Erro:" + ex.getMessage());
         }
     return lista;  
+    }
+    
+    public boolean consultarId(int id, String cnpj){
+        String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
+                    + "unidadedemedida FROM produto where id = ?";
+        Connection con = Conexao.conectar();
+        Produto produto = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                   produto = new Produto();
+                   produto.setTitulo(rs.getString("titulo"));
+                   produto.setCategoria(rs.getString("categoria"));
+                   produto.setFkCnpj(cnpj);
+                   produto.setImagem(rs.getString("imagem"));
+                   produto.setDescricao(rs.getString("descricao"));
+                   produto.setPreco(rs.getFloat("preco"));
+                   produto.setTamanho(rs.getString("tamanho"));
+                   produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.cadastrarProduto();
+                } 
+        } catch (SQLException ex) {
+            System.out.println("Erro:" + ex.getMessage());
+        }
+        
+        return true;
+        
     }
     
     //getters e setters
