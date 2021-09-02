@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="dominio.Banco"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,11 +29,14 @@
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
         <!-- CSS, JS e BootStrap do cartão de crédito -->
+        <link rel="stylesheet" href="styles/midias.css">
+        <link rel="stylesheet" href="styles/preferenciapagamento.css">
+        <script src="scripts/midias.js"></script>
+        <script src="scripts/preferencia-de-pagamento.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <link rel="stylesheet" href="styles/midias.css">
-        <script src="scripts/midias.js"></script>
+        
 
     </head>
     <!-- Inicio da NavBar de cima -->
@@ -48,7 +53,7 @@
                         <ul class="drop-down__menu">
                             <a><li class="drop-down__item">Cadastro</li></a>
                             <a><li class="drop-down__item">Pedidos</li></a>
-                            <a><li class="drop-down__item">Pagamentos</li></a>
+                            <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
                             <a><li class="drop-down__item">Produtos</li></a>
                         </ul>
@@ -69,6 +74,10 @@
         //Instanciar uma nova pessoa fisica e consultar os dados através do cpf
         PessoaJuridica consulta = new PessoaJuridica();
         consulta = consulta.consultarConta(cnpj);
+        
+        //Instanciar banco para escolher o pagamento.
+        Banco lista = new Banco();
+        List<Banco> listabanco = lista.consultarGeral();
 
     %>
     <!-- Fim da NavBar de cima -->
@@ -128,6 +137,116 @@
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>Como deseja receber seu pagamento?</h3>
+            <div id="inputbonito">
+
+        <div class="pagamento">
+
+            <!-- Selecionando método de recebimento -->
+
+            <form action="recebepagamento.jsp" method="post" >
+                <select id="pagamento" name="pagamento" onchange="formaPagamento()">
+                    <option value="NA" selected disabled hidden>Selecione aqui a forma de pagamento</option>
+                    <option value="pix">Pix</option>
+                    <option value="deposito">Depósito Bancário</option>
+                </select>
+                <br><br>
+
+                <!-- PIX -->
+
+                <div id="pix-pagamento" style="display:none">           
+                    <label for="pix_metodo">Escolha sua Chave Pix</label><br>
+                    <select name="fktipochave" id="pix_metodo" onchange="chavePix()">
+                        <option value="NA" selected disabled hidden>Selecione a chave PIX aqui</option>
+                        <option value="cnpj">CNPJ</option>
+                        <option value="email">E-mail</option>
+                        <option value="telefone">Telefone</option>
+                    </select>
+                    <br>
+
+                    <!-- Input de CPNJ -->
+                    <div id="cnpj-pagamento" style="display:none">
+                        <label for="chave-cnpj">Informe seu CNPJ</label>
+                        <input type="text" name="chave-cnpj" id="chave-cnpj" placeholder="Informe o CNPJ">
+                    </div>
+                    <!-- Input do E-mail -->
+                    <div id="email-pagamento" style="display:none">
+                        <label for="chave-email">Informe seu Email</label>
+                        <input type="text" name="chave-email" id="chave-email" placeholder="Informe o E-mail">
+                    </div>
+                    <!-- Input do Telefone -->
+                    <div id="telefone-pagamento" style="display:none">
+                        <label for="chave-telefone">Informe seu Telefone</label>
+                        <input type="text" name="chave-telefone" id="chave-telefone" placeholder="Informe o telefone">
+                    </div><br>
+                </div>  
+
+                <!-- Depósito Bancário -->
+
+                <!-- Input do CNPJ -->
+                <div id="deposito-pagamento" style="display:none">
+                    <label for="conta-cnpj">Informe o CNPJ</label>
+                    <input name="cnpj" type="text" id="conta-cnpj" placeholder="Informe o CNPJ"> 
+                    <br><br>
+                    <!-- Input do banco -->
+                    <label>Banco</label> <br/>
+                    <select name="banco" id="bankaccount">
+                        <option value="NA" selected disabled hidden>Selecione aqui seu banco</option>
+                        <% for (Banco bancos : listabanco) { %>  
+                        <option value="<% out.write(String.valueOf(bancos.getNumero()));%>">
+                            <% out.write(String.valueOf(bancos.getNumero() + " | " + bancos.getBanco())); %>
+                        </option>
+                        <%}%> 
+                    </select>
+                    
+                    <br><br>
+                    <!-- Input do número da conta -->
+                    <label for="conta-bancaria">Conta Bancaria</label>
+                    <input name="conta" type="text" id="conta-bancaria" placeholder="Informe o número da conta"> 
+                    <br><br>
+
+                    <!-- Input do tipo da conta -->
+                    <label>Tipo da Conta</label> <br>
+                    <select name="tipo-conta" id="accounttype">
+                        <option value="NA" selected disabled hidden>Selecione aqui o tipo da conta</option>
+                        <option value="poupanca">Poupança</option>
+                        <option value="corrente">Corrente</option>
+                    </select> 
+                    <br><br>
+                    <!-- Input do número da agência -->
+                    <label for="agencia">Agência</label>
+                    <input name="agencia" type="text" id="agencia" placeholder="Informe a agência">
+                    <br><br>
+
+                    <!-- Input do dia de recebimento -->
+                    <label for="dia">Selecione o dia que deseja receber o pagamento</label> <br>
+                    <select name="dia" id="dia">
+                        <option value="NA" selected disabled hidden>Selecione aqui o dia para receber</option>
+                        <option value="05">Dia 05</option>
+                        <option value="10">Dia 10</option>
+                        <option value="25">Dia 25</option>
+                    </select>
+                </div>
+                <!-- Botão de Submit -->
+                <div class="botaoLegal">
+                    <button type="submit">
+                        <p>Enviar</p>
+                        <span></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">

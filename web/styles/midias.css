@@ -37,6 +37,10 @@ input {
     border-top: none;
     border-right: none;
     border-left: none;
+    width: 100%;
+}
+
+input:select, input:focus, input:hover {
 }
 
 h1 {
@@ -47,6 +51,6 @@ h1 {
 
 textarea:focus, input:focus, select:focus, button:active, button:hover, button:focus {
     box-shadow: 0 0 0 0;
-    border: 0 none;
+    border-bottom: 2px solid #995a1a;
     outline: 0;
 } 

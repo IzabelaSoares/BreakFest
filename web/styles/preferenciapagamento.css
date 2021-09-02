@@ -3,134 +3,57 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
-body {
-    background-color: #e5e5e5;
+.botaoLegal {
+    padding-top: 13px;
 }
 
-/* Título */
-
-h3 {
-    font: Roboto, sans-serif;
-    font-weight: 400;
-    text-align: center;
-    padding-bottom: 10px;
-}
-
-/* form */
-
-#inputbonito input {
-    outline: none;
-    border-bottom: solid 2px #995a1a;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    background-color: transparent;
-}
-
-#inputbonito select {
-    outline: none;
-    border-bottom: solid 2px #995a1a;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    background-color: transparent;
-}
-
-#far{
-    padding-top: 20px;
-}
-
-.container {
+.botaoLegal button {
     width: 100%;
-    height: 100%;
-    position: relative;
-    top: 50%;
-    left: 28.3%;
-}
-
-.container button {
-    width: 12%;
-    height: 4%;
-    position: relative;
-    left: 9%;
-}
-
-label {
-    color: #995a1a;
-    font: Roboto, sans-serif;
-    font-weight: 200;
-}
-
-.form-control {
-    width: 30%;
-}
-
-select{
-    width: 30%;
-    height: 35px;
+    height: 30px;
+    border: none;
     border-radius: 5px;
-}
-
-textarea:focus, input:focus, select:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-} 
-
-/* Botão de submit */
-
-div.conteudo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    height: 30vh;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-button{
-    max-width: 100px;
-    max-height: 40px;
-    padding-bottom: 5px;
-    padding-top: 3px;
-    font-size: 22px;
-    border: 2px solid #995a1a;
-    border-radius: 6px;
-    background-color: white;
-    cursor: pointer; 
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-}
-
-button p{
-    position: relative;
-    z-index: 1;
-    color: #995a1a;    
-    font-size: 20px;
-}
-
-button span{
-    width: 0;
-    height: calc(100% + 2px);
     background-color: #995a1a;
-    transition: all 0.5s ease-in-out;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) skewX(40deg);
-}
-
-button:hover span{
-    width: 150%;
-}
-
-button:hover p{
     color: white;
 }
+
+.pagamento form {
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.pagamento label {
+    color: graytext;
+}
+
+.pagamento select{ 
+    border-bottom: 2px solid #995a1a;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+}
+
+.pagamento input {
+    border-bottom: 2px solid #995a1a;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+}
+
+h3 {
+    font-size: 40px;
+    margin-left: 15px;
+    padding-bottom: 15px;
+}
+
+textarea:focus, input:focus, select:focus, button:active, button:hover, button:focus {
+    box-shadow: 0 0 0 0;
+    border-bottom: 2px solid #995a1a;
+    outline: 0;
+} 
