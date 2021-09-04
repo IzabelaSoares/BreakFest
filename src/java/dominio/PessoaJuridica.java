@@ -167,9 +167,7 @@ public class PessoaJuridica {
     //consulta todos
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
-        String sql = "SELECT  cnpj, razaosocial, nomefantasia, email, telefone, cep, "
-                   + "estado, cidade, bairro, rua, numero, complemento, imagem, sobrepadaria, bairros, instagram, facebook"
-                   + " FROM pessoajuridica";
+        String sql = "SELECT * FROM public.pessoajuridica";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     

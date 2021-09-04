@@ -5,7 +5,7 @@ body{
   background: rgb(255,239,213);
 }
 
-a, p, span {
+a, p {
     color: black;
     text-decoration: none;
 }
@@ -16,9 +16,6 @@ a:hover, p:hover, span:hover
      text-decoration:none;   
 }
 
-span {
-    font-size: 115%;
-}
 
 .for-title {
     margin: 0;
@@ -61,7 +58,7 @@ table {
 td{
     display: inline-block;         
     word-wrap: break-word;         
-    overflow-wrap: break-word;    
+    overflow-wrap: break-word;  
 }
 
 .midias img {
@@ -69,7 +66,3 @@ td{
     height: 20px;
 }
 
-.midias {
-    color: black;
-    display: inline-block;
-}

@@ -23,25 +23,25 @@
     </head>
     <body>
         <!-- Inicio da NavBar de cima -->
-    <header id="navbar">
-        <a href="dadoscartaocredito.jsp"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-        <h2> Break Fest </h2>
-        <nav>
-            <ul id="navbar-list">
-                <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
-                <li><a href="tipopessoa.jsp">Cadastro</a></li>
-                <li><a id="login" href="login.jsp">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Fim da NavBar de cima -->
+        <header id="navbar">
+            <a href="dadoscartaocredito.jsp"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+            <h2> Break Fest </h2>
+            <nav>
+                <ul id="navbar-list">
+                    <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
+                    <li><a href="tipopessoa.jsp">Cadastro</a></li>
+                    <li><a id="login" href="login.jsp">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Fim da NavBar de cima -->
         <!-- inicio camadas de divs -->
         <div class="for-title">
-        <div class="container text-center">
-            <h1>Abaixo você encontrará todas</h1>
-            <h1>as nossas padarias cadastradas</h1>
-            <br><br>
-        </div>
+            <div class="container text-center">
+                <h1>Abaixo você encontrará todas</h1>
+                <h1>as nossas padarias cadastradas</h1>
+                <br><br>
+            </div>
         </div>
         <div class="shell">
             <div class="container">
@@ -55,19 +55,35 @@
                                 <td>
                                     <div class="wsk-cp-product">
                                         <a href="">
-                                        <div class="wsk-cp-img"><img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/></div>
-                                        <div class="wsk-cp-text">
-                                            <div class="midias"><div class="title-product"><h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3></div></div>
-                                            <div class="description-prod">
-                                                <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
+                                            <div class="wsk-cp-img">
+                                                <img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/>
                                             </div>
-                                            <div class="card-footer">
-                                                <div class="wcf-left"> <span class="price"><%out.write(String.valueOf(tudo.getBairro()));%></span> </div>
-                                                <div class="midias"><div class="wcf-right"><p><%out.write(String.valueOf(tudo.getFacebook()));
-                                                                                                out.write("⠀⠀⠀");
-                                                                                                out.write(String.valueOf(tudo.getInstagram()));%></p></div></div>
+                                            <div class="wsk-cp-text">
+                                                <div class="midias">
+                                                    <div class="title-product" style="height: 50px;">
+                                                        <h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="description-prod" style="height: 70px;">
+                                                    <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="wcf-left"> 
+                                                        <%out.write(String.valueOf(tudo.getBairro()));%>
+                                                    </div>
+                                                    <div>
+                                                        <p>
+                                                            <a target="_blank" href="<%out.write(String.valueOf(tudo.getFacebook())); %>">
+                                                                <img src="https://img.icons8.com/bubbles/50/000000/facebook.png"/>
+                                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <a target="_blank" href="<%out.write(String.valueOf(tudo.getInstagram())); %>">
+                                                                <img src="https://img.icons8.com/bubbles/50/000000/instagram.png"/>
+                                                            </a>
+                                                        </p>
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                        </div>
                                         </a>
                                     </div>
                                 </td>
