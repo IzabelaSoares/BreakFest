@@ -1,0 +1,27 @@
+body {
+  padding-top: 80px;
+}
+
+.show-cart li {
+  display: flex;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  align-self: center;
+}
+/*fixar o layout da tabela, centralizar e definir o tamanho*/
+table {
+    table-layout: fixed;
+    width: 100%;
+    margin: 0 auto;
+}
+/*definir para blocos em linha e quebra de palavras para se a descrição for longa*/
+td{
+    display: inline-block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
