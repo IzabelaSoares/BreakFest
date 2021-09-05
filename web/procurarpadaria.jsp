@@ -46,6 +46,7 @@
         <div class="shell">
             <div class="container">
                 <div class="row">
+
                     <!-- inicio tabela -->
                     <table>
                         <tbody>
@@ -53,39 +54,47 @@
                                 <!-- inicio padaria -->
                                 <% for (PessoaJuridica tudo : listageral) { %>
                                 <td>
-                                    <div class="wsk-cp-product">
-                                        <a href="">
-                                            <div class="wsk-cp-img">
-                                                <img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/>
-                                            </div>
-                                            <div class="wsk-cp-text">
-                                                <div class="midias">
-                                                    <div class="title-product" style="height: 50px;">
-                                                        <h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
-                                                    </div>
+                                    <form action="produtospadariacomprar.jsp" method="post"
+                                          id="<%out.write(String.valueOf(tudo.getCnpj()));%>" >
+                                        <div class="wsk-cp-product">
+                                            <div>
+                                                <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
+                                                    <img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/>
                                                 </div>
-                                                <div class="description-prod" style="height: 70px;">
-                                                    <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="wcf-left"> 
-                                                        <%out.write(String.valueOf(tudo.getBairro()));%>
+                                                <div class="wsk-cp-text">
+                                                    <div class="midias">
+                                                        <div class="title-product" style="height: 50px;"
+                                                             onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
+                                                            <h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
+                                                            <input type="hidden" id="padaria" name="padaria" 
+                                                                   value="<%out.write(String.valueOf(tudo.getCnpj()));%>">
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <p>
-                                                            <a target="_blank" href="<%out.write(String.valueOf(tudo.getFacebook())); %>">
-                                                                <img src="https://img.icons8.com/bubbles/50/000000/facebook.png"/>
-                                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            <a target="_blank" href="<%out.write(String.valueOf(tudo.getInstagram())); %>">
-                                                                <img src="https://img.icons8.com/bubbles/50/000000/instagram.png"/>
-                                                            </a>
-                                                        </p>
+                                                    <div class="description-prod" style="height: 70px;"
+                                                         onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
+                                                        <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
                                                     </div>
+                                                    <div class="card-footer">
+                                                        <div class="wcf-left" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');"> 
+                                                            <%out.write(String.valueOf(tudo.getBairro()));%>
+                                                        </div>
 
+
+                                                        <div>
+                                                            <p>
+                                                                <a id="referencia-facebook" target="_blank" href="<%out.write(String.valueOf(tudo.getFacebook())); %>">
+                                                                    <img src="https://img.icons8.com/bubbles/50/000000/facebook.png"/>
+                                                                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <a id="referencia-instagram" target="_blank" href="<%out.write(String.valueOf(tudo.getInstagram())); %>">
+                                                                    <img src="https://img.icons8.com/bubbles/50/000000/instagram.png"/>
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </td>
                                 <%}%>  
                                 <!-- fim padaria -->
@@ -97,5 +106,11 @@
             </div>
         </div>
         <!-- fim camadas de divs -->
+        <script>
+            function redirecionar(id) {
+                alert('Acionou!');
+                document.getElementById(id).submit();
+            }
+        </script>
     </body>
 </html>

@@ -18,20 +18,17 @@
     String cnpj = pj.procuraCnpj(fkemail);
     boolean result = false;
     
-    /*teste do array*/
+    /*Array*/
     String produtosteste = request.getParameter("produtosteste");
     String[] recebeIds = produtosteste.split(",");
-    
-    String[] pTeste = recebeIds;
-   /*fim teste array*/
-    
+        
     for(int i = 0; i < recebeIds.length; i++) {
         int id = Integer.parseInt(recebeIds[i]);
         result = prdt.consultarId(id, cnpj);
     }
     
     if (result){
-        response.sendRedirect("perfil.jsp");
+        response.sendRedirect("alterarusuariojuridico.jsp");
     }else{
         response.sendRedirect("produtospadrao.jsp");
     }

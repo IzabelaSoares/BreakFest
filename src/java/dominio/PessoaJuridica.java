@@ -158,10 +158,30 @@ public class PessoaJuridica {
                 } 
         } catch (SQLException ex) {
                 System.out.println("Erro:" + ex.getMessage());
-            }
-        
-        return padaria;
-        
+            }       
+        return padaria;       
+    }
+    
+    //consultar conta especifica dados para chave-pix
+       public PessoaJuridica consultarDados(String pCnpj){
+        this.cnpj = pCnpj;
+        String sql = "select  cnpj, email, telefone from pessoajuridica where cnpj = ?";
+        Connection con = Conexao.conectar();
+        PessoaJuridica padaria = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cnpj);
+            ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                   padaria = new PessoaJuridica();
+                   padaria.setCnpj(rs.getString("cnpj"));
+                   padaria.setEmail(rs.getString("email"));
+                   padaria.setTelefone(rs.getString("telefone"));
+                } 
+        } catch (SQLException ex) {
+                System.out.println("Erro:" + ex.getMessage());
+            }       
+        return padaria;       
     }
     
     //consulta todos
@@ -264,7 +284,7 @@ public class PessoaJuridica {
         
         return pCnpj;
     }
-    
+       
     //cadastro de mídias sociais
     public boolean cadastrarMidias(){
         //comando de execução de banco de dados

@@ -11,8 +11,15 @@ body {
 .card-img-top {
   width: 200px;
   height: 200px;
+  margin-top: 15px;
   align-self: center;
 }
+
+/*centralizar todo o conteudo da tela*/
+.container{
+  text-align: center;
+}
+
 /*fixar o layout da tabela, centralizar e definir o tamanho*/
 table {
     table-layout: fixed;
@@ -20,7 +27,7 @@ table {
     margin: 0 auto;
 }
 /*definir para blocos em linha e quebra de palavras para se a descrição for longa*/
-td{
+td, tr{
     display: inline-block;
     word-wrap: break-word;
     overflow-wrap: break-word;

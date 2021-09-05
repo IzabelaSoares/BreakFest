@@ -35,7 +35,7 @@ public class Produto {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.titulo); 
-            stm.setString(2, this.categoria);;
+            stm.setString(2, this.categoria);
             stm.setString(3, this.fkCnpj);
             stm.setString(4, this.imagem);
             stm.setString(5, this.descricao);
@@ -63,7 +63,7 @@ public class Produto {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.titulo); 
-            stm.setString(2, this.categoria);;
+            stm.setString(2, this.categoria);
             stm.setString(3, this.fkCnpj);
             stm.setString(4, this.imagem);
             stm.setString(5, this.descricao);
