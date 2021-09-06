@@ -3,7 +3,6 @@
 package dominio;
 
 import database.Conexao;
-import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,9 +11,9 @@ import java.sql.SQLException;
 public class Cartao {
     //declaração de variáveis
     int id;
-    String email;
+    String fkcpf;
     String nome;
-    int numero;
+    String numero;
     String validade;
     String codSeguranca;
     
@@ -24,16 +23,16 @@ public class Cartao {
     public boolean cadastrarCartao(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO cartao " 
-                   +"(email, nome, numero, validade, codseguranca) " 
+                   +"(fkcpf, nome, numero, validade, codseguranca) " 
                    +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, this.fkcpf);
             stm.setString(2, this.nome);
-            stm.setInt(3, this.numero);
+            stm.setString(3, this.numero);
             stm.setString(4, this.validade);
             stm.setString(5, this.codSeguranca);
             //executando comando
@@ -50,16 +49,16 @@ public class Cartao {
     public boolean alterarCartao(){
         //comando de execução de banco de dados 
         String sql = "UPDATE cartao " 
-                + "SET email=?, nome=?, numero=?, validade=?, codseguranca=?, "
+                + "SET fkcpf=?, nome=?, numero=?, validade=?, codseguranca=?, "
                 + "WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, this.fkcpf);
             stm.setString(2, this.nome);
-            stm.setInt(3, this.numero);
+            stm.setString(3, this.numero);
             stm.setString(4, this.validade);
             stm.setString(5, this.codSeguranca);
             stm.setInt(6, this.id);
@@ -76,14 +75,13 @@ public class Cartao {
     //exclusão de cartão
     public boolean excluirCartao(){
         //comando de execução de banco de dados
-        String sql = "DELETE FROM cartao " 
-                + "WHERE email=?";
+        String sql = "DELETE FROM cartao WHERE fkcpf=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
             //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.email);
+            stm.setString(1, this.fkcpf);
             //executando comando
             stm.execute();   
         } catch (SQLException ex) {
@@ -95,14 +93,14 @@ public class Cartao {
     }
     
     //método para verificar se pessoa física possui dados de pagamento
-    public boolean verificaDados(String pEmail){
+    public boolean verificaDados(String pFkcpf){
         //comando de execução de banco de dados
-        String sql = "select * from cartao where email = ?";
+        String sql = "select * from cartao where fkcpf = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pEmail);
+            stm.setString(1, pFkcpf);
             ResultSet rs = stm.executeQuery();
             return rs.next();         
         }catch (SQLException ex) {
@@ -120,12 +118,12 @@ public class Cartao {
         this.id = id;
     }
 
-    public String getFkEmail() {
-        return email;
+    public String getFkcpf() {
+        return fkcpf;
     }
 
-    public void setFkcpf(String email) {
-        this.email = email;
+    public void setFkcpf(String fkcpf) {
+        this.fkcpf = fkcpf;
     }
 
     public String getNome() {
@@ -136,13 +134,14 @@ public class Cartao {
         this.nome = nome;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
+    
 
     public String getValidade() {
         return validade;
