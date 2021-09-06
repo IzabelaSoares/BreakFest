@@ -85,21 +85,39 @@ create table pedido(
 	id serial not null,
 	fkcpf varchar(14) not null,
 	fkcnpj varchar(20) not null,
-	fkidproduto integer not null,
 	observacao varchar(300),
-	datapedido timestamp not null,
-	statuspagto varchar(20) not null,
+	datapedido date not null,
+	status varchar(100) not null,
+	recorrencia boolean not null,
+	cep varchar(10) not null,
+	estado varchar(4) not null,
+	cidade varchar(300) not null,
+	bairro varchar(100) not null,
+	rua varchar(100) not null,
+	numero int4 not null,	
+	complemento varchar(100),
+	totalcompra float4 not null,
 	primary key(id),
 	foreign key(fkcpf) references pessoafisica(cpf),
-	foreign key(fkcnpj) references pessoajuridica(cnpj),
-	foreign key(fkidproduto) references produto(id)
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
+create table produtospedido(
+	id serial not null,
+	fkpedido integer not null,
+	produto varchar(30) not null,
+	quantidade integer not null,
+	precounitario float4 not null,
+	precototal float4 not null,
+	primary key(id),
+	foreign key(fkpedido) references pedido(id)
 );
 
 create table cartao(
 	id serial not null,
 	fkcpf varchar(14) not null,
 	nome varchar(50) not null,
-	numero integer not null,
+	numero varchar(20) not null,
 	validade varchar(6) not null,
 	codseguranca varchar(4) not null,
 	primary key (id),
