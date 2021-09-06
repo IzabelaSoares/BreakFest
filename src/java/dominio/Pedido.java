@@ -12,10 +12,16 @@ import java.util.List;
 
 public class Pedido {
     //criação de variaveis
+    private String produto;
+    private Integer quantidade;
+    private Double precoUn;
+    private Double precoTotal;
     private Integer idPedido;
     private String fkCpf;
     private String fkCnpj;
     private Integer fkIdProduto;
+    private String status;
+    private Boolean recorrencia;
     private String observacao;
     private Date dataPedido;
     private String nome;
@@ -29,13 +35,14 @@ public class Pedido {
     private String rua;
     private Integer numero;
     private String complemento;
+    private Double totalCompra;
     
     //metodos
     public boolean cadastrarPedido(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO pedido " +
-                     "(fkcpf, fkcnpj, fkidproduto, observacao, datapedido) " +
-                     "VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO public.pedido (fkcpf, fkcnpj, observacao, datapedido, "
+        + "status, recorrencia, cep, estado, cidade, bairro, rua, numero, complemento, totalcompra)" +
+          "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -43,9 +50,18 @@ public class Pedido {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCpf);
             stm.setString(2, this.fkCnpj);
-            stm.setInt(3, this.fkIdProduto);
-            stm.setString(4, this.observacao);
-            stm.setDate(5, this.dataPedido);
+            stm.setString(3, this.observacao);
+            stm.setDate(4, this.dataPedido);
+            stm.setString(5, this.status);
+            stm.setBoolean(6, this.recorrencia);
+            stm.setString(7, this.cep);
+            stm.setString(8, this.estado);
+            stm.setString(9, this.cidade);
+            stm.setString(10, this.bairro);
+            stm.setString(11, this.rua);
+            stm.setInt(12, this.numero);
+            stm.setString(13, this.complemento);
+            stm.setDouble(14, this.totalCompra);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -233,11 +249,57 @@ public class Pedido {
            }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
+        }       
+        return lista;   
+    }
+    
+    //Consultar o Ultimo ID
+    public Integer consultarIdPedido(){
+        Integer pedidoProdutoId = 0;
+        //comando de execução de banco de dados
+        String sql = "SELECT * FROM pedido WHERE id=(SELECT max(id) FROM pedido)";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando com os dados
+            PreparedStatement stm = con.prepareStatement(sql);     
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                //adicionando à lista os pedidos               
+                pedidoProdutoId = (rs.getInt("id"));
+           }
+        } catch (SQLException ex) {
+          System.out.println("Erro:" + ex.getMessage());
+        }       
+        return pedidoProdutoId;   
+    }
+    
+    //Inserir na tabela de produtos pedidos
+    public boolean cadastrarProdutosPedido(){
+        //comando de execução de banco de dados
+        String sql = "INSERT INTO public.produtospedido " +
+                     "(fkpedido, produto, quantidade, precounitario, precototal) " +
+                     "VALUES(?, ?, ?, ?, ?);";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, this.idPedido);
+            stm.setString(2, this.produto);
+            stm.setInt(3, this.quantidade);
+            stm.setDouble(4, this.precoUn);
+            stm.setDouble(5, this.precoTotal);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
         }
         
-        return lista;
-        
+        return true;
     }
+    
     
     //getters and setters
     public Integer getIdPedido() {
@@ -284,6 +346,15 @@ public class Pedido {
         return dataPedido;
     }
 
+    public Double getTotalCompra() {
+        return totalCompra;
+    }
+
+    public void setTotalCompra(Double totalCompra) {
+        this.totalCompra = totalCompra;
+    }
+
+    
     public void setDataPedido(Date dataPedido) {
         this.dataPedido = dataPedido;
     }
@@ -374,6 +445,54 @@ public class Pedido {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Boolean getRecorrencia() {
+        return recorrencia;
+    }
+
+    public void setRecorrencia(Boolean recorrencia) {
+        this.recorrencia = recorrencia;
+    }
+
+    public String getProduto() {
+        return produto;
+    }
+
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Double getPrecoUn() {
+        return precoUn;
+    }
+
+    public void setPrecoUn(Double precoUn) {
+        this.precoUn = precoUn;
+    }
+
+    public Double getPrecoTotal() {
+        return precoTotal;
+    }
+
+    public void setPrecoTotal(Double precoTotal) {
+        this.precoTotal = precoTotal;
     }
     
     

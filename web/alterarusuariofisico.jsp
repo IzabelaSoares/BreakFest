@@ -16,9 +16,6 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
         <!-- Script do jquery -->
 
-        <!-- Navbar Usuário -->
-        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
-
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Pessoa</title>
@@ -223,23 +220,23 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
             <form action="recebecartao.jsp" method="post">
             <div class="field-container">
                 <label for="name">Nome Impresso no Cartão</label>
-                <input id="name" minlength="5" maxlength="20" type="text" required>
+                <input id="name" name="cardname" minlength="5" maxlength="20" type="text" required>
             </div>
 
             <div class="field-container">
                 <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
-                <input id="cardnumber" type="text"  maxlength="19"  inputmode="numeric" required>
+                <input id="cardnumber" name="cardnumber" type="text"  maxlength="19"  inputmode="numeric" required>
                 <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
                 </svg>         
             </div>     
             <div class="field-container">
                 <label for="expirationdate">Expiração (mm/yy)</label>
-                <input id="expirationdate" type="text"  minlength="5" inputmode="" required>
+                <input id="expirationdate" name="expirationdate" type="text"  minlength="5" inputmode="" required>
             </div>
             <div class="field-container">
                 <label for="securitycode">Código de Segurança</label>
-                <input id="securitycode" type="text"  minlength="3"  inputmode="numeric" required>
+                <input id="securitycode" name="securitycode" type="text"  minlength="3"  inputmode="numeric" required>
             </div>
             <button type="submit" class="button">Salvar</button>
             </form>

@@ -30,16 +30,8 @@
     
     //se login for válido  UsuarioFisico
     if (uf.podeLogar(email, request.getParameter("senha"))) {
-        //instancia Cartao = card
-        Cartao card = new Cartao();
-        //se a pessoa não possue dados de cartao, redireciona para a pagina de cadastro
-        if(!card.verificaDados(email)){
-            response.sendRedirect("dadoscartaocredito.jsp");
-        //se não, redireciona para o index
-        }else{
-            request.getSession().setAttribute("resultado", "SucessoLogin");
-            response.sendRedirect("alterarusuariofisico.jsp");
-        }
+        request.getSession().setAttribute("resultado", "SucessoLogin");
+        response.sendRedirect("alterarusuariofisico.jsp");
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 
 

@@ -308,6 +308,28 @@ public class PessoaJuridica {
         return true;
     }
     
+    
+        //cadastro de imagem de perfil
+    public boolean cadastrarImagem(){
+        //comando de execução de banco de dados
+        String sql = "update pessoajuridica set imagem=? where cnpj = ?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.imagem);
+            stm.setString(2, this.cnpj);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        
+        return true;
+    }
+    
     //getters e setters
     public String getRazaoSocial() {
         return razaoSocial;

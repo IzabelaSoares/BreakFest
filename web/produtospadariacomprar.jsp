@@ -3,7 +3,6 @@
     Created on : 04/09/2021, 09:18:51
     Author     : Izabela
 --%>
-
 <%@page import="java.util.List"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.PessoaFisica"%>
@@ -14,6 +13,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Padarias</title>
+        <!-- Navbar Usuário -->
+        <script src="scripts/navbar-usuario.js"></script>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        <!-- Script da página "util" em css -->
+        <link href="styles/util.css" rel="stylesheet">
+        <!-- Imagem do Cuppa -->
+        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        <!-- CSS, JS e BootStrap do cartão de crédito -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <link rel="stylesheet" href="styles/cartaoestilo.css">
+        <script src="scripts/cartao-de-credito.js"></script>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -22,19 +35,20 @@
     </head>
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
-    <!--
+
     <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
+                <li><a href="#" data-toggle="modal" data-target="#cart">Carrinho</a></li>
                 <div class="drop-down">
                     <div id="dropDown" class="drop-down__button">
                         <a>Meu Painel</a>
                     </div>
 
                     <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
-                <!--    <div class="drop-down__menu-box">
+                    <div class="drop-down__menu-box">
                         <ul class="drop-down__menu">
                             <a><li data-name="profile" class="drop-down__item">Cadastro</li></a>
                             <a><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
@@ -44,11 +58,11 @@
                 </div>
 
                 <!-- Essa opção será para sair da página, será levado para a página de login -->
-             <!--   <li><a href="login.jsp">Sair</a></li>
+              <li><a href="login.jsp">Sair</a></li>
             </ul>
         </nav>
     </header>
- -->
+
     <!-- Instanciamento de classes e método em Java  -->
     <%
         //Instanciar a Pessoa Juridica para Consultar os produtos dela
@@ -216,7 +230,7 @@
                 </div>
             </div>
         </div>       
-        <!-- Navbar -->
+        <!-- NAVBAR ANTIGO (SOMENTE RICARDO COM PERMISSÃO PARA APAGAR)
         <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
             <div class="row">
                 <div class="col">
@@ -269,21 +283,42 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Carinho de Compras</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <form action="recebepedido.jsp" method="post">
                     <div class="modal-body">
-                        <table class="show-cart table">
-
+                        <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Preço Unitário</th>
+                                <th>Quantidade</th>
+                                <th>Preço Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="show-cart"></tbody>
                         </table>
-                        <div>Total price: $<span class="total-cart"></span></div>
+                        <div>Total da Compra R$<span class="total-cart"></span></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Order now</button>
+                        
+                        <!-- Inputs hidden para passar os dados para o jsp -->
+                        <input type="hidden" id="fkcnpj" name="fkcnpj" value="<% out.write(cnpj); %>">
+                        <input type="hidden" id="fkcpf" name="fkcpf" value="<% out.write(cpf); %>">                       
+                        <input type="hidden" id="produtos" name="produtos" value="">
+                        <input type="hidden" id="preco-unitario" name="preco-unitario" value="">
+                        <input type="hidden" id="quantidade" name="quantidade" value="">
+                        <input type="hidden" id="preco-total" name="preco-total" value="">
+                        <input type="hidden" id="total-compra" name="total-compra" value="">                      
+                        <!-- Fim Inputs hidden para passar os dados para o jsp -->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Comprar agora</button>
+                       
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -296,6 +331,5 @@
         <script src='https://unpkg.com/popper.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
-        <script src="scripts/navbar-usuario.js"></script>
     </body>
 </html>
