@@ -22,9 +22,8 @@ public class Cartao {
     //cadastro de cartão
     public boolean cadastrarCartao(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO cartao " 
-                   +"(fkcpf, nome, numero, validade, codseguranca) " 
-                   +"VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cartao (fkcpf, nome, numero, validade, codseguranca) " 
+                    +"VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{

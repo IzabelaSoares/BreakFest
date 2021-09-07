@@ -10,12 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class BairrosPadaria {
     //variaveis
     private Integer id;
-    private String atendeBairro;
+    private String bairro;
     private String fkCnpj;
     private Float taxaEntrega;
 
@@ -24,7 +22,7 @@ public class BairrosPadaria {
     //cadastrar bairros aceitos
     public boolean cadastrarBairros(){
         //comando de execução de banco de dados
-        String sql = "INSERT INTO bairrospadaria (fkCnpj, atendeBairro, taxaentrega) "
+        String sql = "INSERT INTO bairrospadaria (fkcnpj, bairro, taxaentrega) "
                     + "VALUES(?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -32,7 +30,7 @@ public class BairrosPadaria {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.atendeBairro);
+            stm.setString(2, this.bairro);
             stm.setFloat(3, this.taxaEntrega);
             //executando comando
             stm.execute();
@@ -43,7 +41,7 @@ public class BairrosPadaria {
         return true;
     }
     
-    //consultar bairros
+    //consultar bairros aceitos
      public List<BairrosPadaria> consultarGeral(){
         List<BairrosPadaria> lista = new ArrayList<>();
         String sql = "SELECT * FROM bairrospadaria";
@@ -54,7 +52,7 @@ public class BairrosPadaria {
             while(rs.next()){
                 BairrosPadaria b = new BairrosPadaria();
                 b.setId(rs.getInt("id"));
-                b.setAtendeBairro(rs.getString("atendebairro"));
+                b.setBairro(rs.getString("bairro"));
                 b.setFkCnpj(rs.getString("fkcnpj"));
                 b.setTaxaEntrega(rs.getFloat("taxaentrega"));
                 lista.add(b);
@@ -65,11 +63,11 @@ public class BairrosPadaria {
         return lista;       
     }
      
-    //alterar bairros
+    //alterar bairros aceitos
     public boolean alterarBairrosPadaria(){
         //comando de execução de banco de dados 
-        String sql = "UPDATE bairrospadaria SET id=?, fkcnpj=?, atendebairro=?, "
-                   + "taxaentrega=? WHERE fkCnpj=?";
+        String sql = "UPDATE bairrospadaria SET id=?, fkcnpj=?, bairro=?, "
+                   + "taxaentrega=? WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -77,7 +75,7 @@ public class BairrosPadaria {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.id);
             stm.setString(2, this.fkCnpj);
-            stm.setString(3, this.atendeBairro);
+            stm.setString(3, this.bairro);
             stm.setFloat(4, this.taxaEntrega);
             stm.setString(5, this.fkCnpj);
             //executando comando
@@ -90,10 +88,6 @@ public class BairrosPadaria {
         return true;
     }
      
-     
-    
-    
-    
     //exclusão de bairro
     public boolean excluirBairro(){
         //comando de execução de banco de dados
@@ -111,10 +105,7 @@ public class BairrosPadaria {
             return false; 
         }   
         return true;
-    }
-    
-    
-    
+    } 
     
     //getters e setters
     public Integer getId() {
@@ -125,12 +116,12 @@ public class BairrosPadaria {
         this.id = id;
     }
 
-    public String getAtendeBairro() {
-        return atendeBairro;
+    public String getBairro() {
+        return bairro;
     }
 
-    public void setAtendeBairro(String atendeBairro) {
-        this.atendeBairro = atendeBairro;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     public String getFkCnpj() {
@@ -147,10 +138,6 @@ public class BairrosPadaria {
 
     public void setTaxaEntrega(Float taxaEntrega) {
         this.taxaEntrega = taxaEntrega;
-    }
-    
-        
-    
-    
+    }  
     
 }

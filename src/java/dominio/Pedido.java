@@ -11,24 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    //criação de variaveis
+
+    //variaveis produtos pedido
     private String produto;
     private Integer quantidade;
     private Double precoUn;
     private Double precoTotal;
     private Integer idPedido;
+    
+    //variaveis pedido
     private String fkCpf;
     private String fkCnpj;
-    private Integer fkIdProduto;
     private String status;
     private Boolean recorrencia;
     private String observacao;
     private Date dataPedido;
-    private String nome;
-    private String razaoSocial;
-    private String nomeFantasia;
-    private String celular;
-    private String cep; 
+    private String cep;
     private String estado;
     private String cidade;
     private String bairro;
@@ -37,15 +35,25 @@ public class Pedido {
     private String complemento;
     private Double totalCompra;
     
+    //variaveis usuario fisico
+    private String nome;
+    private String sobrenome;
+    private String celular;
+    
+    //variaveis usuario juridico
+    private String nomeFantasia;
+    private String telefone;
+
+
     //metodos
-    public boolean cadastrarPedido(){
+    public boolean cadastrarPedido() {
         //comando de execução de banco de dados
         String sql = "INSERT INTO public.pedido (fkcpf, fkcnpj, observacao, datapedido, "
-        + "status, recorrencia, cep, estado, cidade, bairro, rua, numero, complemento, totalcompra)" +
-          "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "status, recorrencia, cep, estado, cidade, bairro, rua, numero, complemento, totalcompra)"
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
-        try{
+        try {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCpf);
@@ -64,19 +72,19 @@ public class Pedido {
             stm.setDouble(14, this.totalCompra);
             //executando comando
             stm.execute();
-        }catch(SQLException ex){
-            System.out.println("Erro: "+ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
             return false;
         }
-        
         return true;
     }
-    
-    public boolean alterarPedido(){
+
+    public boolean alterarPedido() {
         //comando de execução de banco de dados 
-        String sql = "UPDATE pessoafisica " 
-                + "SET fkcpf=?, fkcnpj=?, fkidproduto=?, observacao=?, datapedido=? " 
-                + "WHERE idpedido=?";
+        String sql = "UPDATE public.pedido SET fkcpf=?, fkcnpj=?, observacao=?, "
+                + "datapedido=?, status=?, recorrencia=?, cep=?, estado=?, "
+                + "cidade=?, bairro=?, rua=?, numero=?, complemento=?, totalcompra=?"
+                + "WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -84,205 +92,231 @@ public class Pedido {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.fkCpf);
             stm.setString(2, this.fkCnpj);
-            stm.setInt(3, this.fkIdProduto);
-            stm.setString(4, this.observacao);
-            stm.setDate(5, this.dataPedido);
-            stm.setInt(19, this.idPedido);
+            stm.setString(3, this.observacao);
+            stm.setDate(4, this.dataPedido);
+            stm.setString(5, this.status);
+            stm.setBoolean(6, this.recorrencia);
+            stm.setString(7, this.cep);
+            stm.setString(8, this.estado);
+            stm.setString(9, this.cidade);
+            stm.setString(10, this.bairro);
+            stm.setString(11, this.rua);
+            stm.setInt(12, this.numero);
+            stm.setString(13, this.complemento);
+            stm.setDouble(14, this.totalCompra);
+            stm.setInt(15, this.idPedido);
             //executando comando
             stm.execute();
-        }catch(SQLException ex){
-            System.out.println("Erro: "+ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
             return false;
         }
-        
         return true;
     }
-    
-    public boolean excluirPedido(){
+
+    public boolean excluirPedido() {
         //comando de execução de banco de dados
-        String sql = "DELETE FROM pedido " 
-                + "WHERE idpedido=?";
+        String sql = "DELETE FROM pedido WHERE idpedido=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
-        try{
+        try {
             //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.idPedido);
             //executando comando
-            stm.execute();   
+            stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
-            return false; 
+            return false;
         }
-        
         return true;
     }
-    
-    public List<Pedido> consultarPedidoCliente(String pNomeFantasia){
-        List<Pedido> lista = new ArrayList<>();
-        //se houver um nome fantasia, irá aparecer ele
-        if(pNomeFantasia == null){
-            //comando de execução de banco de dados
-            String sql = "select  p.idpedido, " +
-                    "		p.fkcpf, " +
-                    "		f.nome, " +
-                    "		p.fkcnpj, " +
-                    "		j.nomefantasia, " +
-                    "		p.fkidproduto, " +
-                    "		p.observacao, " +
-                    "		p.datapedido, " +
-                    "		j.telefone " +
-                    "from pedido p, " +
-                    "	 pessoafisica f, " +
-                    "	 pessoajuridica j " +
-                    "where p.fkcpf = f.cpf and  " +
-                    "	  p.fkcnpj = j.cnpj";
-            //conectando com o banco
-            Connection con = Conexao.conectar();
-            try{
-                //preparando o comando com os dados
-                PreparedStatement stm = con.prepareStatement(sql);     
-                ResultSet rs = stm.executeQuery();
-                while(rs.next()){
-                    //adicionando à lista os pedidos
-                    Pedido pedido = new Pedido();
-                    pedido.setIdPedido(rs.getInt("idpedido"));
-                    pedido.setFkCpf(rs.getString("fkcpf"));
-                    pedido.setNome(rs.getString("nome"));
-                    pedido.setFkCnpj(rs.getString("fkcnpj"));
-                    pedido.setNomeFantasia(rs.getString("nomefantasia"));
-                    pedido.setFkIdProduto(rs.getInt("fkidproduto"));
-                    pedido.setObservacao(rs.getString("observacao"));
-                    lista.add(pedido);
-               }
-            } catch (SQLException ex) {
-              System.out.println("Erro:" + ex.getMessage());
-            }
-        //se não, vai aparecer a razão social
-        }else{
-            //comando de execução de banco de dados
-            String sql = "select  p.idpedido, " +
-                    "		p.fkcpf, " +
-                    "		f.nome, " +
-                    "		p.fkcnpj, " +
-                    "		j.razaosocial, " +
-                    "		p.fkidproduto, " +
-                    "		p.observacao, " +
-                    "		p.datapedido, " +
-                    "		j.telefone " +
-                    "from pedido p, " +
-                    "	 pessoafisica f, " +
-                    "	 pessoajuridica j " +
-                    "where p.fkcpf = f.cpf and  " +
-                    "	  p.fkcnpj = j.cnpj";
-            //conectando com o banco
-            Connection con = Conexao.conectar();
-            try{
-                //preparando o comando com os dados
-                PreparedStatement stm = con.prepareStatement(sql);     
-                ResultSet rs = stm.executeQuery();
-                while(rs.next()){
-                    //adicionando à lista os pedidos
-                    Pedido pedido = new Pedido();
-                    pedido.setIdPedido(rs.getInt("idpedido"));
-                    pedido.setFkCpf(rs.getString("fkcpf"));
-                    pedido.setNome(rs.getString("nome"));
-                    pedido.setFkCnpj(rs.getString("fkcnpj"));
-                    pedido.setRazaoSocial(rs.getString("razaosocial"));
-                    pedido.setFkIdProduto(rs.getInt("fkidproduto"));
-                    pedido.setObservacao(rs.getString("observacao"));
-                    lista.add(pedido);
-               }
-            } catch (SQLException ex) {
-              System.out.println("Erro:" + ex.getMessage());
-            }
-        }
-        
-        return lista;
-        
-    }
-    
-    public List<Pedido> consultarPedidosPadaria(){
+
+    //consultar todos os pedidos do usuário fisico
+    public List<Pedido> consultarPedidosUsuarioJuridico(String pFkCnpj) {
         List<Pedido> lista = new ArrayList<>();
         //comando de execução de banco de dados
-        String sql = "select  p.idpedido, " +
-                    "		p.fkcpf, " +
-                    "		f.nome, " +
-                    "		f.celular, " +
-                    "		f.cep, " +
-                    "		f.estado, " +
-                    "		f.cidade, " +
-                    "		f.bairro, " +
-                    "		f.rua, " +
-                    "		f.numero, " +
-                    "		f.complemento, " +
-                    "		p.fkidproduto, " +
-                    "		p.observacao, " +
-                    "		p.datapedido, " +
-                    "from pedido p, " +
-                    "	 pessoafisica f " +
-                    "where p.fkcpf = f.cpf";
+        String sql = "SELECT pedido.*, pessoafisica.*, pessoajuridica.* " +
+                     "FROM public.pedido pedido, public.pessoafisica pessoafisica, " +
+                     "public.pessoajuridica pessoajuridica " +
+                     "WHERE pedido.fkcpf = pessoafisica.cpf AND pedido.fkcnpj = pessoajuridica.cnpj " +
+                     "AND fkcpf ='"+ pFkCnpj +"'";
         //conectando com o banco
         Connection con = Conexao.conectar();
-        try{
+        try {
             //preparando o comando com os dados
-            PreparedStatement stm = con.prepareStatement(sql);     
+            PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while(rs.next()){
-                //adicionando à lista os pedidos
+            while (rs.next()) {
+                 //adicionando à lista os pedidos
                 Pedido pedido = new Pedido();
-                pedido.setIdPedido(rs.getInt("idpedido"));
+                //dados da tabela pedido
+                pedido.setIdPedido(rs.getInt("id"));
                 pedido.setFkCpf(rs.getString("fkcpf"));
-                pedido.setNome(rs.getString("nome"));
-                pedido.setCelular(rs.getString("celular"));
+                pedido.setFkCnpj(rs.getString("fkcnpj"));
+                pedido.setObservacao(rs.getString("observacao"));
+                pedido.setDataPedido(rs.getDate("datapedido"));
+                pedido.setStatus(rs.getString("status"));
+                pedido.setRecorrencia(rs.getBoolean("recorrencia"));
                 pedido.setCep(rs.getString("cep"));
                 pedido.setEstado(rs.getString("estado"));
                 pedido.setCidade(rs.getString("cidade"));
                 pedido.setBairro(rs.getString("bairro"));
-                pedido.setRua(rs.getString("rua"));
-                pedido.setNumero(rs.getInt("numero"));
+                pedido.setRua("rua");
                 pedido.setComplemento(rs.getString("complemento"));
-                pedido.setFkCnpj(rs.getString("fkcnpj"));
-                pedido.setFkIdProduto(rs.getInt("fkidproduto"));
-                pedido.setObservacao(rs.getString("observacao"));
+                pedido.setNumero(rs.getInt("numero"));
+                pedido.setTotalCompra(rs.getDouble("totalcompra"));
+                //dados da tabela usuario fisico
+                pedido.setNome(rs.getString("nome"));
+                pedido.setSobrenome(rs.getString("sobrenome"));
+                pedido.setCelular("celular");
+                //dados da tabela usuario juridico
+                pedido.setNomeFantasia(rs.getString("nomefantasia"));
+                pedido.setTelefone(rs.getString("telefone"));
+                //retorna a lista para a consulta
                 lista.add(pedido);
-           }
+            }
         } catch (SQLException ex) {
-          System.out.println("Erro:" + ex.getMessage());
-        }       
-        return lista;   
+            System.out.println("Erro:" + ex.getMessage());
+        }
+        return lista;
+    }
+        
+    //consultar todos os pedidos do usuário fisico
+    public List<Pedido> consultarPedidosUsuarioFisico(String pFkCpf) {
+        List<Pedido> lista = new ArrayList<>();
+        //comando de execução de banco de dados
+        String sql = "SELECT pedido.*, pessoafisica.*, pessoajuridica.* " +
+                     "FROM public.pedido pedido, public.pessoafisica pessoafisica, " +
+                     "public.pessoajuridica pessoajuridica " +
+                     "WHERE pedido.fkcpf = pessoafisica.cpf AND pedido.fkcnpj = pessoajuridica.cnpj " +
+                     "AND fkcpf ='"+ pFkCpf +"'";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando o comando com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                 //adicionando à lista os pedidos
+                Pedido pedido = new Pedido();
+                //dados da tabela pedido
+                pedido.setIdPedido(rs.getInt("id"));
+                pedido.setFkCpf(rs.getString("fkcpf"));
+                pedido.setFkCnpj(rs.getString("fkcnpj"));
+                pedido.setObservacao(rs.getString("observacao"));
+                pedido.setDataPedido(rs.getDate("datapedido"));
+                pedido.setStatus(rs.getString("status"));
+                pedido.setRecorrencia(rs.getBoolean("recorrencia"));
+                pedido.setCep(rs.getString("cep"));
+                pedido.setEstado(rs.getString("estado"));
+                pedido.setCidade(rs.getString("cidade"));
+                pedido.setBairro(rs.getString("bairro"));
+                pedido.setRua("rua");
+                pedido.setComplemento(rs.getString("complemento"));
+                pedido.setNumero(rs.getInt("numero"));
+                pedido.setTotalCompra(rs.getDouble("totalcompra"));
+                //dados da tabela usuario fisico
+                pedido.setNome(rs.getString("nome"));
+                pedido.setSobrenome(rs.getString("sobrenome"));
+                pedido.setCelular("celular");
+                //dados da tabela usuario juridico
+                pedido.setNomeFantasia(rs.getString("nomefantasia"));
+                pedido.setTelefone(rs.getString("telefone"));
+                //retorna a lista para a consulta
+                lista.add(pedido);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro:" + ex.getMessage());
+        }
+        return lista;
     }
     
-    //Consultar o Ultimo ID
-    public Integer consultarIdPedido(){
+    //consultar pedido especifico com todos os dados (pedido, produtos do pedido,pessoa juridica e pessoa fisica) 
+    public List<Pedido> consultarPedidoIndividual(Integer pIdPedido) {
+        List<Pedido> lista = new ArrayList<>();
+        //comando de execução de banco de dados
+        String sql = "SELECT pedido.*, pessoafisica.*, pessoajuridica.*, produtospedido.* " +
+        "FROM public.pedido pedido, public.pessoafisica pessoafisica, " +
+        "public.pessoajuridica pessoajuridica, public.produtospedido produtospedido " +
+        "WHERE pedido.fkcpf = pessoafisica.cpf AND pedido.fkcnpj = pessoajuridica.cnpj " +  
+        "AND produtospedido.fkpedido = pedido.id and pedido.id = "+ pIdPedido;
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando o comando com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                //adicionando à lista os pedidos
+                Pedido pedido = new Pedido();
+                //dados da tabela pedido
+                pedido.setIdPedido(rs.getInt("id"));
+                pedido.setFkCpf(rs.getString("fkcpf"));
+                pedido.setFkCnpj(rs.getString("fkcnpj"));
+                pedido.setObservacao(rs.getString("observacao"));
+                pedido.setDataPedido(rs.getDate("datapedido"));
+                pedido.setStatus(rs.getString("status"));
+                pedido.setRecorrencia(rs.getBoolean("recorrencia"));
+                pedido.setCep(rs.getString("cep"));
+                pedido.setEstado(rs.getString("estado"));
+                pedido.setCidade(rs.getString("cidade"));
+                pedido.setBairro(rs.getString("bairro"));
+                pedido.setRua("rua");
+                pedido.setComplemento(rs.getString("complemento"));
+                pedido.setNumero(rs.getInt("numero"));
+                pedido.setTotalCompra(rs.getDouble("totalcompra"));
+                //dados da tabela produtos pedido
+                pedido.setPrecoUn(rs.getDouble("precounitario"));
+                pedido.setQuantidade(rs.getInt("quantidade"));
+                pedido.setPrecoTotal(rs.getDouble("precototal"));
+                pedido.setProduto(rs.getString("produto"));
+                //dados da tabela usuario fisico
+                pedido.setNome(rs.getString("nome"));
+                pedido.setSobrenome(rs.getString("sobrenome"));
+                pedido.setCelular("celular");
+                //dados da tabela usuario juridico
+                pedido.setNomeFantasia(rs.getString("nomefantasia"));
+                pedido.setTelefone(rs.getString("telefone"));
+                //retorna a lista para a consulta
+                lista.add(pedido);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro:" + ex.getMessage());
+        }
+        return lista;
+    }
+
+    //Consultar o Ultimo ID do pedido inserido
+    public Integer consultarIdPedido() {
         Integer pedidoProdutoId = 0;
         //comando de execução de banco de dados
         String sql = "SELECT * FROM pedido WHERE id=(SELECT max(id) FROM pedido)";
         //conectando com o banco
         Connection con = Conexao.conectar();
-        try{
+        try {
             //preparando o comando com os dados
-            PreparedStatement stm = con.prepareStatement(sql);     
+            PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 //adicionando à lista os pedidos               
                 pedidoProdutoId = (rs.getInt("id"));
-           }
+            }
         } catch (SQLException ex) {
-          System.out.println("Erro:" + ex.getMessage());
-        }       
-        return pedidoProdutoId;   
+            System.out.println("Erro:" + ex.getMessage());
+        }
+        return pedidoProdutoId;
     }
-    
+
     //Inserir na tabela de produtos pedidos
-    public boolean cadastrarProdutosPedido(){
+    public boolean cadastrarProdutosPedido() {
         //comando de execução de banco de dados
-        String sql = "INSERT INTO public.produtospedido " +
-                     "(fkpedido, produto, quantidade, precounitario, precototal) " +
-                     "VALUES(?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO public.produtospedido "
+                + "(fkpedido, produto, quantidade, precounitario, precototal) "
+                + "VALUES(?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
-        try{
+        try {
             //preparando o comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, this.idPedido);
@@ -292,15 +326,13 @@ public class Pedido {
             stm.setDouble(5, this.precoTotal);
             //executando comando
             stm.execute();
-        }catch(SQLException ex){
-            System.out.println("Erro: "+ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
             return false;
         }
-        
         return true;
     }
-    
-    
+
     //getters and setters
     public Integer getIdPedido() {
         return idPedido;
@@ -326,14 +358,6 @@ public class Pedido {
         this.fkCnpj = fkCnpj;
     }
 
-    public Integer getFkIdProduto() {
-        return fkIdProduto;
-    }
-
-    public void setFkIdProduto(Integer fkIdProduto) {
-        this.fkIdProduto = fkIdProduto;
-    }
-
     public String getObservacao() {
         return observacao;
     }
@@ -354,7 +378,6 @@ public class Pedido {
         this.totalCompra = totalCompra;
     }
 
-    
     public void setDataPedido(Date dataPedido) {
         this.dataPedido = dataPedido;
     }
@@ -365,14 +388,6 @@ public class Pedido {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
     }
 
     public String getNomeFantasia() {
@@ -494,7 +509,20 @@ public class Pedido {
     public void setPrecoTotal(Double precoTotal) {
         this.precoTotal = precoTotal;
     }
-    
-    
 
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }   
 }

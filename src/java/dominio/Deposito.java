@@ -41,8 +41,7 @@ public class Deposito {
         }catch(SQLException ex){
             System.out.println("Erro: "+ex.getMessage());
             return false;
-        }
-        
+        }        
         return true;
     }
     
@@ -69,8 +68,7 @@ public class Deposito {
         }catch(SQLException ex){
             System.out.println("Erro: "+ex.getMessage());
             return false;
-        }
-        
+        }       
         return true;
     }
     
@@ -90,8 +88,7 @@ public class Deposito {
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
             return false; 
-        }
-        
+        }       
         return true;
     }
     

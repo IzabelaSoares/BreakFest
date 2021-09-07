@@ -29,10 +29,8 @@ public class Categoria {
             }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
-        }
-        
-        return lista;
-        
+        }        
+        return lista;       
     }
 
     //getters e setters
