@@ -122,13 +122,5 @@
             </div>
         </div>
         <!-- fim camadas de divs -->
-       
-        <!-- Script da funçao de redirecionar -->
-        <script>
-            function redirecionar(id) {
-                alert('Acionou!');
-                document.getElementById(id).submit();
-            }
-        </script>
-    </body>
+</body>
 </html>
