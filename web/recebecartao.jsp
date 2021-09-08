@@ -7,12 +7,13 @@
 <%@page import="dominio.PessoaFisica"%>
 <%@page import="dominio.Cartao"%>
 <%  //instancia o cartão = card
-
     Cartao card = new Cartao();
-
-    //Pegar o cpf dela
-    String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
+    
+    //instancia o PessoaFisica = pf
     PessoaFisica pf = new PessoaFisica();
+
+    //Pega o cpf e 
+    String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String cpf = pf.procuraCpf(fkemail);
     
     //Passar os parametros do HTML

@@ -12,19 +12,20 @@
     //instanciar o login da = PF
     UsuarioFisico login = new UsuarioFisico();
     
+    //variáveis mais utilizadas
     String email = request.getParameter("email");
     String cnpj = request.getParameter("cnpj");
     
-    //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
+    //se o email já está sendo utilizado no cadastro fisico ou juridico
     if(login.verificaExistencia(email) || pf.verificaExistenciaJuridica(email)){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
-        response.sendRedirect("login.jsp");
-    //se o cpf já está sendo utilizado não faz cadastro
+        response.sendRedirect("cadastrofisico.jsp");
+    //se o cpf já está sendo utilizado
     }else if(pf.verificaExistenciaCpf(cnpj)){
         //cpf já está sendo utilizado
         request.getSession().setAttribute("resultado", "CpfJaRegistrado");
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("cadastrofisico.jsp");
     }else{
         //recebe os valores da tela HTML
         pf.setNome(request.getParameter("nome"));
@@ -54,7 +55,7 @@
         } else {
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("cadastrofisico.jsp");
         }
     }
 %>

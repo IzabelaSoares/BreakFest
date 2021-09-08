@@ -16,6 +16,7 @@
 
     String oldCnpj = request.getParameter("cnpj");
 
+    //passa os valores do HMTL para a classe PessoaJuridica
     pj.setRazaoSocial(request.getParameter("razaosocial"));
     pj.setNomeFantasia(request.getParameter("nomefantasia"));
     pj.setEmail(request.getParameter("email"));
@@ -30,7 +31,7 @@
     pj.setSobrepadaria(request.getParameter("sobre"));
     pj.setBairros(request.getParameter("bairros"));
 
-    //Passar valores da tela e cadastrar o usuário
+    //passa os valores do HMTL para a classe UsuarioJuridico
     login.setEmail(request.getParameter("email"));
     login.setSenha(request.getParameter("senha"));
 

@@ -23,10 +23,12 @@
     
     //se o email existir em algum dos tipos de usuário, ele envia o email para a recuperação de senha
     if(uf.verificaExistencia(request.getParameter("email")) || uj.verificaExistencia(request.getParameter("email"))){
+        //se o email for enviado
         if(email.enviaEmail(endereco)){
             request.getSession().setAttribute("resultado", "EmailEnviado");
             response.sendRedirect("login.jsp");
         }else{
+            //erro no envio
             request.getSession().setAttribute("resultado", "EmailNaoEnviado");
             response.sendRedirect("index.html");
         }

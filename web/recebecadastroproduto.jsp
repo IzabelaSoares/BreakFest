@@ -6,17 +6,17 @@
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.Cartao"%>
-<%  
-    //instancia o produto = prdt
+<%  //Instancia o Produto = prdt
     Produto prdt = new Produto();
     
+    //Instancia o PessoaJuridica = pj
     PessoaJuridica pj = new PessoaJuridica();
     
-    //pegar o cnpj do usuario
+    //Pega o cnpj do usuario
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String fkcnpj = pj.procuraCnpj(fkemail);
     
-    //pegar os valores dos produtos
+    //Pegar os valores dos produtos
     String titulo = String.valueOf(request.getSession().getAttribute("titulo"));
     String categoria = String.valueOf(request.getSession().getAttribute("categoria"));
     String tamanho = String.valueOf(request.getSession().getAttribute("tamanho"));
@@ -25,7 +25,7 @@
     Float preco = Float.parseFloat(String.valueOf(request.getSession().getAttribute("preco")));
     String imagem = String.valueOf(request.getSession().getAttribute("imagem"));
 
-    //passar para a classe
+    //passar os valores para a classe
     prdt.setTitulo(titulo);
     prdt.setCategoria(categoria);
     prdt.setFkCnpj(fkcnpj);
@@ -35,7 +35,7 @@
     prdt.setUnidadeDeMedida(unidadeMedida);
     prdt.setImagem(imagem);
     
-    //se cadastrar cartao
+    //se cadastrar produto
     if (prdt.cadastrarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");
         response.sendRedirect("perfil.jsp");

@@ -15,6 +15,7 @@
     
     String oldCpf = request.getParameter("cpf");
     
+    //passa os valores do HMTL para a classe PessoaFisica
     pf.setNome(request.getParameter("nome"));
     pf.setSobrenome(request.getParameter("sobrenome"));
     pf.setDataNascimento(Date.valueOf(request.getParameter("nascimento")));
@@ -28,13 +29,15 @@
     pf.setNumero(Integer.parseInt(request.getParameter("numero")));
     pf.setComplemento(request.getParameter("complemento"));
 
+    //passa os valores do HMTL para a classe UsuarioFisico
     login.setEmail(request.getParameter("email"));
     login.setSenha(request.getParameter("senha"));
     
     //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
     if(pf.alterarDados(oldCpf) && login.alterarUsuario(oldCpf)) {
         request.getSession().setAttribute("resultado", "CadastroAlterado");
-        response.sendRedirect("perfil.jsp");     
+        response.sendRedirect("alterarusuariofisico.jsp");     
+    //se não der certo
     }else{
         request.getSession().setAttribute("resultado", "CadastroNaoAlterado");
         response.sendRedirect("alterarusuariofisico.jsp");

@@ -18,6 +18,7 @@
     //instanciar o login da = PJ
     UsuarioJuridico login = new UsuarioJuridico();
     
+    //variáveis mais utilizadas
     String email = request.getParameter("email");
     String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
     
@@ -25,10 +26,12 @@
     String bairro = request.getParameter("bairros");
     List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(",")));
         
+    //se o email já existir no banco de dados
     if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("cadastrojuridico.jsp");
+    //se o cnpj já for cadastrado
     }else if(pj.verificaExistenciaCnpj(cnpj)){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "CnpjJaRegistrado");
@@ -58,10 +61,11 @@
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
             
+            //cria um loop para adicionar os bairros de atendimento da padaria e o valor do frete
             for(int i=0; i < bairros.size(); i++){
                 pj.setCnpj(cnpj);
                 pj.setBairroAtendimento(bairros.get(i));
-                pj.setFrete(Float.parseFloat("10"));
+                pj.setFrete(Float.parseFloat("0"));
                 
                 pj.cadastrarBairroFrete();
             }

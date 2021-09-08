@@ -9,11 +9,15 @@
 <%
     //instanciar a pessoa juridica
     PessoaJuridica pj = new PessoaJuridica();
+    
+    //pega o email e procura o cnpj
     String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
     String fkcnpj = pj.procuraCnpj(fkemail);
+    
     //verificar a opção de recebimento de pagamento
     String tipoPagto = request.getParameter("pagamento");
 
+    //se for pix
     if (tipoPagto.contains("pix")) {
         //verifica os valores da chave
         String cnpj = request.getParameter("chave-cnpj");
@@ -51,6 +55,7 @@
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
             response.sendRedirect("alterarusuariojuridico.jsp");
         }
+    //se for depósito
     } else {
         //instancia o depósito = dep  
         Deposito dep = new Deposito();
@@ -66,15 +71,9 @@
         //se cadastrar pessoa e o login dela
         if (dep.cadastrarDeposito()) {
             request.getSession().setAttribute("resultado", "PreferenciaSalva");
-            //verificar se já possui midias cadastradas
-            if (pj.verificaSociais(fkemail)) {
-                response.sendRedirect("alterarusuariojuridico.jsp");
-                //se não, redireciona para o index
-            } else {
-                request.getSession().setAttribute("resultado", "SucessoLogin");
-                response.sendRedirect("alterarusuariojuridico.jsp");
-            }
+            response.sendRedirect("alterarusuariojuridico.jsp");
         } else {
+            //erro no cadastro
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
             response.sendRedirect("alterarusuariojuridico.jsp");
         }
