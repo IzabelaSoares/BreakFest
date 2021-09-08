@@ -26,7 +26,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         <!-- Script do cadastro -->
         <link href="styles/cadastro.css" rel="stylesheet">
 
-        <!-- Script da página "util" em css -->
+        <!-- Link da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
 
         <!-- Script de alerta de erro -->

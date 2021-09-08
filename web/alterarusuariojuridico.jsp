@@ -15,31 +15,50 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/bairros.css">
 
-        <!-- Título e imports -->
+        <!-- Título -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Break Fest</title>
+        
+        <!-- Script da pessoa jurídica -->
         <script src="scripts/pessoa-juridica.js"></script>
+        
+        <!-- Link da página "cadastro" em css -->
         <link href="styles/cadastro.css" rel="stylesheet">
+        
+        <!-- Link da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
+        
+        <!-- Link do Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
 
+        <!-- Script do Alerta -->
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
         <!-- CSS, JS e BootStrap de Preferencia de pagamento -->
+        <!-- Link da página "midias" em css -->
         <link rel="stylesheet" href="styles/midias.css">
+        <!-- Link da página "preferenciapagamento" em css -->
         <link rel="stylesheet" href="styles/preferenciapagamento.css">
+        <!-- Script da Mídia -->
         <script src="scripts/midias.js"></script>
+        <!-- Script da Preferencia de pagamento -->
         <script src="scripts/preferencia-de-pagamento.js"></script>
+        <!-- Script do Cloud Flare para Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <!-- Link do Cloud Flare -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+        <!-- Script do Cloud Flare -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
-
     </head>
+    
     <!-- Inicio da NavBar de cima -->
+    <!--  -->
     <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
