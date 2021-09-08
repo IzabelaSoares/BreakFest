@@ -106,7 +106,7 @@ input:focus, input:active, input:hover {
 }
 
 .container {
-    width: 100%;
+    width: 80%;
     max-width: 400px;
     max-height: 251px;
     height: 54vw;
