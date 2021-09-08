@@ -1,6 +1,6 @@
 <%-- 
-    Document   : consultarpedidofisico
-    Created on : 8 de set. de 2021, 13:37:54
+    Document   : consultarpedidojuridico
+    Created on : 8 de set. de 2021, 16:08:19
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
@@ -213,6 +213,30 @@
             </div>
         </div>
     </div>
+   <div class="modal fade" id="modalEditarStatus" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="alterarstatuspedido.jsp" method="post">
+                        <h2>Mude o status do pedido aqui:</h2>
+                        <div class="forSelect">
+                        <select>
+                            <option value="NA" selected disabled hidden>Selecione aqui</option>
+                            <option value="pagamentoaprovado">Pagamento Aprovado</option>
+                            <option value="empreparo">Em preapro</option>
+                            <option value="acaminho">A caminho</option>
+                            <option value="entregue">Entregue</option>
+                            <option value="cancelado">Cancelado</option>
+                        </select>  
+                        </div>
+                        <br>
+                            <button class="enviarStatus" type="submit">Enviar</button>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
@@ -246,7 +270,7 @@
                 <thead class="tabelinha">
                     <tr>
                         <th scope="col">Pedido</th>
-                        <th scope="col">Padaria</th>
+                        <th scope="col">Cliente</th>
                         <th scope="col">Preço Total</th>
                         <th scope="col">Data</th>
                         <th scope="col">Status</th>
@@ -254,12 +278,12 @@
                 </thead>
                 <tbody>
                     <% for (Pedido p : pedidos) {%>
-                    <tr data-toggle="modal" data-target="#modalPedido">
-                        <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
-                        <td><%out.write(p.getNomeFantasia());%></td>
-                        <td><%out.write(String.valueOf(p.getTotalCompra()));%></td>
-                        <td><%out.write(String.valueOf(p.getDataPedido()));%></td>
-                        <td><%out.write(String.valueOf(p.getStatus()));%></td>
+                    <tr>
+                        <th scope="row" data-toggle="modal" data-target="#modalPedido" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()));%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getDataPedido()));%></td>
+                        <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
                     </tr>
                     <% }%>
                 </tbody>
