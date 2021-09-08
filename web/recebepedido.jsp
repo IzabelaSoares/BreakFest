@@ -132,18 +132,19 @@
             //passa o parametro para cadastrar o pedido
             novo.setDataPedido(novaData);
             
-            //passa o parametro para cadastrar o dia da semana
-            novo.setDia(diaSemana);
-            novo.setFkPedido(novo.consultarIdPedido());
-            
-            //cadastra o pedido e o dia da semana
-            novo.cadastrarDiaSemana();
             if(novo.cadastrarPedido()){       
                 //Instanciar pedido
                 Pedido produtos = new Pedido();
 
                 //Dados para Coluna de produtospedidos
                 Integer fkPedido = produtos.consultarIdPedido();
+                
+                //passa o parametro para cadastrar o dia da semana
+                novo.setDia(diaSemana);
+                novo.setFkPedido(fkPedido);
+
+                //cadastra o pedido e o dia da semana
+                novo.cadastrarDiaSemana();
 
                 //Total de Cada Item
                 Double precoTotal = 0.00;
