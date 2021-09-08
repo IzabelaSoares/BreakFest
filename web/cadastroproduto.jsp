@@ -66,7 +66,7 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="first">Produto</label>
-                        <input style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
+                        <input maxlength="30" style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
                     </div>
                 </div>
                 
@@ -85,7 +85,7 @@
                 <div class="input-group mb-3">
                     <div class="form-group">
                         <label for="phone">Tamanho/Medida</label>
-                        <input style="height:40px; width:215px; box-shadow:none;  border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                        <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
                     </div>
                 </div>
                 
@@ -106,7 +106,7 @@
                     <div class="input-group-prepend">
                         <span style="border-style:none;" class="input-group-text">R$</span>
                     </div>
-                    <input style="height:40px; width:177px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
+                    <input maxlength="500" style="height:40px; width:177px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
                 </div>
                 
                 <!-- Descrição do Produto  -->
