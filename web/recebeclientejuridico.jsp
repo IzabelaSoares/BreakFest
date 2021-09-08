@@ -3,6 +3,7 @@
     Created on : 06/08/2021, 14:11:58
     Author     : Maria
 --%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="dominio.UsuarioJuridico"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -20,6 +21,10 @@
     String email = request.getParameter("email");
     String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
     
+    //transforma os bairros em um array
+    String bairro = request.getParameter("bairros");
+    List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(",")));
+        
     if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
         //email já está sendo utilizado
         request.getSession().setAttribute("resultado", "EmailJaRegistrado");
@@ -32,7 +37,7 @@
         //recebe os valores da tela HTML
         pj.setRazaoSocial(request.getParameter("razaosocial"));
         pj.setNomeFantasia(request.getParameter("nomefantasia"));
-        pj.setCnpj(request.getParameter("cnpj"));
+        pj.setCnpj(cnpj);
         pj.setEmail(request.getParameter("email"));
         pj.setTelefone(request.getParameter("telefone"));
         pj.setCep(request.getParameter("cep"));
@@ -47,13 +52,21 @@
 
         //Passar valores da tela e cadastrar o usuário
         login.setEmail(request.getParameter("email"));
-        login.setFkCnpj(request.getParameter("cnpj"));
+        login.setFkCnpj(cnpj);
         login.setSenha(request.getParameter("senha"));
 
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
+            
+            for(int i=0; i < bairros.size(); i++){
+                pj.setCnpj(cnpj);
+                pj.setBairroAtendimento(bairros.get(i));
+                pj.setFrete(Float.parseFloat("10"));
+                
+                pj.cadastrarBairroFrete();
+            }
+            
             request.getSession().setAttribute("resultado", "UsuarioCadastrado");
-            response.sendRedirect("login.jsp");     
         } else {
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");

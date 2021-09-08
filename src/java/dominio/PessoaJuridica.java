@@ -28,6 +28,8 @@ public class PessoaJuridica {
     private String instagram;
     private String facebook;
     private String bairros;
+    private String bairroAtendimento;
+    private float frete;
     
     //metodos
     
@@ -330,6 +332,29 @@ public class PessoaJuridica {
         return true;
     }
     
+    //cadastra os bairros e seus respectivos fretes
+    public boolean cadastrarBairroFrete(){
+        //comando de execução de banco de dados
+        String sql = "INSERT INTO bairrofrete (fkcnpj, bairro, frete) " 
+                   + "VALUES(?, ?, ?)";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.cnpj);
+            stm.setString(2, this.bairroAtendimento);
+            stm.setFloat(3, this.frete);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        
+        return true;
+    }
+    
     //getters e setters
     public String getRazaoSocial() {
         return razaoSocial;
@@ -465,6 +490,22 @@ public class PessoaJuridica {
 
     public void setBairros(String bairros) {
         this.bairros = bairros;
+    }
+
+    public String getBairroAtendimento() {
+        return bairroAtendimento;
+    }
+
+    public void setBairroAtendimento(String bairroAtendimento) {
+        this.bairroAtendimento = bairroAtendimento;
+    }
+
+    public float getFrete() {
+        return frete;
+    }
+
+    public void setFrete(float frete) {
+        this.frete = frete;
     }
     
 }
