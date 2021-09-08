@@ -23,6 +23,7 @@
     String unidadeMedida = String.valueOf(request.getSession().getAttribute("unidadeMedida"));
     String descricao = String.valueOf(request.getSession().getAttribute("descricao"));
     Float preco = Float.parseFloat(String.valueOf(request.getSession().getAttribute("preco")));
+    int codProduto = Integer.parseInt(String.valueOf(request.getSession().getAttribute("codproduto")));
     String imagem = String.valueOf(request.getSession().getAttribute("imagem"));
 
     //passar os valores para a classe
@@ -33,6 +34,7 @@
     prdt.setPreco(preco);
     prdt.setTamanho(tamanho);
     prdt.setUnidadeDeMedida(unidadeMedida);
+    prdt.setCodProduto(codProduto);
     prdt.setImagem(imagem);
     
     //se cadastrar produto

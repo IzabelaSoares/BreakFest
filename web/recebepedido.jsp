@@ -19,7 +19,7 @@
     String fkcpf = request.getParameter("fkcpf");
     
     //Recorrencia, Status e DiaSemana
-    Boolean recorrencia = true;
+    Boolean recorrencia = false;
     String status = "PAGAMENTO APROVADO";
     String dias = "Segunda,Sabado,Quarta,Sexta,Quinta,Terca";
     
@@ -166,15 +166,13 @@
                     produtos.cadastrarProdutosPedido();
                 }
 
-                out.write("DEUS É MARAVILHOSO!!!!");
-
             }
-            else{
-                out.write("A VITÓRIA VAI CHEGAR!!");
-            }
+            
+            response.sendRedirect("pedidos.jsp");
         }
     }else{
-        if(dias == ""){
+        dias = null;
+        if(dias == null){
             switch(novo.verificaDiaSemana()){
                 case 1: novo.setDia("Segunda");
                         break;
@@ -191,7 +189,39 @@
             }
             
             if(novo.cadastrarPedido()){
-                response.sendRedirect("perfil.jsp");
+                //Instanciar pedido
+                Pedido produtos = new Pedido();
+
+                //Dados para Coluna de produtospedidos
+                Integer fkPedido = produtos.consultarIdPedido();
+                
+                //passa o parametro para cadastrar o dia da semana
+                novo.setFkPedido(fkPedido);
+
+                //cadastra o pedido e o dia da semana
+                novo.cadastrarDiaSemana();
+                
+                //Total de Cada Item
+                Double precoTotal = 0.00;
+
+                //Inserir os Produtos na Tabela de Produto
+                for(int i = 0; i < produtoArray.length; i++){
+                    //Dados para tabela produtos pedido
+                    produtos.setIdPedido(fkPedido);
+                    produtos.setProduto(produtoArray[i]);
+                    produtos.setPrecoUn(Double.valueOf(precoArray[i]));
+                    produtos.setQuantidade(Integer.valueOf(quantidadeArray[i]));
+                    //calcular o preço total de cada item
+                    int quant = Integer.valueOf(quantidadeArray[i]);
+                    double precoUn = Double.valueOf(precoArray[i]);
+                    precoTotal = (quant * precoUn);
+                    produtos.setPrecoTotal(precoTotal);
+
+                    //inserir no database
+                    produtos.cadastrarProdutosPedido();
+                }
+                
+                response.sendRedirect("pedidos.jsp");
             }   
         }
     }  

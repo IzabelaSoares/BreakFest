@@ -186,10 +186,10 @@ public class PessoaJuridica {
         return padaria;       
     }
     
-    //consulta todos
+    //consulta todos exceto o BreakFest
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
-        String sql = "SELECT * FROM public.pessoajuridica";
+        String sql = "SELECT* FROM pessoajuridica WHERE cnpj != 'XX.XXX.XXX/0001-XX'";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
