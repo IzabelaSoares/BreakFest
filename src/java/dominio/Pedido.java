@@ -399,6 +399,26 @@ public class Pedido {
         }
         return true;
     }
+    
+    public boolean alterarStatus() {
+        //comando de execução de banco de dados 
+        String sql = "UPDATE pedido SET status=? "
+                + "WHERE id=?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.status);
+            stm.setInt(2, this.idPedido);
+            //executando comando
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
 
     //getters and setters
     public Integer getIdPedido() {
