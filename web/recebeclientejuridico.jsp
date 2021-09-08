@@ -60,16 +60,6 @@
 
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
-            
-            //cria um loop para adicionar os bairros de atendimento da padaria e o valor do frete
-            for(int i=0; i < bairros.size(); i++){
-                pj.setCnpj(cnpj);
-                pj.setBairroAtendimento(bairros.get(i));
-                pj.setFrete(Float.parseFloat("0"));
-                
-                pj.cadastrarBairroFrete();
-            }
-            
             request.getSession().setAttribute("resultado", "UsuarioCadastrado");
         } else {
             //erro no cadastro
