@@ -21,6 +21,7 @@ public class Produto {
     private String tamanho;
     private String unidadeDeMedida;
     private String imagem;
+    private int codProduto;
 
 
     //métodos
@@ -28,7 +29,7 @@ public class Produto {
         //comando de execução de banco de dados
         String sql = "INSERT INTO produto " 
                    +"(titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
-                   + "unidadedemedida) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                   + "unidadedemedida, codproduto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
@@ -42,6 +43,7 @@ public class Produto {
             stm.setFloat(6, this.preco);
             stm.setString(7, this.tamanho);
             stm.setString(8, this.unidadeDeMedida);
+            stm.setInt(9, this.codProduto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -56,7 +58,7 @@ public class Produto {
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
                 + "SET titulo=?, categoria=?, fkcnpj=?, imagem=?, descricao=?, preco=?, "
-                + "tamanho=?, unidadedemedida=? WHERE id=?";
+                + "tamanho=?, unidadedemedida=?, codproduto=? WHERE id=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -70,7 +72,8 @@ public class Produto {
             stm.setFloat(6, this.preco);
             stm.setString(7, this.tamanho);
             stm.setString(8, this.unidadeDeMedida);
-            stm.setInt(9, this.idProduto);
+            stm.setInt(9, this.codProduto);
+            stm.setInt(10, this.idProduto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -103,7 +106,7 @@ public class Produto {
     public Produto consultarProduto(String pTitulo){
         this.titulo = pTitulo;
         String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
-                    + "unidadedemedida FROM produto where titulo = ?";
+                    + "unidadedemedida, codproduto FROM produto where titulo = ?";
         Connection con = Conexao.conectar();
         Produto produto = null;
         try{
@@ -120,6 +123,7 @@ public class Produto {
                    produto.setPreco(rs.getFloat("preco"));
                    produto.setTamanho(rs.getString("tamanho"));
                    produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.setCodProduto(rs.getInt("codproduto"));
                 } 
         } catch (SQLException ex) {
                 System.out.println("Erro:" + ex.getMessage());
@@ -147,6 +151,7 @@ public class Produto {
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setTamanho(rs.getString("tamanho"));
                 produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
+                produto.setCodProduto(rs.getInt("codproduto"));
                 lista.add(produto);
            }
         } catch (SQLException ex) {
@@ -174,6 +179,7 @@ public class Produto {
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setTamanho(rs.getString("tamanho"));
                 produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
+                produto.setCodProduto(rs.getInt("codproduto"));
                 lista.add(produto);
            }
         } catch (SQLException ex) {
@@ -184,7 +190,7 @@ public class Produto {
     
     public boolean consultarId(int id, String cnpj){
         String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
-                    + "unidadedemedida FROM produto where id = ?";
+                    + "unidadedemedida, codproduto FROM produto where id = ?";
         Connection con = Conexao.conectar();
         Produto produto = null;
         try{
@@ -201,6 +207,7 @@ public class Produto {
                    produto.setPreco(rs.getFloat("preco"));
                    produto.setTamanho(rs.getString("tamanho"));
                    produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.setCodProduto(rs.getInt("codproduto"));
                    produto.cadastrarProduto();
                 } 
         } catch (SQLException ex) {
@@ -283,5 +290,13 @@ public class Produto {
         this.imagem = imagem;
     }
 
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
+    }
+    
 
 }
