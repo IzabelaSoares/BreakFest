@@ -63,7 +63,7 @@ public class PessoaFisica {
     }
     
     //alteração de conta
-    public boolean alterarDados(String oldCpf){
+    public boolean alterarDados(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pessoafisica " 
                 + "SET nome=?, sobrenome=?, datanascimento=?, email=?, "
@@ -86,7 +86,7 @@ public class PessoaFisica {
             stm.setString(10, this.rua);
             stm.setInt(11, this.numero);
             stm.setString(12, this.complemento);
-            stm.setString(13, oldCpf);
+            stm.setString(13, this.cpf);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
