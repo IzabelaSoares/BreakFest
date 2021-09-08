@@ -25,8 +25,7 @@
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
         
-        <!-- Script do Bairro -->
-        <script  src="scripts/bairros.js"></script>   
+          
         
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
@@ -191,6 +190,8 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>       
+        <!-- Script do Bairro -->
+        <script  src="scripts/bairros.js"></script> 
     </body>
 </html>
