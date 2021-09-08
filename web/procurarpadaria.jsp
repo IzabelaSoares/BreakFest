@@ -4,17 +4,29 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Título -->
         <meta charset="UTF-8">
         <title>Padarias</title>
+        
+        <!-- Imagem -->
         <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
         <meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="400" />
+        
+        <!-- Link da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
+        
+        <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        
+        <!-- Bootstrap -->
         <meta property="og:image:height" content="300" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        
+        <!-- Link do Cloud Flare -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="styles/procurarpadaria.css">
 
+        <!-- Instanciamento de classes e método em Java  -->
         <%
             PessoaJuridica pj = new PessoaJuridica();
             List<PessoaJuridica> listageral = pj.consultarGeral();
@@ -27,6 +39,7 @@
             <a href="dadoscartaocredito.jsp"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
             <h2> Break Fest </h2>
             <nav>
+                <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->
                 <ul id="navbar-list">
                     <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
                     <li><a href="tipopessoa.jsp">Cadastro</a></li>
@@ -35,6 +48,7 @@
             </nav>
         </header>
         <!-- Fim da NavBar de cima -->
+        
         <!-- inicio camadas de divs -->
         <div class="for-title">
             <div class="container text-center">
@@ -51,6 +65,7 @@
                     <table>
                         <tbody>
                             <tr>
+                                
                                 <!-- inicio padaria -->
                                 <% for (PessoaJuridica tudo : listageral) { %>
                                 <td>
@@ -98,6 +113,7 @@
                                 </td>
                                 <%}%>  
                                 <!-- fim padaria -->
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -106,6 +122,8 @@
             </div>
         </div>
         <!-- fim camadas de divs -->
+       
+        <!-- Script da funçao de redirecionar -->
         <script>
             function redirecionar(id) {
                 alert('Acionou!');
