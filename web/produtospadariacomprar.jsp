@@ -11,15 +11,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Título -->
         <meta charset="UTF-8">
         <title>Padarias</title>
+       
         <!-- Navbar Usuário -->
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        
         <!-- Script da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
+        
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
@@ -27,10 +32,15 @@
         <link rel="stylesheet" href="styles/cartaoestilo.css">
         <script src="scripts/cartao-de-credito.js"></script>
         
+        <!-- Link do Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+        <!-- Script do Jquery, Cloud Flare e Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <!-- Link da página "uprodutos-padaria-comprar" em css -->
         <link rel="stylesheet" href="styles/produtos-padaria-comprar.css">
     </head>
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
@@ -96,6 +106,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="centrocartao">
+                           
                             <!-- partial:index.partial.html -->
                             <div class="payment-title">
                                 <p>Informe os Dados do Cartão</p>
@@ -199,6 +210,7 @@
                                 </div>
                             </div>
                             <div class="form-container">
+                                <!-- Form do recebe cartão -->
                                 <form action="recebecartao.jsp" method="post">
                                     <div class="field-container">
                                         <label for="name">Nome Impresso no Cartão</label>
@@ -240,16 +252,20 @@
             </div>
         </nav>
         <!-- Fim Nav -->
+        
         <!-- Container de Produto -->
         <div class="container">
             <div class="row">
+                
                 <!-- Inicio Tabela -->
                 <table>
                     <tbody>
                         <tr>
+                            
                             <!-- Inicio Lista de Produtos -->
                             <% for (Produto n : produto) { %>
                             <td>
+                                
                                 <!-- Inicio Produto Individual-->
                                 <div class="col">
                                     <div class="card" style="width: 20rem;">
@@ -278,6 +294,7 @@
             </div>
         </div>
         <!-- Fim Container de Produto -->
+        
         <!-- Inicio Modal de Compra -->
         <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -313,6 +330,7 @@
                         <input type="hidden" id="quantidade" name="quantidade" value="">
                         <input type="hidden" id="preco-total" name="preco-total" value="">
                         <input type="hidden" id="total-compra" name="total-compra" value="">                      
+                        
                         <!-- Fim Inputs hidden para passar os dados para o jsp -->
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Comprar agora</button>
@@ -323,9 +341,11 @@
             </div>
         </div>
         <!-- Fim Modal de Compra -->
+       
         <!-- JS Comprar produtos -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
         <script  src="scripts/produtos-padaria-comprar.js"></script>
+        
         <!-- JS Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
