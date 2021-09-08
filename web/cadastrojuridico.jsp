@@ -70,7 +70,7 @@
                         
                         <!-- Input da razão social -->
                         <div class="form-row form-row-1">
-                            <input type="text" name="razaosocial" id="razaosocial" class="input-text" placeholder="Razão Social" required>
+                            <input type="text" maxlength="80" name="razaosocial" id="razaosocial" class="input-text" placeholder="Razão Social" required>
                         </div>
                         
                         <!-- Input do e-mail -->
@@ -80,7 +80,7 @@
                         
                         <!-- Input do nome da padaria -->
                         <div class="form-row">
-                            <input type="text" name="nomefantasia" id="nomefantasia" placeholder="Nome da padaria"required>
+                            <input type="text" maxlength="80" name="nomefantasia" id="nomefantasia" placeholder="Nome da padaria"required>
                         </div>
                         
                         <!-- Dois inputs seguidos "CNPJ e Telefone" -->
@@ -99,7 +99,7 @@
 
                         <!-- Input do "sobre" da padaria -->
                         <div class="form-row">
-                            <textarea type="text" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
+                            <textarea type="text" maxlength="120" name="sobre" id="sobre" placeholder="   Sobre a padaria..." maxlength="500"></textarea>
                         </div>
                         
                         <!-- Input da senha -->
@@ -122,7 +122,7 @@
 
                         <!-- input do CEP -->
                         <div class="form-row form-row-3">
-                            <input type="text" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" required maxlength="15">
+                            <input type="text" maxlength="10" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" required maxlength="15">
                         </div>
                         
                         <!-- Form group para o estado e da cidade ficarem um ao lado do outro -->
@@ -152,7 +152,7 @@
                            
                             <!-- Input do número da casa -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="numero" id="numero" placeholder="Nr." required>
+                                <input type="text" maxlength="5" name="numero" id="numero" placeholder="Nr." required>
                             </div>
                             
                             <!-- Input da rua -->
@@ -163,7 +163,7 @@
                         
                         <!-- Input do complemento -->
                         <div class="form-row">
-                            <input type="text" name="complemento" id="complemento" placeholder="Complemento (opcional)">
+                            <input type="text" maxlength="80" name="complemento" id="complemento" placeholder="Complemento (opcional)">
                         </div>
                         
                         <!-- Input dos bairros que ela deseja atender -->

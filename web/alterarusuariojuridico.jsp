@@ -304,7 +304,7 @@
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
-                <form class="form-detail" action="recebeclientejuridico.jsp" method="post" id="myform">
+                <form class="form-detail" action="recebealterarusuariojuridico.jsp" method="post" id="myform">
                     
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
@@ -312,7 +312,7 @@
                        
                         <!-- Input da razão social -->
                         <div class="form-row form-row-1">
-                            <input type="text" name="razaosocial" id="razaosocial" value="<% out.write(String.valueOf(consulta.getRazaoSocial())); %>"
+                            <input type="text" maxlength="80" name="razaosocial" id="razaosocial" value="<% out.write(String.valueOf(consulta.getRazaoSocial())); %>"
                                    class="input-text" placeholder="Razão Social" required>
                         </div>
                         
@@ -324,7 +324,7 @@
                         
                         <!-- Input do nome da padaria -->
                         <div class="form-row">
-                            <input type="text"  value="<% out.write(String.valueOf(consulta.getNomeFantasia())); %>"
+                            <input type="text" maxlength="80" value="<% out.write(String.valueOf(consulta.getNomeFantasia())); %>"
                                    name="nomefantasia" id="nomefantasia" placeholder="Nome da padaria"required>
                         </div>
                         
@@ -334,7 +334,7 @@
                             <!-- Input do CNPJ -->
                             <div class="form-row form-row-3">
                                 <input type="text" name="cnpj" value="<% out.write(String.valueOf(consulta.getCnpj())); %>"
-                                       id="cnpj" placeholder="CNPJ" required maxlength="18" >
+                                       id="cnpj" placeholder="CNPJ" required maxlength="18" readonly >
                             </div>
                             
                             <!-- Input do telefone -->
@@ -347,7 +347,7 @@
                         <!-- Input do "sobre" da padaria -->
                         <div class="form-row">
                             <textarea style="height:135px; width:443px; box-shadow:0 0 0 0; outline: 0;" 
-                                      type="text" name="sobre" id="sobre">
+                                      type="text" maxlength="120" name="sobre" id="sobre">
                                 <% out.write(String.valueOf(consulta.getSobrepadaria())); %>
                             </textarea>
                         </div>
@@ -369,7 +369,7 @@
 
                         <!-- input do CEP -->
                         <div class="form-row form-row-3">
-                            <input type="text" name="cep" id="cep" value="<% out.write(String.valueOf(consulta.getCep())); %>"
+                            <input type="text" maxlength="10" name="cep" id="cep" value="<% out.write(String.valueOf(consulta.getCep())); %>"
                                    placeholder="CEP" onblur="pesquisacep(this.value);" required maxlength="15">
                         </div>
                         
@@ -403,7 +403,7 @@
                
                             <!-- Input do número da casa -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="numero" value="<% out.write(String.valueOf(consulta.getNumero())); %>"
+                                <input type="text" maxlength="5" name="numero" value="<% out.write(String.valueOf(consulta.getNumero())); %>"
                                        id="numero" placeholder="Nr." required>
                             </div>
                            
@@ -416,7 +416,7 @@
                         
                         <!-- Input do complemento -->
                         <div class="form-row">
-                            <input type="text" name="complemento" id="complemento" value="<% out.write(String.valueOf(consulta.getComplemento())); %>"
+                            <input type="text" maxlength="80" name="complemento" id="complemento" value="<% out.write(String.valueOf(consulta.getComplemento())); %>"
                                    placeholder="Complemento (opcional)">
                         </div>
                         
