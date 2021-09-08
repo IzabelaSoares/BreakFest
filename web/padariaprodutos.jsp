@@ -10,13 +10,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <!-- Link do Cloud Flare -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+        
+        <!--Script do Jquery -->
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
+        
+        <!-- Link da página "galeria-de-produtos" em css -->
         <link rel="stylesheet" href="styles/galeria-de-produtos.css">
+        
+        <!-- Link da página "util" em css -->
         <link rel="stylesheet" href="styles/util.css">
+        
+        <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        
+        <!-- Script da galeria-de-produtos -->
         <script src="scripts/galeria-de-produtos.js"></script>
+        
+        <!-- Instanciamento de classes e método em Java  -->
         <%
             //Instanciar a Pessoa Fisica
             PessoaJuridica pj = new PessoaJuridica();
@@ -28,14 +40,18 @@
             Produto novo = new Produto();
             List<Produto> consulta = novo.consultarProdutosPadaria(cnpj);
         %>
-
+ 
+        <!-- Título -->
+        <meta charset="utf-8">
         <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
     </head>
+    
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
         <a href="dadoscartaocredito.jsp"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
+            <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->
             <ul id="navbar-list">
                 <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
                 <li><a href="tipopessoa.jsp">Cadastro</a></li>
@@ -44,6 +60,8 @@
         </nav>
     </header>
     <body>
+        
+        <!-- Form para selecionar os produtos -->
         <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
             <div class="container">
                 <h1>Selecione produtos: </h1>
@@ -52,6 +70,8 @@
                 <div class="borda">
                     <table class="table table-image">
                         <thead>
+                            
+                            <!-- Tabela Dos produtos (Imagem,produto,categoria,descrição,tamanho,unidade de medida e preço. -->
                             <tr>
                                 <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
                                 <th class="titulo" >Imagem</th>
@@ -65,6 +85,7 @@
                         </thead>
                         <tbody id="table">
                             <tr>
+                                <!-- Produtos -->
                                 <% for (Produto n : consulta) {%>
                                 <td class="check"><input type="checkbox" name="box"></td>
                                 <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
