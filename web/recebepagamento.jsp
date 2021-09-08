@@ -45,11 +45,11 @@
                 //se não, redireciona para o index
             } else {
                 request.getSession().setAttribute("resultado", "SucessoLogin");
-                response.sendRedirect("umapadaria.jsp");
+                response.sendRedirect("alterarusuariojuridico.jsp");
             }
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-            response.sendRedirect("preferenciapagamento.jsp");
+            response.sendRedirect("alterarusuariojuridico.jsp");
         }
     } else {
         //instancia o depósito = dep  
@@ -68,15 +68,15 @@
             request.getSession().setAttribute("resultado", "PreferenciaSalva");
             //verificar se já possui midias cadastradas
             if (pj.verificaSociais(fkemail)) {
-                response.sendRedirect("midias.jsp");
+                response.sendRedirect("alterarusuariojuridico.jsp");
                 //se não, redireciona para o index
             } else {
                 request.getSession().setAttribute("resultado", "SucessoLogin");
-                response.sendRedirect("umapadaria.jsp");
+                response.sendRedirect("alterarusuariojuridico.jsp");
             }
         } else {
             request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-            response.sendRedirect("preferenciapagamento.jsp");
+            response.sendRedirect("alterarusuariojuridico.jsp");
         }
     }
 %>

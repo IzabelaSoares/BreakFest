@@ -31,7 +31,7 @@
     //se login for válido  UsuarioFisico
     if (uf.podeLogar(email, request.getParameter("senha"))) {
         request.getSession().setAttribute("resultado", "SucessoLogin");
-        response.sendRedirect("alterarusuariofisico.jsp");
+        response.sendRedirect("procurarpadaria.jsp");
     //se for pessa juridica, verifica se possui algum metodo para receber o dinheiro
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 
 

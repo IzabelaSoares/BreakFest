@@ -4,6 +4,10 @@
     Author     : Izabela
 --%>
 
+<%@page import="java.time.LocalTime"%>
+<%@page import="java.sql.Time"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
@@ -14,9 +18,13 @@
     String fkcnpj = request.getParameter("fkcnpj");
     String fkcpf = request.getParameter("fkcpf");
     
-    //Recorrencia e Status
-    Boolean recorrencia = false;
+    //Recorrencia, Status e DiaSemana
+    Boolean recorrencia = true;
     String status = "PAGAMENTO APROVADO";
+    String dias = "Segunda,Sabado,Quarta,Sexta,Quinta,Terca";
+    
+    LocalTime horaAtual = LocalTime.now();
+    Time hora = Time.valueOf(horaAtual);
     
     //Data do Pedido
     Date dataAtual = new Date(System.currentTimeMillis()); 
@@ -57,6 +65,9 @@
     String r = x.substring(1);    
     String[] quantidadeArray = r.split(",");
 
+    //variáveis de auxílio para recorrência
+    int diasemana = 0;
+    String diaSemana = null;
     
     //Total da Compra
     Double totalCompra = 0.00;
@@ -85,40 +96,102 @@
     novo.setObservacao("testando");
     novo.setTotalCompra(totalCompra);
     
+    //setar os dados para a tabela de diasemana
+    novo.setHora(hora);
     
-    if(novo.cadastrarPedido()){       
-        //Instanciar pedido
-        Pedido produtos = new Pedido();
-        
-        //Dados para Coluna de produtospedidos
-        Integer fkPedido = produtos.consultarIdPedido();
-        
-        //Total de Cada Item
-        Double precoTotal = 0.00;
-        
-        //Inserir os Produtos na Tabela de Produto
-        for(int i = 0; i < produtoArray.length; i++){
-            //Dados para tabela produtos pedido
-            produtos.setIdPedido(fkPedido);
-            produtos.setProduto(produtoArray[i]);
-            produtos.setPrecoUn(Double.valueOf(precoArray[i]));
-            produtos.setQuantidade(Integer.valueOf(quantidadeArray[i]));
-            //calcular o preço total de cada item
-            int quant = Integer.valueOf(quantidadeArray[i]);
-            double precoUn = Double.valueOf(precoArray[i]);
-            precoTotal = (quant * precoUn);
-            produtos.setPrecoTotal(precoTotal);
+    //verifica se há recorrencia
+    if (recorrencia){
+    //COMEÇA A EXECUTAR A REPETIÇÃO
+        //separa os dias da semana em um array
+        String semana = dias;
+        List<String> dia = new ArrayList<>(Arrays.asList(semana.split(",")));
+        for (int d = 0; d < dia.size(); d++){
+            //verifica o dia da semana para gerar a nova data
+            if(dia.get(d).contains("Segunda")){
+                diasemana = 1;
+                diaSemana = "Segunda";
+            }else if (dia.get(d).contains("Terca")){
+                diasemana = 2;
+                diaSemana = "Terça";
+            }else if (dia.get(d).contains("Quarta")){
+                diasemana = 3;
+                diaSemana = "Quarta";
+            }else if (dia.get(d).contains("Quinta")){
+                diasemana = 4;
+                diaSemana = "Quinta";
+            }else if (dia.get(d).contains("Sexta")){
+                diasemana = 5;
+                diaSemana = "Sexta";
+            }else if (dia.get(d).contains("Sabado")){
+                diasemana = 6;
+                diaSemana = "Sábado";
+            }
+
+            Date novaData = novo.novaData(Date.valueOf(dataPedido), diasemana, hora);
             
-            //inserir no database
-            produtos.cadastrarProdutosPedido();
+            //passa o parametro para cadastrar o pedido
+            novo.setDataPedido(novaData);
+            
+            //passa o parametro para cadastrar o dia da semana
+            novo.setDia(diaSemana);
+            novo.setFkPedido(novo.consultarIdPedido());
+            
+            //cadastra o pedido e o dia da semana
+            novo.cadastrarDiaSemana();
+            if(novo.cadastrarPedido()){       
+                //Instanciar pedido
+                Pedido produtos = new Pedido();
+
+                //Dados para Coluna de produtospedidos
+                Integer fkPedido = produtos.consultarIdPedido();
+
+                //Total de Cada Item
+                Double precoTotal = 0.00;
+
+                //Inserir os Produtos na Tabela de Produto
+                for(int i = 0; i < produtoArray.length; i++){
+                    //Dados para tabela produtos pedido
+                    produtos.setIdPedido(fkPedido);
+                    produtos.setProduto(produtoArray[i]);
+                    produtos.setPrecoUn(Double.valueOf(precoArray[i]));
+                    produtos.setQuantidade(Integer.valueOf(quantidadeArray[i]));
+                    //calcular o preço total de cada item
+                    int quant = Integer.valueOf(quantidadeArray[i]);
+                    double precoUn = Double.valueOf(precoArray[i]);
+                    precoTotal = (quant * precoUn);
+                    produtos.setPrecoTotal(precoTotal);
+
+                    //inserir no database
+                    produtos.cadastrarProdutosPedido();
+                }
+
+                out.write("DEUS É MARAVILHOSO!!!!");
+
+            }
+            else{
+                out.write("A VITÓRIA VAI CHEGAR!!");
+            }
         }
-        
-        out.write("DEUS É MARAVILHOSO!!!!");
-        
-    }
-    else{
-        out.write("A VITÓRIA VAI CHEGAR!!");
-    }
-    
-    
+    }else{
+        if(dias == ""){
+            switch(novo.verificaDiaSemana()){
+                case 1: novo.setDia("Segunda");
+                        break;
+                case 2: novo.setDia("Terça");
+                        break;
+                case 3: novo.setDia("Quarta");
+                        break;
+                case 4: novo.setDia("Quinta");
+                        break;
+                case 5: novo.setDia("Sexta");
+                        break;
+                case 6: novo.setDia("Sábado");
+                        break;
+            }
+            
+            if(novo.cadastrarPedido()){
+                response.sendRedirect("perfil.jsp");
+            }   
+        }
+    }  
 %>

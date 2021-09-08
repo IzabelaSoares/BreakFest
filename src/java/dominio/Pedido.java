@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,11 @@ public class Pedido {
     private String nomeFantasia;
     private String telefone;
 
+    //variáveis diasemana
+    private int id;
+    private int fkPedido;
+    private String dia;
+    private Time hora;
 
     //metodos
     public boolean cadastrarPedido() {
@@ -332,6 +338,67 @@ public class Pedido {
         }
         return true;
     }
+    
+    //gera nova data baseado no dia da semana
+    public Date novaData(Date dataPedido, int dia, Time hora){
+        Date novaData = null;
+        String sql= "select novaData(?, ?, ?)";
+        Connection con = Conexao.conectar();       
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setDate(1, dataPedido);
+            stm.setInt(2, dia);
+            stm.setTime(3, hora);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                novaData = rs.getDate("novadata");
+            }
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        
+        return novaData;
+    }
+    
+    //faz uma pesquisa no banco do dia da semana atual
+    public int verificaDiaSemana(){
+        int semana = 0;
+        String sql = "select extract(dow from CURRENT_DATE)";
+        Connection con = Conexao.conectar();       
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                semana = rs.getInt("date_part");
+            }
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        
+        return semana;
+    }
+    
+    //cadastra o dia da semana e a hora de acordo com a recorrência
+    public boolean cadastrarDiaSemana() {
+        //comando de execução de banco de dados
+        String sql = "INSERT INTO diasemana (fkpedido, dia, hora)"
+                + "VALUES(?, ?, ?)";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, this.fkPedido);
+            stm.setString(2, this.dia);
+            stm.setTime(3, this.hora);
+            //executando comando
+            stm.execute();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            return false;
+        }
+        return true;
+    }
 
     //getters and setters
     public Integer getIdPedido() {
@@ -525,4 +592,38 @@ public class Pedido {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }   
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getFkPedido() {
+        return fkPedido;
+    }
+
+    public void setFkPedido(int fkPedido) {
+        this.fkPedido = fkPedido;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
+    
+    
 }

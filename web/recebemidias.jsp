@@ -16,9 +16,9 @@
     
     if(pj.cadastrarMidias()){
         request.getSession().setAttribute("resultado", "MidiasCadastradas");
-        response.sendRedirect("produtospadrao.jsp");
+        response.sendRedirect("alterarusuariojuridico.jsp");
     }else{
         request.getSession().setAttribute("resultado", "MidiasNaoCadastradas");
-        response.sendRedirect("midias.jsp");
+        response.sendRedirect("alterarusuariojuridico.jsp");
     }
 %>
