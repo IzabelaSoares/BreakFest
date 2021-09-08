@@ -5,6 +5,8 @@
 --%>
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="dominio.UsuarioJuridico"%>
+
+<!-- Instanciamento de classes e método em Java  -->
 <% //instancia o usuariofisico = uf
     UsuarioFisico uf = new UsuarioFisico();
     

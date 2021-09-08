@@ -8,15 +8,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css'><link rel="stylesheet" href="styles/midias.css">
-        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        <!-- Título -->
         <title>Midias Sociais</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!-- Link do CloudFlare -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css'><link rel="stylesheet" href="styles/midias.css">
+        
+        <!-- Imagem do Cuppa -->
+        <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
+        
     </head>
     <body>
         <section class="container max-w-xl mx-auto flex flex-col py-8">
             <h1 class="text-xl font-black">Informações Adicionais</h1>
             <div class="py-8">
+                
                 <!-- Form com as informações -->
                 <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" >
                     <label for="instagram">Link para o Instagram</label>
@@ -34,10 +41,12 @@
 
                             <!-- Preview da Imagem -->
                             <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                
                                 <!-- Placeholder da Imagem -->
                                 <div x-show="!previewPhoto" >
                                     <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                                 </div>
+                                
                                 <!-- Preview da foto inserida -->
                                 <div x-show="previewPhoto" class="h-12 w-12 rounded-full overflow-hidden">
                                     <img :src="previewPhoto" 
@@ -46,6 +55,7 @@
                                 </div>
                             </div>
                             <div class="flex items-center">
+                                
                                 <!-- Input de foto -->
                                 <div class="ml-5 rounded-md shadow-sm">
                                     <input @change="updatePreview($refs)" x-ref="input"
@@ -60,6 +70,7 @@
                                 </div>
                                 <div class="flex items-center text-sm text-gray-500 mx-2">
                                     <span x-text="fileName || emptyText"></span>
+                                   
                                     <!-- Remove a foto selecionada -->
                                     <button x-show="fileName"
                                             @click="clearPreview($refs)"
@@ -74,9 +85,13 @@
                         </div>
                     </div>
                     <br>
+                    
+                    <!-- Botão de enviar -->
                     <button type="submit" id="centro">Enviar</button>
                 </form>
             </div>
+            
+            <!-- Script do Cloud Flare -->
             <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
 
     </body>

@@ -55,10 +55,10 @@
     <!-- Fim da NavBar de cima -->
     
     <!-- Início dos dois containers iniciais -->
+        
+        <!-- Início criar uma conta -->
         <main>
         <section id="about-section">
-           
-            <!-- Título -->
             <center>
             <h1>Criar uma conta:</h1>     
             </center>
@@ -89,6 +89,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Fim dos dois containers iniciais -->
 </body>
 </html>

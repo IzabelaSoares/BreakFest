@@ -8,6 +8,8 @@
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="dominio.EnviarEmail"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!-- Instanciamento de classes e método em Java  -->
 <%  //instancia o usuariofisico = uf
     UsuarioFisico uf = new UsuarioFisico();
     
