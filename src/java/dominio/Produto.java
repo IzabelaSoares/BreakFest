@@ -151,7 +151,6 @@ public class Produto {
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setTamanho(rs.getString("tamanho"));
                 produto.setUnidadeDeMedida(rs.getString("unidadedemedida"));
-                produto.setCodProduto(rs.getInt("codproduto"));
                 lista.add(produto);
            }
         } catch (SQLException ex) {
