@@ -54,6 +54,15 @@ create table usuariofisico(
 	foreign key(fkcpf) REFERENCES pessoafisica(cpf)
 );
 
+create table bairrofrete(
+	id serial not null,
+	fkcnpj varchar(20) not null,
+	bairro varchar(100) not null,
+	frete float not null,
+	primary key(id),
+	foreign key(fkcnpj) references pessoajuridica(cnpj)
+);
+
 create table categoria(
 	id serial not null,
 	titulocategoria varchar(30) not null,
@@ -66,7 +75,6 @@ create table unidadedemedida(
 	primary key (id)
 );
 
-
 create table produto(
 	id serial not null,
 	titulo varchar(30) not null,
@@ -77,6 +85,7 @@ create table produto(
 	preco float4 not null,
 	tamanho varchar(30) not null,
 	unidadedemedida varchar(40) not null,
+	codproduto integer,
 	primary key(id),
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
@@ -109,6 +118,15 @@ create table produtospedido(
 	quantidade integer not null,
 	precounitario float4 not null,
 	precototal float4 not null,
+	primary key(id),
+	foreign key(fkpedido) references pedido(id)
+);
+
+create table diasemana(
+	id serial not null,
+	fkpedido integer not null,
+	dia varchar(30),
+	hora time,
 	primary key(id),
 	foreign key(fkpedido) references pedido(id)
 );
