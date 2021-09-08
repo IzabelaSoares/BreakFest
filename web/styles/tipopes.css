@@ -1,16 +1,18 @@
-/* Para toda a página */
+/* Import da fonte */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Fonte que está sendo aplicada em toda página. */
 * {
     font-family: Mukta;
 }
 
+/*Cor de fundo do corpo da página. */
 body {
 background-color: #FFF5EB;    
 }
 
-/* Informação para melhor entendimento do usuário */
-
+/*Elemento alinhado,cor de fundo,cor,margem interna de cima e tamanho
+da marcação das seções do contéudo da página.*/
 #about-section {
     text-align: center;
     background-color: #995a1a;
@@ -19,6 +21,8 @@ background-color: #FFF5EB;
     height: 250px;
 }
 
+/*Largura máxima,margem direita,margem esquerda e controlador de espaçamento
+da marcação dos parágrafos.*/
 #about-section p {
     max-width: 650px;
     margin-right: auto;
@@ -27,13 +31,8 @@ background-color: #FFF5EB;
 
 }
 
-#barra {
-    width: 2px;
-    background-color: #E8E8E8;
-}
-
 /* Container do tipo de pessoa */
-
+/*Margem de cima*/
 #tipopess-section {
     margin-top: -100px;
     background-color: #FFF;

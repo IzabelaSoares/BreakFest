@@ -7,6 +7,62 @@ body {
     height: 100%;
 }
 
-.thead-dark {
+.tabelinha {
     background-color: #995a1a;
+    border: 1.5px solid #995a1a;
+    outline: 0;
+    color: #FFF;
+    box-shadow: 0 0 0 0;
+}
+
+table {
+    text-align: center;
+}
+
+
+button {
+    border-radius: 6px;
+    position: relative;
+    left: 18%;
+    width: 60px;
+    height: 25px;
+    border: 0;
+    background-color: #995a1a;
+    color: white;
+}
+
+button:hover, button:active, button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    background-color: #7a4814;
+}
+
+select:hover, select:active, select:focus, select:active, select:checked, select:enabled {
+    background-color: #FFF;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+h2 {
+    padding-left: 7%;
+}
+
+.forSelect {
+    padding-left: 32%;
+    padding-top: 10px;
+}
+
+select {
+    border-radius: 5px;
+}
+
+.enviarStatus {
+    position: relative;
+    left: 24.5%;
+    border-radius: 6px;
+    width: 50%;
+    height: 30px;
+    border: 0;
+    background-color: #995a1a;
+    color: white;
 }
