@@ -1,0 +1,83 @@
+--FUNCAO PARA SEGUNDA
+create or replace function novaData(datap date, diasemana int, hora time)
+   returns date
+   language plpgsql
+  as
+$$
+declare
+semanapedido int;
+difsemana int;
+novadata date;
+soma date;
+horaatual time;
+
+begin
+	semanapedido = extract(dow from datap);
+	horaatual = current_time;
+	
+	--se a data que foi feito o pedido for menor que o dia da semana escolhido
+	if semanapedido < diasemana then
+		--se for segunda
+		if diasemana = 1 then
+			select 1 - semanapedido into difsemana;
+		--se for terça
+		elsif diasemana = 2 then
+			select 2 - semanapedido into difsemana;
+		--se for quarta
+		elsif diasemana = 3 then
+			select 3 - semanapedido into difsemana;
+		--se for quinta
+		elsif diasemana = 4 then
+			select 4 - semanapedido into difsemana;
+		--se for sexta
+		elsif diasemana = 5 then
+			select 5 - semanapedido into difsemana;
+		elsif diasemana = 6 then
+			select 6 - semanapedido into difsemana;
+		end if;
+	
+		--soma a data atual com a diferença
+		select datap + difsemana into novadata;
+	
+	--se a data que foi feito o pedido for maior que o dia da semana escolhido
+	elsif semanapedido > diasemana then
+		
+		select datap + 7 into soma;
+	
+		--se for segunda
+		if diasemana = 1 then
+			select semanapedido - 1 into difsemana;
+		--se for terça
+		elsif diasemana = 2 then
+			select semanapedido - 2 into difsemana;
+		--se for quarta
+		elsif diasemana = 3 then
+			select semanapedido - 3 into difsemana;
+		--se for quinta
+		elsif diasemana = 4 then
+			select semanapedido - 4 into difsemana;
+		--se for sexta
+		elsif diasemana = 5 then
+			select semanapedido - 5 into difsemana;
+		elsif diasemana = 6 then
+			select semanapedido - 6 into difsemana;
+		end if;
+	
+		--soma a data atual com a diferença
+		select soma - difsemana into novadata;
+	
+	--se for igual
+	elsif semanapedido = diasemana then
+		if hora > horaatual then
+			difsemana = 0;
+		elsif hora < horaatual then
+			difsemana = 7;
+		end if;
+	
+		--soma a data atual com a diferença
+		select datap + difsemana into novadata;
+	end if;
+	
+	return novadata;
+end;
+$$
