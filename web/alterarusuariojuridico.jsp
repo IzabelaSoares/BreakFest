@@ -425,6 +425,7 @@
                             <div class="combo js-csv">
                                 <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="listbox1" class="input-wrapper">
                                     <input
+                                        size="50"
                                         value="<% out.write(String.valueOf(consulta.getBairros()));%>"
                                         placeholder="Selecione os bairros de interesse em fornecer"
                                         aria-activedescendant=""
@@ -432,6 +433,7 @@
                                         id="combo1"
                                         class="combo-input"
                                         type="text">
+                                        
                                 </div>
                                 <div class="combo-menu" role="listbox" aria-multiselectable="true" id="listbox1"></div>
                             </div>
@@ -446,8 +448,9 @@
                 </form>
             </div>
         </div>
-        <!-- JS para Menu -->
+        <!-- JS para bairros -->
         <script src="scripts/bairros.js"></script>
+        <!-- JS para Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
