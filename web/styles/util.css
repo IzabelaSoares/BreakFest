@@ -1,25 +1,22 @@
-/* 
-Aqui temos a NavBar que é igual independentemente da tela
-em que foi aplicada.
-*/
-
-/* geral */
+/*Import da fonte */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Fonte que está sendo aplicada em toda página. */
 * {
     font-family: Mukta;   
 }
 
+/*Setar margem do Corpo,parágrafos, título nível 1 e 2, input e textarea.*/
 body, p, h1, h2, input, textarea {
     margin: 0;
 }
 
+/*Titulo nível 2,regular o tamanho da fonte. */
 h2 {
     font-size: 30px;
 }
 
-/* navbar */
-
+/*Definições do menu: Cor de fundo, cor da fonte, margem interna e tamanho*/
 #navbar {
     background-color: #995a1a!important; 
     color: white!important;
@@ -27,39 +24,49 @@ h2 {
     height: 60px!important;
 }
 
+/*Indicador do título nível 2,lista desordenada,lista dos itens do menu.*/
 #navbar h2, #navbar ul, #navbar-list li, #navbar nav {
     display: inline-block!important;
 }
 
+/* Margem externa, controlador de espaçamento e margem esquerda do título do menu.*/
 #navbar h2 {
     margin: 0!important;
     line-height: 60px!important;
     margin-left: 55px!important;
 }
 
+/*Largura, posição e altura da imagem do cabeçalho*/
 #navbar img {
     width: 40px!important;
     position: absolute!important;
     top: 10px!important;
 }
 
+/*Float determina que um elemento deve
+ser retirado do seu fluxo normal e colocado 
+ao longo do lado direito do menu.*/
 #navbar nav {
     float: right !important;
 }
 
+/*Margem externa de cima da lista do menu*/
 #navbar ul {
     margin-top: 22px!important;
 }
 
+/*Margem externa da lista dos itens.*/
 #navbar li {
     margin: 0 10px!important;
 }
 
+/*Formação da underline e cor da lista dos itens e link.*/
 #navbar-list li a {
     text-decoration: none!important;
     color: white!important;
 }
 
+/*Borda de baixo da lista dos itens e link.*/
 #navbar-list li a:hover {
     border-bottom: 1px solid #FFF!important;
 }
