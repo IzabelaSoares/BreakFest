@@ -247,7 +247,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
-                <form class="form-detail" action="recebeclientefisico.jsp" method="post" id="myform">
+                <form class="form-detail" action="recebealterarusuariofisico.jsp" method="post" id="myform">
 
                     <!-- Início do lado esquerdo do form -->
                     <div class="form-left">
@@ -258,13 +258,13 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
                             <!-- Input do nome -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="nome" id="nome" value="<% out.write(String.valueOf(consulta.getNome())); %>" 
+                                <input type="text" maxlength="49" name="nome" id="nome" value="<% out.write(String.valueOf(consulta.getNome())); %>" 
                                        class="input-text" placeholder="Nome" required>
                             </div>
 
                             <!-- Input do sobrenome -->
                             <div class="form-row form-row-2">
-                                <input type="text" name="sobrenome" id="sobrenome" value="<% out.write(String.valueOf(consulta.getSobrenome())); %>"
+                                <input type="text" maxlength="49" name="sobrenome" id="sobrenome" value="<% out.write(String.valueOf(consulta.getSobrenome())); %>"
                                        class="input-text" placeholder="Sobrenome" required>
                             </div>
                         </div>
@@ -286,7 +286,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                             <!-- Input do CPF -->
                             <div class="form-row form-row-3">
                                 <input type="text" name="cpf" id="cpf" value="<% out.write(String.valueOf(consulta.getCpf())); %>"
-                                       placeholder="CPF" required maxlength="14">
+                                       placeholder="CPF" required maxlength="14" readonly>
                             </div>
 
                             <!-- Input do telefone -->
@@ -317,7 +317,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
                         <!-- input do CEP -->
                         <div class="form-row form-row-3">
-                            <input type="text" name="cep" id="cep" placeholder="CEP" value="<% out.write(String.valueOf(consulta.getCep())); %>"
+                            <input type="text" maxlength="10" name="cep" id="cep" placeholder="CEP" value="<% out.write(String.valueOf(consulta.getCep())); %>"
                                    onblur="pesquisacep(this.value);" required maxlength="15">
                         </div>
 
@@ -351,7 +351,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
                             <!-- Input do número da casa -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="numero" id="numero" value="<% out.write(String.valueOf(consulta.getNumero())); %>"
+                                <input type="text" maxlength="5" name="numero" id="numero" value="<% out.write(String.valueOf(consulta.getNumero())); %>"
                                        placeholder="Nr." required>
                             </div>
 
@@ -364,7 +364,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
                         <!-- Input do complemento -->
                         <div class="form-row">
-                            <input type="text" name="complemento" id="complemento" placeholder="Complemento (opcional)"
+                            <input type="text" maxlength="80" name="complemento" id="complemento" placeholder="Complemento (opcional)"
                                    value="<%out.write(String.valueOf(consulta.getComplemento()));%>">
                         </div>
 

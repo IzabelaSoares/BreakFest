@@ -65,12 +65,12 @@ por dois lado pelo fato de ser mais simples.
                             
                             <!-- Input do nome -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="nome" id="nome" class="input-text" placeholder="Nome" required>
+                                <input type="text" maxlength="50" name="nome" id="nome" class="input-text" placeholder="Nome" required>
                             </div>
                             
                             <!-- Input do sobrenome -->
                             <div class="form-row form-row-2">
-                                <input type="text" name="sobrenome" id="sobrenome" class="input-text" placeholder="Sobrenome" required>
+                                <input type="text" maxlength="50" name="sobrenome" id="sobrenome" class="input-text" placeholder="Sobrenome" required>
                             </div>
                         </div>
                         
@@ -81,7 +81,7 @@ por dois lado pelo fato de ser mais simples.
                         
                         <!-- Input da data de nascimento -->
                         <div class="form-row">
-                            <input type="date" max="" name="nascimento" id="nascimento" placeholder="Data de nascimento" required pattern="(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})"></div>
+                            <input type="date" name="nascimento" id="nascimento" placeholder="Data de nascimento" required pattern="(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})"></div>
                         
                         <!-- Dois inputs seguidos "CPF e Telefone" -->
                         <div class="form-group">
@@ -117,7 +117,7 @@ por dois lado pelo fato de ser mais simples.
 
                         <!-- input do CEP -->
                         <div class="form-row form-row-3">
-                            <input type="text" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" required maxlength="15">
+                            <input type="text" maxlength="10" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" required maxlength="15">
                         </div>
                        
                         <!-- Form group para o estado e da cidade ficarem um ao lado do outro -->
@@ -147,7 +147,7 @@ por dois lado pelo fato de ser mais simples.
                             
                             <!-- Input do número da casa -->
                             <div class="form-row form-row-1">
-                                <input type="text" name="numero" id="numero" placeholder="Nr." required>
+                                <input type="text" maxlength="5" name="numero" id="numero" placeholder="Nr." required>
                             </div>
                             
                             <!-- Input da rua -->
@@ -158,7 +158,7 @@ por dois lado pelo fato de ser mais simples.
                         
                         <!-- Input do complemento -->
                         <div class="form-row">
-                            <input type="text" name="complemento" id="complemento" placeholder="Complemento (opcional)">
+                            <input type="text" maxlength="80" name="complemento" id="complemento" placeholder="Complemento (opcional)">
                         </div>
                         
                         <!-- Botão submit para lançar os dados do form -->

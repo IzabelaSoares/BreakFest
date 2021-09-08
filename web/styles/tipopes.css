@@ -1,16 +1,18 @@
-/* Para toda a página */
+/* Import da fonte */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Fonte que está sendo aplicada em toda página. */
 * {
     font-family: Mukta;
 }
 
+/*Cor de fundo do corpo da página. */
 body {
 background-color: #FFF5EB;    
 }
 
-/* Informação para melhor entendimento do usuário */
-
+/*Elemento alinhado,cor de fundo,cor,margem interna de cima e tamanho
+da marcação das seções do contéudo da página.*/
 #about-section {
     text-align: center;
     background-color: #995a1a;
@@ -19,6 +21,8 @@ background-color: #FFF5EB;
     height: 250px;
 }
 
+/*Largura máxima,margem direita,margem esquerda e controlador de espaçamento
+da marcação dos parágrafos.*/
 #about-section p {
     max-width: 650px;
     margin-right: auto;
@@ -27,13 +31,9 @@ background-color: #FFF5EB;
 
 }
 
-#barra {
-    width: 2px;
-    background-color: #E8E8E8;
-}
-
 /* Container do tipo de pessoa */
-
+/*Margem de cima,direita e esquerda,cor de fundo, tamanho, borda e
+borda arredondada na marcação.*/
 #tipopess-section {
     margin-top: -100px;
     background-color: #FFF;
@@ -44,45 +44,48 @@ background-color: #FFF5EB;
     border-radius: 10px;
 }
 
+/*Indicador,como os itens são colocados e o alinhador de elemento da marcação 
+do container.*/
 #tipopess-section .container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+/*Criador das duas partes,alinhador do elemento e margem interna do container.*/
 .tipopess-container {
     flex: 1 1;
     text-align: center;
     padding: 60px 25px;
 }
 
-.central {
-    border-left: 1px solid #CCC;
-    border-right: 1px solid #CCC;
-}
-
+/*Cor e tamanho da letra no título nível 3.*/
 .tipopess-container h3 {
     color: #995a1a;
     font-size: 20px;
 }
 
+/*Largura,margem interna e margem da parte inferior da imagem.*/
 .tipopess-container img {
     width: 200px;
     padding: 15px;
     margin-bottom: 25px;
 }
 
-.tipopess-container .subtitle {
+/*Negrito,cor,margem de cima e margem da parte inferior da div container*/
+.tipopess-container {
     font-weight: bold;
     color: #995a1a;
     margin-top: 50px;
     margin-bottom: 15px;
 }
 
+/*Controlador de espaçamento do parágrafo.*/
 .tipopess-container p {
     line-height: 25px;
 }
 
+/**/
 .tipopess-container button {
     padding-top: 5px;
 }
