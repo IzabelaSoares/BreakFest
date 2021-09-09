@@ -260,12 +260,10 @@
                 <!-- Inicio Tabela -->
                 <table>
                     <tbody>
-                        <tr>
-                            
+                        <tr>                           
                             <!-- Inicio Lista de Produtos -->
                             <% for (Produto n : produto) { %>
-                            <td>
-                                
+                            <td>                                
                                 <!-- Inicio Produto Individual-->
                                 <div class="col">
                                     <div class="card" style="width: 20rem;">

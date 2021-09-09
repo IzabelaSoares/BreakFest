@@ -113,7 +113,6 @@
                                 </td>
                                 <%}%>  
                                 <!-- fim padaria -->
-                                
                             </tr>
                         </tbody>
                     </table>
@@ -121,6 +120,11 @@
                 </div>
             </div>
         </div>
-        <!-- fim camadas de divs -->
+        <!-- Script para redirecionar para pagina da padaria -->
+        <script>
+            function redirecionar(id) {
+                document.getElementById(id).submit();
+            }
+        </script>
 </body>
 </html>
