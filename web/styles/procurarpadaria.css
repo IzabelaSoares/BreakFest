@@ -1,22 +1,27 @@
+/*Import da fonte*/
 @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
 
+/*Fonte e cor do fundo do corpo.*/
 body{
   font-family: 'Muli', sans-serif;
   background: rgb(255,239,213);
 }
 
+/*Cor e formatação de underline dos links e parágrafos.*/
 a, p {
     color: black;
     text-decoration: none;
 }
 
+/*Cor e formatação de underline dos links,parágrafos e span.*/
 a:hover, p:hover, span:hover
 {
      color: black; 
      text-decoration:none;   
 }
 
-
+/*Margem,altura,largura e cor do fundo do título "Abaixo você encontrará todas"
+"as nossas padarias cadastradas".*/
 .for-title {
     margin: 0;
     height: 100%;
@@ -24,18 +29,20 @@ a:hover, p:hover, span:hover
     background-color: rgb(255,239,213);
 }
 
-/*centralizar todo o conteudo da tela*/
+/*Alinhador do elemento do container*/
 .container{
   text-align: center;
 }
 
 /* Padarias */ 
-
+/*Borda arredondada e sombra da imagem.*/
 .wsk-cp-product img {
     border-radius: 5px;
     box-shadow: 1px 2px 2px #995a1a;
 }
 
+/*Cor,largura,indicador,margem interna,margem,elemento alinhado,cor de fundo,
+sombra e borda arredondada do produto.*/
 .wsk-cp-product{
   color: black;
   width: 250px;
@@ -48,19 +55,21 @@ a:hover, p:hover, span:hover
   border-radius: 4px;
 }
 
-/*fixar o layout da tabela, centralizar e definir o tamanho*/
+/*fixar o layout da tabela, centralizar e definir o tamanho da tabela*/
 table {
     table-layout: fixed;
     width: 100%;
     margin: 0 auto;
 }
-/*definir para blocos em linha e quebra de palavras para se a descrição for longa*/
+/*definir para blocos em linha e quebra de palavras para se a descrição for 
+longa da tabela*/
 td{
     display: inline-block;         
     word-wrap: break-word;         
     overflow-wrap: break-word;  
 }
 
+/*Tamanho da imagem.*/
 .midias img {
     width: 20px;
     height: 20px;
