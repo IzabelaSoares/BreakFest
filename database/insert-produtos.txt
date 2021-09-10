@@ -1,11 +1,3 @@
-
-insert into unidadedemedida (nome) values ('KG'), ('L'), ('ML'), ('G'), ('UN'), ('FATIA'), ('COMBO');
-
-insert into categoria (titulocategoria) values ('doces'), ('bebidas'), ('salgados') ,('frios'),('sanduiches'),('pao');
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
 VALUES('bolo de leite ninho', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/bolo.jpg', 'bolo de leite ninho com cobertura de chantilly', 12.00, 'medio', 'un');
