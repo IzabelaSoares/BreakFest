@@ -168,7 +168,7 @@
 
             }
             
-            response.sendRedirect("pedidos.jsp");
+            response.sendRedirect("consultapedidofisico.jsp");
         }
     }else{
         dias = null;
@@ -221,7 +221,7 @@
                     produtos.cadastrarProdutosPedido();
                 }
                 
-                response.sendRedirect("pedidos.jsp");
+                response.sendRedirect("consultarpedidofisico.jsp");
             }   
         }
     }  

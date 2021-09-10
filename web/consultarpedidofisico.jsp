@@ -9,7 +9,6 @@
 <%@page import="dominio.Pedido"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
@@ -23,6 +22,7 @@
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
 
+        <link rel="stylesheet" href="styles/consulta-pedido-fisico.css"/>
         <!-- CSS para utilização alheia -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
         <link href="styles/consultar-pedidos.css" rel="stylesheet">
@@ -34,12 +34,12 @@
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
-        
+
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<!--        <link rel="stylesheet" href="styles/cartaoestilo.css">-->
+        <!-- JS para o cartão de crédito -->
         <script src="scripts/cartao-de-credito.js"></script>
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
@@ -200,15 +200,101 @@
             </div>
         </div>
     </div>
+    <!-- Modal para ver dados do pedido especifico -->
     <div class="modal fade" id="modalPedido" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <ul>
-                        <% for (Pedido p : pedidos) { %>
-                        <li><%out.write(String.valueOf(p.getTotalCompra()));%></li>
-                        <% }%>
-                    </ul>
+                    <br>
+                    <div class="w-auto p-3">
+                        <!-- Inicio do Card dos Detalhes do Pedido -->	
+                        <div  class="fade show active " id="order" aria-labelledby="nav-home-tab">	
+                            <div class="row">
+                                <div class="col-md-auto">
+                                    <div class="card w-100">
+                                        <!-- Cabeçalho do Card-->	
+                                        <div class="card-header">
+                                            <div class="d-inline h4">Detalhes do Pedido #15488</div>
+                                        </div>
+                                        <!-- Dados Principais -->	
+                                        <div class="card-body">
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Empresa </dd>
+                                                <dt class="col-sm-8">Nome da Empresa</dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Total Produtos</dd>
+                                                <dt class="col-sm-8">R$ ??</dt>
+                                                <dd class="col-sm-4">Frete </dd>								
+                                                <dt class="col-sm-8">R$ ??</dt>
+                                                <dd class="col-sm-4">Valor Total </dd>
+                                                <dt class="col-sm-8">R$ ??</dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Data de Emissão</dd>
+                                                <dt class="col-sm-8">??/??/????</dt>
+                                                <dd class="col-sm-4">Status</dd>
+                                                <dt class="col-sm-8">AQUI VAI O QUE TEM NO BANCO</dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Endereço de Entrega</dd>
+                                                <dt class="col-sm-8">RUA CEP E BLABLA</dt>
+                                                <dd class="col-sm-4">Complemento</dd>
+                                                <dt class="col-sm-8">9330 <br>
+                                                </dt>
+                                            </dl>
+                                            <!-- Tabela com os Produtos -->	
+                                            <table class="table">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Produto</th>
+                                                        <th scope="col">Quantidade</th>
+                                                        <th scope="col">Preço Unitário</th>
+                                                        <th scope="col">Preço Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Brigadeiro</th>
+                                                        <td>3 un</td>
+                                                        <td>R$ ??</td>
+                                                        <td>R$ ??</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Banoffe</th>
+                                                        <td>1 un</td>
+                                                        <td>R$ ??</td>
+                                                        <td>R$ ??</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Bolo de Leite Ninho</th>
+                                                        <td>1 un</td>
+                                                        <td>R$ ??</td>
+                                                        <td>R$ ??</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- Observação -->	
+                                            <dl class="row">
+                                                <dt class="col-sm-12">Observação</dt>
+                                                <dd class="col-sm-12">
+                                                    aqui é a observação do pedido
+                                                </dd>
+                                            </dl>
+                                            <!-- Botões com as Opções de Confirmar e Cancelar-->
+                                            <div class="float-lg-middle">
+                                                <button type="button" style="size: 10" class="btn btn-success">Pedido Recebido</button> 
+                                                &nbsp;&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-danger">Cancelar Pedido</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- Fim Card -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,7 +310,6 @@
                         <div id="dropDown" class="drop-down__button">
                             <a>Meu Painel</a>
                         </div>
-
                         <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
                         <div class="drop-down__menu-box">
                             <ul class="drop-down__menu">
@@ -234,13 +319,12 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Essa opção será para sair da página, será levado para a página de login -->
                     <li><a href="login.jsp">Sair</a></li>
                 </ul>
             </nav>
         </header>
-        <!-- partial:index.partial.html -->
+        <!-- Lista dos Pedidos Realizados -->
         <div class="container table-responsive py-5"> 
             <table class="table table-bordered table-hover">
                 <thead class="tabelinha">
@@ -270,5 +354,9 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+        <!-- JS para Modal de Pedidos -->
+        <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'></script>
     </body>
 </html>
