@@ -65,14 +65,14 @@ do container.*/
     font-size: 20px;
 }
 
-/*Largura,margem interna e margem da parte inferior da imagem.*/
+/*Largura,margem interna e margem da parte interna da imagem.*/
 .tipopess-container img {
     width: 200px;
     padding: 15px;
     margin-bottom: 25px;
 }
 
-/*Negrito,cor,margem de cima e margem da parte inferior da div container*/
+/*Negrito,cor,margem de cima e margem da parte interna da div container.*/
 .tipopess-container {
     font-weight: bold;
     color: #995a1a;
@@ -85,13 +85,14 @@ do container.*/
     line-height: 25px;
 }
 
-/**/
+/*Margem interna de cima do botão.*/
 .tipopess-container button {
     padding-top: 5px;
 }
 
 /* Botões personalizados */
-
+/*Fonte,tamanho da letra,negrito,cor de fundo,margem, margem interna,
+quando o mouse está em cima,borda e efeito de sombra do botão.*/
 button {
     font: mukta;
     font-size: 20px;
@@ -103,10 +104,13 @@ button {
     border: none;
     box-shadow:0 5px #834d16;
 }
+/*Cor de fundo e sombra do botão quando passa o mouse em cima.*/
 button:hover {
     background-color:#995a1a;
     box-shadow:0 5px #834d16;
 }
+/*Posição,espaço de cima,cor do fundo e efeito de sombra do botão quando for 
+clicado.*/
 button:active {
     position:relative;
     top:5px;
