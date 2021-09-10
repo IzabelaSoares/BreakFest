@@ -1,12 +1,14 @@
-/* Para toda a página */
+/*Import das fontes.*/
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Margem interna de cima do botão.*/
 .botaoLegal {
     padding-top: 13px;
 }
 
+/*Largura,altura,borda,borda arredondada,cor de fundo e cor do botão.*/
 .botaoLegal button {
     width: 100%;
     height: 30px;
@@ -16,16 +18,19 @@
     color: white;
 }
 
+/*Largura,alinhador de elemento do eixo principal e alinhador de linha do form.*/
 .pagamento form {
     width: 100%;
     justify-content: center;
     align-content: center;
 }
 
+/*Cor do label.*/
 .pagamento label {
     color: graytext;
 }
 
+/*Bordas e largura do menu de opções.*/
 .pagamento select{ 
     border-bottom: 2px solid #995a1a;
     border-bottom-left-radius: 2px;
@@ -36,6 +41,7 @@
     width: 100%;
 }
 
+/*Bordas e largura dos inputs.*/
 .pagamento input {
     border-bottom: 2px solid #995a1a;
     border-bottom-left-radius: 2px;
@@ -46,12 +52,15 @@
     width: 100%;
 }
 
+/*Tamanho da letra,margem esquerda e margem interna do título nível 3.*/
 h3 {
     font-size: 40px;
     margin-left: 15px;
     padding-bottom: 15px;
 }
 
+/*Sombra,borda arredondada e contorno do textarea,input,select e botão quando 
+foco,é clicado ou quando passa o mouse em cima.*/
 textarea:focus, input:focus, select:focus, button:active, button:hover, button:focus {
     box-shadow: 0 0 0 0;
     border-bottom: 2px solid #995a1a;
