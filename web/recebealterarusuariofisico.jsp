@@ -7,7 +7,9 @@
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="dominio.PessoaFisica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%  //instancia a pessoa física = PF
+<%  request.setCharacterEncoding("UTF-8");
+
+    //instancia a pessoa física = PF
     PessoaFisica pf = new PessoaFisica();
     
     //instanciar o login da = PF

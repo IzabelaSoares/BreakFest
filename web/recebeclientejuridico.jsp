@@ -61,6 +61,7 @@
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
             request.getSession().setAttribute("resultado", "UsuarioCadastrado");
+            response.sendRedirect("login.jsp");
         } else {
             //erro no cadastro
             request.getSession().setAttribute("resultado", "UsuarioNaoCadastrado");
