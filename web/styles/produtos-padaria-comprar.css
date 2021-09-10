@@ -1,8 +1,9 @@
-
+/*Indicador da lista dos itens.*/
 .show-cart li {
   display: flex;
 }
 
+/*Largura,altura,margem de cima e alinhamento do item da imagem do produto.*/
 .card-img-top {
   width: 200px;
   height: 200px;
@@ -10,18 +11,19 @@
   align-self: center;
 }
 
-/*centralizar todo o conteudo da tela*/
+/*Alinhador do elemento do container.*/
 .container{
   text-align: center;
 }
 
-/*fixar o layout da tabela, centralizar e definir o tamanho*/
+/*fixar o layout da tabela,tamanho e margem da tabela*/
 table {
     table-layout: fixed;
     width: 100%;
     margin: 0 auto;
 }
-/*definir para blocos em linha e quebra de palavras para se a descrição for longa*/
+
+/*Indicador e os quebra de palavras da tabela.*/
 td, tr{
     display: inline-block;
     word-wrap: break-word;

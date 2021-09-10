@@ -19,7 +19,7 @@ posicionada e tamanho da imagem.*/
     background-position: center;
     background-size: 68%;
 }
-/*Cor do fundo,largura,altura mínima,tipo de caixa de renderização,alinhador de 
+/*Cor do fundo,largura,altura mínima,Indicador,alinhador de 
 itens e alinhador de elemento do eixo principal do corpo.*/
 body{
     background-color: #653210;
