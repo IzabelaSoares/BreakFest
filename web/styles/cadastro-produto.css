@@ -1,24 +1,29 @@
+/*Cor de fundo do corpo.*/
 body {
     background-color: #FFF5EB;
 }
 
+/*Não mostra o elemento e posição do*/
 .file {
   visibility: hidden;
   position: absolute;
 }
 
+/*Posição,lado esquerdo e cor do título nível 2.*/
 h2{
     position: relative;
     left: -3px;
     color: #995a1a;
 }
 
+/*Posição,lado esquerdo e cor do label.*/
 label{
     position: relative;
     left: 9px;
     color: #995a1a;
 }
 
+/*Tamanho,cor de fundo e cor do botão.*/
 button{
     width: 140px;
     height: 40px;
@@ -26,6 +31,7 @@ button{
     color: #FFF5EB;
 }
 
+/*Posição,lado esuqerdo e parte de cima do div.*/
 #prod-pic, ml-2 {
     position: relative;
     left: 75vh;

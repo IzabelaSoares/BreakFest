@@ -1,12 +1,13 @@
-/* Para todo a página */
+/*Import da fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Cor de fundo do corpo*/
 body {
     background-color: #FFF5EB;
 }
 
 /* Cuppa inicial junto com a barra de pesquisa */
-
+/**/
 #banner-info img, form, input {
     display: inline-block;
 }
