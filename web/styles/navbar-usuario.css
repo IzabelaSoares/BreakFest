@@ -1,20 +1,25 @@
-
+/*Indicador,posição e ordem da posição do menu.*/
 .drop-down{
     display: inline-block;
     position: relative;
     z-index: 10;
 }
 
+/*Largura,elemento alinhado e quando o mouse está em cima do botão do menu.*/
 .drop-down__button{
   width: 150px;
   text-align: center;
   cursor: pointer;
 }
 
+/*Borda inferior do link do botão quando o mouse está em cima.*/
 .drop-down__button a:hover{
       border-bottom: 1px solid #FFF;
 }
 
+/*Posição,largura,lado esquerdo,margem interna,cor de fundo,borda arredondada,
+sombra,transição entre dois estados de um elemento,deixa de mostrar o elemento,
+transparência e margem de cima do menu.*/
 .drop-down__menu-box {
     position: absolute;
     width: 100%;
@@ -33,12 +38,16 @@ opacity: 0;
   margin-top: 5px;
 }
 
+/*Margem externa,interna e só declaração para duas das propriedades para 
+listas do menu.*/
 .drop-down__menu {
     margin: 0;
     padding: 0 13px;
     list-style: none;
 
 }
+/*Usado para ':before ou after',cor de fundo,borda direita,inferior,de cima,esquerda,posição,espaço de cima 
+e lado direito do menu usado para adicionar um elemento.*/
 .drop-down__menu-box:before{
   content:'';
   background-color: transparent;
@@ -52,11 +61,15 @@ opacity: 0;
 
 }
 
+/*Usado para ':before ou after' e cor de fundo do menu usado para adicionar
+um elemento.*/
 .drop-down__menu-box:after{
   content:'';
   background-color: transparent;
 }
 
+/*Tamanho da letra,borda interna,alinhador do elemento,negrito,cor,posição e 
+borda inferior do menu.*/
 .drop-down__item {
     font-size: 18px;
     padding: 13px 0;
@@ -69,17 +82,21 @@ opacity: 0;
     
 }
 
+/*Borda inferior do menu que se "casa" com o último elemento.*/
 .drop-down__item:last-of-type{
   border-bottom: 0;
 }
 
-
+/*Parte de trás estará visível,transparência e margem de cima do menu ativo.*/
 .drop-down--active .drop-down__menu-box{
 visibility: visible;
 opacity: 1;
   margin-top: 15px;
 }
 
+/*Usado para ':before ou after',posição,tamanho,cor de fundo,lado esquerdo,em 
+cima,modificador de espaço coordenado do modelo e indicador do menu depois do 
+elemento.*/
 .drop-down__item:before{
   content:'';
   position: absolute;
@@ -92,6 +109,7 @@ transform: translateY(-50%);
   display:none;
 }
 
+/*Indicador ativo e depois do elemento.*/
 .drop-down__item:hover:before{
   display:block;
 }

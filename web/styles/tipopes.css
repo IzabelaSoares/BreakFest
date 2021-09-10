@@ -110,7 +110,7 @@ button:hover {
     box-shadow:0 5px #834d16;
 }
 /*Posição,espaço de cima,cor do fundo e efeito de sombra do botão quando for 
-clicado.*/
+clicado*/
 button:active {
     position:relative;
     top:5px;

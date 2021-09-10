@@ -59,7 +59,7 @@ h3 {
     padding-bottom: 15px;
 }
 
-/*Sombra,borda arredondada e contorno do textarea,input,select e botão quando 
+/*Sombra,borda inferior e contorno do textarea,input,select e botão quando 
 foco,é clicado ou quando passa o mouse em cima.*/
 textarea:focus, input:focus, select:focus, button:active, button:hover, button:focus {
     box-shadow: 0 0 0 0;

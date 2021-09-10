@@ -1,6 +1,7 @@
-/* Para toda a página */
+/*Import da fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Fonte que está sendo aplicada em toda página. */
 *{
   margin: 0px;
   padding: 0px;
@@ -11,6 +12,7 @@
   font-weight: 300;
 }
 
+/*Indicador,cor do fundo,alinhador de linha e margem interna do*/
 .pad-nome {
     display: flex;
     background-color: #ce8538;
