@@ -1,6 +1,7 @@
-/* Para toda a página */
+/*Import da fonte */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Fonte que está sendo aplicada em toda página. */
 *{
     padding: 0;
     margin: 0;
@@ -8,6 +9,8 @@
     font-family: "Arial";
 }
 
+/*Largura,altura,fundo da imagem,como a foto é posicionada,onde a foto é
+posicionada e tamanho da imagem.*/
 .imagem {
     width: 100%;
     height: 100%;
@@ -16,7 +19,8 @@
     background-position: center;
     background-size: 68%;
 }
-
+/*Cor do fundo,largura,altura mínima,tipo de caixa de renderização,alinhador de 
+itens e alinhador de elemento do eixo principal do corpo.*/
 body{
     background-color: #653210;
     width: 100%;
@@ -26,17 +30,23 @@ body{
     justify-content: center;
 }
 
+/*Largura,largura máxima e margem interna do form.*/
 form{
     width: 100%;
     max-width: 350px;
     padding: 2%;
 }
 
+/*Posição,margem e lado direito do input(Email,Senha,confirmar Senha e Botão da 
+Senha).*/
 .single-input{
     position: relative;
     margin: 30px 0;
     right: 30%;
 }
+/*Posição,posição vertical, lado esquerdo,cor,quando o mouse está em cima,
+transição entre dois estados de um elemento e transparência do input
+(Email,Senha,confirmar Senha e Botão da Senha).*/
 .single-input label{
     position: absolute;
     bottom: 5px;
@@ -47,6 +57,9 @@ form{
     opacity: 75%;
 }
 
+/*Largura,margem interna,borda,borda inferior,contorno,tamanho da letra,cor,
+transição entre dois estados de um elemento,borda arredondada direita e
+esquerda e cor do fundo dos inputs.*/
 .input{
     width: 150%;
     padding: 5px;
@@ -61,12 +74,15 @@ form{
     background-color: transparent;
 }
 
+/*Cor e transparência do input que recebe foco e do que foi validado com
+sucesso.*/
 .input:focus ~ label,
 .input:valid ~ label{
     color: transparent;
     opacity: 0;
 }
 
+/*Cor,posição,lado direito e borda do título.*/
 #title {
     color: whitesmoke;
     position: relative;
@@ -74,12 +90,15 @@ form{
     border: 0;
 }
 
+/*Largura,altura e cor do fundo do quadrado com o título "Recuperar senha".*/
 .quadrado {
     width: 100%;
     height: 100%;
     background-color: transparent;
 }
 
+/*Posição,lado esquerdo,largura,altura,borda,borda arredondada,cor do fundo
+e cor do botão do input (Email,Senha,confirmar Senha e Botão da Senha).*/
 .single-input button {
     position: relative;
     left: 40%;
@@ -91,6 +110,8 @@ form{
     color: white;
 }
 
+/*Cor do fundo do input (Email,Senha,confirmar Senha e Botão da Senha) quando 
+for clicado.*/
 .single-input button:hover {
     background-color: #bf7f3d;
 }
