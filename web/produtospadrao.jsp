@@ -274,52 +274,152 @@
             </div>
         </div>
     </div>
-    <body>
-        <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
-            <div class="container">
-                <h1>Selecione produtos: </h1>
-                <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
-                <button id="botao-importar" onclick="importar()" class="botao">Importar Produtos</button><br>
-                <div class="borda">
-                    <table class="table table-image">
-                        <thead>
-                            <tr>
-                                <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
-                                <th class="titulo" >Imagem</th>
-                                <th class="titulo" >Produto</th>
-                                <th class="titulo" >Categoria</th>
-                                <th class="titulo" >Descrição </th>
-                                <th class="titulo" >Tamanho</th>
-                                <th class="titulo" >Un. Medida</th>
-                                <th class="titulo" >Preço</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table">
-                            <tr>
-                                <% for (Produto n : consulta) {%>
-                                <td class="check"><input type="checkbox" 
-                                                         data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
-                                <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
-                                <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
-                                <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
-                                <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao().toUpperCase());%>"><%out.write(n.getDescricao().toUpperCase());%></td>
-                                <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
-                                <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
-                                <td name="preco" class="preco"><%out.write(String.valueOf(n.getPreco()));%></td>
-                            </tr>
-                            <%}%>
-                        </tbody>
-                    </table>   
+    <div class="modal fade" id="modalNovoProduto" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <!-- Inicio divs de container -->
+                    <div class="container">
+
+                        <!--  <form> -->
+                        <form action="RecebeImagemProduto" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="input-group mb-3">
+
+                                    <!-- Inicio divs do produto -->
+                                    <h2>Cadastrar Produto</h2>
+                                    <br><br>
+
+                                    <!-- Titulo Produto  -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="first">Produto</label>
+                                            <input maxlength="30" style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
+                                        </div>
+                                    </div>
+
+                                    <!-- Categoria   -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="categoria">Categoria do Produto</label>
+                                            <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="categoria">
+                                                <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
+                                                <option value="doce">Doce</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tamanho  -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="phone">Tamanho/Medida</label>
+                                            <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                                        </div>
+                                    </div>
+
+                                    <!-- Unidade de Medida  -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="categoria">Unidade de Medida</label>
+                                            <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="unidadedemedida">
+                                                <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
+                                                <option value="quilo">Quilo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Preço do Produto  -->
+                                    <label>Preço do Produto</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span style="border-style:none; height: 40px;" class="input-group-text">R$</span>
+                                        </div>
+                                        <input maxlength="500" style="height:40px; width:177px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
+                                    </div>
+
+                                    <!-- Descrição do Produto  -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="descricao">Descrição do Produto</label>
+                                            <textarea style="height:80px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Selecionar a Imagem  -->
+                                    <label>Selecione uma imagem quadrada para o seu produto</label>
+                                    <div class="input-group mb-3">
+                                        <div id="msg"></div>
+                                        <form method="post" id="image-form">
+                                            <input type="file" name="file" class="file" accept="image/*"style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
+                                            </div>
+
+                                            <!-- Fim divs do produto -->
+                                            <button type="submit" style="border: 1px solid #995a1a; box-shadow: 0 0 0 0; outline: none; position: relative; left: 40%; width: 90px; height: 40px; text-align: center; background-color: #995a1a; border-radius: 5px; color: white;">Enviar</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!--  </form> -->
+                        </form>
+                    </div>
+
+                    <!-- Fim divs de container -->
                 </div>
             </div>
-            <!-- Input de importar os produtos -->
-            <input type="hidden" id="produtos-teste" name="produtosteste" value="">   
-        </form>
-                        
-        <!-- JS de produtos padrão -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='https://unpkg.com/popper.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+        </div>
+    </div>
 
-    </body>
+    <div class="container">
+        <h1>Selecione produtos: </h1>
+        <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
+        <div class="botoes">
+            <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
+                <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Novo Produto</button> &nbsp
+                <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
+                <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
+            </form>
+        </div>
+        <br>
+        <div class="borda">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
+                        <th class="titulo" >Imagem</th>
+                        <th class="titulo" >Produto</th>
+                        <th class="titulo" >Categoria</th>
+                        <th class="titulo" >Descrição </th>
+                        <th class="titulo" >Tamanho</th>
+                        <th class="titulo" >Un. Medida</th>
+                        <th class="titulo" >Preço</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+                    <tr>
+                        <% for (Produto n : consulta) {%>
+                        <td class="check"><input type="checkbox" 
+                                                 data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
+                        <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
+                        <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
+                        <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
+                        <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao().toUpperCase());%>"><%out.write(n.getDescricao().toUpperCase());%></td>
+                        <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
+                        <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
+                        <td name="preco" class="preco"><%out.write(String.valueOf(n.getPreco()));%></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>   
+        </div>
+    </div>
+    <!-- Input de importar os produtos -->
+    <input type="hidden" id="produtos-teste" name="produtosteste" value="">   
+
+    <!-- JS de produtos padrão -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://unpkg.com/popper.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+
+</body>
 </html>

@@ -243,16 +243,7 @@
                     </div>
                 </div>
             </div>
-        </div>       
-        <!-- NAVBAR ANTIGO (SOMENTE RICARDO COM PERMISSÃO PARA APAGAR)
-        <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
-            <div class="row">
-                <div class="col">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button>
-                    <button class="clear-cart btn btn-danger">Clear Cart</button>
-                </div>
-            </div>
-        </nav>
+        </div>      
         <!-- Fim Nav -->
         
         <!-- Container de Produto -->
