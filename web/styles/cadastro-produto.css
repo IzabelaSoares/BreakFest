@@ -3,7 +3,7 @@ body {
     background-color: #FFF5EB;
 }
 
-/*Não mostra o elemento e posição do*/
+/*Não mostra o elemento e posição do file*/
 .file {
   visibility: hidden;
   position: absolute;

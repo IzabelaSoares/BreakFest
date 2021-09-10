@@ -21,6 +21,7 @@
     padding-bottom: 1%;
 }
 
+/*Margem e cor do título nível 2.*/
 h2 {
     margin-top: auto;
     margin-bottom: auto;
@@ -29,6 +30,7 @@ h2 {
     color: #FFF;
 }
 
+/*Indicador */
 .ocultar{
   display: none;
 }
