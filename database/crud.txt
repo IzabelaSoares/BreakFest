@@ -63,18 +63,6 @@ create table bairrofrete(
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
-create table categoria(
-	id serial not null,
-	titulocategoria varchar(30) not null,
-	primary key(id)
-);
-
-create table unidadedemedida(
-	id serial not null,
-	nome varchar(40) not null,
-	primary key (id)
-);
-
 create table produto(
 	id serial not null,
 	titulo varchar(30) not null,
