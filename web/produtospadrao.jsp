@@ -61,7 +61,7 @@
                     <div class="drop-down__menu-box">
                         <ul class="drop-down__menu">
                             <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
-                            <a><li class="drop-down__item">Pedidos</li></a>
+                            <a href="consultarpedidojuridico.jsp"><li class="drop-down__item">Pedidos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
                             <a><li class="drop-down__item">Produtos</li></a>

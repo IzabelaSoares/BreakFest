@@ -58,7 +58,7 @@
             //Lista do pedido para pessoa fisica
             Pedido pedido = new Pedido();
             List<Pedido> pedidos = pedido.consultarPedidosUsuarioFisico(cpf);
-            
+
             //formatação para data
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -206,13 +206,12 @@
         </div>
     </div>
     <!-- Modal para ver dados do pedido especifico -->
-    <%
-     String fkId = request.getParameter("custId");
-     Integer valor = Integer.valueOf(fkId);
-     
-     //produtos pedido
-     Pedido dados = new Pedido();
-     List<Pedido> individual = dados.consultarPedidoIndividual(fkId);   
+    <%        String fkId = request.getParameter("custId");
+        Integer valor = Integer.valueOf(fkId);
+
+        //produtos pedido
+        Pedido dados = new Pedido();
+        List<Pedido> individual = dados.consultarPedidoIndividual(fkId);
 
     %>
     <div class="modal fade" id="modalPedido" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -230,7 +229,7 @@
                                         <% for (Pedido i : individual) {%>
                                         <div class="card-header">
                                             <div class="d-inline h4">Detalhes do Pedido #<%out.write(fkId); %></div>
-                                            
+
                                         </div>
                                         <!-- Dados Principais -->	
                                         <div class="card-body">
@@ -262,7 +261,8 @@
                                                 <dt class="col-sm-8"><% out.write(i.getComplemento()); %><br>
                                                 </dt>
                                             </dl>
-                                             <% break; }%>
+                                            <% break;
+                                                }%>
                                             <!-- Tabela com os Produtos -->	
                                             <table class="table">
                                                 <thead class="thead-light">
@@ -291,12 +291,25 @@
                                                     aqui é a observação do pedido
                                                 </dd>
                                             </dl>
-                                            <!-- Botões com as Opções de Confirmar e Cancelar-->
-                                            <div class="float-lg-middle">
-                                                <button type="button" style="size: 10" class="btn btn-success">Pedido Recebido</button> 
-                                                &nbsp;&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger">Cancelar Pedido</button>
-                                            </div>
+                                            <!-- Alterar Status do Pedido -->
+                                            <dl class="row">
+                                                <dt class="col-sm-12">Alterar o Status do Pedido</dt>
+                                                <dd class="col-sm-12">
+                                                    <div class="float-lg-middle">
+                                                        <form action="alterarstatuspedido.jsp" method="post">
+                                                            <div class="forSelect">
+                                                                <select>
+                                                                    <option value="NA" selected disabled hidden>Selecione aqui</option>
+                                                                    <option value="Entregue">Pedido Entregue</option>
+                                                                    <option value="Cancelado">Cancelar Pedido</option>
+                                                                </select>  
+                                                            </div>
+                                                            <br>
+                                                            <button class="enviarStatus" type="submit">Enviar</button>
+                                                        </form>
+                                                    </div>
+                                                </dd>
+                                            </dl>
                                         </div>
                                     </div>
                                 </div>
@@ -309,15 +322,16 @@
             </div>
         </div>
     </div>
+    <!-- JS para passar parametros de consulta do pedido -->
     <script>
-            window.onload = function () {
-                $('#modalPedido').modal('show');
-            };
-            function acionar(parametro) {
-                document.getElementById('custId').value = parametro                
-                document.theForm.submit();
-            }
-        </script>
+                window.onload = function () {
+                    $('#modalPedido').modal('show');
+                };
+                function acionar(parametro) {
+                    document.getElementById('custId').value = parametro
+                    document.theForm.submit();
+                }
+    </script>
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
@@ -356,7 +370,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <% for (Pedido p : pedidos) {%>
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                         <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
@@ -371,8 +384,7 @@
             <form id="theForm" name="theForm" action="consultarpedidofisico_1.jsp" method="post">
                 <input type="hidden" id="custId" name="custId" value="">
             </form>
-        </div>   
-        
+        </div>         
         <!-- JS para Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
@@ -381,6 +393,5 @@
         <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'></script>
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'></script>
-
     </body>
 </html>

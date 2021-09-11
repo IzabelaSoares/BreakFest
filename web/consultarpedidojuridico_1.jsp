@@ -205,8 +205,109 @@
             </div>
         </div>
     </div>
+    <!-- Modal para ver dados do pedido especifico -->
+    <%        String fkId = request.getParameter("custId");
+        Integer valor = Integer.valueOf(fkId);
+
+        //produtos pedido
+        Pedido dados = new Pedido();
+        List<Pedido> individual = dados.consultarPedidoIndividual(fkId);
+
+    %>
+    <div class="modal fade" id="modalPedido" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <br>
+                    <div class="w-auto p-3">
+                        <!-- Inicio do Card dos Detalhes do Pedido -->	
+                        <div  class="fade show active " id="order" aria-labelledby="nav-home-tab">	
+                            <div class="row">
+                                <div class="col-md-auto">
+                                    <div class="card w-100">
+                                        <!-- Cabeçalho do Card-->
+                                        <% for (Pedido i : individual) {%>
+                                        <div class="card-header">
+                                            <div class="d-inline h4">Detalhes do Pedido #<%out.write(fkId); %></div>
+
+                                        </div>
+                                        <!-- Dados Principais -->	
+                                        <div class="card-body">
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Cliente </dd>
+                                                <dt class="col-sm-8"><% out.write(i.getNome()+" "+i.getSobrenome()); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Total Produtos</dd>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                                <dd class="col-sm-4">Frete </dd>								
+                                                <dt class="col-sm-8">R$ 0.00</dt>
+                                                <dd class="col-sm-4">Valor Total </dd>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Data de Emissão</dd>
+                                                <dt class="col-sm-8"><%out.write(String.valueOf(formato.format(i.getDataPedido())));%></dt>
+                                                <dd class="col-sm-4">Status</dd>
+                                                <dt class="col-sm-8"><% out.write(String.valueOf(i.getStatus())); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Endereço de Entrega</dd>
+                                                <dt class="col-sm-8">
+                                                    <% out.write(i.getCep() + ", " + i.getCidade() + "-" + i.getEstado());%><br>
+                                                    <% out.write(i.getRua() + ", numero " + String.valueOf(i.getNumero())); %>
+                                                </dt>
+                                                <dd class="col-sm-4">Complemento</dd>
+                                                <dt class="col-sm-8"><% out.write(i.getComplemento()); %><br>
+                                                </dt>
+                                            </dl>
+                                            <% break;
+                                                 }%>
+                                            <!-- Tabela com os Produtos -->	
+                                            <table class="table">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Produto</th>
+                                                        <th scope="col">Quantidade</th>
+                                                        <th scope="col">Preço Unitário</th>
+                                                        <th scope="col">Preço Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% for (Pedido i : individual) {%>
+                                                    <tr>
+                                                        <th scope="row"><% out.write(i.getProduto()); %></th>
+                                                        <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn())); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal())); %></td>
+                                                    </tr>
+                                                    <% }%>
+                                                </tbody>
+                                            </table>
+                                            <!-- Observação -->	
+                                            <dl class="row">
+                                                <dt class="col-sm-12">Observação</dt>
+                                                <dd class="col-sm-12">
+                                                    Pedido sem observações
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- Fim Card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- JS para passar parametros de consulta do pedido -->
     <script>
+            window.onload = function () {
+                $('#modalPedido').modal('show');
+            };
             function acionar(parametro) {
                 document.getElementById('custId').value = parametro
                 document.theForm.submit();
@@ -220,8 +321,7 @@
                     <form action="alterarstatuspedido.jsp" method="post">
                         <h2>Mude o status do pedido aqui:</h2>
                         <div class="forSelect">
-                            <select>
-                                <option value="NA" selected disabled hidden>Selecione aqui</option>
+                            <select id="statusPedido" name="statusPedido">
                                 <option value="Em Preparado">Em preparo</option>
                                 <option value="Pedido à Caminho">A caminho</option>
                                 <option value="Pedido Entregue">Entregue</option>
@@ -277,12 +377,14 @@
                 </thead>
                 <tbody>
                     <% for (Pedido p : pedidos) {%>
-                    <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                        <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
+                    <tr>
+                        <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()));%></td>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
-                        <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
+                        <td><%out.write(String.valueOf(p.getStatus()));%>
+                            <button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>
+                        </td>
                     </tr>
                     <% }%>
                 </tbody>
@@ -296,5 +398,9 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+        <!-- JS para Modal de Pedidos -->
+        <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'></script>
     </body>
 </html>

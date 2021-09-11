@@ -204,12 +204,14 @@
             </div>
         </div>
     </div>
+    <!-- JS para passar parametros de consulta do pedido -->
     <script>
-        function acionar(parametro) {
+            function acionar(parametro) {
                 document.getElementById('custId').value = parametro
-                document.theForm.submit();               
+                document.theForm.submit();
             }
-        </script>
+    </script>
+    <!-- Inicio do body -->
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
