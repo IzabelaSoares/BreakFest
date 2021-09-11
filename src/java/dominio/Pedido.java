@@ -50,7 +50,7 @@ public class Pedido {
     private int fkPedido;
     private String dia;
     private Time hora;
-
+   
     //metodos
     public boolean cadastrarPedido() {
         //comando de execução de banco de dados
@@ -269,7 +269,7 @@ public class Pedido {
                 pedido.setEstado(rs.getString("estado"));
                 pedido.setCidade(rs.getString("cidade"));
                 pedido.setBairro(rs.getString("bairro"));
-                pedido.setRua("rua");
+                pedido.setRua(rs.getString("rua"));
                 pedido.setComplemento(rs.getString("complemento"));
                 pedido.setNumero(rs.getInt("numero"));
                 pedido.setTotalCompra(rs.getDouble("totalcompra"));
@@ -645,6 +645,6 @@ public class Pedido {
     public void setHora(Time hora) {
         this.hora = hora;
     }
-    
-    
+
+     
 }

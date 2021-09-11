@@ -1,7 +1,7 @@
 <%-- 
     Document   : consultarpedidofisico
     Created on : 8 de set. de 2021, 13:37:54
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Author     : Izabela
 --%>
 
 <%@page import="java.text.SimpleDateFormat"%>
@@ -55,6 +55,7 @@
             String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
             String cpf = pf.procuraCpf(fkemail);
 
+            //Lista do pedido para pessoa fisica
             Pedido pedido = new Pedido();
             List<Pedido> pedidos = pedido.consultarPedidosUsuarioFisico(cpf);
             
@@ -204,10 +205,117 @@
             </div>
         </div>
     </div>
+    <!-- Modal para ver dados do pedido especifico -->
+    <%
+     String fkId = request.getParameter("custId");
+     Integer valor = Integer.valueOf(fkId);
+     
+     //produtos pedido
+     Pedido dados = new Pedido();
+     List<Pedido> individual = dados.consultarPedidoIndividual(fkId);   
+
+    %>
+    <div class="modal fade" id="modalPedido" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <br>
+                    <div class="w-auto p-3">
+                        <!-- Inicio do Card dos Detalhes do Pedido -->	
+                        <div  class="fade show active " id="order" aria-labelledby="nav-home-tab">	
+                            <div class="row">
+                                <div class="col-md-auto">
+                                    <div class="card w-100">
+                                        <!-- Cabeçalho do Card-->
+                                        <% for (Pedido i : individual) {%>
+                                        <div class="card-header">
+                                            <div class="d-inline h4">Detalhes do Pedido #<%out.write(fkId); %></div>
+                                            
+                                        </div>
+                                        <!-- Dados Principais -->	
+                                        <div class="card-body">
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Empresa </dd>
+                                                <dt class="col-sm-8"><% out.write(i.getNomeFantasia()); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Total Produtos</dd>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                                <dd class="col-sm-4">Frete </dd>								
+                                                <dt class="col-sm-8">R$ 0.00</dt>
+                                                <dd class="col-sm-4">Valor Total </dd>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Data de Emissão</dd>
+                                                <dt class="col-sm-8"><%out.write(String.valueOf(formato.format(i.getDataPedido())));%></dt>
+                                                <dd class="col-sm-4">Status</dd>
+                                                <dt class="col-sm-8"><% out.write(String.valueOf(i.getStatus())); %></dt>
+                                            </dl>
+                                            <dl class="row">
+                                                <dd class="col-sm-4">Endereço de Entrega</dd>
+                                                <dt class="col-sm-8">
+                                                    <% out.write(i.getCep() + ", " + i.getCidade() + "-" + i.getEstado());%><br>
+                                                    <% out.write(i.getRua() + ", numero " + String.valueOf(i.getNumero())); %>
+                                                </dt>
+                                                <dd class="col-sm-4">Complemento</dd>
+                                                <dt class="col-sm-8"><% out.write(i.getComplemento()); %><br>
+                                                </dt>
+                                            </dl>
+                                             <% break; }%>
+                                            <!-- Tabela com os Produtos -->	
+                                            <table class="table">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Produto</th>
+                                                        <th scope="col">Quantidade</th>
+                                                        <th scope="col">Preço Unitário</th>
+                                                        <th scope="col">Preço Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% for (Pedido i : individual) {%>
+                                                    <tr>
+                                                        <th scope="row"><% out.write(i.getProduto()); %></th>
+                                                        <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn())); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal())); %></td>
+                                                    </tr>
+                                                    <% }%>
+                                                </tbody>
+                                            </table>
+                                            <!-- Observação -->	
+                                            <dl class="row">
+                                                <dt class="col-sm-12">Observação</dt>
+                                                <dd class="col-sm-12">
+                                                    aqui é a observação do pedido
+                                                </dd>
+                                            </dl>
+                                            <!-- Botões com as Opções de Confirmar e Cancelar-->
+                                            <div class="float-lg-middle">
+                                                <button type="button" style="size: 10" class="btn btn-success">Pedido Recebido</button> 
+                                                &nbsp;&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-danger">Cancelar Pedido</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- Fim Card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        function acionar(parametro) {
-                document.getElementById('custId').value = parametro
-                document.theForm.submit();               
+            window.onload = function () {
+                $('#modalPedido').modal('show');
+            };
+            function acionar(parametro) {
+                document.getElementById('custId').value = parametro                
+                document.theForm.submit();
             }
         </script>
     <body class="tabela">
@@ -261,7 +369,7 @@
                 </tbody>               
             </table>
             <form id="theForm" name="theForm" action="consultarpedidofisico_1.jsp" method="post">
-                <input type="hidden" id="custId" name="custId" value="3487">
+                <input type="hidden" id="custId" name="custId" value="">
             </form>
         </div>   
         
