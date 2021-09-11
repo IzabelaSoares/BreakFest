@@ -239,7 +239,8 @@ public class Pedido {
     }
     
     //consultar pedido especifico com todos os dados (pedido, produtos do pedido,pessoa juridica e pessoa fisica) 
-    public List<Pedido> consultarPedidoIndividual(Integer pIdPedido) {
+    public List<Pedido> consultarPedidoIndividual(String individual) {
+        Integer pIdPedido = Integer.parseInt(individual);
         List<Pedido> lista = new ArrayList<>();
         //comando de execução de banco de dados
         String sql = "SELECT pedido.*, pessoafisica.*, pessoajuridica.*, produtospedido.* " +
