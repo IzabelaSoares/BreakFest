@@ -42,8 +42,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         
-        <!-- Link da página "uprodutos-padaria-comprar" em css -->
+        <!-- Link do Estilo Principal -->
         <link rel="stylesheet" href="styles/produtos-padaria-comprar.css">
+        <link rel="stylesheet" href="styles/dias-da-semana.css">
     </head>
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
@@ -336,6 +337,7 @@
         <!-- JS Comprar produtos -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
         <script  src="scripts/produtos-padaria-comprar.js"></script>
+        <script src="scripts/dias-da-semana.js"></script>
         
         <!-- JS Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

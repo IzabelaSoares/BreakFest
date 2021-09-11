@@ -375,6 +375,8 @@
         <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
         <div class="botoes">
             <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
+                <!-- Input de importar os produtos -->
+                <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
                 <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Novo Produto</button> &nbsp
                 <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
                 <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
@@ -413,9 +415,6 @@
             </table>   
         </div>
     </div>
-    <!-- Input de importar os produtos -->
-    <input type="hidden" id="produtos-teste" name="produtosteste" value="">   
-
     <!-- JS de produtos padrão -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://unpkg.com/popper.js'></script>
