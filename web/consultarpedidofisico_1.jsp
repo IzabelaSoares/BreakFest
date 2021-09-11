@@ -208,7 +208,7 @@
     <!-- Modal para ver dados do pedido especifico -->
     <%        String fkId = request.getParameter("custId");
         Integer valor = Integer.valueOf(fkId);
-
+        
         //produtos pedido
         Pedido dados = new Pedido();
         List<Pedido> individual = dados.consultarPedidoIndividual(fkId);
@@ -296,14 +296,16 @@
                                                 <dt class="col-sm-12">Alterar o Status do Pedido</dt>
                                                 <dd class="col-sm-12">
                                                     <div class="float-lg-middle">
-                                                        <form action="alterarstatuspedido.jsp" method="post">
+                                                        <% Pedido ped = new Pedido(); %>
+                                                        <form action="recebealterarstatus.jsp" method="post">
                                                             <div class="forSelect">
-                                                                <select>
+                                                                <select name="status">
                                                                     <option value="NA" selected disabled hidden>Selecione aqui</option>
                                                                     <option value="Entregue">Pedido Entregue</option>
                                                                     <option value="Cancelado">Cancelar Pedido</option>
                                                                 </select>  
                                                             </div>
+                                                            <% request.getSession().setAttribute("idped", fkId); %>
                                                             <br>
                                                             <button class="enviarStatus" type="submit">Enviar</button>
                                                         </form>
