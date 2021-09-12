@@ -290,7 +290,7 @@ public class PessoaJuridica {
     //cadastro de mídias sociais
     public boolean cadastrarMidias(){
         //comando de execução de banco de dados
-        String sql = "update pessoajuridica set instagram=?, facebook=? " 
+        String sql = "update pessoajuridica set instagram=?, facebook=?, imagem=? " 
                    + "where cnpj = ?";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -299,7 +299,8 @@ public class PessoaJuridica {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.instagram);
             stm.setString(2, this.facebook);
-            stm.setString(3, this.cnpj);
+            stm.setString(3, this.imagem);
+            stm.setString(4, this.cnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
