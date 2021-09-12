@@ -26,7 +26,6 @@
     <body>
         <div class="container">
             <div class="row">
-                
                 <!-- Inicio Tabela -->
                 <table>
                     <tbody>

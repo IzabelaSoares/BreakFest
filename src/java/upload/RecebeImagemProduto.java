@@ -61,7 +61,6 @@ public class RecebeImagemProduto extends HttpServlet {
                 String unidadeMedida = request.getParameter("unidadedemedida");
                 String descricao = request.getParameter("descricao");
                 Float preco = Float.parseFloat(request.getParameter("preco"));
-                int codPoduto = Integer.parseInt(request.getParameter("codproduto"));
                 String imagem = "imagens/cliente-produto/" + nomeArquivo;
 
                 //Passar os dados para recebe cadastro do produto
@@ -71,7 +70,6 @@ public class RecebeImagemProduto extends HttpServlet {
                 request.getSession().setAttribute("descricao", descricao);
                 request.getSession().setAttribute("unidadeMedida", unidadeMedida);
                 request.getSession().setAttribute("tamanho", tamanho);
-                request.getSession().setAttribute("codproduto", codPoduto);
                 request.getSession().setAttribute("imagem", imagem);
 
                 response.sendRedirect("recebecadastroproduto.jsp");

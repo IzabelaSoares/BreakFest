@@ -14,6 +14,7 @@
     //manda os valores para a classe
     pj.setFacebook(String.valueOf(request.getSession().getAttribute("facebook")));
     pj.setInstagram(String.valueOf(request.getSession().getAttribute("instagram")));
+    pj.setImagem(String.valueOf(request.getSession().getAttribute("localizacao")));
     pj.setCnpj(cnpj);
     
     //se cadastrar midias der certo

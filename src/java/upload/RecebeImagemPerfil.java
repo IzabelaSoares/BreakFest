@@ -72,6 +72,7 @@ public class RecebeImagemPerfil extends HttpServlet {
                 //Tudo certo ele vai mandar para o recebe midias
                 request.getSession().setAttribute("instagram", instagram);
                 request.getSession().setAttribute("facebook", facebook);
+                request.getSession().setAttribute("localizacao", localizacao);
                 response.sendRedirect("recebemidias.jsp");
 
             } else {
