@@ -174,7 +174,14 @@ function displayCart() {
         precoUn += cartArray[i].price + ","
         
         //tabela com todos os dados para o usuário
-        output += "<tr>"
+        output += "<div><tr>"
+                + "<td style='width:200px'>" + cartArray[i].name + "</td>"
+                + "<td style='width:150px'> R$ " + cartArray[i].price + "</td>"
+                + "<td style='width:100px'> " + cartArray[i].count + " un </td>"
+                + "<td style='width:150px'>" + cartArray[i].total + "</td>"
+                + "<td style='width:100px; height:50px'><button class='delete-item btn btn-danger btn-sm' data-name=" + cartArray[i].name + ">X</button></td>"
+                + "</tr></div>";
+        /*output += "<tr>"
                 + "<td>" + cartArray[i].name + "</td>"
                 + "<td>" + cartArray[i].price + "</td>"
                 + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
@@ -184,6 +191,8 @@ function displayCart() {
                 + " = "
                 + "<td>" + cartArray[i].total + "</td>"
                 + "</tr>";
+         * 
+         */
     }
     
     

@@ -14,34 +14,38 @@
         <!-- Título -->
         <meta charset="UTF-8">
         <title>Padarias</title>
-       
+
+        <!-- Imports para Icones e Modais -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
         <!-- Navbar Usuário -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
-        
+
         <!-- Script da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
-        
+
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
-        
+
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <link rel="stylesheet" href="styles/cartaoestilo.css">
         <script src="scripts/cartao-de-credito.js"></script>
-        
+
         <!-- Link do Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        
+
         <!-- Script do Jquery, Cloud Flare e Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        
+
         <!-- Link do Estilo Principal -->
         <link rel="stylesheet" href="styles/produtos-padaria-comprar.css">
         <link rel="stylesheet" href="styles/dias-da-semana.css">
@@ -71,7 +75,7 @@
                 </div>
 
                 <!-- Essa opção será para sair da página, será levado para a página de login -->
-              <li><a href="login.jsp">Sair</a></li>
+                <li><a href="login.jsp">Sair</a></li>
             </ul>
         </nav>
     </header>
@@ -80,11 +84,11 @@
     <%
         //Instanciar a Pessoa Juridica para Consultar os produtos dela
         String cnpj = request.getParameter("padaria");
-        
+
         //Instanciar a Produto
         Produto novo = new Produto();
         List<Produto> produto = novo.consultarProdutosPadaria(cnpj);
-        
+
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -109,7 +113,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="centrocartao">
-                           
+
                             <!-- partial:index.partial.html -->
                             <div class="payment-title">
                                 <p>Informe os Dados do Cartão</p>
@@ -246,11 +250,11 @@
             </div>
         </div>      
         <!-- Fim Nav -->
-        
+
         <!-- Container de Produto -->
         <div class="container">
             <div class="row">
-                
+
                 <!-- Inicio Tabela -->
                 <table>
                     <tbody>
@@ -286,59 +290,115 @@
             </div>
         </div>
         <!-- Fim Container de Produto -->
-        
+
         <!-- Inicio Modal de Compra -->
-        <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+        <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carinho de Compras</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
                     <form action="recebepedido.jsp" method="post">
-                    <div class="modal-body">
-                        <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Produto</th>
-                                <th>Preço Unitário</th>
-                                <th>Quantidade</th>
-                                <th>Preço Total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="show-cart"></tbody>
-                        </table>
-                        <div>Total da Compra R$<span class="total-cart"></span></div>
-                    </div>
-                    <div class="modal-footer">
-                        
-                        <!-- Inputs hidden para passar os dados para o jsp -->
-                        <input type="hidden" id="fkcnpj" name="fkcnpj" value="<% out.write(cnpj); %>">
-                        <input type="hidden" id="fkcpf" name="fkcpf" value="<% out.write(cpf); %>">                       
-                        <input type="hidden" id="produtos" name="produtos" value="">
-                        <input type="hidden" id="preco-unitario" name="preco-unitario" value="">
-                        <input type="hidden" id="quantidade" name="quantidade" value="">
-                        <input type="hidden" id="preco-total" name="preco-total" value="">
-                        <input type="hidden" id="total-compra" name="total-compra" value="">                      
-                        
-                        <!-- Fim Inputs hidden para passar os dados para o jsp -->
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Comprar agora</button>
-                       
-                    </div>
+                        <div class="modal-body">
+                            <div class="w-auto p-3">
+                                <!-- Inicio do Card dos Detalhes do Pedido -->	
+                                <div  class="fade show active " id="order" aria-labelledby="nav-home-tab">	
+                                    <div class="row">
+                                        <div class="w-100">
+                                            <div class="card w-100">
+                                                <!-- Titulo do Modal -->
+                                                <div class="card-header">
+                                                    <div class="d-inline h4">Carrinho de Compras</div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <table class="table">
+                                                        <!-- Cabeçalho dos Produtos -->
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th style='width:200px' scope="col">Produto</th>      
+                                                                <th style='width:150px' scope="col">Preço Unitário</th>
+                                                                <th style='width:100px' scope="col">Quantidade</th>
+                                                                <th style='width:150px' scope="col">Preço Total</th>
+                                                                <th style='width:100px' scope="col">Excluir</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!-- Produtos do Pedido -->
+                                                        <tbody class="show-cart"></tbody>
+                                                    </table>
+                                                    <!-- Observação do Pedido -->
+                                                    <dl class="row">
+                                                        <dt class="col-sm-12">Observação</dt>
+                                                        <dd class="col-sm-8"> 
+                                                            <input class="form-control input-sm" type="text" name="observacao" id="observacao"
+                                                                   placeholder="Preencha se houver alguma observação em seu Pedido">
+                                                        </dd>
+                                                    </dl>
+                                                    <!--Informações de Preço do Pedido -->
+                                                    <dl class="row">
+                                                        <dd class="col-sm-4">Total Produtos</dd>
+                                                        <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
+                                                        <dd class="col-sm-4">Frete </dd>								
+                                                        <dt class="col-sm-8">R$ 0.0</dt>
+                                                        <dd class="col-sm-4">Valor Total </dd>
+                                                        <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
+                                                    </dl>
+                                                    <dl class="row">
+                                                        <dt class="col-sm-12">Deseja agendar esse pedido para mais dias?</dt>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <select id="recorrencia" name="recorrencia" class="form-select col-sm-8">
+                                                            <option value="false">Não</option>
+                                                            <option value="true">Sim</option>
+                                                        </select>
+                                                    </dl>
+                                                    <!-- Selecionar Dias da Semana -->
+                                                    <dl class="row"><dt class="col-sm-12">Selecione os dias da semana que deseja Receber</dt></dl>
+                                                    <div class="combo js-csv">
+                                                        <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="listbox1" class="input-wrapper">
+                                                            <input
+                                                                aria-autocomplete="list"
+                                                                name="dias"
+                                                                id="combo1"
+                                                                class="form-select col-sm-12"
+                                                                type="text">
+                                                        </div>
+                                                        <div class="combo-menu" role="listbox" aria-multiselectable="true" id="listbox1"></div>
+                                                    </div>
+                                                    <!-- Selecionar o Horário que deseja o pedido -->
+                                                    <dl class="row">
+                                                        <dt class="col-sm-12">Selecione o horário que deseja Receber (Formato 24h)</dt>
+                                                        <dd class="col-sm-8"><input type="time" name="horario" class="form-control" /></dd>
+                                                    </dl>
+
+                                                    <!-- Footer do Modal -->
+                                                    <div class="modal-footer">
+                                                        <!-- Inputs hidden para passar os dados para o jsp -->
+                                                        <input type="hidden" id="fkcnpj" name="fkcnpj" value="<% out.write(cnpj); %>">
+                                                        <input type="hidden" id="fkcpf" name="fkcpf" value="<% out.write(cpf);%>">                       
+                                                        <input type="hidden" id="produtos" name="produtos" value="">
+                                                        <input type="hidden" id="preco-unitario" name="preco-unitario" value="">
+                                                        <input type="hidden" id="quantidade" name="quantidade" value="">
+                                                        <input type="hidden" id="preco-total" name="preco-total" value="">
+                                                        <input type="hidden" id="total-compra" name="total-compra" value="">                      
+
+                                                        <!-- Fim Inputs hidden para passar os dados para o jsp -->
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                        <button type="submit" class="btn btn-primary">Comprar agora</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
         <!-- Fim Modal de Compra -->
-       
+
         <!-- JS Comprar produtos -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
         <script  src="scripts/produtos-padaria-comprar.js"></script>
         <script src="scripts/dias-da-semana.js"></script>
-        
+
         <!-- JS Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
