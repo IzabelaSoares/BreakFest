@@ -318,16 +318,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="alterarstatuspedido.jsp" method="post">
+                    <form action="recebealterarstatus.jsp" method="post">
                         <h2>Mude o status do pedido aqui:</h2>
                         <div class="forSelect">
-                            <select id="statusPedido" name="statusPedido">
+                            <select id="statusPedido" name="status">
                                 <option value="Em Preparado">Em preparo</option>
                                 <option value="Pedido à Caminho">A caminho</option>
                                 <option value="Pedido Entregue">Entregue</option>
                                 <option value="Pedido Cancelado">Cancelar Pedido</option>
                             </select>  
                         </div>
+                        <% request.getSession().setAttribute("idped", fkId); %>
                         <br>
                         <button class="enviarStatus" type="submit">Enviar</button>
                     </form>
