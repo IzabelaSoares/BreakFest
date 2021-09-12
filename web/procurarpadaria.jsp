@@ -70,7 +70,7 @@
                                 <% for (PessoaJuridica tudo : listageral) { %>
                                 <td>
                                     <form action="produtospadariacomprar.jsp" method="post"
-                                          id="<%out.write(String.valueOf(tudo.getCnpj()));%>" >
+                                          id="<%out.write(String.valueOf(tudo.getCnpj()));%>" <% request.getSession().setAttribute("fkcnpj", tudo.getCnpj()); %>>
                                         <div class="wsk-cp-product">
                                             <div>
                                                 <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">

@@ -83,7 +83,7 @@
     <!-- Instanciamento de classes e método em Java  -->
     <%
         //Instanciar a Pessoa Juridica para Consultar os produtos dela
-        String cnpj = request.getParameter("padaria");
+        String cnpj = String.valueOf(request.getSession().getAttribute("fkcnpj"));;
 
         //Instanciar a Produto
         Produto novo = new Produto();

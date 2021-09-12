@@ -202,6 +202,15 @@ function alertar(parametro) {
             });
     }
     
+    //Necessita Cartao de Credito para fazer pedido
+    else if (parametro === "NecessitaCartao") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Você precisa ter cartão de crétido cadatrado para fazer um pedido.'
+            });
+    }
+    
     //Email recuperar senha enviado
     else if (parametro === "EmailEnviado") {
         Swal.fire({
@@ -301,6 +310,25 @@ function alertar(parametro) {
             icon: 'error',
             title: 'Mídias não Salvas',
             text: 'Por favor, verifique sua conexão!'
+        });
+    }
+    
+    //Pedido cadastrado
+    else if (parametro === "PedidoCadastrado") {
+        Swal.fire({
+            title: 'Pedido cadastrado!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+    
+    //Imagem não salva
+    else if (parametro === "PedidoNaoCadastrado") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Pedido não salvo',
+            text: 'Algo deu errado no cadastro do seu pedido.'
         });
     }
 }

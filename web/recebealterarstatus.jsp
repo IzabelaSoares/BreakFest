@@ -11,7 +11,7 @@
     p.setIdPedido(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idped"))));
     
     if(p.alterarStatus()){
-        out.write("funcionou bb");
+        response.sendRedirect("consultarpedidofisico.jsp");
     }else{
         out.write("não foi");
     }
