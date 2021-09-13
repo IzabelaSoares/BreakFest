@@ -43,7 +43,7 @@
  
         <!-- Título -->
         <meta charset="utf-8">
-        <title>GALERIA DE SELEÇÃO DE PRODUTOS</title>
+        <title>Break Fest</title>
     </head>
     
     <!-- Inicio da NavBar de cima -->

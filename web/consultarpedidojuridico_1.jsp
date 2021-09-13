@@ -1,7 +1,7 @@
 <%-- 
     Document   : consultarpedidojuridico
     Created on : 8 de set. de 2021, 16:08:19
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Author     : Izabela Maria Soares
 --%>
 
 <%@page import="java.text.SimpleDateFormat"%>
@@ -15,7 +15,7 @@
     <head>
         <meta charset="UTF-8">
         <!-- Título e Favicon -->
-        <title>Tabela de Pedidos Físico</title>
+        <title>Break Fest</title>
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
 
         <!-- Navbar Usuário -->
