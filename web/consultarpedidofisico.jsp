@@ -37,7 +37,9 @@
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
         <!-- CSS, JS e BootStrap do cartão de crédito -->
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/cartaoestilo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <script src="scripts/cartao-de-credito.js"></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
@@ -212,7 +214,7 @@
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
-            <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+            <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
             <h2> Break Fest </h2>
             <nav>
                 <ul id="navbar-list">
@@ -235,7 +237,7 @@
             </nav>
         </header>
         <!-- Lista dos Pedidos Realizados -->
-        <div class="container table-responsive py-5"> 
+        <div class="container py-5"> 
             <table class="table table-bordered table-hover">
                 <thead class="tabelinha">
                     <tr>

@@ -59,7 +59,7 @@
     <!-- Alerta -->
 
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -248,7 +248,7 @@
                                 </form>
                             </div>
                             <!-- partial -->
-                            <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script src="./script.js"></script>
+                            <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
                         </div>
                     </div>
                 </div>

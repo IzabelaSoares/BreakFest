@@ -30,6 +30,8 @@ function mNOME(nome) {
 }
 //Ler os elementos automaticamente conforme o usuário digita
 window.onload = function () {
+    //chamar modal de pedido na tela de consulta
+    $('#modalPedido').modal('show');
     //Chamar a mascara de nome conforme for escrevendo
     id('name').onkeyup = function () {
         mascara(this, mNOME);

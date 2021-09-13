@@ -8,6 +8,12 @@
         <meta charset="UTF-8">
         <title>Padarias</title>
         
+        <!-- Navbar Usuário -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+        <script src="scripts/navbar-usuario.js"></script>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        
         <!-- Imagem -->
         <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
         <meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
@@ -36,16 +42,29 @@
     <body>
         <!-- Inicio da NavBar de cima -->
         <header id="navbar">
-            <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-            <h2> Break Fest </h2>
-            <nav>
-                <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->
-                <ul id="navbar-list">
-                    <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
-                    <li><a href="tipopessoa.jsp">Cadastro</a></li>
-                    <li><a id="login" href="login.jsp">Login</a></li>
-                </ul>
-            </nav>
+            <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <h2> Break Fest </h2>
+        <nav>
+            <ul id="navbar-list">
+                <div class="drop-down">
+                    <div id="dropDown" class="drop-down__button">
+                        <a>Meu Painel</a>
+                    </div>
+
+                    <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
+                    <div class="drop-down__menu-box">
+                        <ul class="drop-down__menu">
+                            <a href="alterarusuariofisico.jsp"><li data-name="profile" class="drop-down__item">Cadastro</li></a>
+                            <a href="consultarpedidofisico.jsp"><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
+                            <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Essa opção será para sair da página, será levado para a página de login -->
+                <li><a href="login.jsp">Sair</a></li>
+            </ul>
+        </nav>
         </header>
         <!-- Fim da NavBar de cima -->
         

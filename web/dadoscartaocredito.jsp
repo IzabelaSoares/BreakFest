@@ -167,7 +167,7 @@
         <button type="submit">Salvar</button>
         
         <!-- Script do cloudflare -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="./script.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
 
     </body>
 </html>

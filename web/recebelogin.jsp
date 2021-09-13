@@ -26,11 +26,11 @@
     //se login for válido para UsuarioFisico
     if (uf.podeLogar(email, request.getParameter("senha"))) {
         request.getSession().setAttribute("resultado", "SucessoLogin");
-        response.sendRedirect("procurarpadaria.jsp");
+        response.sendRedirect("procurarpadaria_1.jsp");
     //se for válido para PessoaJuridica
     }else if (uj.podeLogar(email, request.getParameter("senha"))){ 
         request.getSession().setAttribute("resultado", "SucessoLogin");
-        response.sendRedirect("produtospadrao.jsp");
+        response.sendRedirect("consultarpedidojuridico.jsp");
     } else {
         //login não deu certo
         request.getSession().setAttribute("resultado", "ProblemaLogar");

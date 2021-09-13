@@ -60,7 +60,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -72,8 +72,8 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                     <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
                     <div class="drop-down__menu-box">
                         <ul class="drop-down__menu">
-                            <a><li data-name="profile" class="drop-down__item">Cadastro</li></a>
-                            <a><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
+                            <a href="alterarusuariofisico.jsp"><li data-name="profile" class="drop-down__item">Cadastro</li></a>
+                            <a href="consultarpedidofisico.jsp"><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                         </ul>
                     </div>
@@ -238,7 +238,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
             </form>
         </div>
         <!-- partial -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script src="./script.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
     </div>
   </div>
 </div>

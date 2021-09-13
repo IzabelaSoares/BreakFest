@@ -36,13 +36,12 @@
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
-        <!-- CSS, JS e BootStrap do cartão de crédito -->
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+        <!-- CSS e BootStrap do cartão de crédito -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/cartaoestilo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <!-- JS para o cartão de crédito -->
         <script src="scripts/cartao-de-credito.js"></script>
-
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 
 
@@ -208,7 +207,7 @@
     <!-- Modal para ver dados do pedido especifico -->
     <%        String fkId = request.getParameter("custId");
         Integer valor = Integer.valueOf(fkId);
-        
+
         //produtos pedido
         Pedido dados = new Pedido();
         List<Pedido> individual = dados.consultarPedidoIndividual(fkId);
@@ -239,11 +238,11 @@
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Total Produtos</dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",") + "0"); %></dt>
                                                 <dd class="col-sm-4">Frete </dd>								
                                                 <dt class="col-sm-8">R$ 0,00</dt>
                                                 <dd class="col-sm-4">Valor Total </dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",") + "0"); %></dt>
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Data de Emissão</dd>
@@ -278,8 +277,8 @@
                                                     <tr>
                                                         <th scope="row"><% out.write(i.getProduto()); %></th>
                                                         <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",")+"0"); %></td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",")+"0"); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",") + "0"); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",") + "0"); %></td>
                                                     </tr>
                                                     <% }%>
                                                 </tbody>
@@ -326,13 +325,10 @@
     </div>
     <!-- JS para passar parametros de consulta do pedido -->
     <script>
-                window.onload = function () {
-                    $('#modalPedido').modal('show');
-                };
-                function acionar(parametro) {
-                    document.getElementById('custId').value = parametro
-                    document.theForm.submit();
-                }
+            function acionar(parametro) {
+                document.getElementById('custId').value = parametro
+                document.theForm.submit();
+            }
     </script>
     <body class="tabela">
         <!-- Alerta -->
@@ -360,7 +356,7 @@
             </nav>
         </header>
         <!-- Lista dos Pedidos Realizados -->
-        <div class="container table-responsive py-5"> 
+        <div class="container py-5"> 
             <table class="table table-bordered table-hover">
                 <thead class="tabelinha">
                     <tr>
@@ -376,7 +372,7 @@
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                         <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td><%out.write(p.getNomeFantasia());%></td>
-                        <td><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",")+"0");%></td>
+                        <td><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
                         <td><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%></td>
                     </tr>
