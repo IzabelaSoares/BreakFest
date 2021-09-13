@@ -18,6 +18,7 @@
     
     //Pegar os valores dos produtos
     String titulo = String.valueOf(request.getSession().getAttribute("titulo"));
+    Integer codProduto = Integer.parseInt(String.valueOf(request.getSession().getAttribute("codigoproduto")));
     String categoria = String.valueOf(request.getSession().getAttribute("categoria"));
     String tamanho = String.valueOf(request.getSession().getAttribute("tamanho"));
     String unidadeMedida = String.valueOf(request.getSession().getAttribute("unidadeMedida"));
@@ -27,6 +28,7 @@
 
     //passar os valores para a classe
     prdt.setTitulo(titulo);
+    prdt.setCodProduto(codProduto);
     prdt.setCategoria(categoria);
     prdt.setFkCnpj(fkcnpj);
     prdt.setDescricao(descricao);

@@ -283,10 +283,10 @@
                     <div class="container">
                         <!--  Fomulario de Cadastro -->
                         <form action="RecebeImagemProduto" method="post" enctype="multipart/form-data">
-                            <div class="row">
+                            <div class="row"  style="margin-left: 30px;">
                                 <div class="input-group mb-3"><br>
                                     <!-- Inicio divs do produto -->
-                                    <div style="margin: 0 auto; font-size: 30px; font-family: 'Muli', sans-serif; font-weight: 600; color:#995a1a;">
+                                    <div style="margin-left: 30px; font-size: 30px; font-family: 'Muli', sans-serif; font-weight: 600; color:#995a1a;">
                                         Cadastrar Produto    
                                     </div>
                                     <!-- Titulo Produto  -->
@@ -294,11 +294,24 @@
                                         <div class="form-group row">
                                             <label for="first" class="col-sm-4 col-form-label">Produto</label>
                                             <div class="col-sm-8">
-                                                <input maxlength="30" type="text" class="form-control" 
+                                                <input maxlength="30" type="text" class="form-control" required
                                                        name = "titulo" id="first" placeholder="EX: Café"
                                                        style="height:40px; width:215px; box-shadow:none; 
                                                        border-bottom: 2px solid #995a1a; border-left: 0; 
                                                        border-top: 0; border-right: 0; border-radius: 2px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Código Produto  -->
+                                    <div class="mb-3" style="margin-top: 15px;">
+                                        <div class="form-group row">
+                                            <label for="codigoproduto" class="col-sm-4 col-form-label">Código</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" type="text" class="form-control" 
+                                                       name = "codigoproduto" id="codigoproduto" placeholder="EX: 2134"
+                                                       style="height:40px; width:215px; box-shadow:none; 
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                       border-top: 0; border-right: 0; border-radius: 2px;" required>
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +322,7 @@
                                             <div class="col-sm-8">
                                                 <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px 
                                                         solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" 
-                                                        class="form-control" id="categoria" name="categoria">
+                                                        class="form-control" id="categoria" name="categoria"required>
                                                     <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
                                                     <option value="Doce">Doces</option>
                                                     <option value="Salgado">Salgados</option>
@@ -327,7 +340,7 @@
                                                 <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  
                                                        border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
                                                        border-right: 0; border-radius: 2px;" type="tel" class="form-control" 
-                                                       name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                                                       name = "tamanho" id="phone" required placeholder="EX: Uma xícara de 60 ml">
                                             </div>
                                         </div>
                                     </div>
@@ -340,7 +353,7 @@
                                                 <select style="height:40px; width:215px; box-shadow:none; 
                                                         border-bottom: 2px solid #995a1a; border-left: 0; 
                                                         border-top: 0; border-right: 0; border-radius: 2px;" 
-                                                        class="form-control" name="unidadedemedida">
+                                                        class="form-control" name="unidadedemedida" required>
                                                     <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
                                                     <option value="KG">Quilo</option>
                                                     <option value="G">Grama</option>
@@ -364,7 +377,7 @@
                                                     <input maxlength="500" style="height:40px; width:177px; box-shadow:none; 
                                                            border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
                                                            border-right: 0; border-radius: 2px; outline:none;" type="text" 
-                                                           id="preco" name="preco" placeholder="2,99">
+                                                           id="preco" name="preco" placeholder="2,99" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -379,7 +392,7 @@
                                                           border-bottom: 2px solid #995a1a; border-left: 0;
                                                           border-top: 0; border-right: 0; border-radius: 2px;" 
                                                           name="descricao" id="descricao" class="form-control" 
-                                                          aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                                                          aria-label="With textarea" placeholder="EX: Café Preto sem açúcar" required></textarea>
                                             </div>
                                         </div>
                                     </div>

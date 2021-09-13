@@ -56,6 +56,7 @@ public class RecebeImagemProduto extends HttpServlet {
 
                 //Itens do formulario para salvar os produtos
                 String titulo = request.getParameter("titulo");
+                Integer codigo = Integer.valueOf(request.getParameter("codigoproduto"));
                 String categoria = request.getParameter("categoria");
                 String tamanho = request.getParameter("tamanho");
                 String unidadeMedida = request.getParameter("unidadedemedida");
@@ -65,6 +66,7 @@ public class RecebeImagemProduto extends HttpServlet {
 
                 //Passar os dados para recebe cadastro do produto
                 request.getSession().setAttribute("titulo", titulo);
+                request.getSession().setAttribute("codigoproduto", codigo);
                 request.getSession().setAttribute("categoria", categoria);
                 request.getSession().setAttribute("preco", preco);
                 request.getSession().setAttribute("descricao", descricao);
