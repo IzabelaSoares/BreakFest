@@ -9,6 +9,12 @@
 
 /*Script de Carrinho de Compras da Padaria*/
 
+function recorrenciaPedido() {
+    var recorrencia = document.getElementById("recorrencia");
+    var div = document.getElementById("dados-recorrencia");
+    div.style.display = recorrencia.value == "true" ? "block" : "none";
+}
+
 var shoppingCart = (function () {
     //Array do carrinho
     cart = [];

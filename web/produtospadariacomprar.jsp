@@ -347,12 +347,13 @@
                                                     <dl class="row">
                                                         <dt class="col-sm-12">Deseja agendar esse pedido para mais dias?</dt>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <select id="recorrencia" name="recorrencia" class="form-select col-sm-8">
+                                                        <select id="recorrencia" name="recorrencia" class="form-select col-sm-8" onchange="recorrenciaPedido()">
                                                             <option value="false">Não</option>
                                                             <option value="true">Sim</option>
                                                         </select>
                                                     </dl>
-                                                    <!-- Selecionar Dias da Semana -->
+                                                    <div id="dados-recorrencia" style="display:none">
+                                                        <!-- Selecionar Dias da Semana -->
                                                     <dl class="row"><dt class="col-sm-12">Selecione os dias da semana que deseja Receber</dt></dl>
                                                     <div class="combo js-csv">
                                                         <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="listbox1" class="input-wrapper">
@@ -370,6 +371,7 @@
                                                         <dt class="col-sm-12">Selecione o horário que deseja Receber (Formato 24h)</dt>
                                                         <dd class="col-sm-8"><input type="time" name="horario" class="form-control" /></dd>
                                                     </dl>
+                                                    </div>
 
                                                     <!-- Footer do Modal -->
                                                     <div class="modal-footer">
