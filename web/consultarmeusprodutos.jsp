@@ -434,7 +434,9 @@
                                     <div class="input-group mb-3">
                                         <div id="msg"></div>
                                         <form method="post" id="image-form">
-                                            <input type="file" name="file" class="file" accept="image/*"style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
+                                            <input type="file" name="file" class="file" accept="image/*"
+                                                   style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                   border-top: 0; border-right: 0; border-radius: 2px;">
                                             </div>
 
                                             <!-- Fim divs do produto -->

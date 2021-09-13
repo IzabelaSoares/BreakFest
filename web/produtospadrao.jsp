@@ -421,7 +421,7 @@
                                                         </label>
                                                     </div><br>
                                                     <div class="flex items-center text-sm text-gray-500 mx-2">
-                                                        <span x-text="fileName || emptyText"></span>
+                                                        <span name="nomeArquivo" x-text="fileName || emptyText"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,7 +432,8 @@
                                     <div class="input-group mb-3">
                                         <div id="msg"></div>
                                         <form method="post" id="image-form">
-                                            <input type="file" name="file" class="file" accept="image/*"style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
+                                            <input type="file" name="file" class="file" accept="image/*"
+                                                   style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
                                             </div>
 
                                             <!-- Fim divs do produto -->

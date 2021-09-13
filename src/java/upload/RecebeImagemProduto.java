@@ -25,7 +25,8 @@ public class RecebeImagemProduto extends HttpServlet {
             PessoaJuridica pj = new PessoaJuridica();
 
             //Pegar os itens no formulário para salvar imagem
-            Part part = request.getPart("file");
+            Part part = request.getPart("produto");
+            Part arquivo = request.getPart("produto");
             String email = String.valueOf(request.getSession().getAttribute("usuario"));
             String cnpj = pj.procuraCnpj(email);
             String fkcnpj = cnpj;
@@ -33,7 +34,7 @@ public class RecebeImagemProduto extends HttpServlet {
             String nomeProduto = request.getParameter("titulo");
 
             //Pegar o nome do arquivo
-            String nomeArquivo = part.getSubmittedFileName().toLowerCase();
+            String nomeArquivo = arquivo.getSubmittedFileName();
 
             //Alterar o nome do arquivo (cnpj + produto + tipo do arquivo) para salvar ele
             if (nomeArquivo.contains(".png")) {
@@ -61,7 +62,8 @@ public class RecebeImagemProduto extends HttpServlet {
                 String tamanho = request.getParameter("tamanho");
                 String unidadeMedida = request.getParameter("unidadedemedida");
                 String descricao = request.getParameter("descricao");
-                Float preco = Float.parseFloat(request.getParameter("preco"));
+                String valor = request.getParameter("preco").replace(",", ".");
+                Float preco = Float.parseFloat(valor);
                 int codProduto = Integer.valueOf(request.getParameter("codigoproduto"));
                 String imagem = "imagens/cliente-produto/" + nomeArquivo;
 
