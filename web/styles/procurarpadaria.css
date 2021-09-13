@@ -4,7 +4,7 @@
 /*Fonte e cor do fundo do corpo.*/
 body{
   font-family: 'Muli', sans-serif;
-  background: rgb(255,239,213);
+  background: #FFF;
 }
 
 /*Cor e formatação de underline dos links e parágrafos.*/
@@ -38,7 +38,7 @@ a:hover, p:hover, span:hover
 /*Borda arredondada e sombra da imagem.*/
 .wsk-cp-product img {
     border-radius: 5px;
-    box-shadow: 1px 2px 2px #995a1a;
+    box-shadow: 1px 2px 2px #726E6D;
 }
 
 /*Cor,largura,indicador,margem interna,margem,elemento alinhado,cor de fundo,
@@ -50,7 +50,7 @@ sombra e borda arredondada do produto.*/
   padding: 10px;
   margin: 10px;
   text-align: center;
-  background: #ede6e6;
+  background: #f2f2f2;
   box-shadow: 1px 3px 3px #995a1a;
   border-radius: 4px;
 }
@@ -73,5 +73,9 @@ td{
 .midias img {
     width: 20px;
     height: 20px;
+}
+
+.card-footer {
+    background-color: #f2f2f2;
 }
 

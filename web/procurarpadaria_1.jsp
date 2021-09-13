@@ -6,7 +6,7 @@
     <head>
         <!-- Título -->
         <meta charset="UTF-8">
-        <title>Padarias</title>
+        <title>Break Fest</title>
         
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <link rel="stylesheet" href="styles/cartaoestilo.css">
@@ -228,20 +228,16 @@
                                         <div class="wsk-cp-product">
                                             <div>
                                                 <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                    <img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/>
+                                                    <img src="<%out.write(String.valueOf(tudo.getImagem()));%>" alt="Padaria" class="" style="height: 220px; width: 220px;"/>
                                                 </div>
                                                 <div class="wsk-cp-text">
                                                     <div class="midias">
                                                         <div class="title-product" style="height: 50px;"
                                                              onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                            <h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
+                                                            <h3 style="padding-top: 10px;"> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
                                                             <input type="hidden" id="padaria" name="padaria" 
                                                                    value="<%out.write(String.valueOf(tudo.getCnpj()));%>">
                                                         </div>
-                                                    </div>
-                                                    <div class="description-prod" style="height: 70px;"
-                                                         onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                        <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
                                                     </div>
                                                     <div class="card-footer">
                                                         <div class="wcf-left" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');"> 
