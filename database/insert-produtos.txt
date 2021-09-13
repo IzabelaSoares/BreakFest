@@ -1,205 +1,205 @@
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('bolo de leite ninho', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/bolo.jpg', 'bolo de leite ninho com cobertura de chantilly', 12.00, 'medio', 'un');
+VALUES('Bolo de leite ninho', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/bolo.jpg', 'Bolo de leite ninho com cobertura de chantilly.', 12.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('agua mineral', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/água mineral.jpg', 'garrafinha de agua mineral', 1.50, '500', 'ml');
+VALUES('Água mineral', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/água mineral.jpg', 'Garrafinha de água mineral', 1.50, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('agua com gas', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/água com gás.jpg', 'garrafinha de agua com gas', 2.50, '500', 'ml');
+VALUES('Água com gás', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/água com gás.jpg', 'Garrafinha de água com gás', 2.50, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('baguete', 'pao', 'XX.XXX.XXX/0001-XX','imagens/produtos/baguete.jpg', 'pao frances alongado', 5.50, 'grande', 'un');
+VALUES('Baguete', 'Salgado', 'XX.XXX.XXX/0001-XX','imagens/produtos/baguete.jpg', 'Pão francês alongado', 5.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('banoffee', 'doces', 'XX.XXX.XXX/0001-XX','imagens/produtos/banoffe.jpg', 'torta de bananas com base de biscoitos esfarelados', 12.00, 'medio', 'un');
+VALUES('Banoffee', 'Doce', 'XX.XXX.XXX/0001-XX','imagens/produtos/banoffe.jpg', 'Torta de bananas com base de biscoitos esfarelados e doce de leite.', 12.00, '1', 'FATIA');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('biscoitos de padaria', 'doces', 'XX.XXX.XXX/0001-XX','imagens/produtos/biscoitos de padaria.jpg', 'biscoitos amanteigados', 7.00, '300', 'gramas');
+VALUES('Biscoitos de padaria', 'Doce', 'XX.XXX.XXX/0001-XX','imagens/produtos/biscoitos de padaria.jpg', 'Biscoitos amanteigados', 7.00, '300', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('brigadeiro', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/brigadeiro.jpg', 'brigadeiro de chocolate', 1.50, 'pequeno', 'un');
+VALUES('Brigadeiro', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/brigadeiro.jpg', 'Brigadeiro de chocolate', 1.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('cafe', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/café.jpg', 'cafe expresso', 5.00, 'medio', 'un');
+VALUES('Café', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/café.jpg', 'Café expresso', 5.00, '100', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('capuccino', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/capuccino.jpg', 'cafe expresso com leite vaporizado', 7.00, 'medio', 'un');
+VALUES('Capuccino', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/capuccino.jpg', 'Café expresso com leite vaporizado', 7.00, '200', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('cheesecake', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/cheesecake.jpg', 'torta feita com uma mistura de ovos, queijo e açucar com base de biscoitos', 12.00, 'medio', 'un');
+VALUES('Cheesecake', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/cheesecake.jpg', 'Torta feita com uma mistura de ovos, queijo e açúcar com base de biscoitos', 12.00, '1', 'FATIA');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('chineque', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/chineque.jpg', 'pao doce com farofa doce', 1.00, 'pequeno', 'un');
+VALUES('Chineque', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/chineque.jpg', 'Pão doce com farofa doce', 1.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('coca-cola cafe', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/coca café.jpg', 'coca-cola cafe lata possui 40% a mais de cafeína e 50% menos açúcar', 2.00, '220', 'ml');
+VALUES('Coca-cola de café', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/coca café.jpg', 'Coca-cola de café lata possui 40% a mais de cafeína e 50% menos açúcar', 2.00, '220', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('coca cola', 'bebidas', 'XX.XXX.XXX/0001-XX','imagens/produtos/coca cola.jpg', 'coca cola original lata', 2.50, '500', 'ml');
+VALUES('Coca-cola', 'Bebida', 'XX.XXX.XXX/0001-XX','imagens/produtos/coca cola.jpg', 'Coca-cola original lata', 2.50, '500', 'ml');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('cocada', 'doces', 'XX.XXX.XXX/0001-XX','imagens/produtos/cocada.jpg', 'doce feito a base de coco', 1.00, 'pequeno', 'un');
+VALUES('Cocada', 'Doce', 'XX.XXX.XXX/0001-XX','imagens/produtos/cocada.jpg', 'Doce feito a base de coco', 1.00, '80', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('coxinha', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/coxinha.jpg', 'salgado frito com recheio de frango', 4.00, 'medio', 'un');
+VALUES('Coxinha', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/coxinha.jpg', 'Salgado frito com recheio de frango', 4.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('croissant de frango', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/croissant.jpg', 'massa folhada amanteigada com recheio de frango', 5.00, 'medio', 'un');
+VALUES('Croissant de frango', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/croissant.jpg', 'Massa folhada amanteigada com recheio de frango', 5.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('cuca', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/Cuca.jpg', 'um bolo cozido em tabuleiro de chapa com massa lêveda doce composta por farinha', 15.00, 'media', 'un');
+VALUES('Cuca', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/Cuca.jpg', 'Bolo cozido em tabuleiro de chapa com massa lêveda doce composta por farinha', 15.00, '1', 'FATIA');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('donuts', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/donuts.jpg', 'bolo recheiado em forma de rosca',6.00, 'medio', 'un');
+VALUES('Donuts', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/donuts.jpg', 'Bolo recheado em forma de rosca',6.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('empada', 'salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/empada.jpg', 'tortinha de massa de farinha de trigo com recheio',3.50,'medio', 'un');
+VALUES('Empada', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/empada.jpg', 'Tortinha de massa de farinha de trigo com recheio',3.50,'1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('empadao', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/empadão.jpg', 'uma torta com massa de farinha de trigo recheada', 55.00, 'grande', 'un');
+VALUES('Empadão', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/empadão.jpg', 'Torta com massa de farinha de trigo recheada', 55.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('enroladinho', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/enroladinho.jpg', 'salsichas enroladas por uma massa frita', 3.50, 'pequeno', 'un');
+VALUES('Enroladinho', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/enroladinho.jpg', 'Salsichas enroladas por uma massa frita', 3.50, '1', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('fanta', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/fanta.jpg', 'fanta lata sabor laranja', 3.00, '500', 'ml');
+VALUES('Fanta', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/fanta.jpg', 'Fanta lata sabor laranja', 3.00, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('guarana antarctica', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/guaraná artarctica.jpg', 'guarana antarctica lata', 3.00, '500', 'ml');
+VALUES('Guaraná antarctica', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/guaraná artarctica.jpg', 'Guaraná antarctica lata', 3.00, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('matte leao', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/matte leão.jpg', 'cha matte leao garrafa', 3.00, '500', 'ml');
+VALUES('Matte leão', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/matte leão.jpg', 'Chá matte leão garrafa', 3.00, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('misto quente', 'sanduiches', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/misto quente.jpg', 'sanduiche com queijo e presunto feito na chapa', 5.50, 'medio','un');
+VALUES('Misto quente', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/misto quente.jpg', 'Sanduíche com queijo e presunto feito na chapa', 5.50, '1','UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('mortadela', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/mortadela.jpg', 'embutido feito de carne de bovinos, suínos, de aves e de cubos de gordura.', 13.00, '1', 'kg');
+VALUES('Mortadela', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/mortadela.jpg', 'Embutido feito de carne suína', 13.00, '500', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao australiano', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão australiano.jpg', 'coloração escura, sabor potente, marcante e levemente adocicado', 20.00, 'medio', 'un');
+VALUES('Pão australiano', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão australiano.jpg', 'Coloração escura, sabor potente, marcante e levemente adocicado', 20.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao brioche', 'pao', 'XX.XXX.XXX/0001-XX','imagens/produtos/pão brioche.jpg', 'pao feito com alto teor de manteiga e ovo', 3.50, 'pequeno', 'un');
+VALUES('Pão brioche', 'Salgado', 'XX.XXX.XXX/0001-XX','imagens/produtos/pão brioche.jpg', 'Pão feito com alto teor de manteiga e ovo', 3.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao com bolinho', 'sanduiches', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão com bolinho.jpg', 'sanduiche feito com pao com recheio bolinho de carne', 9.00, 'medio', 'un');
+VALUES('Pão com bolinho', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão com bolinho.jpg', 'Sanduíche feito com pão com recheio bolinho de carne', 9.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao com gergelim', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão com gergelim.jpg', 'pao com gergelim encima o famoso pao de hamburger', 0.75, 'medio', 'un');
+VALUES('Pão com gergelim', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão com gergelim.jpg', 'Pão com gergelim emcima, o famoso pão de hamburger', 0.75, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao de forma', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de forma.jpg', 'pao de forma embalado cortado em fatias', 6.00, 'medio', 'un');
+VALUES('Pão de forma', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de forma.jpg', 'Pão de forma embalado cortado em fatias', 6.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao de massa', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de massa.jpg', 'pao de massa com textura que lembra a de um bolo', 8.00 , 'medio', 'un');
+VALUES('Pão de massa', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de massa.jpg', 'Pão de massa com textura que lembra a de um bolo', 8.00 , '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao de mel', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de mel.jpg', 'doce feito a base de mel,chocolates,especiarias e manteiga', 2.50, 'medio', 'un');
+VALUES('Pão de mel', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de mel.jpg', 'Doce feito a base de mel, chocolates, especiarias e manteiga', 2.50, '100', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao de queijo', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de queijo.jpg', 'um paozinho feito a base de queijo',0.50, 'pequeno', 'un');
+VALUES('Pão de queijo', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão de queijo.jpg', 'Pãozinho feito a base de queijo',0.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao doce', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão doce.jpg', 'pao de massa doce com creme de baunilha decorado com frutas', 1.00, 'medio', 'un');
+VALUES('Pão doce', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão doce.jpg', 'Pão de massa doce com creme de baunilha decorado com frutas', 1.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao frances', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão francês.jpg', 'o tradicional pao frances ', 7.45, 'medio', 'kg');
+VALUES('Pão frances', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão francês.jpg', 'Tradicional pão frances ', 1.0, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pao sirio', 'pao', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão sírio.jpg', 'um pão folha que pode ser recheado e consumido como um sanduíche',5.20, 'medio', 'un');
+VALUES('Pão sirio', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pão sírio.jpg', 'Pão folha que pode ser recheado e consumido como um sanduíche',5.20, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pastel de forno', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pastel de forno.jpg', 'pastel feito no forno com massa de farinha de trigo recheado', 5.00, 'medio', 'un');
+VALUES('Pastel de forno', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pastel de forno.jpg', 'Pastel feito no forno com massa de farinha de trigo recheado', 5.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pastel', 'salgados', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pastel.jpg', 'pastel frito no oleo', 4.50, 'medio', 'un');
+VALUES('Pastel', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pastel.jpg', 'Pastel frito no óleo', 4.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pepsi', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pepsi.jpg', 'refrigerante pspsi cola lata', 2.47, '500', 'ml');
+VALUES('Pepsi', 'Bebida', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pepsi.jpg', 'Refrigerante Pepsi cola lata', 2.47, '500', 'ML');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('presunto', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/presunto.jpg', 'formado pela perna inteira do porco, que é curada temperada e defumada', 25.00, '1', 'kg');
+VALUES('Presunto', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/presunto.jpg', 'Formado pela perna inteira do porco, que é curada temperada e defumada', 25.00, '500', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('pudim', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pudim.jpg', 'feito com uma mistura de ovos e leite condensado e depois e congelado', 10.00, 'medio', 'un');
+VALUES('Pudim', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/pudim.jpg', 'Feito com uma mistura de ovos e leite condensado', 10.00, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('queijo mussarela', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo mussarela.jpg', 'produzido pela coagulação do leite de vacas,cabras', 26.50 , '1', 'kg');
+VALUES('Queijo mussarela', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo mussarela.jpg', 'Produzido pela coagulação do leite de vaca', 26.50 , '500', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('queijo ricota', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo ricota.jpg', 'O requeijão ou ricota é um derivado de queijo de massa mole, fresco e com baixo teor de gordura.', 8.50, '500', 'gramas');
+VALUES('Queijo ricota', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo ricota.jpg', 'O requeijão ou ricota é um derivado de queijo de massa mole, fresco e com baixo teor de gordura.', 8.50, '500', 'G');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('queijo suiço', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo suico.jpg', 'feito com leite de vaca, com pasta prensada cozinhada é mergulhado em água salgada', 65.00, '1', 'kg');
+VALUES('Queijo suiço', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/queijo suico.jpg', 'Feito com leite de vaca, com pasta prensada cozinhada e mergulhado em água salgada', 65.00, '1', 'KG');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('quidim', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/quidim.jpg', 'Doce feito a partir da gema de ovo, açúcar e coco ralado', 8.50, 'medio', 'un');
+VALUES('Quidim', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/quidim.jpg', 'Doce feito a partir da gema de ovo, açúcar e coco ralado', 8.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('rocambole', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/rocambole.jpg', 'feito com massa comum de bolo, a cobertura é passada sobre o bolo, para que seja enrolado sobre si mesmo', 38.00, 'grande', 'un');
+VALUES('Rocambole', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/rocambole.jpg', 'Feito com massa comum de bolo, a cobertura é passada sobre o bolo, para que seja enrolado sobre si mesmo', 38.00, '1', 'FATIA');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('salame', 'frios', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/salame.jpg', 'preparado a base de carne bovina ou suína, com 25% de gordura, junto à especiarias', 68.00, 'grande', 'kg');
+VALUES('Salame', 'Salgado', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/salame.jpg', 'Preparado a base de carne bovina ou suína, com 25% de gordura, junto à especiarias', 68.00, '1', 'KG');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('sonho', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/sonho.jpg', 'Sonhos são pães feitos com massa fermentada e fritos em óleo, recheados com doce de leite, creme de confeiteiro, geleia de goiaba,entre outros', 4.50, 'medio', 'un');
+VALUES('Sonho', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/sonho.jpg', 'Sonhos são pães feitos com massa fermentada e fritos em óleo, recheados com doce de leite, creme de confeiteiro, geleia de goiaba,entre outros', 4.50, '1', 'UN');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('sucos', 'bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/sucos.jpg', 'sucos da polpa de variadas frutas a sua escolha', 7.00, '300', 'ml');
+VALUES('Sucos', 'Bebidas', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/sucos.jpg', 'Sucos da polpa de variadas frutas a sua escolha', 7.00, '300', 'ml');
 
 INSERT INTO public.produto
 (titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, unidadedemedida)
-VALUES('torta', 'doces', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/torta.jpg', 'base feita com biscoitos triturados e recheio ', 15.00, 'grande', 'un');
+VALUES('Torta', 'Doce', 'XX.XXX.XXX/0001-XX', 'imagens/produtos/torta.jpg', 'Base feita com biscoitos triturados e recheio ', 15.00, '1', 'FATIA');
 
 
