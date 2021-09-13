@@ -251,13 +251,14 @@
                         <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
                         <div class="drop-down__menu-box">
                             <ul class="drop-down__menu">
-                                <a href="alterarusuariojuridico.jsp"><li data-name="profile" class="drop-down__item">Cadastro</li></a>
-                                <a href="consultarpedidofisico.jsp"><li data-name="dashboard" class="drop-down__item">Pedidos</li></a>
+                                <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
+                                <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
                                 <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
+                                <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
+                                <a href="produtospadrao.jsp"><li class="drop-down__item">Produtos</li></a> 
                             </ul>
                         </div>
                     </div>
-
                     <!-- Essa opção será para sair da página, será levado para a página de login -->
                     <li><a href="login.jsp">Sair</a></li>
                 </ul>
@@ -280,7 +281,7 @@
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                         <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",")+"0");%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
                     </tr>

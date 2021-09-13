@@ -18,6 +18,8 @@
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
 
+        <link rel="stylesheet" href="styles/cadastro-produto.css"/>
+
         <!-- Título e imports padrão -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Break Fest</title>
@@ -46,7 +48,6 @@
         <link rel="stylesheet" href="styles/util.css">
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         <script src="scripts/galeria-de-produtos.js"></script>
-        <script src="scripts/produtos-importar.js"></script>
     </head>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar" onload="javascript: alertar(resultado)">
@@ -278,84 +279,143 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-
                     <!-- Inicio divs de container -->
                     <div class="container">
-
-                        <!--  <form> -->
+                        <!--  Fomulario de Cadastro -->
                         <form action="RecebeImagemProduto" method="post" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="input-group mb-3">
-
+                                <div class="input-group mb-3"><br>
                                     <!-- Inicio divs do produto -->
-                                    <h2>Cadastrar Produto</h2>
-                                    <br><br>
-
+                                    <div style="margin: 0 auto; font-size: 30px; font-family: 'Muli', sans-serif; font-weight: 600; color:#995a1a;">
+                                        Cadastrar Produto    
+                                    </div>
                                     <!-- Titulo Produto  -->
-                                    <div class="input-group mb-3">
-                                        <div class="form-group">
-                                            <label for="first">Produto</label>
-                                            <input maxlength="30" style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="text" class="form-control" name = "titulo" id="first" placeholder="EX: Café">
+                                    <div class="mb-3" style="margin-top: 15px;">
+                                        <div class="form-group row">
+                                            <label for="first" class="col-sm-4 col-form-label">Produto</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" type="text" class="form-control" 
+                                                       name = "titulo" id="first" placeholder="EX: Café"
+                                                       style="height:40px; width:215px; box-shadow:none; 
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                       border-top: 0; border-right: 0; border-radius: 2px;">
+                                            </div>
                                         </div>
                                     </div>
-
                                     <!-- Categoria   -->
-                                    <div class="input-group mb-3">
-                                        <div class="form-group">
-                                            <label for="categoria">Categoria do Produto</label>
-                                            <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="categoria">
-                                                <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
-                                                <option value="Doce">Doce</option>
-                                                <option value="Salgado">Salgado</option>
-                                                <option value="Bebida">Bebida</option>
-                                                <option value="Agridoce">Agridoce</option>
-                                            </select>
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="categoria" class="col-sm-4 col-form-label">Categoria</label>
+                                            <div class="col-sm-8">
+                                                <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px 
+                                                        solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" 
+                                                        class="form-control" id="categoria" name="categoria">
+                                                    <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
+                                                    <option value="Doce">Doces</option>
+                                                    <option value="Salgado">Salgados</option>
+                                                    <option value="Bebida">Bebidas</option>
+                                                    <option value="Agridoce">Frios</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-
                                     <!-- Tamanho  -->
-                                    <div class="input-group mb-3">
-                                        <div class="form-group">
-                                            <label for="phone">Tamanho/Medida</label>
-                                            <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" type="tel" class="form-control" name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="first" class="col-sm-4 col-form-label">Tamanho</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
+                                                       border-right: 0; border-radius: 2px;" type="tel" class="form-control" 
+                                                       name = "tamanho" id="phone" placeholder="EX: Uma xícara de 60 ml">
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- Unidade de Medida  -->
-                                    <div class="input-group mb-3">
-                                        <div class="form-group">
-                                            <label for="categoria">Unidade de Medida</label>
-                                            <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="unidadedemedida">
-                                                <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
-                                                <option value="KG">Quilo</option>
-                                                <option value="G">Grama</option>
-                                                <option value="L">Litro</option>
-                                                <option value="ML">Ml</option>
-                                                <option value="FATIA">Fatia</option>
-                                                <option value="UN">Unidade</option>
-                                            </select>
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="unidadedemedida" class="col-sm-4 col-form-label">Unidade de Medida</label>
+                                            <div class="col-sm-8" style="padding: 0" >
+                                                <select style="height:40px; width:215px; box-shadow:none; 
+                                                        border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                        border-top: 0; border-right: 0; border-radius: 2px;" 
+                                                        class="form-control" name="unidadedemedida">
+                                                    <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
+                                                    <option value="KG">Quilo</option>
+                                                    <option value="G">Grama</option>
+                                                    <option value="L">Litro</option>
+                                                    <option value="ML">Ml</option>
+                                                    <option value="FATIA">Fatia</option>
+                                                    <option value="UN">Unidade</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- Preço do Produto  -->
-                                    <label>Preço do Produto</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span style="border-style:none; height: 40px;" class="input-group-text">R$</span>
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="preco" class="col-sm-4 col-form-label">Preço</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group-prepend">
+                                                    <span for="preco" style="border-style:none; height: 40px;" class="input-group-text">R$</span>
+
+                                                    <input maxlength="500" style="height:40px; width:177px; box-shadow:none; 
+                                                           border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
+                                                           border-right: 0; border-radius: 2px; outline:none;" type="text" 
+                                                           id="preco" name="preco" placeholder="2,99">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <input maxlength="500" style="height:40px; width:177px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px; outline:none;" type="text" id="preco" name="preco" placeholder="2,99">
-                                    </div>
+                                    </div>   
 
                                     <!-- Descrição do Produto  -->
                                     <div class="input-group mb-3">
                                         <div class="form-group">
                                             <label for="descricao">Descrição do Produto</label>
-                                            <textarea style="height:80px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" name="descricao" id="descricao" class="form-control" aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                                            <div class="col-sm-12">
+                                                <textarea style="height:80px; width:310px; box-shadow:none; 
+                                                          border-bottom: 2px solid #995a1a; border-left: 0;
+                                                          border-top: 0; border-right: 0; border-radius: 2px;" 
+                                                          name="descricao" id="descricao" class="form-control" 
+                                                          aria-label="With textarea" placeholder="EX: Café Preto sem açúcar"></textarea>
+                                            </div>
                                         </div>
                                     </div>
-
+                                    <br>
                                     <!-- Selecionar a Imagem  -->
-                                    <label>Selecione uma imagem quadrada para o seu produto</label>
+                                    <div id="center">
+                                        <div x-data="imageData()" class="file-input flex items-center">
+
+                                            <!--          //////////                      Preview da Imagem                      ////////                -->
+                                            <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+
+                                                <!-- Placeholder da Imagem -->
+                                                <div >
+
+                                                    <!-- Input de foto -->
+                                                    <div class="rounded-md shadow-sm">
+                                                        <input @change="updatePreview($refs)" x-ref="input"
+                                                                type="file" maxlength="50px" 
+                                                                accept="image/*,capture=camera" 
+                                                                name="produto" id="produto" 
+                                                                class="custom">
+                                                        <label for="produto" style="border-left: none;
+                                                               border-bottom: 2px solid #995a1a; border-top: none; 
+                                                               border-right: none; padding-left: 8px; padding-right: 8px;">
+                                                            Adicionar Imagem ao Produto
+                                                        </label>
+                                                    </div><br>
+                                                    <div class="flex items-center text-sm text-gray-500 mx-2">
+                                                        <span x-text="fileName || emptyText"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+
                                     <div class="input-group mb-3">
                                         <div id="msg"></div>
                                         <form method="post" id="image-form">
@@ -367,33 +427,30 @@
                                         </form>
                                     </div>
                                 </div>
-
-                                <!--  </form> -->
                         </form>
                     </div>
-
                     <!-- Fim divs de container -->
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container">
-        <h1>Selecione produtos: </h1>
-        <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>
+        <br>
         <div class="botoes">
             <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
                 <!-- Input de importar os produtos -->
                 <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
-                <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Novo Produto</button> &nbsp
+                <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Cadastrar Produto</button> &nbsp
                 <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
                 <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
             </form>
         </div>
         <br>
+        <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>        
+        <h1>Selecione produtos</h1><br>
         <div class="borda">
             <table class="table table-image">
-                <thead>
+                <thead class="tabelaThead">
                     <tr>
                         <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
                         <th class="titulo" >Imagem</th>
@@ -408,21 +465,24 @@
                 <tbody id="table">
                     <tr>
                         <% for (Produto n : consulta) {%>
+
                         <td class="check"><input type="checkbox" 
                                                  data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
                         <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
                         <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
                         <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
-                        <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao().toUpperCase());%>"><%out.write(n.getDescricao().toUpperCase());%></td>
+                        <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao());%>"><%out.write(n.getDescricao());%></td>
                         <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
                         <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
-                        <td name="preco" class="preco"><%out.write(String.valueOf(n.getPreco()));%></td>
+                        <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
                     </tr>
+
                     <%}%>
                 </tbody>
             </table>   
         </div>
     </div>
+    <br><br><br>
     <!-- JS de produtos padrão -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://unpkg.com/popper.js'></script>

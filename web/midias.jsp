@@ -13,7 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <!-- Link do CloudFlare -->
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css'><link rel="stylesheet" href="styles/midias.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css'>
+        <link rel="stylesheet" href="styles/midias.css">
         
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
@@ -92,7 +93,8 @@
             </div>
             
             <!-- Script do Cloud Flare -->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script>
+            <script  src="scripts/midias.js"></script>
 
     </body>
 </html>

@@ -28,3 +28,15 @@ window.onload = function() {
       });
     });
 }
+
+//Função para importar produtos selecionados para portifólio do cliente
+function importar() {
+    let idproduto = [];
+    document.querySelectorAll('.importar-produto').forEach(function (elemento) {
+        if (elemento.checked === true) {
+            idproduto.push(elemento.getAttribute("data-id"));
+        }
+    });  
+    document.getElementById("produtos-teste").value = idproduto;
+     //Formato JSON.stringify(idproduto);
+}
