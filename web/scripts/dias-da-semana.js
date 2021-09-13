@@ -1,5 +1,5 @@
 // options for all examples
-const options = ['Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'];
+const options = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
 /*
  * Helper constants and functions

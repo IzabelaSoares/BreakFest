@@ -6,7 +6,9 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
 <%@page import="dominio.PessoaFisica"%>
-<%  //instancia a pessoa física = PF
+<%  request.setCharacterEncoding("UTF-8");
+
+    //instancia a pessoa física = PF
     PessoaFisica pf = new PessoaFisica();
     
     //instanciar o login da = PF

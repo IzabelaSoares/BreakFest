@@ -13,7 +13,7 @@
 <%@page import="java.sql.Date"%>
 <%@page import="dominio.Pedido"%>
 <%@page import="dominio.PessoaFisica"%>
-<%
+<% request.setCharacterEncoding("UTF-8");
     //Dados de Padaria e Cliente
     String fkcnpj = request.getParameter("fkcnpj");
     String fkcpf = request.getParameter("fkcpf");
@@ -22,6 +22,7 @@
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
     String status = "PAGAMENTO APROVADO";
     String dias = request.getParameter("dias");
+    Boolean deuCerto = true;
 
     String horaPedido = String.valueOf(request.getParameter("horario"));
     
@@ -115,7 +116,7 @@
                 if(dia.get(d).contains("Segunda")){
                     diasemana = 1;
                     diaSemana = "Segunda";
-                }else if (dia.get(d).contains("Terca")){
+                }else if (dia.get(d).contains("Terça")){
                     diasemana = 2;
                     diaSemana = "Terça";
                 }else if (dia.get(d).contains("Quarta")){
@@ -127,7 +128,7 @@
                 }else if (dia.get(d).contains("Sexta")){
                     diasemana = 5;
                     diaSemana = "Sexta";
-                }else if (dia.get(d).contains("Sabado")){
+                }else if (dia.get(d).contains("Sábado")){
                     diasemana = 6;
                     diaSemana = "Sábado";
                 }
@@ -168,13 +169,14 @@
                         produtos.setPrecoTotal(precoTotal);
 
                         //inserir no database
-                        produtos.cadastrarProdutosPedido();
+                        produtos.cadastrarProdutosPedido(); 
                     }
-
+                    
+                    
                 }
+                
+               // response.sendRedirect("procurarpadaria.jsp");
 
-                request.getSession().setAttribute("resultado", "PedidoCadastrado");
-                response.sendRedirect("consultarpedidofisico.jsp");
             }
         }else{
             dias = null;
@@ -237,4 +239,6 @@
         request.getSession().setAttribute("resultado", "NecessitaCartao");
         response.sendRedirect("produtospadariacomprar.jsp");
     }
+    
+    response.sendRedirect("consultarpedidofisico.jsp");
 %>

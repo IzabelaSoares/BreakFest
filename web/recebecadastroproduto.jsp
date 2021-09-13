@@ -25,6 +25,7 @@
     String descricao = String.valueOf(request.getSession().getAttribute("descricao"));
     Float preco = Float.parseFloat(String.valueOf(request.getSession().getAttribute("preco")));
     String imagem = String.valueOf(request.getSession().getAttribute("imagem"));
+    int codigoProduto = Integer.parseInt(String.valueOf(request.getSession().getAttribute("codproduto")));
 
     //passar os valores para a classe
     prdt.setTitulo(titulo);
@@ -36,13 +37,14 @@
     prdt.setTamanho(tamanho);
     prdt.setUnidadeDeMedida(unidadeMedida);
     prdt.setImagem(imagem);
+    prdt.setCodProduto(codProduto);
     
     //se cadastrar produto
     if (prdt.cadastrarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");
-        response.sendRedirect("perfil.jsp");
+        response.sendRedirect("consultarmeusprodutos.jsp");
     } else {
         request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
-        response.sendRedirect("cadastroproduto.jsp");
+        response.sendRedirect("consultarmeusprodutos.jsp");
     }
 %> 
