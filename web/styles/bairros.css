@@ -18,7 +18,7 @@
 }
 
 /*Bordas,gerador de conteúdo em um elemento,indicador,altura,controlador de 
-elemento,posição,lado direito,espaço de cima,modificadores de espaço e largura.*/
+elemento,posição,lado direito,espaço de cima,modificador de espaço e largura.*/
 .combo::after {
   border-bottom: 2px solid #cacaca;
   border-right: 2px solid #cacaca;
