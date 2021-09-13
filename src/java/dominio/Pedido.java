@@ -35,6 +35,7 @@ public class Pedido {
     private Integer numero;
     private String complemento;
     private Double totalCompra;
+    private Time horaEmissao;
     
     //variaveis usuario fisico
     private String nome;
@@ -55,8 +56,8 @@ public class Pedido {
     public boolean cadastrarPedido() {
         //comando de execução de banco de dados
         String sql = "INSERT INTO public.pedido (fkcpf, fkcnpj, observacao, datapedido, "
-                + "status, recorrencia, cep, estado, cidade, bairro, rua, numero, complemento, totalcompra)"
-                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "status, recorrencia, horaemissao, cep, estado, cidade, bairro, rua, numero, complemento, totalcompra)"
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -68,14 +69,15 @@ public class Pedido {
             stm.setDate(4, this.dataPedido);
             stm.setString(5, this.status);
             stm.setBoolean(6, this.recorrencia);
-            stm.setString(7, this.cep);
-            stm.setString(8, this.estado);
-            stm.setString(9, this.cidade);
-            stm.setString(10, this.bairro);
-            stm.setString(11, this.rua);
-            stm.setInt(12, this.numero);
-            stm.setString(13, this.complemento);
-            stm.setDouble(14, this.totalCompra);
+            stm.setTime(7, this.horaEmissao);
+            stm.setString(8, this.cep);
+            stm.setString(9, this.estado);
+            stm.setString(10, this.cidade);
+            stm.setString(11, this.bairro);
+            stm.setString(12, this.rua);
+            stm.setInt(13, this.numero);
+            stm.setString(14, this.complemento);
+            stm.setDouble(15, this.totalCompra);
             //executando comando
             stm.execute();
         } catch (SQLException ex) {
@@ -646,5 +648,14 @@ public class Pedido {
         this.hora = hora;
     }
 
+    public Time getHoraEmissao() {
+        return horaEmissao;
+    }
+
+    public void setHoraEmissao(Time horaEmissao) {
+        this.horaEmissao = horaEmissao;
+    }
+
+    
      
 }

@@ -3,6 +3,8 @@
     Created on : 05/09/2021, 14:17:20
     Author     : Izabela e Maria
 --%>
+<%@page import="java.time.LocalTime"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="dominio.Cartao"%>
 <%@page import="java.sql.Time"%>
@@ -22,8 +24,9 @@
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
     String status = "PAGAMENTO APROVADO";
     String dias = request.getParameter("dias");
-    Boolean deuCerto = true;
 
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+    Time horaEmissao = Time.valueOf(dtf.format(LocalTime.now()));
     String horaPedido = String.valueOf(request.getParameter("horario"));
     
     //Data do Pedido
@@ -79,6 +82,10 @@
     
     //Instanciar Pedido
     Pedido novo =  new Pedido();
+    String obs = request.getParameter("observacao");
+    if(obs == null){
+        obs = "";
+    }
     
     //setar os dados para tabela pedido
     novo.setFkCpf(fkcpf);
@@ -95,6 +102,8 @@
     novo.setComplemento(complemento);
     novo.setObservacao("testando");
     novo.setTotalCompra(totalCompra);
+    novo.setHoraEmissao(horaEmissao);
+    novo.setObservacao(obs);
     
     //setar os dados para a tabela de diasemana
     Time hora = Time.valueOf(horaPedido+ ":00");
@@ -132,11 +141,13 @@
                     diasemana = 6;
                     diaSemana = "Sábado";
                 }
-
+                
                 Date novaData = novo.novaData(Date.valueOf(dataPedido), diasemana, hora);
 
                 //passa o parametro para cadastrar o pedido
                 novo.setDataPedido(novaData);
+                novo.setObservacao("Este pedido possui recorrência para "+ dias.replace(",", ", ") 
+                            +", com horário à ser emitido às: "+ hora +". OBS:\n"+ obs);
 
                 if(novo.cadastrarPedido()){       
                     //Instanciar pedido
