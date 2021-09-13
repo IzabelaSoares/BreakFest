@@ -1,3 +1,12 @@
+/* 
+  Página de Referência:Erro e errocuppa
+  Desenvolvido por: Yan 
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
+ /*Indicador,posição,margem,margem interna,posição de origem e modificador de
+espaço coordenado do modelo.*/
 svg#robot {
   display: block;
   position: relative;
@@ -9,6 +18,7 @@ svg#robot {
           animation: move 2s ease infinite;
 }
 
+/*Animação*/
 @-webkit-keyframes move {
   0%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -21,6 +31,7 @@ svg#robot {
   }
 }
 
+/*Animação*/
 @keyframes move {
   0%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -32,6 +43,8 @@ svg#robot {
     transform: rotate(-6deg) translate3d(-5px, 5px, 0px);
   }
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 g#head {
   transform: rotate(0deg) translate3d(0px, 0px, 0px);
   transform-origin: bottom center;
@@ -43,6 +56,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
           animation: color 350ms linear infinite;
 }
 
+/*Animação.*/
 @-webkit-keyframes head {
   0%, 46%, 50%, 55%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -55,6 +69,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
   }
 }
 
+/*Animação.*/
 @keyframes head {
   0%, 46%, 50%, 55%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -66,6 +81,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-10deg) translate3d(0px, 0px, 0px);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes color {
   0%, 100% {
     fill: #ccc;
@@ -74,6 +91,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     fill: red;
   }
 }
+
+/*Animação.*/
 @keyframes color {
   0%, 100% {
     fill: #ccc;
@@ -82,30 +101,40 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     fill: red;
   }
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #upperTorso {
   transform: rotate(0deg);
   transform-origin: center;
   -webkit-animation: torso 600ms 1s ease infinite;
           animation: torso 600ms 1s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #upperTorso #leftArm {
   transform: rotate(0deg);
   transform-origin: 80% 5%;
   -webkit-animation: left 1s ease infinite;
           animation: left 1s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #upperTorso #leftArm .forearm {
   transform: rotate(0deg);
   transform-origin: 68% 10%;
   -webkit-animation: forearm 800ms 1s ease infinite;
           animation: forearm 800ms 1s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #upperTorso #rightArm {
   transform: rotate(0deg);
   transform-origin: 18% 0%;
   -webkit-animation: right 1s ease infinite;
           animation: right 1s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #upperTorso #rightArm .forearm {
   transform: rotate(0deg);
   transform-origin: 68% 10%;
@@ -113,6 +142,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
           animation: forearm 700ms 1s ease infinite;
 }
 
+/*Animação.*/
 @-webkit-keyframes torso {
   40%, 50%, 60% {
     transform: rotate(0deg);
@@ -125,6 +155,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
   }
 }
 
+/*Animação.*/
 @keyframes torso {
   40%, 50%, 60% {
     transform: rotate(0deg);
@@ -136,26 +167,36 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-5deg);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes left {
   60% {
     transform: rotate(100deg);
   }
 }
+
+/*Animação.*/
 @keyframes left {
   60% {
     transform: rotate(100deg);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes right {
   50% {
     transform: rotate(-70deg);
   }
 }
+
+/*Animação.*/
 @keyframes right {
   50% {
     transform: rotate(-70deg);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes forearm {
   0%, 30%, 50%, 70%, 100% {
     transform: rotate(0deg);
@@ -167,6 +208,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-25deg);
   }
 }
+
+/*Animação.*/
 @keyframes forearm {
   0%, 30%, 50%, 70%, 100% {
     transform: rotate(0deg);
@@ -178,6 +221,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-25deg);
   }
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #lowerTrunk {
   transform: rotate(0deg);
   transform-origin: 60% 5%;
@@ -185,6 +230,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
           animation: lowerTrunk 1s ease infinite;
 }
 
+/*Animação.*/
 @-webkit-keyframes lowerTrunk {
   0%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -197,6 +243,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
   }
 }
 
+/*Animação.*/
 @keyframes lowerTrunk {
   0%, 100% {
     transform: rotate(0deg) translate3d(0px, 0px, 0px);
@@ -208,12 +255,16 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-2deg) translate3d(-2px, 0px, 0px);
   }
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #leftFoot {
   transform: rotate(0deg);
   transform-origin: 60% 5%;
   -webkit-animation: leftFoot 2s ease infinite;
           animation: leftFoot 2s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #leftFoot > .lowerLeg {
   transform: rotate(0deg);
   transform-origin: 68% 10%;
@@ -221,6 +272,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
           animation: lowerLeg 2s ease infinite;
 }
 
+/*Animação.*/
 @-webkit-keyframes leftFoot {
   0%, 50% {
     transform: rotate(0deg);
@@ -230,6 +282,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
   }
 }
 
+/*Animação.*/
 @keyframes leftFoot {
   0%, 50% {
     transform: rotate(0deg);
@@ -238,6 +291,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(70deg);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes lowerLeg {
   0%, 50% {
     transform: rotate(0deg);
@@ -249,6 +304,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(15deg);
   }
 }
+
+/*Animação.*/
 @keyframes lowerLeg {
   0%, 50% {
     transform: rotate(0deg);
@@ -260,12 +317,16 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(15deg);
   }
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #rightFoot {
   transform: rotate(0deg);
   transform-origin: 50% 5%;
   -webkit-animation: rightFoot 2s ease infinite;
           animation: rightFoot 2s ease infinite;
 }
+
+/*Modificador de espaço coordenado do modelo.*/
 #rightFoot > .lowerLeg {
   transform: rotate(0deg);
   transform-origin: 68% 10%;
@@ -273,6 +334,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
           animation: lowerLegIz 2s ease infinite;
 }
 
+/*Animação.*/
 @-webkit-keyframes rightFoot {
   75% {
     transform: rotate(-60deg);
@@ -282,6 +344,7 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
   }
 }
 
+/*Animação.*/
 @keyframes rightFoot {
   75% {
     transform: rotate(-60deg);
@@ -290,6 +353,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(0deg);
   }
 }
+
+/*Animação.*/
 @-webkit-keyframes lowerLegIz {
   50%, 100% {
     transform: rotate(0deg);
@@ -301,6 +366,8 @@ g#head #leftAntenna > ellipse, g#head #rightAntenna > ellipse {
     transform: rotate(-15deg);
   }
 }
+
+/*Animação.*/
 @keyframes lowerLegIz {
   50%, 100% {
     transform: rotate(0deg);
@@ -319,20 +386,27 @@ html {
 }
 
 html,
+
+/*Tamanho e quando o elemento deve ser cortado.*/
 body {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
+/*Cor de fundo e fonte.*/
 body {
   background: #404853;
   font-family: "Roboto Condensed", sans-serif;
 }
 
+/*Alinhador de elemento.*/
 .col {
   text-align: center;
 }
+
+/*Sombra no texto,cor,tamanho da fonte,negrito e *Controlador de espaçamento
+entre as linha.*/
 .col h1 {
   text-shadow: 0 3px 0px #404853, 0 6px 0px #333;
   color: #f54f59;
@@ -340,6 +414,9 @@ body {
   font-weight: 700;
   line-height: 0.6em;
 }
+
+/*Cor,fonte,tamanho da fonte,negrito e *Controlador de espaçamento entre as
+linha.*/
 .col p {
   color: #ccc;
   font-family: monospace;

@@ -177,8 +177,8 @@ textarea:focus, input:focus, select:focus {
     margin-bottom: 15px;
 }
 
-/*Controlador de espaçamento entre as linhas*/
-.padarias-container p {
+/*Controlador de espaçamento entre as linha*/
+.spadarias-container p {
     line-height: 25px;
 }
 
