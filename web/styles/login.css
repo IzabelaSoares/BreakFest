@@ -1,6 +1,14 @@
-/* Para todo a página */
+/* 
+  Página de Referência: Login
+  Desenvolvido por: Ricardo
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
+/*Import da fonte.*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Margem,margem interna,altura,cor de fundo e fonte.*/
 body, html {
     margin: 0;
     padding: 0;
@@ -10,6 +18,8 @@ body, html {
 }
 
 /* Card principal da página */ 
+/*Tamanho,margens,cor de fundo,posição,indicador,alinhador de elemento,como os 
+itens são colocados,margem interna,sombras e borda arredondada.*/
 
 .user_card {
     height: 400px;
@@ -30,7 +40,8 @@ body, html {
 }
 
 /* Logo do Cuppa */
-
+/*Posição,tamanho,espaço de cima,borda arredondada,cor de fundo,margem interna 
+e alinhador do elemento.*/
 .brand_logo_container {
     position: absolute;
     height: 170px;
@@ -41,6 +52,8 @@ body, html {
     padding: 10px;
     text-align: center;
 }
+
+/*Tamanho,borda arredondada e borda.*/
 .brand_logo {
     height: 150px;
     width: 150px;
@@ -49,35 +62,45 @@ body, html {
 }
 
 /* Container */
-
+/*Margem.*/
 .form_container {
     margin-top: 100px;
 }
 
 /* Parte de login */
-
+/*Largura,cor de fundo e cor.*/
 .login_btn {
     width: 100%;
     background: #995a1a !important;
     color: white !important;
 }
+
+/*Sombra e contorno.*/
 .login_btn:focus {
     box-shadow: none !important;
     outline: 0px !important;
 }
+
+/*Margem interna.*/
 .login_container {
     padding: 0 2rem;
 }
+
+/*Cor de fundo,cor,borda e borda arredondada.*/
 .input-group-text {
     background: #995a1a !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
 }
+
+/*Sombra e contorno.*/
 .input_user, .input_pass:focus {
     box-shadow: none !important;
     outline: 0px !important;
 }
+
+/*Cor de fundo.*/
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #995a1a !important;
 }
