@@ -38,6 +38,9 @@
 
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        
+        <!-- Link da página "midias" em css -->
+        <link rel="stylesheet" href="styles/midias.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <!--        <link rel="stylesheet" href="styles/cartaoestilo.css">-->
@@ -232,6 +235,71 @@
                         <button class="enviarStatus" type="submit">Enviar</button>
                     </form>
                     <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- modal de midias --> 
+    <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container max-w-xl mx-auto flex flex-col py-8">
+                        <h1 class="text-xl font-black">Informações Adicionais</h1>
+
+                        <!-- Form com as informações -->
+                        <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" class="form-midias">
+                            <label for="instagram">Link para o Instagram</label>
+                            <br>
+                            <input type="text" name="instagram" placeholder="Instagram">
+                            <br><br>
+                            <label for="facebook">Link para o Facebook</label>
+                            <br>
+                            <input type="text" name="facebook" placeholder="Facebook" height="300px">
+                            <br><br><hr>
+                            <label>Foto da padaria</label>
+                            <br>
+                            <div id="center">
+                                <div x-data="imageData()" class="file-input flex items-center">
+
+                                    <!--          //////////                      Preview da Imagem                      ////////                -->
+                                    <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+
+                                        <!-- Placeholder da Imagem -->
+                                        <div class="flex items-center">
+
+                                            <!-- Input de foto -->
+                                            <div class="ml-5 rounded-md shadow-sm">
+                                                <input @change="updatePreview($refs)" x-ref="input"
+                                                        type="file" maxlength="50px" 
+                                                        accept="image/*,capture=camera" 
+                                                        name="photo" id="photo" 
+                                                        class="custom">
+                                                <label for="photo" style="position: relative; right: 48px; border-left: none; border-bottom: 2px solid #995a1a; border-top: none; border-right: none; padding-left: 8px; padding-right: 8px;">
+                                                    Adicionar
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center text-sm text-gray-500 mx-2">
+                                                <span x-text="fileName || emptyText"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!-- Botão de enviar -->
+                                <div class="botaoLegal">
+                                    <input type="submit" value="Enviar"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Scripts do Cloud Flare e Mídias -->
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script src="./script.js"></script>
                 </div>
             </div>
         </div>
