@@ -1,12 +1,22 @@
+/* 
+  Página de Referência: consultarpedidojuridico e consultarpedidofisico
+  Desenvolvido por: Izabela e Ricardo
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
+/*Alinhador de elemento.*/
 body {
     align-items: center;
 }
 
+/*Tamanho*/
 .tabela {
     width: 100%;
     height: 100%;
 }
 
+/*Cor de fundo,borda,contorno,cor e sombra.*/
 .tabelinha {
     background-color: #995a1a;
     border: 1.5px solid #995a1a;
@@ -15,12 +25,13 @@ body {
     box-shadow: 0 0 0 0;        
 }
 
+/*Alinhador de elemento e transformar as letras em maiúscula.*/
 table {
     text-align: center;
     text-transform: capitalize;
 }
 
-
+/*Borda arredondada,posição,lado esquerdo,tamanho,borda,cor do fundo e cor.*/
 button {
     border-radius: 6px;
     position: relative;
@@ -32,31 +43,37 @@ button {
     color: white;
 }
 
+/*Contorno,sombra e cor de fundo.*/
 button:hover, button:active, button:focus {
     outline: 0;
     box-shadow: 0 0 0 0;
     background-color: #7a4814;
 }
 
+/*Cor de fundo,contorno e sombra.*/
 select:hover, select:active, select:focus, select:active, select:checked, select:enabled {
     background-color: #FFF;
     outline: 0;
     box-shadow: 0 0 0 0;
 }
 
+/*Margem interna.*/
 h2 {
     padding-left: 7%;
 }
 
+ /*Margens internas.*/
 .forSelect {
     padding-left: 32%;
     padding-top: 10px;
 }
 
+/*Borda arredondada.*/
 select {
     border-radius: 5px;
 }
 
+/*Posição,lado esquerdo,borda arredondada,tamanho,borda,cor de fundo e cor.*/
 .enviarStatus {
     position: relative;
     left: 24.5%;
