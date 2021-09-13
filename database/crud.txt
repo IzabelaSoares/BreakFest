@@ -63,6 +63,8 @@ create table bairrofrete(
 	foreign key(fkcnpj) references pessoajuridica(cnpj)
 );
 
+select * from pessoajuridica;
+
 create table produto(
 	id serial not null,
 	titulo varchar(30) not null,
@@ -86,6 +88,7 @@ create table pedido(
 	datapedido date not null,
 	status varchar(100) not null,
 	recorrencia boolean not null,
+	horaemissao time not null,
 	cep varchar(10) not null,
 	estado varchar(4) not null,
 	cidade varchar(300) not null,
