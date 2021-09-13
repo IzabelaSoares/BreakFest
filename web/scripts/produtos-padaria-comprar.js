@@ -1,43 +1,38 @@
 /* global idproduto, cardArray */
+/* 
+ * Página de Referência: Comprar Produtos
+ * Dependencias: JSON e Biblioteca JQuery do Javascript
+ * Desenvolvido por: Izabela Maria Alves Soares
+ * Documentado por: Izabela Maria Alves Soares
+ * Data da ultima Revisão: 13/09/2021 
+ */
 
-// ************************************************
-// Shopping Cart API
-// ************************************************
-
+/*Script de Carrinho de Compras da Padaria*/
 
 var shoppingCart = (function () {
-    // =============================
-    // Private methods and propeties
-    // =============================
+    //Array do carrinho
     cart = [];
-
-    // Constructor
+    //Construtor (Nome, Preço e Quantidade)
     function Item(name, price, count) {
         this.name = name;
         this.price = price;
         this.count = count;
     }
-
-    // Save cart
+    //Salvar carrinho de compras em formato JSON
     function saveCart() {
         sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
     }
-
-    // Load cart
+    //Carregar dados do carrinho de compras
     function loadCart() {
         cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
     }
     if (sessionStorage.getItem("shoppingCart") != null) {
         loadCart();
     }
-
-
-    // =============================
-    // Public methods and propeties
-    // =============================
+    //Lista
     var obj = {};
 
-    // Add to cart
+    //Adicionar produtos ao carrinho conforme nome, preço e quantidade
     obj.addItemToCart = function (name, price, count) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -50,7 +45,7 @@ var shoppingCart = (function () {
         cart.push(item);
         saveCart();
     }
-    // Set count from item
+    //Setar a quantidade conforme o nome do item
     obj.setCountForItem = function (name, count) {
         for (var i in cart) {
             if (cart[i].name === name) {
@@ -59,7 +54,7 @@ var shoppingCart = (function () {
             }
         }
     };
-    // Remove item from cart
+    //Remover o item do carrinho
     obj.removeItemFromCart = function (name) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -73,7 +68,7 @@ var shoppingCart = (function () {
         saveCart();
     }
 
-    // Remove all items from cart
+    //Remover todos os itens do carrinho
     obj.removeItemFromCartAll = function (name) {
         for (var item in cart) {
             if (cart[item].name === name) {
@@ -84,13 +79,13 @@ var shoppingCart = (function () {
         saveCart();
     }
 
-    // Clear cart
+    //Limpar o carrinho
     obj.clearCart = function () {
         cart = [];
         saveCart();
     }
 
-    // Count cart
+    //Contar quantidade de produtos do carrinho
     obj.totalCount = function () {
         var totalCount = 0;
         for (var item in cart) {
@@ -99,7 +94,7 @@ var shoppingCart = (function () {
         return totalCount;
     }
 
-    // Total cart
+    //Valor total do produto com sua quantidade
     obj.totalCart = function () {
         var totalCart = 0;
         for (var item in cart) {
@@ -108,7 +103,7 @@ var shoppingCart = (function () {
         return Number(totalCart.toFixed(2));
     }
 
-    // List cart
+    //Formar a lista do carrinho com preço total de tudo
     obj.listCart = function () {
         var cartCopy = [];
         for (i in cart) {
@@ -138,11 +133,9 @@ var shoppingCart = (function () {
     return obj;
 })();
 
+/*Eventos */
 
-// *****************************************
-// Triggers / Events
-// *****************************************
-// Add item
+// Adicionar item
 $('.add-to-cart').click(function (event) {
     event.preventDefault();
     var name = $(this).data('name');
@@ -151,29 +144,27 @@ $('.add-to-cart').click(function (event) {
     displayCart();
 });
 
-// Clear items
+//Remover items
 $('.clear-cart').click(function () {
     shoppingCart.clearCart();
     displayCart();
 });
 
- 
+//mostrar no modal de compras
 function displayCart() {
-    
+    //variaveis para o backend
     var produto = "";
     var quantidade = "";
-    var precoUn= "";
-    
+    var precoUn = "";
+    //variaveis para o frontend
     var cartArray = shoppingCart.listCart();
     var output = "";
     for (var i in cartArray) {
-        
         //dados para o backend
         produto += cartArray[i].name + ",";
         quantidade += cartArray[i].count + ",";
         precoUn += cartArray[i].price + ","
-        
-        //tabela com todos os dados para o usuário
+        //tablerow com todos os dados para o usuário
         output += "<div><tr>"
                 + "<td style='width:200px'>" + cartArray[i].name + "</td>"
                 + "<td style='width:150px'> R$ " + cartArray[i].price + "</td>"
@@ -181,55 +172,39 @@ function displayCart() {
                 + "<td style='width:150px'>" + cartArray[i].total + "</td>"
                 + "<td style='width:100px; height:50px'><button class='delete-item btn btn-danger btn-sm' data-name=" + cartArray[i].name + ">X</button></td>"
                 + "</tr></div>";
-        /*output += "<tr>"
-                + "<td>" + cartArray[i].name + "</td>"
-                + "<td>" + cartArray[i].price + "</td>"
-                + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-                + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-                + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-                + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
-                + " = "
-                + "<td>" + cartArray[i].total + "</td>"
-                + "</tr>";
-         * 
-         */
     }
-    
-    
     //dados para o front end
     $('.show-cart').html(output); //aqui lança os dados na tabela html
     $('.total-cart').html(shoppingCart.totalCart()); //aqui marca total do preço
     $('.total-count').html(shoppingCart.totalCount());//aqui marca a quantidade de produto
     
-    //dados para o back end
+    //dados para o back end em formato JSON
     document.getElementById("produtos").value = JSON.stringify(produto);
     document.getElementById("quantidade").value = JSON.stringify(quantidade);
     document.getElementById("preco-unitario").value = JSON.stringify(precoUn);
 }
 
-// Delete item button
-
-$('.show-cart').on("click", ".delete-item", function(event) {
+//Botão de Deletar o Item
+$('.show-cart').on("click", ".delete-item", function (event) {
     var name = $(this).data('name')
     shoppingCart.removeItemFromCartAll(name);
     displayCart();
 })
 
 
-// -1
+//Botão de remover -1 na quantidade do produto
 $('.show-cart').on("click", ".minus-item", function (event) {
     var name = $(this).data('name')
     shoppingCart.removeItemFromCart(name);
     displayCart();
 })
-// +1
+//Botão de adicionar +1 na quantidade do produto
 $('.show-cart').on("click", ".plus-item", function (event) {
     var name = $(this).data('name')
     shoppingCart.addItemToCart(name);
     displayCart();
 })
-
-// Item count input
+//Input de contar o item do produto
 $('.show-cart').on("change", ".item-count", function (event) {
     var name = $(this).data('name');
     var count = Number($(this).val());
@@ -237,7 +212,20 @@ $('.show-cart').on("change", ".item-count", function (event) {
     displayCart();
 });
 
+//Executar a função de mostrar os dados no modal de compras
 displayCart();
 
 
-
+/* OUTPUT ORIGINAL ANTIGO
+ * output += "<tr>"
+ + "<td>" + cartArray[i].name + "</td>"
+ + "<td>" + cartArray[i].price + "</td>"
+ + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+ + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+ + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+ + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+ + " = "
+ + "<td>" + cartArray[i].total + "</td>"
+ + "</tr>";
+ * 
+ */

@@ -1,4 +1,12 @@
-//@Izabela @Ricardo
+/* 
+ * Página de Referência: Cadastrar, Consultar e Alterar Cadastro Pessoa Fisica
+ * Dependencias: JSON
+ * Desenvolvido por: Izabela Maria Alves Soares
+ * Documentado por: Izabela Maria Alves Soares
+ * Data da ultima Revisão: 13/09/2021 
+ */
+
+/*Script com Regex e JSON para validação de dados digitados pelo usuário */
 
 //Preparar os parametros para receberem mascaras
 function mascara(objeto, mascara) {
@@ -51,7 +59,6 @@ function mNOME(nome) {
     nome = nome.replace(/^(.)|\s+(.)/g, c => c.toUpperCase()); //Garante que a primeira letra de cada palavra será maiuscula
     return nome;
 }
-
 //Cpf
 function mCPF(cpf) {
     cpf = cpf.replace(/\D/g, ""); //remove tudo o que não é digito
@@ -70,8 +77,6 @@ var check = function () {
         document.getElementById('alertPassword').innerHTML = 'Senhas Diferentes!</span>';
     }
 };
-
-
 //Telefone
 function mContato(contato) {
     contato = contato.replace(/\D/g, ""); //Remove tudo o que não é dígito
@@ -86,13 +91,11 @@ function mCEP(cep) {
     cep = cep.replace(/\.(\d{3})(\d)/, ".$1-$2"); //Coloca o traço antes dos dois ultimos caracteres
     return cep;
 }
-
 //Numero
 function mNumero(num) {
     num = num.replace(/\D/g, ""); //Remove tudo o que não é dígito
     return num;
 }
-
 
 /*Verifica o cep e Retorna os Valores*/
 
@@ -140,12 +143,12 @@ function pesquisacep(valor) {
     }
 };
 
-//Impedir o usuário de digitar uma data futura
+//Impedir o usuário de digitar uma data futura de nascimento
 function verificarData(){
     
   var today = new Date();
   var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+  var mm = today.getMonth()+1; //Janeiro é 0 então precisamos só adicionar 1 para janeiro ser mês 1!
   var yyyy = today.getFullYear();
   if(dd<10){
     dd='0'+dd;

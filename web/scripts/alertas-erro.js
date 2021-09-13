@@ -1,9 +1,15 @@
-/* global Swal */
+/* 
+ * Página de Referência: todas as páginas jsp e html
+ * Dependencias: Biblioteca Sweet Alert do Javascript
+ * Desenvolvido por: Izabela Maria Alves Soares e Maria Clara Peron
+ * Documentado por: Izabela Maria Alves Soares e Maria Clara Peron
+ * Data da ultima Revisão: 12/09/2021 
+ */
 
-//@Izabela e Maria
+/* Script para alertar o usuário sobre alguma situação positiva negativa ou informativa */
 
 function alertar(parametro) {
-    //Deu certo login
+    //Sucesso ao logar
     if (parametro === "SucessoLogin") {
         Swal.fire({
             title: 'Bem vindo de volta!',
@@ -11,18 +17,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Login deu certo
+    }    
+    //Erro ao logar
     else if (parametro === "ProblemaLogar") {
         Swal.fire({
             icon: 'error',
             title: 'Ops...',
             text: 'Email ou senha incorretos!'
         });
-    }
-    
-    //Cadastro salvo
+    }    
+    //Sucesso ao cadastrar
     else if (parametro === "UsuarioCadastrado") {
         Swal.fire({
             title: 'Usuário Cadastrado!',
@@ -30,36 +34,32 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-   
-   //Cadastro não cadastrado
+    }   
+   //Erro ao cadastrar
     else if (parametro === "UsuarioNaoCadastrado") {
         Swal.fire({
             icon: 'error',
             title: 'Ops...',
             text: 'Problemas ao cadastrar!'
         });
-    }
-   
-    //Cadastro não salvo CFP já existente
+    }  
+    //Erro ao cadastrar -> CPF já existente
     else if (parametro === "CpfJaRegistrado") {
         Swal.fire({
             icon: 'error',
             title: 'Ops...',
             text: 'CPF já cadastrado.'
         });
-    }
-    
-    //Cadastro não salvo CNPJ já existente
+    }    
+    //Erro ao cadastrar -> CNPJ já existente
     else if (parametro === "CnpjJaRegistrado") {
         Swal.fire({
             icon: 'error',
             title: 'Ops...',
             text: 'CNPJ já cadastrado.'
         });
-    }
-    
-    //Cadastro alterado
+    }    
+    //Sucesso ao alterar cadastro
     else if (parametro === "CadastroAlterado") {
         Swal.fire({
             title: 'Cadastro alterado!',
@@ -67,18 +67,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-   
-    //Cadastro não alterado
+    }   
+    //Erro ao alterar cadastro
     else if (parametro === "CadastroNaoAlterado") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Não foi poossível alterar o cadastro.'
         });
-    }
-    
-    //Email já está sendo utilizado
+    }   
+    //Erro ao cadastrar -> Email já registrado
     else if (parametro === "EmailJaRegistrado") {
         Swal.fire({
             icon: 'error',
@@ -86,9 +84,7 @@ function alertar(parametro) {
             text: 'Email já está sendo utilizado.'
         });
     }
-
-    
-    //Produto salvo
+    //Sucesso ao cadastrar produto
     else if (parametro === "ProdutoSalvo") {
         Swal.fire({
             title: 'Produto Cadastrado!',
@@ -96,18 +92,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Produto não salvo
+    }   
+    //Erro ao cadastrar produto
     else if (parametro === "ProdutoNaoSalvo") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível salvar este produto.'
             });
-    }
-    
-    //Produto alterado
+    }    
+    //Sucesso ao alterar produto
     else if (parametro === "ProdutoAlterado") {
         Swal.fire({
             title: 'Produto alterado!',
@@ -115,37 +109,33 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Produto não alterado
+    }   
+    //Erro ao alterar produto
     else if (parametro === "ProdutoNaoAlterado") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível alterar este produto.'
             });
-    }
-    
-    //Dados para receber pagamento PJ salvo
+    }   
+    //Sucesso ao receber dados de pagamento Pessoa Juridica
     else if (parametro === "DadosSalvos") {
         Swal.fire({
-            title: 'Dados cadastrados!',
+            title: 'Dados Cadastrados!',
             icon: 'success',
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Dados para receber pagamento PJ  não salvo
+    }   
+    //Erro ao receber dados de pagamento Pessoa Juridica
     else if (parametro === "DadosNaoSalvo") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível cadastrar dados.'
             });
-    }
-    
-    //Dados para receber pagamento PJ alterado
+    }   
+    //Sucesso ao alterar dados de pagamento Pessoa Juridica
     else if (parametro === "DadosAlterados") {
         Swal.fire({
             title: 'Dados alterados!',
@@ -153,18 +143,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Dados para receber pagamento PJ não alterado
+    }    
+    //Erro ao alterar dados de pagamento Pessoa Juridica
     else if (parametro === "DadosNaoAlterados") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível alterar os dados.'
             });
-    }
-    
-    //Cartao de Credito PF salvo
+    }    
+    //Sucesso ao receber dados de pagamento Pessoa Fisica
     else if (parametro === "CartaoSalvo") {
         Swal.fire({
             title: 'Cartão salvo!',
@@ -172,18 +160,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Cartao de Credito PF não salvo
+    }   
+    //Erro ao receber dados de pagamento Pessoa Fisica
     else if (parametro === "CartaoNaoSalvo") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível cadastrar cartão.'
             });
-    }
-    
-    //Cartao de Credito PF alterado
+    }    
+    //Sucesso ao alterar dados de pagamento Pessoa Fisica
     else if (parametro === "CartaoAlterado") {
         Swal.fire({
             title: 'Cartão alterado!',
@@ -191,44 +177,39 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Cartao de Credito PF não alterado
+    }    
+    //Erro ao alterar dados de pagamento Pessoa Fisica
     else if (parametro === "CartaoNaoAlterado") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Não foi possível alterar seu cartão.'
             });
-    }
-    
-    //Necessita Cartao de Credito para fazer pedido
+    }    
+    //Erro ao cadastrar pedido -> Dados de pagamento não cadastrados
     else if (parametro === "NecessitaCartao") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Você precisa ter cartão de crétido cadatrado para fazer um pedido.'
+                text: 'Você precisa ter cartão de crédito cadatrado para fazer um pedido.'
             });
-    }
-    
-    //Email recuperar senha enviado
+    }    
+    //Sucesso ao solicitar recuperação de email
     else if (parametro === "EmailEnviado") {
         Swal.fire({
-            title: 'Cheque seu email. Enviamos um link para recuperação de senha!',
-            showConfirmButton: false,
-            timer: 1500
+            icon: 'success',
+            title: 'Cheque seu email!',
+            text: 'Enviamos um link para recuperação de senha!'
         });
-    }
-    
-    //Email recuperar senha não existente
+    }    
+    //Erro ao solicitar recuperação de email -> Email não cadastrado
     else if (parametro === "EmailNaoExistente") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Seu email não existe no nosso sistema'
         });
-    }
-    
+    }   
     //Email recuperar senha não enviado
     else if (parametro === "EmailNaoEnviado") {
         Swal.fire({
@@ -236,9 +217,8 @@ function alertar(parametro) {
             title: 'Oops...',
             text: 'Não foi possível enviar o email.'
         });
-    }
-    
-    //Senha alterado
+    }    
+    //Sucesso ao alterar senha
     else if (parametro === "SenhaAlterada") {
         Swal.fire({
             title: 'Senha alterada!',
@@ -246,18 +226,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Senha não alterado
+    }    
+    //Erro ao alterar senha
     else if (parametro === "SenhaNaoAlterada") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Não foi possível alterar sua senha.'
         });
-    }
-   
-    //Imagem salva
+    }  
+    //Sucesso ao salvar imagem
     else if (parametro === "ImagemSalva") {
         Swal.fire({
             title: 'Imagem Salva!',
@@ -265,9 +243,8 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Imagem não salva
+    }    
+    //Erro ao salvar imagem 
     else if (parametro === "ImagemNaoSalva") {
         Swal.fire({
             icon: 'error',
@@ -275,8 +252,7 @@ function alertar(parametro) {
             text: 'Por favor, verifique sua conexão!'
         });
     }
-
-    //Imagem alterada
+    //Sucesso ao alterar imagem
     else if (parametro === "ImagemAlterada") {
         Swal.fire({
             title: 'Imagem Alterada!',
@@ -285,8 +261,7 @@ function alertar(parametro) {
             timer: 1500
         });
     }
-
-    //Imagem não alterada
+    //Erro ao alterar imagem
      else if (parametro === "ImagemNaoAlterada") {
         Swal.fire({
             icon: 'error',
@@ -294,7 +269,7 @@ function alertar(parametro) {
             text: 'Por favor, verifique sua conexão!'
         });
     }
-
+    //Sucesso ao cadastrar midias
     else if (parametro === "MidiasSalva") {
         Swal.fire({
             title: 'Mídias Salvas!',
@@ -302,18 +277,16 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Imagem não salva
+    }   
+    //Erro ao cadastrar midias
     else if (parametro === "MidiasNaoSalva") {
         Swal.fire({
             icon: 'error',
             title: 'Mídias não Salvas',
             text: 'Por favor, verifique sua conexão!'
         });
-    }
-    
-    //Pedido cadastrado
+    }    
+    //Sucesso ao cadastrar pedido
     else if (parametro === "PedidoCadastrado") {
         Swal.fire({
             title: 'Pedido cadastrado!',
@@ -321,9 +294,8 @@ function alertar(parametro) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
-    
-    //Imagem não salva
+    }    
+    //Erro ao cadastrar pedido
     else if (parametro === "PedidoNaoCadastrado") {
         Swal.fire({
             icon: 'error',

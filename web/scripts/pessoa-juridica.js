@@ -1,4 +1,12 @@
-//@Izabela @Ricardo
+/* 
+ * Página de Referência: Cadastrar, Consultar e Alterar Cadastro Pessoa Juridica
+ * Dependencias: JSON
+ * Desenvolvido por: Izabela Maria Alves Soares
+ * Documentado por: Izabela Maria Alves Soares
+ * Data da ultima Revisão: 13/09/2021 
+ */
+
+/*Script com Regex e JSON para validação de dados digitados pelo usuário */
 
 //Preparar os parametros para receberem mascaras
 function mascara(objeto, mascara) {
@@ -51,7 +59,6 @@ function mNOME(nome) {
     nome = nome.replace(/^(.)|\s+(.)/g, c => c.toUpperCase()); //Garante que a primeira letra de cada palavra será maiuscula
     return nome;
 }
-
 //Cnpj
 function mCNPJ(cnpj) {
     cnpj = cnpj.replace(/\D/g, ""); //Remove tudo o que não é dígito
@@ -61,7 +68,6 @@ function mCNPJ(cnpj) {
     cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2"); //Coloca hífen antes dos dois ultimos dígitos
     return cnpj;
 }
-
 //Senha
 var check = function () {
     if (document.getElementById('senha').value === document.getElementById('checksenha').value) {
@@ -72,7 +78,6 @@ var check = function () {
         document.getElementById('alertPassword').innerHTML = 'Senhas Diferentes!</span>';
     }
 };
-
 //Telefone
 function mContato(contato) {
     contato = contato.replace(/\D/g, ""); //Remove tudo o que não é dígito
@@ -87,13 +92,11 @@ function mCEP(cep) {
     cep = cep.replace(/\.(\d{3})(\d)/, ".$1-$2"); //Coloca o traço antes dos dois ultimos caracteres
     return cep;
 }
-
 //Numero
 function mNumero(num) {
     num = num.replace(/\D/g, ""); //Remove tudo o que não é dígito
     return num;
 }
-
 
 /*Verifica o cep e Retorna os Valores*/
 
@@ -104,7 +107,6 @@ function clearCep() {
     document.getElementById('cidade').value = ("");
     document.getElementById('estado').value = ("");
 }
-
 //Verifica se o cep existe
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
