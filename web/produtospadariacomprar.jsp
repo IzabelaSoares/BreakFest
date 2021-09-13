@@ -277,10 +277,10 @@
                                             <p class="card-text" style="height: 130px;">
                                                 <% out.write(n.getDescricao()); %>
                                             </p>
-                                            <p class="card-text">R$ <% out.write(String.valueOf(n.getPreco())); %></p>
+                                            <p class="card-text">R$ <% out.write(String.valueOf(n.getPreco()).replace(".", ",")+"0"); %></p>
                                             <a href="#" class="add-to-cart btn btn-primary"
                                                data-name="<% out.write(n.getTitulo()); %>" 
-                                               data-price="<% out.write(String.valueOf(n.getPreco())); %>" >
+                                               data-price="<% out.write(String.valueOf(n.getPreco())+"0"); %>" >
                                                 Adicionar ao Carrinho</a>
                                         </div>
                                     </div>
@@ -340,7 +340,7 @@
                                                         <dd class="col-sm-4">Total Produtos</dd>
                                                         <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                         <dd class="col-sm-4">Frete </dd>								
-                                                        <dt class="col-sm-8">R$ 0.0</dt>
+                                                        <dt class="col-sm-8">R$ 0,00</dt>
                                                         <dd class="col-sm-4">Valor Total </dd>
                                                         <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                     </dl>

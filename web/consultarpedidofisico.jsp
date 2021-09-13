@@ -38,14 +38,11 @@
 
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <!-- JS para o cartão de crédito -->
         <script src="scripts/cartao-de-credito.js"></script>
-
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 
-
+        
         <!-- Instanciando classe para consulta para tabela -->
         <%
             //Instanciar a Pessoa Fisica
@@ -57,7 +54,7 @@
 
             Pedido pedido = new Pedido();
             List<Pedido> pedidos = pedido.consultarPedidosUsuarioFisico(cpf);
-            
+
             //formatação para data
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -255,7 +252,7 @@
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                         <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td><%out.write(p.getNomeFantasia());%></td>
-                        <td><%out.write(String.valueOf(p.getTotalCompra()));%></td>
+                        <td><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",")+"0");%></td>
                         <td><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%></td>
                     </tr>
@@ -266,7 +263,7 @@
                 <input type="hidden" id="custId" name="custId" value="3487">
             </form>
         </div>   
-        
+
         <!-- JS para Menu -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>

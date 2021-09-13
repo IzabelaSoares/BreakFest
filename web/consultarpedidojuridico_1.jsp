@@ -239,11 +239,11 @@
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Total Produtos</dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
                                                 <dd class="col-sm-4">Frete </dd>								
-                                                <dt class="col-sm-8">R$ 0.00</dt>
+                                                <dt class="col-sm-8">R$ 0,00</dt>
                                                 <dd class="col-sm-4">Valor Total </dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra())); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Data de Emissão</dd>
@@ -278,8 +278,8 @@
                                                     <tr>
                                                         <th scope="row"><% out.write(i.getProduto()); %></th>
                                                         <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn())); %></td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal())); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",")+"0"); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",")+"0"); %></td>
                                                     </tr>
                                                     <% }%>
                                                 </tbody>
@@ -381,7 +381,7 @@
                     <tr>
                         <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()));%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",")+"0");%></td>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%>
                             <button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>

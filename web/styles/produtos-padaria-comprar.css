@@ -18,6 +18,7 @@
 
 /*fixar o layout da tabela,tamanho e margem da tabela*/
 table {
+    text-transform: capitalize;
     table-layout: fixed;
     width: 100%;
     margin: 0 auto;
