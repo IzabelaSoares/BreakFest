@@ -305,7 +305,10 @@
                                             <label for="categoria">Categoria do Produto</label>
                                             <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="categoria">
                                                 <option value="NA" selected disabled hidden>Doces, Salgados, Bebidas..</option>
-                                                <option value="doce">Doce</option>
+                                                <option value="Doce">Doce</option>
+                                                <option value="Salgado">Salgado</option>
+                                                <option value="Bebida">Bebida</option>
+                                                <option value="Agridoce">Agridoce</option>
                                             </select>
                                         </div>
                                     </div>
@@ -324,7 +327,12 @@
                                             <label for="categoria">Unidade de Medida</label>
                                             <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;" class="form-control" id="categoria" name="unidadedemedida">
                                                 <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
-                                                <option value="quilo">Quilo</option>
+                                                <option value="KG">Quilo</option>
+                                                <option value="G">Grama</option>
+                                                <option value="L">Litro</option>
+                                                <option value="ML">Ml</option>
+                                                <option value="FATIA">Fatia</option>
+                                                <option value="UN">Unidade</option>
                                             </select>
                                         </div>
                                     </div>
