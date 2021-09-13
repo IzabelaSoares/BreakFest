@@ -118,6 +118,17 @@ function alertar(parametro) {
                 text: 'Não foi possível alterar este produto.'
             });
     }   
+    
+    //produto 
+    else if (parametro === "ProdutoExcluido") {
+        Swal.fire({
+            title: 'Produto excluído!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }   
+    
     //Sucesso ao receber dados de pagamento Pessoa Juridica
     else if (parametro === "DadosSalvos") {
         Swal.fire({

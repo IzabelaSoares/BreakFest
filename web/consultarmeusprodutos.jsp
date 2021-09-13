@@ -490,7 +490,7 @@
                         <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
                         <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
                         <td name="alterarproduto"><a href="alterarproduto.jsp">Alterar</a></td>
-                        <td name="excluirproduto"><a style="color: red" href="excluirproduto.jsp?idproduto="<% out.write(n.getIdProduto()); %>">Excluir</a></td>
+                        <td name="excluirproduto"><a style="color: red" href="recebedeletarproduto.jsp?idproduto="<% out.write(n.getIdProduto()); request.getSession().setAttribute("id", n.getIdProduto()); %>">Excluir</a></td>
                     </tr>
                     <%}%>
                 </tbody>
