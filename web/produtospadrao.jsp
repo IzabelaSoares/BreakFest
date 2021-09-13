@@ -65,7 +65,7 @@
                             <a href="consultarpedidojuridico.jsp"><li class="drop-down__item">Pedidos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
-                            <a><li class="drop-down__item">Produtos</li></a>
+                            <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a>
                         </ul>
                     </div>
                 </div>
