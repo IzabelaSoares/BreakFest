@@ -1,3 +1,8 @@
+/* 
+  Desenvolvido por: Ricardo e Jefferson
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
 /*Import da fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
@@ -35,10 +40,12 @@ h2 {
   display: none;
 }
 
+/*Margem interna.*/
 ul{
   padding: 5px;
 }
 
+/*Uma declaração para duas propriedades,largura,margem interna,bordas.*/
 li{
   list-style: none;
   width: 100%;
@@ -48,10 +55,14 @@ li{
   
 }
 
+/*Cor de fundo.*/
 li:hover{
   background-color: #E8E8E8;
 }
 
+/*Tamanho,Float determina que um elemento deve ser retirado do seu fluxo normal
+e colocado ao longo do lado direito ou esquerdo e  transição entre dois estados 
+de um elemento.*/
 .foto{
   width: 60px;
   height: 89px;
@@ -59,6 +70,8 @@ li:hover{
   transition: .1s cubic-bezier(.64,.64,0,.99);
 }
 
+/*Tamanho,borda arredondada e elemento substituído deve ser ajustado à caixa
+estabelecida pela altura e largura usadas.*/
 .foto img{
   width: 100%;
   height: 100%;
@@ -66,22 +79,25 @@ li:hover{
   object-fit: contain;
 }
 
+/*Tamanho,margem interna,margem externa e quando o elemento deve ser cortado.*/
 .conteudo{
   width: calc(100% - 60px);
   min-height: 60px;
   padding: 5px 10px;
   margin-left: 60px;
-  
-  /*   max-height: 100vw; */
   overflow-x: auto;
 }
 
+/*Negrito,tamanho da fonta e cor.*/
 .titulo{
   font-weight: 400;
   font-size: 1.15em;
   color: #4F4F4F;
 }
 
+/*Float determina que um elemento deve ser retirado do seu fluxo normal
+e colocado ao longo do lado direito ou esquerdo,cor,negrito,tamanho da fonte e 
+controlador de espaçamento entre as linhas.*/
 .preco{
   float: right;
   color: #9C9C9C;
@@ -90,12 +106,14 @@ li:hover{
   line-height: 1.65em;
 }
 
+/*Cor,margem e tamanho da fonte.*/
 .descricao, .mais{
   color: #828282;
   margin-top: 5px;
   font-size: 1em;
 }
 
+/*Posição,tamanho,espaço de cima,lado esquerdo e cor de fundo.*/
 .detalhes{
   position: fixed;
   width: 100%;
@@ -105,23 +123,29 @@ li:hover{
   background-color: #FFF;
 }
 
+/*Tamanho da fonte e margem inferior.*/
 .detalhes .titulo{
   font-size: 1.5em;
   margin-bottom: 15px;
 }
 
+/*Tamanho da fonte e controlador de espaçamento entre as linhas.*/
 .detalhes .preco{
   font-size: 1em;
   line-height: 2em;
 }
+
+/*Margem interna.*/
 li.detalhes{
   padding: 0;
 }
 
+/*Cor de fundo.*/
 li.detalhes:hover{
   background-color: #fff;
 }
 
+/*Largura,margem esquerda,margem interna e cor de fundo.*/
 .detalhes .conteudo{
   width: 100%;
   margin-left: 0;
@@ -129,6 +153,8 @@ li.detalhes:hover{
   background-color: #FFF;
 }
 
+/*Largura,margem,altura,margens internas,quando o elemento deve ser cortado e 
+posição.*/
 .detalhes .capsula{
   width: 100%;
   margin-left: 0;
@@ -139,6 +165,7 @@ li.detalhes:hover{
   position: fixed;
 }
 
+/*Tamanho,margem e transição entre dois estados de um elemento.*/
 .detalhes .foto{
   width: 100%;
   height: 200px;
@@ -146,16 +173,21 @@ li.detalhes:hover{
   transition: .3s;
 }
 
+/*Elemento substituído deve ser ajustado à caixa estabelecida pela altura e 
+largura usadas e borda arredondada.*/
 .detalhes .foto img{
   object-fit: cover;
   border-radius: 0;
 }
 
+/*Eixo e transparência.*/
 #detalhes{
   z-index: 999;
   opacity: 0;
 }
 
+/*Posição,largura,indicador,alinhador de elemento,margem interna,parte de baixo,
+lado esquerdo,borda e cor de fundo.*/
 .adicionar{
   position: fixed;
   width: calc(100% - 10px);
@@ -168,6 +200,8 @@ li.detalhes:hover{
   background-color: #FFF;  
 }
 
+/*Tamanho da fonte,borda interna,borda arredondada,Criador das duas partes,borda
+cor e cor de fundo.*/
 #detalhes button{
   font-size: .8em;
   padding: 10px;
@@ -178,26 +212,32 @@ li.detalhes:hover{
   background-color: #bc2026;
 }
 
+/*Indicador,alinhador de elemento e borda interna.*/
 .quantidade{
   display: flex;
   align-items: center;
   padding: 0 10px;
 }
 
+/*Borda interna,cor e tamanho da fonte.*/
 .quantidade i{
   padding: 0 5px;
   color: #bc2026;
   font-size: 1.8em;
 }
 
+/*Cor.*/
 .quantidade i.disable{
   color: #B5B5B5;
 }
 
+/*Borda interna.*/
 .quantidade span{
   padding: 0 5px;
 }
 
+/*Posição,tamanho da fonte,cor de fundo,lado esquerdo,espaço de cima,margem 
+interna e cor.*/
 i#fechar{
   position: fixed;
   font-size: 1.5em;

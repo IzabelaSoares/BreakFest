@@ -149,7 +149,7 @@ fundo do arquivo.*/
     padding: 0 50px 0 12px;
 }
 
-/*Largura,borda interna,borda,cor do fundo,,contorno,fonte,tamanho
+/*Largura,borda interna,borda,cor do fundo,contorno,fonte,tamanho
 da fonte e alterador da propriedade padrão da box model*/
 .form-v10-content .form-detail select,
 .form-v10-content .form-detail input {

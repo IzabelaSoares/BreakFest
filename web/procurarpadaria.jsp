@@ -6,7 +6,7 @@
     <head>
         <!-- Título -->
         <meta charset="UTF-8">
-        <title>Padarias</title>
+        <title>Break Fest</title>
         
         <!-- Imagem -->
         <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />

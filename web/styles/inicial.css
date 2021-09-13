@@ -1,3 +1,10 @@
+/* 
+  Página de Referência: Index
+  Desenvolvido por: Ricardo
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
 /*Import da fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
@@ -98,10 +105,12 @@ textarea:focus, input:focus, select:focus {
     height: 350px;
 }
 
+/*Margem inferior do título nível 2.*/
 #about-section h2 {
     margin-bottom: 20px;
 }
 
+/*Maxímo de largura,margens e controlador de espaçamento entre as linhas.*/
 #about-section p {
     max-width: 650px;
     margin-right: auto;
@@ -111,7 +120,7 @@ textarea:focus, input:focus, select:focus {
 }
 
 /* As padarias que estão em destaques */
-
+/*Margem,cor de fundo,largura,margens,borda e borda arredondada.*/
 #padarias-section {
     margin-top: -100px;
     background-color: #FFF;
@@ -122,28 +131,33 @@ textarea:focus, input:focus, select:focus {
     border-radius: 10px;
 }
 
+/*Indicador,como os itens são colocados e o alinhador de elemento da marcação.*/
 #padarias-section .container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+/*Criador das duas partes,alinhador do elemento e margem interior.*/
 .padarias-container {
     flex: 1 1 1;
     text-align: center;
     padding: 60px 25px;
 }
 
+/*Bordas.*/
 .central {
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
 }
 
+/*Cor e tamanho da fonte do título nível 3.*/
 .padarias-container h3 {
     color: #995a1a;
     font-size: 20px;
 }
 
+/*Largura,margem interna,bordas e margem.*/
 .padarias-container img {
     width: 90%;
     padding: 15px;
@@ -155,6 +169,7 @@ textarea:focus, input:focus, select:focus {
     border-bottom: 4px solid #995a1a;
 }
 
+/*Negritp,cor e margens.*/
 .padarias-container .subtitle {
     font-weight: bold;
     color: #995a1a;
@@ -162,16 +177,18 @@ textarea:focus, input:focus, select:focus {
     margin-bottom: 15px;
 }
 
+/*Controlador de espaçamento entre as linhas*/
 .padarias-container p {
     line-height: 25px;
 }
 
+/*Margem interna.*/
 .padarias-container button {
     padding-top: 5px;
 }
 
 /* Footer de dúvidas da página */ 
-
+/*Margem interna,cor de fundo,cor e alinhador do elemento.*/
 footer {
     padding: 50px 0px;
     background-color: #995a1a;
@@ -179,21 +196,26 @@ footer {
     text-align: center;
 }
 
+/*Altura e margem.*/
 footer img {
     height: 90px;
     margin: 30px 0px;
 }
 
+/*Margem.*/
 footer p {
     margin-top: 25px;
 }
 
+/*Largura e margens.*/
 footer form {
     widht: 400px;
     margin-right: auto;
     margin-left: auto;
 }
 
+/*Borda,borda arredondada,margem interna,alterador da propriedade padrão da
+box model,margem,largura e indicador.*/
 footer input, footer textarea {
     border: none;
     border-radius: 8px;
@@ -203,6 +225,8 @@ footer input, footer textarea {
     width: 399px;
     display: block;
 }
+
+/*Negrito.*/
 footer .detail {
     font-weight: bold;
 }

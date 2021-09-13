@@ -18,7 +18,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
         <!-- Título e imports -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Pessoa</title>
+        <title>Break Fest</title>
 
         <!-- Script da pessoa física -->
         <script src="scripts/pessoa-fisica.js"></script>

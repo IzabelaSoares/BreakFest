@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pagamento</title>
+        <title>Break Fest</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <!-- Bootstrap core CSS -->

@@ -9,7 +9,7 @@
 <html>
     <head>
         <!-- Título -->
-        <title>Midias Sociais</title>
+        <title>Break Fest</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <!-- Link do CloudFlare -->
