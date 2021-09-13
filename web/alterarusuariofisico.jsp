@@ -214,7 +214,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
         </div>
         <div class="form-container">
             <form action="recebecartao.jsp" method="post">
-            <div class="field-container">
+            <div class="field-container"> <br> <br> 
                 <label for="name">Nome Impresso no Cartão</label>
                 <input id="name" name="cardname" minlength="5" maxlength="20" type="text" required>
             </div>

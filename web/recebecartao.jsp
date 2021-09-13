@@ -22,13 +22,27 @@
     card.setNumero(request.getParameter("cardnumber").replaceAll("[^0-9]",""));
     card.setValidade(request.getParameter("expirationdate"));
     card.setCodSeguranca(request.getParameter("securitycode"));
-
-    //se cadastrar cartao
-    if (card.cadastrarCartao()) {
-        request.getSession().setAttribute("resultado", "CartaoSalvo");
-        response.sendRedirect("alterarusuariofisico.jsp");
-    } else {
-        request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
-        response.sendRedirect("alterarusuariofisico.jsp");
+    
+    //se não existir dados
+    if(card.verificaDados(cpf) == false){
+        //se cadastrar cartao
+        if (card.cadastrarCartao()) {
+            request.getSession().setAttribute("resultado", "CartaoSalvo");
+            response.sendRedirect("alterarusuariofisico.jsp");
+        } else {
+            request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
+            response.sendRedirect("alterarusuariofisico.jsp");
+        }
+    //se existir dados só altera
+    }else{
+        //se cadastrar cartao
+        if (card.alterarCartao()) {
+            request.getSession().setAttribute("resultado", "CartaoSalvo");
+            response.sendRedirect("alterarusuariofisico.jsp");
+        } else {
+            request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
+            response.sendRedirect("alterarusuariofisico.jsp");
+        }
     }
+    
 %> 

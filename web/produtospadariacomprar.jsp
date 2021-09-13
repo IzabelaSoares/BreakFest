@@ -9,8 +9,8 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
+
+    
         <!-- Título -->
         <meta charset="UTF-8">
         <title>Padarias</title>
@@ -38,6 +38,11 @@
         <link rel="stylesheet" href="styles/cartaoestilo.css">
         <script src="scripts/cartao-de-credito.js"></script>
 
+        <!-- Script do alerta -->
+        <script src="scripts/alertas-erro.js"></script>
+        <script> var resultado = "${sessionScope.resultado}";</script>
+        <%request.getSession().setAttribute("resultado", null);%>
+        
         <!-- Link do Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
@@ -49,7 +54,7 @@
         <!-- Link do Estilo Principal -->
         <link rel="stylesheet" href="styles/produtos-padaria-comprar.css">
         <link rel="stylesheet" href="styles/dias-da-semana.css">
-    </head>
+    
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
 
@@ -219,25 +224,25 @@
                             <div class="form-container">
                                 <!-- Form do recebe cartão -->
                                 <form action="recebecartao.jsp" method="post">
-                                    <div class="field-container">
+                                    <div class="field-container"> <br> <br> 
                                         <label for="name">Nome Impresso no Cartão</label>
-                                        <input id="name" minlength="5" maxlength="20" type="text" required>
+                                        <input id="name" name="cardname" minlength="5" maxlength="20" type="text" required>
                                     </div>
 
                                     <div class="field-container">
                                         <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
-                                        <input id="cardnumber" type="text"  maxlength="19"  inputmode="numeric" required>
+                                        <input id="cardnumber" name="cardnumber" type="text"  maxlength="19"  inputmode="numeric" required>
                                         <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                              xmlns:xlink="http://www.w3.org/1999/xlink">
                                         </svg>         
                                     </div>     
                                     <div class="field-container">
                                         <label for="expirationdate">Expiração (mm/yy)</label>
-                                        <input id="expirationdate" type="text"  minlength="5" inputmode="" required>
+                                        <input id="expirationdate" name="expirationdate" type="text"  minlength="5" inputmode="" required>
                                     </div>
                                     <div class="field-container">
                                         <label for="securitycode">Código de Segurança</label>
-                                        <input id="securitycode" type="text"  minlength="3"  inputmode="numeric" required>
+                                        <input id="securitycode" name="securitycode" type="text"  minlength="3"  inputmode="numeric" required>
                                     </div>
                                     <button type="submit" class="button">Salvar</button>
                                 </form>
@@ -405,4 +410,4 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
     </body>
-</html>
+

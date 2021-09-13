@@ -3,10 +3,8 @@
     Created on : 05/09/2021, 14:17:20
     Author     : Izabela e Maria
 --%>
-
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="dominio.Cartao"%>
-<%@page import="java.time.LocalTime"%>
 <%@page import="java.sql.Time"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,11 +22,8 @@
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
     String status = "PAGAMENTO APROVADO";
     String dias = request.getParameter("dias");
-    Time hora = Time.valueOf("12:00:00");
-    
-    /*
+
     String horaPedido = String.valueOf(request.getParameter("horario"));
-    Time hora = Time.valueOf(horaPedido + ":00");*/
     
     //Data do Pedido
     Date dataAtual = new Date(System.currentTimeMillis()); 
@@ -101,6 +96,7 @@
     novo.setTotalCompra(totalCompra);
     
     //setar os dados para a tabela de diasemana
+    Time hora = Time.valueOf(horaPedido+ ":00");
     novo.setHora(hora);
     
     //instancia cartão
@@ -178,7 +174,7 @@
                 }
 
                 request.getSession().setAttribute("resultado", "PedidoCadastrado");
-                response.sendRedirect("consultapedidofisico.jsp");
+                response.sendRedirect("consultarpedidofisico.jsp");
             }
         }else{
             dias = null;

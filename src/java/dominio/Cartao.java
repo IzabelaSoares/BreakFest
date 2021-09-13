@@ -48,19 +48,18 @@ public class Cartao {
     public boolean alterarCartao(){
         //comando de execução de banco de dados 
         String sql = "UPDATE cartao " 
-                + "SET fkcpf=?, nome=?, numero=?, validade=?, codseguranca=?, "
-                + "WHERE id=?";
+                + "SET nome=?, numero=?, validade=?, codseguranca=? "
+                + "WHERE fkcpf=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkcpf);
-            stm.setString(2, this.nome);
-            stm.setString(3, this.numero);
-            stm.setString(4, this.validade);
-            stm.setString(5, this.codSeguranca);
-            stm.setInt(6, this.id);
+            stm.setString(1, this.nome);
+            stm.setString(2, this.numero);
+            stm.setString(3, this.validade);
+            stm.setString(4, this.codSeguranca);
+            stm.setString(5, this.fkcpf);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
