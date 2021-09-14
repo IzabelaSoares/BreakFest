@@ -466,14 +466,14 @@
             <table class="table table-image">
                 <thead class="tabelaThead">
                     <tr>
-                        <th class="check"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
-                        <th class="titulo" >Imagem</th>
-                        <th class="titulo" >Produto</th>
-                        <th class="titulo" >Categoria</th>
-                        <th class="titulo" >Descrição </th>
-                        <th class="titulo" >Tamanho</th>
-                        <th class="titulo" >Un. Medida</th>
-                        <th class="titulo" >Preço</th>
+                        <th class="check align-middle"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
+                        <th class="titulo align-middle" >Imagem</th>
+                        <th class="titulo align-middle" >Produto</th>
+                        <th class="titulo align-middle" >Categoria</th>
+                        <th class="titulo align-middle" >Descrição </th>
+                        <th class="titulo align-middle" >Tamanho</th>
+                        <th class="titulo align-middle" >Un. Medida</th>
+                        <th class="titulo align-middle" >Preço</th>
                     </tr>
                 </thead>
                 <tbody id="table">

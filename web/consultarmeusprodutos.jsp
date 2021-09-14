@@ -469,15 +469,15 @@
             <table class="table table-image">
                 <thead class="tabelaThead">
                     <tr style="height: 80px;">
-                        <th class="titulo" >Imagem</th>
-                        <th class="titulo" >Produto</th>
-                        <th class="titulo" >Categoria</th>
-                        <th class="titulo" >Descrição </th>
-                        <th class="titulo" >Tamanho</th>
-                        <th class="titulo" >Un. Medida</th>
-                        <th class="titulo" >Preço</th>
-                        <th class="titulo" >Alterar</th>
-                        <th class="titulo" >Excluir</th>
+                        <th class="titulo align-middle">Imagem</th>
+                        <th class="titulo align-middle">Produto</th>
+                        <th class="titulo align-middle">Categoria</th>
+                        <th class="titulo align-middle">Descrição </th>
+                        <th class="titulo align-middle">Tamanho</th>
+                        <th class="titulo align-middle">Un. Medida</th>
+                        <th class="titulo align-middle">Preço</th>
+                        <th class="titulo align-middle">Alterar</th>
+                        <th class="titulo align-middle">Excluir</th>
                     </tr>
                 </thead>
                 <tbody id="table">
