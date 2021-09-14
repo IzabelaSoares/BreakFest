@@ -171,14 +171,14 @@ function displayCart() {
         quantidade += cartArray[i].count + ",";
         precoUn += cartArray[i].price + ",";
         //converter dados de ponto para virgula
-        let preco = cartArray[i].price
+        let preco = cartArray[i].price.toFixed(2);  
         preco = preco.toString().replace(".", ",");
         let ptotal = cartArray[i].total
         ptotal = ptotal.toString().replace(".", ",");
         //tablerow com todos os dados para o usuário
-        output += "<div><tr>"
+        output += "<div><tr style='margin-top: 0'>"
                 + "<td style='width:200px'>" + cartArray[i].name + "</td>"
-                + "<td style='width:150px'> R$ " + preco + "0</td>"
+                + "<td style='width:150px'> R$ " + preco + "</td>"
                 + "<td style='width:100px'> " + cartArray[i].count + " un </td>"
                 + "<td style='width:150px'> R$ " + ptotal + "</td>"
                 + "<td style='width:100px; height:50px'><button class='delete-item btn btn-danger btn-sm' data-name=" + cartArray[i].name + ">X</button></td>"
@@ -186,7 +186,7 @@ function displayCart() {
     }
     //dados para o front end
     $('.show-cart').html(output); //aqui lança os dados na tabela html
-    $('.total-cart').html(shoppingCart.totalCart().toString().replace(".", ",")); //aqui marca total do preço
+    $('.total-cart').html(shoppingCart.totalCart().toFixed(2).toString().replace(".", ",")); //aqui marca total do preço
     $('.total-count').html(shoppingCart.totalCount().toString().replace(".", ","));//aqui marca a quantidade de produto
     
     //dados para o back end em formato JSON
