@@ -25,7 +25,7 @@
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
         
         <!-- Título -->
-        <title>Recuperando Senha</title>
+        <title>Break Fest</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
     </head>

@@ -1,7 +1,15 @@
+/* 
+  Página de Referência: Cadastrojuridico e alterarusuariojuridico
+  Desenvolvido por: Izabela
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ /*Alterador da propriedade padrão da box model.*/
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/*Indicador,margem,maxímo de largura e posição.*/
 .combo {
   display: block;
   margin-bottom: 1.5em;
@@ -9,6 +17,8 @@
   position: relative;
 }
 
+/*Bordas,gerador de conteúdo em um elemento,indicador,altura,controlador de 
+elemento,posição,lado direito,espaço de cima,modificador de espaço e largura.*/
 .combo::after {
   border-bottom: 2px solid #cacaca;
   border-right: 2px solid #cacaca;
@@ -23,10 +33,13 @@
   width: 12px;
 }
 
+/*Borda arredondada.*/
 .input-wrapper {
   border-radius: 4px;
 }
 
+/*Cor de fundo,borda,borda arredondada,indicador,tamanho da fonte,mínimo de 
+altura,margem interna,alinhador do elemento e largura.*/
 .combo-input {
   background-color: #f5f5f5;
   border: 2px solid rgba(0, 0, 0, 0.5);
@@ -39,22 +52,26 @@
   width: 100%;
 }
 
+/*Elemento usando um estilo nativo da plataforma.*/
 select.combo-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
+/*Borda arredondada.*/
 .open .combo-input {
   border-radius: 4px 4px 0 0;
 }
 
+/*Contorno.*/
 .combo-input:focus {
 /*  border-color: #0067b8;
   box-shadow: 0 0 4px 2px #0067b8; isso faz ficar com uma sombra azul*/ 
   outline: 5px solid transparent;
 }
 
+/*Indicador,tamanho da fonte,negrito e margem.*/
 .combo-label {
   display: block;
   font-size: 20px;
@@ -62,6 +79,8 @@ select.combo-input {
   margin-bottom: 0.25em;
 }
 
+/*Cor de fundo,borda,borda arredondada,indicador,maxímo de altura,quando o 
+elemento deve ser cortado,lado esquerdo,posição,espaço de cima,largura e eixo.*/
 .combo-menu {
   background-color: #f5f5f5;
   border: 1px solid rgba(0, 0, 0, 0.42);
@@ -76,24 +95,30 @@ select.combo-input {
   z-index: 100;
 }
 
+/*Indicador.*/
 .open .combo-menu {
   display: block;
 }
 
+/*Margem interna.*/
 .combo-option {
   padding: 10px 12px 12px;
 }
 
+/*Cor de fundo.*/
 .combo-option.option-current,
 .combo-option:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/*Margem interna e posição.*/
 .combo-option.option-selected {
   padding-right: 30px;
   position: relative;
 }
 
+/*Bordas,gerador de conteúdo em um elemento,altura,posição,lado direito,espaço
+de cima,modificadores de espaço e largura.*/
 .combo-option.option-selected::after {
   border-bottom: 2px solid #000;
   border-right: 2px solid #000;
@@ -106,7 +131,8 @@ select.combo-input {
   width: 8px;
 }
 
-/* multiselect list of selected options */
+/*Uma declaração para duas das propriedades,margem,maxímo de largura e margem 
+interna.*/
 .selected-options {
   list-style-type: none;
   margin: 0;
@@ -114,11 +140,14 @@ select.combo-input {
   padding: 0;
 }
 
+/*Indicador e margem.*/
 .selected-options li {
   display: inline-block;
   margin-bottom: 5px;
 }
 
+/*Cor de fundo,borda,borda arredondada,cor,tamanho da fonte,negrito,margens,
+margem interna e posição.*/
 .remove-option {
   background-color: #6200ee;
   border: 1px solid #6200ee;
@@ -132,12 +161,15 @@ select.combo-input {
   position: relative;
 }
 
+/*Cor de fundo,sombra e contorno.*/
 .remove-option:focus {
   border-color: #baa1dd;
   box-shadow: 0 0 3px 1px #6200ee;
   outline: 3px solid transparent;
 }
 
+/*Borda,gerador de conteúdo em um elemento,altura,lado direito,posição,espaço de
+cima e largura.*/
 .remove-option::before,
 .remove-option::after {
   border-right: 2px solid #fff;
@@ -149,14 +181,18 @@ select.combo-input {
   width: 0;
 }
 
+/*Modificador de espaço.*/
 .remove-option::before {
   transform: translate(0, -50%) rotate(45deg);
 }
 
+/*Modificador de espaço.*/
 .remove-option::after {
   transform: translate(0, -50%) rotate(-45deg);
 }
 
+/*Alinhador de elemento,cor de fundo,borda,borda arredondada, indicador,itens 
+reorganizados em mais de uma linha,altura mínima e margem interna.*/
 .multiselect-inline {
   align-items: center;
   background-color: #f5f5f5;
@@ -168,14 +204,17 @@ select.combo-input {
   padding: 12px 16px 14px;
 }
 
+/*Criador das duas partes.*/
 .multiselect-inline .selected-options {
   flex: 0 1 auto;
 }
 
+/*Margem.*/
 .multiselect-inline .selected-options li {
   margin-bottom: 0;
 }
 
+/*Borda,criador das duas partes,altura mínima e margem interna.*/
 .multiselect-inline .combo-input {
   border: none;
   flex: 1 1 35%;
@@ -183,11 +222,13 @@ select.combo-input {
   padding: 0;
 }
 
+/*Sombra e contorno.*/
 .multiselect-inline .combo-input:focus {
   box-shadow: none;
   outline: none;
 }
 
+/*Sombra e contorno.*/
 .multiselect-inline:focus-within {
   box-shadow: 0 0 3px 2px #0067b8;
   outline: 5px solid transparent;

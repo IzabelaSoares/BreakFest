@@ -1,3 +1,9 @@
+/* 
+  Página de Referência:Cadastroproduto
+  Desenvolvido por: Ricardo e Jefferson
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
 /*Cor de fundo do corpo.*/
 body {
     background-color: #FFF5EB;
@@ -37,6 +43,7 @@ button{
     left: 75vh;
     top: -90vh;
 }
+/*Fonte*/
 h2{
 font-size: 30px; font-family: 'Muli', sans-serif; font-weight: bold; color:#995a1a;
 }

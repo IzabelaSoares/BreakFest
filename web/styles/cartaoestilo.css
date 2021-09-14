@@ -1,11 +1,23 @@
+/* 
+  Página de Referência: Dadoscartaocredito
+  Desenvolvido por: Izabela e Ricardo
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
+ /*Import da fonte.*/
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
 
+/*Margem interna,margem externa e largura.*/
 form {
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
+/*Margem externa,margem interna,cor de fundo,indicadores,posicionamento no eixo 
+cruzado,estabelecedor o valor align-self,alinhador os elementos ao longo do 
+eixo principal,e fonte.*/
 .centrocartao {
     margin: 0;
     padding: 0;
@@ -27,37 +39,46 @@ form {
     font-family: 'Raleway';
 }
 
+/*Margem interna,tamanho da fonte e alinhador de elemento.*/
 .payment-title {
     padding-top: 20px;
     font-size: 35px;
     text-align: center;
 }
 
+/*Posicionamento baseado em colunas e linha.*/
 .form-container .field-container:first-of-type {
     grid-area: name;
 }
 
+/*Posicionamento baseado em colunas e linha.*/
 .form-container .field-container:nth-of-type(2) {
     grid-area: number;
 }
 
+/*Posicionamento baseado em colunas e linha.*/
 .form-container .field-container:nth-of-type(3) {
     grid-area: expiration;
 }
 
+/*Posicionamento baseado em colunas e linha.*/
 .form-container .field-container:nth-of-type(4) {
     grid-area: security;
 }
 
+/*Alterador da propriedade padrão da box model.*/
 .field-container input {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+/*Posição.*/
 .field-container {
     position: relative;
 }
 
+/*Altura,indicador,duas propriedades em um só lugar,largura maxíma,margem 
+interna e cor.*/
 .form-container {
     height: 500px;
     display: grid;
@@ -70,11 +91,13 @@ form {
     color: #707070;
 }
 
+/*Margem interna e tamanho da fonte.*/
 label {
     padding-bottom: 5px;
     font-size: 13px;
 }
 
+/*Margem,margem interna,tamanho da fonte,largura,borda arredondada e borda.*/
 input {
     margin-top: 3px;
     padding: 15px;
@@ -84,11 +107,13 @@ input {
     border: 1px solid #bcbcbc;
 }
 
+/*Contorno e sombra.*/
 input:focus, input:active, input:hover {
     outline: 0;
     box-shadow: 0 0 0 0;
 }
 
+/*Altura,posição,lado direito,espaço em cima e largura.*/
 .ccicon {
     height: 38px;
     position: absolute;
@@ -97,7 +122,7 @@ input:focus, input:active, input:hover {
     width: 60px;
 }
 
-/* CREDIT CARD IMAGE STYLING */
+/*Animação.*/
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -105,6 +130,7 @@ input:focus, input:active, input:hover {
     -o-transition: none !important;
 }
 
+/*Largura,tamanho maxímo e margem interna.*/
 .container {
     width: 80%;
     max-width: 400px;
@@ -113,17 +139,20 @@ input:focus, input:active, input:hover {
     padding: 20px;
 }
 
+/*Posição,lado direito e espaço em cima.*/
 #ccsingle {
     position: absolute;
     right: 15px;
     top: 20px;
 }
 
+/*Largura e altura maxíma.*/
 #ccsingle svg {
     width: 100px;
     max-height: 60px;
 }
 
+/*Largura,sombra e borda arredondada.*/
 .creditcard svg#cardfront,
 .creditcard svg#cardback {
     width: 100%;
@@ -132,6 +161,9 @@ input:focus, input:active, input:hover {
     border-radius: 22px;
 }
 
+/*Quando o mouse,elemento deve ser retirado do seu fluxo normal e colocado ao 
+longo do lado direito ou esquerdo,tamanho da fonte,cor,margem interna,cor de 
+fundo,borda arredondada e transparência.*/
 #generatecard{
     cursor: pointer;
     float: right;
@@ -145,7 +177,7 @@ input:focus, input:active, input:hover {
     opacity: 0%;
 }
 
-/* CHANGEABLE CARD ELEMENTS */
+/*Animação.*/
 .creditcard .lightcolor,
 .creditcard .darkcolor {
     -webkit-transition: fill .5s;
@@ -233,6 +265,7 @@ input:focus, input:active, input:hover {
     fill: #FFFFFF;
 }
 
+/*Fonte.*/
 #cardfront .st3 {
     font-family: 'Source Code Pro', monospace;
     font-weight: 600;
@@ -277,7 +310,6 @@ input:focus, input:active, input:hover {
     fill: #4C4C4C;
 }
 
-/* BACK OF CARD */
 #cardback .st0 {
     fill: none;
     stroke: #0F0F0F;
@@ -333,7 +365,7 @@ input:focus, input:active, input:hover {
     font-size: 37.769px;
 }
 
-/* FLIP ANIMATION */
+/*Animação.*/
 .container {
     perspective: 1000px;
 }
@@ -371,6 +403,7 @@ input:focus, input:active, input:hover {
     transform: rotateY(180deg);
 }
 
+/*Margens,tamanho,bordas,sombra,cor de fundo e cor.*/
 .button {
     margin-top: 10px;
     margin-left: 110px;
@@ -383,6 +416,7 @@ input:focus, input:active, input:hover {
     color:white;
 }
 
+/*Contorno,sombra e cor de fundo.*/
 button:hover, button:active, button:focus {
     outline: 0;
     box-shadow: 0 0 0 0;

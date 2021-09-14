@@ -235,15 +235,15 @@
                                         <div class="card-body">
                                             <dl class="row">
                                                 <dd class="col-sm-4">Cliente </dd>
-                                                <dt class="col-sm-8"><% out.write(i.getNome()+" "+i.getSobrenome()); %></dt>
+                                                <dt class="col-sm-8"><% out.write(i.getNome() + " " + i.getSobrenome()); %></dt>
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Total Produtos</dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",") + "0"); %></dt>
                                                 <dd class="col-sm-4">Frete </dd>								
                                                 <dt class="col-sm-8">R$ 0,00</dt>
                                                 <dd class="col-sm-4">Valor Total </dd>
-                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",")+"0"); %></dt>
+                                                <dt class="col-sm-8">R$ <% out.write(String.valueOf(i.getTotalCompra()).replace(".", ",") + "0"); %></dt>
                                             </dl>
                                             <dl class="row">
                                                 <dd class="col-sm-4">Data de Emissão</dd>
@@ -262,7 +262,7 @@
                                                 </dt>
                                             </dl>
                                             <% break;
-                                                 }%>
+                                                }%>
                                             <!-- Tabela com os Produtos -->	
                                             <table class="table">
                                                 <thead class="thead-light">
@@ -278,8 +278,8 @@
                                                     <tr>
                                                         <th scope="row"><% out.write(i.getProduto()); %></th>
                                                         <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",")+"0"); %></td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",")+"0"); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",") + "0"); %></td>
+                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",") + "0"); %></td>
                                                     </tr>
                                                     <% }%>
                                                 </tbody>
@@ -337,6 +337,70 @@
             </div>
         </div>
     </div>
+ 
+    <!-- modal de midias --> 
+    <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section class="container max-w-xl mx-auto flex flex-col py-8">
+                        <h1 class="text-xl font-black">Informações Adicionais</h1>
+
+                        <!-- Form com as informações -->
+                        <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" class="form-midias">
+                            <label for="instagram">Link para o Instagram</label>
+                            <br>
+                            <input type="text" name="instagram" placeholder="Instagram">
+                            <br><br>
+                            <label for="facebook">Link para o Facebook</label>
+                            <br>
+                            <input type="text" name="facebook" placeholder="Facebook" height="300px">
+                            <br><br><hr>
+                            <label>Foto da padaria</label>
+                            <br>
+                            <div id="center">
+                                <div x-data="imageData()" class="file-input flex items-center">
+
+                                    <!--          //////////                      Preview da Imagem                      ////////                -->
+                                    <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+
+                                        <!-- Placeholder da Imagem -->
+                                        <div class="flex items-center">
+
+                                            <!-- Input de foto -->
+                                            <div class="ml-5 rounded-md shadow-sm">
+                                                <input @change="updatePreview($refs)" x-ref="input"
+                                                        type="file" maxlength="50px" 
+                                                        accept="image/*,capture=camera" 
+                                                        name="photo" id="photo" 
+                                                        class="custom">
+                                                <label for="photo" style="position: relative; right: 48px; border-left: none; border-bottom: 2px solid #995a1a; border-top: none; border-right: none; padding-left: 8px; padding-right: 8px;">
+                                                    Adicionar
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center text-sm text-gray-500 mx-2">
+                                                <span x-text="fileName || emptyText"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!-- Botão de enviar -->
+                                <div class="botaoLegal">
+                                    <input type="submit" value="Enviar"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Scripts do Cloud Flare e Mídias -->
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script src="./script.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
@@ -352,11 +416,11 @@
                         <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
                         <div class="drop-down__menu-box">
                             <ul class="drop-down__menu">
-                            <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
-                            <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
-                            <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
-                            <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
-                            <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a>    
+                                <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
+                                <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
+                                <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
+                                <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
+                                <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a>    
                             </ul>
                         </div>
                     </div>
@@ -383,7 +447,7 @@
                     <tr>
                         <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",")+"0");%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
                         <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%>
                             <button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>
