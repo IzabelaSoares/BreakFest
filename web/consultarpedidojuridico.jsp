@@ -211,7 +211,7 @@
     <!-- JS para passar parametros de consulta do pedido -->
     <script>
             function acionar(parametro) {
-                document.getElementById('custId').value = parametro
+                document.getElementById('custId').value = parametro;
                 document.theForm.submit();
             }
     </script>

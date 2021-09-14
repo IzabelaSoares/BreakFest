@@ -276,7 +276,7 @@
             </div>
         </div>
     </div>
- <!-- Inicio Modal Cadastrar Produto -->
+    <!-- Inicio Modal Cadastrar Produto -->
     <div class="modal fade" id="modalNovoProduto" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -446,17 +446,217 @@
             </div>
         </div>
     </div>
-    <!-- Form para Consulta Individual de Produto-->
+    <!-- Fim Modal Cadastrar Produto -->
     <form id="theForm" name="theForm" action="consultarmeusprodutos_1.jsp" method="post">
         <input type="hidden" id="custId" name="custId" value="">
     </form>
-    <!-- JS para passar parametros de consulta do pedido -->
     <script>
-            function acionar(parametro) {
-                document.getElementById('custId').value = parametro;
-                document.theForm.submit();
-            }
+        window.onload = function () {
+            $('#modalAlterarProduto').modal('show');
+        };
+        function acionar(parametro) {
+            document.getElementById('custId').value = parametro
+            document.theForm.submit();
+        }
     </script>
+    
+    <%  //Pegar Parametro do Formulario
+        String idProduto = request.getParameter("custId");
+        Integer id = Integer.valueOf(idProduto);
+        
+        //Instanciar Classe e Chamar o Método
+        Produto individual = new Produto();
+        individual = individual.consultarProdutoIndividual(id);
+        
+        String codigo = String.valueOf(individual.getCodProduto());
+        
+        if(codigo.contains("0") && codigo.length() == 1){
+            codigo = "";
+        }
+        
+    %>
+    <!-- Inicio Modal Alterar Produto -->
+    <div class="modal fade" id="modalAlterarProduto" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Inicio divs de container -->
+                    <div class="container">
+                        <!--  Fomulario de Cadastro -->
+                        <form action="RecebeImagemProduto" method="post" enctype="multipart/form-data">
+                            <div class="row"  style="margin-left: 30px;">
+                                <div class="input-group mb-3"><br>
+                                    <!-- Inicio divs do produto -->
+                                    <div style="margin-left: 30px; font-size: 30px; font-family: 'Muli', sans-serif; font-weight: 600; color:#995a1a;">
+                                        Alterar Produto    
+                                    </div>
+                                    <!-- Titulo Produto  -->
+                                    <div class="mb-3" style="margin-top: 15px;">
+                                        <div class="form-group row">
+                                            <label for="first" class="col-sm-4 col-form-label">Produto</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" type="text" class="form-control text-capitalize" required
+                                                       value="<% out.write(individual.getTitulo()); %>"
+                                                       name = "titulo" id="first" placeholder="EX: Café"
+                                                       style="height:40px; width:215px; box-shadow:none; 
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                       border-top: 0; border-right: 0; border-radius: 2px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Código Produto  -->
+                                    <div class="mb-3" style="margin-top: 15px;">
+                                        <div class="form-group row">
+                                            <label for="codigoproduto" class="col-sm-4 col-form-label">Código</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" type="text" class="form-control text-capitalize" 
+                                                       name = "codigoproduto" id="codigoproduto" placeholder="EX: 2134"
+                                                       value=" <% out.write(codigo); %>"
+                                                       style="height:40px; width:215px; box-shadow:none; 
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                       border-top: 0; border-right: 0; border-radius: 2px;" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Categoria   -->
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="categoria" class="col-sm-4 col-form-label">Categoria</label>
+                                            <div class="col-sm-8">
+                                                <select style="height:40px; width:215px; box-shadow:none; border-bottom: 2px 
+                                                        solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;"
+                                                        class="form-control text-capitalize" id="categoria" name="categoria"required>
+                                                    <option value="NA" disabled hidden>Doces, Salgados, Bebidas..</option>
+                                                    <option value="Doce">Doces</option>
+                                                    <option value="Salgado">Salgados</option>
+                                                    <option value="Bebida">Bebidas</option>
+                                                    <option value="Frios">Frios</option>
+                                                    <option hidden selected value="<% out.write(individual.getCategoria());%>"><%out.write(individual.getCategoria());%></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tamanho  -->
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="first" class="col-sm-4 col-form-label">Tamanho</label>
+                                            <div class="col-sm-8">
+                                                <input maxlength="30" style="height:40px; width:215px; box-shadow:none;  
+                                                       border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
+                                                       border-right: 0; border-radius: 2px;" type="tel" class="form-control text-capitalize" 
+                                                       value="<% out.write(individual.getTamanho()); %>"
+                                                       name = "tamanho" id="phone" required placeholder="EX: Uma xícara de 60 ml">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Unidade de Medida  -->
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="unidadedemedida" class="col-sm-4 col-form-label">Unidade de Medida</label>
+                                            <div class="col-sm-8" style="padding: 0" >
+                                                <select style="height:40px; width:215px; box-shadow:none;
+                                                        border-bottom: 2px solid #995a1a; border-left: 0; 
+                                                        border-top: 0; border-right: 0; border-radius: 2px;" 
+                                                        class="form-control text-capitalize" name="unidadedemedida" required>
+                                                    <option value="NA" selected disabled hidden>Litros, Gramas, Quilos..</option>
+                                                    <option value="KG">Quilo</option>
+                                                    <option value="G">Grama</option>
+                                                    <option value="L">Litro</option>
+                                                    <option value="ML">Ml</option>
+                                                    <option value="FATIA">Fatia</option>
+                                                    <option value="UN">Unidade</option>
+                                                    <option hidden selected value="<% out.write(individual.getUnidadeDeMedida()); %>"><%out.write(individual.getUnidadeDeMedida());%></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Preço do Produto  -->
+                                    <div class="mb-3">
+                                        <div class="form-group row">
+                                            <label for="preco" class="col-sm-4 col-form-label">Preço</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group-prepend">
+                                                    <span for="preco" style="border-style:none; height: 40px;" class="input-group-text">R$</span>
+
+                                                    <input maxlength="500" style="height:40px; width:177px; box-shadow:none; 
+                                                           border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
+                                                           border-right: 0; border-radius: 2px; outline:none;" type="text"
+                                                           value="<% out.write(String.valueOf(individual.getPreco()).replace(".",",") + "0"); %>"
+                                                           id="preco" name="preco" placeholder="2,99" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Inpur hidden para o idProduto-->
+                                    <input type="hidden" id="idProduto" name="idProduto" value="<% out.write(idProduto); %>">
+                                    <!-- Descrição do Produto  -->
+                                    <div class="input-group mb-3">
+                                        <div class="form-group">
+                                            <label for="descricao">Descrição do Produto</label>
+                                            <div class="col-sm-12">
+                                                <textarea style="height:80px; width:310px; box-shadow:none; 
+                                                          border-bottom: 2px solid #995a1a; border-left: 0;
+                                                          border-top: 0; border-right: 0; border-radius: 2px;" 
+                                                          name="descricao" id="descricao" class="form-control text-capitalize"
+                                                          aria-label="With textarea" required><% out.write(individual.getDescricao()); %></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <!-- Selecionar a Imagem  -->
+                                    <div id="center">
+                                        <div x-data="imageData()" class="file-input flex items-center">
+
+                                            <!--          //////////                      Preview da Imagem                      ////////                -->
+                                            <div class="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+
+                                                <!-- Placeholder da Imagem -->
+                                                <div >
+
+                                                    <!-- Input de foto -->
+                                                    <div class="rounded-md shadow-sm">
+                                                        <input @change="updatePreview($refs)" x-ref="input"
+                                                                type="file" maxlength="50px" 
+                                                                accept="image/*,capture=camera" 
+                                                                name="produto" id="produto" 
+                                                                class="custom">
+                                                        <label for="produto" style="border-left: none;
+                                                               border-bottom: 2px solid #995a1a; border-top: none; 
+                                                               border-right: none; padding-left: 8px; padding-right: 8px;">
+                                                            Adicionar Imagem ao Produto
+                                                        </label>
+                                                    </div><br>
+                                                    <div class="flex items-center text-sm text-gray-500 mx-2">
+                                                        <span name="nomeArquivo" x-text="fileName || emptyText"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div id="msg"></div>                                        
+                                        <input type="file" name="file" class="file" accept="image/*"
+                                               style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
+                                    </div>
+                                    <!-- Fim divs do produto -->
+                                    <button type="submit" style="border: 1px solid #995a1a; box-shadow: 0 0 0 0; 
+                                            outline: none; position: relative; left: 30%; width: 90px; height: 40px; 
+                                            text-align: center; background-color: #995a1a; border-radius: 5px; 
+                                            color: white;">Enviar</button>                                       
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fim divs de container -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim Modal Alterar Produto -->
     <body>
         <div class="container">
             <br>
@@ -497,8 +697,8 @@
                             <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
                             <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
                             <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
-                            <td name="alterarproduto" class="alterar" ><a class="alterar" onclick="acionar('<%out.write(String.valueOf(n.getIdProduto()));%>')">Alterar</a></td>
-                                                         <td name="excluirproduto"><a style="color: red" href="recebedeletarproduto.jsp?idproduto="<% out.write(n.getIdProduto());
+                            <td name="alterarproduto" class="alterar"><a class="alterar" onclick="acionar('<%out.write(String.valueOf(n.getIdProduto()));%>')">Alterar</a></td>
+                            <td name="excluirproduto"><a style="color: red" href="recebedeletarproduto.jsp?idproduto="<% out.write(n.getIdProduto());
                                                              request.getSession().setAttribute("id", n.getIdProduto()); %>">Excluir</a></td>
                         </tr>
                         <%}%>

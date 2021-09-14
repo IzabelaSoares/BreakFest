@@ -132,7 +132,37 @@ public class Produto {
         return produto;
         
     }
+    //Consultar Produto Individual        
+    public Produto consultarProdutoIndividual(Integer id){
+        this.idProduto = id;
+        String sql = "SELECT * FROM produto where  id= ?";
+        Connection con = Conexao.conectar();
+        Produto produto = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, this.idProduto);
+            ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                   produto = new Produto();
+                   produto.setTitulo(rs.getString("titulo"));
+                   produto.setCategoria(rs.getString("categoria"));
+                   produto.setFkCnpj(rs.getString("fkcnpj"));
+                   produto.setDescricao(rs.getString("descricao"));
+                   produto.setImagem(rs.getString("imagem"));
+                   produto.setPreco(rs.getFloat("preco"));
+                   produto.setTamanho(rs.getString("tamanho"));
+                   produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+                   produto.setCodProduto(rs.getInt("codproduto"));
+                } 
+        } catch (SQLException ex) {
+                System.out.println("Erro:" + ex.getMessage());
+            }
+        
+        return produto;
+        
+    }
     
+    //Consultar Produtos BreakFest
     public List<Produto> consultarProdutosBreakFest(){
         List<Produto> lista = new ArrayList<>();
         String sql = "select * from public.produto where fkcnpj = 'XX.XXX.XXX/0001-XX'";

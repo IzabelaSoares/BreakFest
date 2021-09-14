@@ -275,6 +275,7 @@
             </div>
         </div>
     </div>
+    <!-- Modal Cadastrar Produto -->
     <div class="modal fade" id="modalNovoProduto" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -430,17 +431,17 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <div id="msg"></div>
-                                        <form method="post" id="image-form">
-                                            <input type="file" name="file" class="file" accept="image/*"
-                                                   style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
-                                            </div>
-
-                                            <!-- Fim divs do produto -->
-                                            <button type="submit" style="border: 1px solid #995a1a; box-shadow: 0 0 0 0; outline: none; position: relative; left: 40%; width: 90px; height: 40px; text-align: center; background-color: #995a1a; border-radius: 5px; color: white;">Enviar</button>
-                                        </form>
+                                        <div id="msg"></div>                                        
+                                        <input type="file" name="file" class="file" accept="image/*"
+                                               style="box-shadow:none; border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; border-right: 0; border-radius: 2px;">
                                     </div>
+                                    <!-- Fim divs do produto -->
+                                    <button type="submit" style="border: 1px solid #995a1a; box-shadow: 0 0 0 0; 
+                                            outline: none; position: relative; left: 30%; width: 90px; height: 40px; 
+                                            text-align: center; background-color: #995a1a; border-radius: 5px; 
+                                            color: white;">Enviar</button>                                       
                                 </div>
+                            </div>
                         </form>
                     </div>
                     <!-- Fim divs de container -->
@@ -448,59 +449,60 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <br>
-        <div class="botoes">
-            <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
-                <!-- Input de importar os produtos -->
-                <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
-                <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Cadastrar Produto</button> &nbsp
-                <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
-                <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
-            </form>
-        </div>
-        <br>
-        <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>        
-        <h1>Selecione produtos</h1><br>
-        <div class="borda">
-            <table class="table table-image">
-                <thead class="tabelaThead">
-                    <tr>
-                        <th class="check align-middle"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
-                        <th class="titulo align-middle" >Imagem</th>
-                        <th class="titulo align-middle" >Produto</th>
-                        <th class="titulo align-middle" >Categoria</th>
-                        <th class="titulo align-middle" >Descrição </th>
-                        <th class="titulo align-middle" >Tamanho</th>
-                        <th class="titulo align-middle" >Un. Medida</th>
-                        <th class="titulo align-middle" >Preço</th>
-                    </tr>
-                </thead>
-                <tbody id="table">
-                    <tr>
-                        <% for (Produto n : consulta) {%>
+    <!-- Fim Modal Cadastrar Produto -->
+    <body>
+        <div class="container">
+            <br>
+            <div class="botoes">
+                <form class="form-detail" action="recebeprodutospadrao.jsp" method="post" id="myform">
+                    <!-- Input de importar os produtos -->
+                    <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
+                    <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Cadastrar Produto</button> &nbsp
+                    <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
+                    <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
+                </form>
+            </div>
+            <br>
+            <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>        
+            <h1>Selecione produtos</h1><br>
+            <div class="borda">
+                <table class="table table-image">
+                    <thead class="tabelaThead">
+                        <tr>
+                            <th class="check align-middle"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
+                            <th class="titulo align-middle" >Imagem</th>
+                            <th class="titulo align-middle" >Produto</th>
+                            <th class="titulo align-middle" >Categoria</th>
+                            <th class="titulo align-middle" >Descrição </th>
+                            <th class="titulo align-middle" >Tamanho</th>
+                            <th class="titulo align-middle" >Un. Medida</th>
+                            <th class="titulo align-middle" >Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                        <tr>
+                            <% for (Produto n : consulta) {%>
 
-                        <td class="check"><input type="checkbox" 
-                                                 data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
-                        <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
-                        <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
-                        <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
-                        <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao());%>"><%out.write(n.getDescricao());%></td>
-                        <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
-                        <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
-                        <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
-                    </tr>
+                            <td class="check"><input type="checkbox" 
+                                                     data-id="<% out.write(String.valueOf(n.getIdProduto()));%>" name="box" class="importar-produto"></td>
+                            <td name="imagem" value="<% n.getImagem(); %>" class="imagem"><img src="<%out.write(n.getImagem());%>" class="img-fluid img-thumbnail" alt="<%out.write(n.getTitulo().toUpperCase()); %>"></td>
+                            <td name="titulo" class="produto" > <%out.write(n.getTitulo()); %> </td>
+                            <td name="categoria" class="categoria"><%out.write(n.getCategoria()); %></td>
+                            <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao());%>"><%out.write(n.getDescricao());%></td>
+                            <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
+                            <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
+                            <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
+                        </tr>
 
-                    <%}%>
-                </tbody>
-            </table>   
-        </div>
-    </div>
+                        <%}%>
+                    </tbody>
+                </table>   
+            </div>
+        </div>    
     <br><br><br>
     <!-- JS de produtos padrão -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://unpkg.com/popper.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
-
 </body>
 </html>

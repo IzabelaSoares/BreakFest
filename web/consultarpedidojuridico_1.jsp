@@ -206,7 +206,7 @@
         </div>
     </div>
     <!-- Modal para ver dados do pedido especifico -->
-    <%        String fkId = request.getParameter("custId");
+    <%   String fkId = request.getParameter("custId");
         Integer valor = Integer.valueOf(fkId);
 
         //produtos pedido

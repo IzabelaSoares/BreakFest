@@ -47,3 +47,12 @@ button{
 h2{
 font-size: 30px; font-family: 'Muli', sans-serif; font-weight: bold; color:#995a1a;
 }
+
+/*Botão de Alterar os dados do produto*/
+.alterar{
+  color: #14a3db;
+}
+.alterar:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
