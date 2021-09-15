@@ -28,8 +28,6 @@ public class PessoaJuridica {
     private String instagram;
     private String facebook;
     private String bairros;
-    private String bairroAtendimento;
-    private float frete;
     
     //metodos
     
@@ -165,7 +163,7 @@ public class PessoaJuridica {
     }
     
     //consultar conta especifica dados para chave-pix
-       public PessoaJuridica consultarDados(String pCnpj){
+    public PessoaJuridica consultarDados(String pCnpj){
         this.cnpj = pCnpj;
         String sql = "select  cnpj, email, telefone from pessoajuridica where cnpj = ?";
         Connection con = Conexao.conectar();
@@ -311,8 +309,7 @@ public class PessoaJuridica {
         return true;
     }
     
-    
-        //cadastro de imagem de perfil
+    //cadastro de imagem de perfil
     public boolean cadastrarImagem(){
         //comando de execução de banco de dados
         String sql = "update pessoajuridica set imagem=? where cnpj = ?";
@@ -323,29 +320,6 @@ public class PessoaJuridica {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.imagem);
             stm.setString(2, this.cnpj);
-            //executando comando
-            stm.execute();
-        }catch(SQLException ex){
-            System.out.println("Erro: "+ex.getMessage());
-            return false;
-        }
-        
-        return true;
-    }
-    
-    //cadastra os bairros e seus respectivos fretes
-    public boolean cadastrarBairroFrete(){
-        //comando de execução de banco de dados
-        String sql = "INSERT INTO bairrofrete (fkcnpj, bairro, frete) " 
-                   + "VALUES(?, ?, ?)";
-        //conectando com o banco
-        Connection con = Conexao.conectar();
-        try{
-            //preparando o comando sql com os dados
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cnpj);
-            stm.setString(2, this.bairroAtendimento);
-            stm.setFloat(3, this.frete);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -491,22 +465,6 @@ public class PessoaJuridica {
 
     public void setBairros(String bairros) {
         this.bairros = bairros;
-    }
-
-    public String getBairroAtendimento() {
-        return bairroAtendimento;
-    }
-
-    public void setBairroAtendimento(String bairroAtendimento) {
-        this.bairroAtendimento = bairroAtendimento;
-    }
-
-    public float getFrete() {
-        return frete;
-    }
-
-    public void setFrete(float frete) {
-        this.frete = frete;
     }
     
 }

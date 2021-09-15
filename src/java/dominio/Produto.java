@@ -25,6 +25,8 @@ public class Produto {
 
 
     //métodos
+    
+    //cadastra produtos
     public boolean cadastrarProduto(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO produto " 
@@ -54,6 +56,7 @@ public class Produto {
         return true;
     }
     
+    //altera produto
     public boolean alterarProduto(){
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
@@ -84,6 +87,7 @@ public class Produto {
         return true;
     }
     
+    //exclui produto
     public boolean excluirProduto(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM produto WHERE id=?";
@@ -102,7 +106,7 @@ public class Produto {
         
         return true;
     }
-    
+ 
     public Produto consultarProduto(String pTitulo){
         this.titulo = pTitulo;
         String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
@@ -164,13 +168,18 @@ public class Produto {
     
     //Consultar Produtos BreakFest
     public List<Produto> consultarProdutosBreakFest(){
+        //cria uma lista
         List<Produto> lista = new ArrayList<>();
+        //comando de execução de banco de dados
         String sql = "select * from public.produto where fkcnpj = 'XX.XXX.XXX/0001-XX'";
+        //conectando com o banco
         Connection con = Conexao.conectar();
         try{
+            //executando comando
             PreparedStatement stm = con.prepareStatement(sql);     
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
+                //adiciona na lista todos os produtos encontrados
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
                 produto.setImagem(rs.getString("imagem"));
@@ -191,13 +200,18 @@ public class Produto {
     
     //consultar cada padaria o seu produto, passar cnpj como parametro
     public List<Produto> consultarProdutosPadaria(String cnpj){
+        //cria uma lista
         List<Produto> lista = new ArrayList<>();
+        //comando de execução de banco de dados
         String sql = "select * from public.produto where fkcnpj= '"+ cnpj +"'";
+        //conectando com o banco
         Connection con = Conexao.conectar();
         try{
+            //executando comando
             PreparedStatement stm = con.prepareStatement(sql);     
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
+                //adiciona na lista todos os produtos encontrados
                 Produto produto = new Produto();
                 produto.setTitulo(rs.getString("titulo"));
                 produto.setImagem(rs.getString("imagem"));
@@ -216,28 +230,34 @@ public class Produto {
     return lista;  
     }
     
+    //consulta o último produto cadastrado no banco
     public boolean consultarId(int id, String cnpj){
+        //comando de execução de banco de dados
         String sql = "SELECT titulo, categoria, fkcnpj, imagem, descricao, preco, tamanho, " 
                     + "unidadedemedida, codproduto FROM produto where id = ?";
+        //conectando com o banco
         Connection con = Conexao.conectar();
         Produto produto = null;
         try{
+            //preparando o comando com os dados
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setInt(1, id);
+            //executando comando
             ResultSet rs = stm.executeQuery();
-                if(rs.next()){
-                   produto = new Produto();
-                   produto.setTitulo(rs.getString("titulo"));
-                   produto.setCategoria(rs.getString("categoria"));
-                   produto.setFkCnpj(cnpj);
-                   produto.setImagem(rs.getString("imagem"));
-                   produto.setDescricao(rs.getString("descricao"));
-                   produto.setPreco(rs.getFloat("preco"));
-                   produto.setTamanho(rs.getString("tamanho"));
-                   produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
-                   produto.setCodProduto(rs.getInt("codproduto"));
-                   produto.cadastrarProduto();
-                } 
+            if(rs.next()){
+                //adiciona os dados encontrados em um novo produto
+               produto = new Produto();
+               produto.setTitulo(rs.getString("titulo"));
+               produto.setCategoria(rs.getString("categoria"));
+               produto.setFkCnpj(cnpj);
+               produto.setImagem(rs.getString("imagem"));
+               produto.setDescricao(rs.getString("descricao"));
+               produto.setPreco(rs.getFloat("preco"));
+               produto.setTamanho(rs.getString("tamanho"));
+               produto.setUnidadeDeMedida(rs.getString("unidadedemedida")); 
+               produto.setCodProduto(rs.getInt("codproduto"));
+               produto.cadastrarProduto();
+            } 
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
         }

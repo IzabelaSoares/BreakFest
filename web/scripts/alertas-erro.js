@@ -314,4 +314,22 @@ function alertar(parametro) {
             text: 'Algo deu errado no cadastro do seu pedido.'
         });
     }
+    
+    //Erro ao cadastrar pedido
+    else if (parametro === "CarrinhoVazio") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Carrinho Vazio',
+            text: 'Não é possível fazer seu pedido.'
+        });
+    }
+    
+    //Erro ao cadastrar pedido
+    else if (parametro === "SemProdutos") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Sem produtos',
+            text: 'Você não selecionou nenhum produto para importar.'
+        });
+    }
 }
