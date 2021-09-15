@@ -511,7 +511,7 @@
                                             <div class="col-sm-8">
                                                 <input maxlength="30" type="text" class="form-control text-capitalize" 
                                                        name = "codigoproduto" id="codigoproduto" placeholder="EX: 2134"
-                                                       value=" <% out.write(codigo); %>"
+                                                       value="<%out.write(codigo);%>"
                                                        style="height:40px; width:215px; box-shadow:none; 
                                                        border-bottom: 2px solid #995a1a; border-left: 0; 
                                                        border-top: 0; border-right: 0; border-radius: 2px;" required>

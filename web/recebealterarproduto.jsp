@@ -17,7 +17,7 @@
     String fkcnpj = pj.procuraCnpj(fkemail);
     
     //Pegar os valores dos produtos
-    Integer id = 0;
+    Integer id = Integer.parseInt(String.valueOf(request.getSession().getAttribute("id")));
     String titulo = String.valueOf(request.getSession().getAttribute("titulo"));
     Integer codProduto = Integer.parseInt(String.valueOf(request.getSession().getAttribute("codigoproduto")));
     String categoria = String.valueOf(request.getSession().getAttribute("categoria"));
@@ -36,11 +36,21 @@
     prdt.setPreco(preco);
     prdt.setTamanho(tamanho);
     prdt.setUnidadeDeMedida(unidadeMedida);
-    prdt.setImagem(imagem);
     prdt.setIdProduto(id);
     
-    //se cadastrar produto
-    if (prdt.alterarProduto()) {
+    //se a imagem foi alterada
+    if (imagem == null){
+        prdt.setImagem(imagem);
+        //se alterara o produto e a imagem
+        if(prdt.alterarProdutoEImagem()){
+            request.getSession().setAttribute("resultado", "ProdutoSalvo");
+            response.sendRedirect("consultarmeusprodutos.jsp");
+        }else{
+            request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
+            response.sendRedirect("consultarmeusprodutos.jsp");
+        }
+    //se alterar produto
+    }else if (prdt.alterarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");
         response.sendRedirect("consultarmeusprodutos.jsp");
     } else {

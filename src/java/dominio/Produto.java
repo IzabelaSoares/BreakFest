@@ -56,8 +56,8 @@ public class Produto {
         return true;
     }
     
-    //altera produto
-    public boolean alterarProduto(){
+    //altera produto e a imagem
+    public boolean alterarProdutoEImagem(){
         //comando de execução de banco de dados 
         String sql = "UPDATE produto " 
                 + "SET titulo=?, categoria=?, fkcnpj=?, imagem=?, descricao=?, preco=?, "
@@ -77,6 +77,36 @@ public class Produto {
             stm.setString(8, this.unidadeDeMedida);
             stm.setInt(9, this.codProduto);
             stm.setInt(10, this.idProduto);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        
+        return true;
+    }
+    
+    //altera produto sem a imagem
+    public boolean alterarProduto(){
+        //comando de execução de banco de dados 
+        String sql = "UPDATE produto " 
+                + "SET titulo=?, categoria=?, fkcnpj=?, descricao=?, preco=?, "
+                + "tamanho=?, unidadedemedida=?, codproduto=? WHERE id=?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try {
+            //preparando comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.titulo); 
+            stm.setString(2, this.categoria);
+            stm.setString(3, this.fkCnpj);
+            stm.setString(4, this.descricao);
+            stm.setFloat(5, this.preco);
+            stm.setString(6, this.tamanho);
+            stm.setString(7, this.unidadeDeMedida);
+            stm.setInt(8, this.codProduto);
+            stm.setInt(9, this.idProduto);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -264,6 +294,21 @@ public class Produto {
         
         return true;
         
+    }
+    
+    //método para verificar se possue imagem de produto cadastrado
+    public boolean verificaImgem(Integer id){
+        Connection con = Conexao.conectar();
+            String sql = "select imagem from produto where id = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            return rs.next();       
+        }catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
     }
     
     //getters e setters
