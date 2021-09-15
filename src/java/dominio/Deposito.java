@@ -49,20 +49,19 @@ public class Deposito {
     public boolean alterarDeposito(){
         //comando de execução de banco de dados 
         String sql = "UPDATE deposito " 
-                + "SET fkcnpj=?, conta=?, banco=?, tipoconta=?, agencia=? , datapagto=? "
+                + "SET conta=?, banco=?, tipoconta=?, agencia=? , datapagto=? "
                 + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.conta);
-            stm.setString(3, this.banco);
-            stm.setString(4, tipoConta);
-            stm.setString(5, this.agencia);
-            stm.setString(6, this.dataPagto);
-            stm.setString(7, this.fkCnpj);
+            stm.setString(1, this.conta);
+            stm.setString(2, this.banco);
+            stm.setString(3, tipoConta);
+            stm.setString(4, this.agencia);
+            stm.setString(5, this.dataPagto);
+            stm.setString(6, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){

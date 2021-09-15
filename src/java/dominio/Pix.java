@@ -23,7 +23,7 @@ public class Pix {
     public boolean cadastrarPix(){
         //comando de execução de banco de dados
         String sql = "INSERT INTO pix " 
-                   +"(fkCnpj, tipochave, chave) " 
+                   +"(fkcnpj, tipochave, chave) " 
                    +"VALUES(?, ?, ?)";
         //conectando com o banco
         Connection con = Conexao.conectar();
@@ -47,17 +47,16 @@ public class Pix {
     public boolean alterarpix(){
         //comando de execução de banco de dados 
         String sql = "UPDATE pix " 
-                + "SET tipochave=?, chave=?, validade=? "
-                + "WHERE fkCnpj=?";
+                + "SET tipochave=?, chave=? "
+                + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
             //preparando comando sql com os dados
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.fkCnpj);
-            stm.setString(2, this.tipoChave);
-            stm.setString(3, this.chave);
-            stm.setString(4, this.fkCnpj);
+            stm.setString(1, this.tipoChave);
+            stm.setString(2, this.chave);
+            stm.setString(3, this.fkCnpj);
             //executando comando
             stm.execute();
         }catch(SQLException ex){
@@ -72,7 +71,7 @@ public class Pix {
     public boolean excluirPix(){
         //comando de execução de banco de dados
         String sql = "DELETE FROM pix " 
-                + "WHERE fkCnpj=?";
+                + "WHERE fkcnpj=?";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try{
