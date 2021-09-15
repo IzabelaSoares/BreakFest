@@ -3,8 +3,8 @@
   Desenvolvido por: Izabela e Ricardo
   Documentado por: Jefferson Teixeira
   Data da ultima Revisão: 13/09/2021 
- */
- 
+*/
+
 /*Alinhador de elemento.*/
 body {
     align-items: center;
@@ -24,7 +24,9 @@ body {
     color: #FFF;
     box-shadow: 0 0 0 0;        
 }
-
+dl{
+    text-transform: capitalize;
+}
 /*Alinhador de elemento e transformar as letras em maiúscula.*/
 table {
     text-align: center;
@@ -62,7 +64,7 @@ h2 {
     padding-left: 7%;
 }
 
- /*Margens internas.*/
+/*Margens internas.*/
 .forSelect {
     padding-left: 32%;
     padding-top: 10px;
@@ -83,4 +85,12 @@ select {
     border: 0;
     background-color: #995a1a;
     color: white;
+}
+
+.pagamento-titulo{
+    font-size: 30px;
+    text-transform: capitalize;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
 }

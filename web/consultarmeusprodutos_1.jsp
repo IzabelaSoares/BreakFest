@@ -436,7 +436,7 @@
                                     <button type="submit" style="border: 1px solid #995a1a; box-shadow: 0 0 0 0; 
                                             outline: none; position: relative; left: 30%; width: 90px; height: 40px; 
                                             text-align: center; background-color: #995a1a; border-radius: 5px; 
-                                            color: white;">Enviar</button>                                       
+                                            color: white;">Cadastrar</button>                                       
                                 </div>
                             </div>
                         </form>

@@ -107,6 +107,29 @@ public class Cartao {
         return true;
     }
     
+    //método para consultar dados do cartao
+    public Cartao consultarNumero(String fkCpf){
+        String sql = "SELECT * FROM cartao where fkcpf = '"+fkCpf+"'";
+        Connection con = Conexao.conectar();
+        Cartao cartao = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+                if(rs.next()){
+                   cartao = new Cartao();
+                   cartao.setNome(rs.getString("nome"));
+                   cartao.setFkcpf(rs.getString("fkcpf"));
+                   cartao.setNumero(rs.getString("numero"));
+                   cartao.setCodSeguranca(rs.getString("codseguranca"));
+                   cartao.setValidade(rs.getString("validade"));
+                   cartao.setId(rs.getInt("id"));
+                } 
+        } catch (SQLException ex) {
+                System.out.println("Erro:" + ex.getMessage());
+            }
+        return cartao;
+    }
+    
     //área de getters e setters
     public Integer getId() {
         return id;
