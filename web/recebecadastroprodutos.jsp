@@ -6,7 +6,8 @@
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.Cartao"%>
-<%  //Instancia o Produto = prdt
+<% request.setCharacterEncoding("UTF-8"); 
+    //Instancia o Produto = prdt
     Produto prdt = new Produto();
     
     //Instancia o PessoaJuridica = pj

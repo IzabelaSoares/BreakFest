@@ -18,7 +18,7 @@ public class RecebeImagemProduto extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8"); 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
@@ -78,7 +78,7 @@ public class RecebeImagemProduto extends HttpServlet {
                 request.getSession().setAttribute("codproduto", codProduto);
                 request.getSession().setAttribute("imagem", imagem);
 
-                response.sendRedirect("recebecadastroproduto.jsp");
+                response.sendRedirect("recebecadastroprodutos.jsp");
 
             } else {
                 request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
