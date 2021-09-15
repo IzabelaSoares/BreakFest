@@ -4,6 +4,7 @@
     Author     : Ricardo Natal Schvambach
 --%>
 
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.PessoaFisica"%>
@@ -38,7 +39,7 @@
 
         <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        
+
         <!-- Link da página "midias" em css -->
         <link rel="stylesheet" href="styles/midias.css">
 
@@ -61,6 +62,9 @@
             //Pesquisar pedidos para pessoa juridica
             Pedido pedido = new Pedido();
             List<Pedido> pedidos = pedido.consultarPedidosUsuarioJuridico(cnpj);
+
+            BairrosFrete bairro = new BairrosFrete();
+            List<BairrosFrete> bairros = bairro.consultarBairros(cnpj);
 
             //Formatação para data
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -239,8 +243,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <!-- modal de midias --> 
     <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -304,66 +308,113 @@
             </div>
         </div>
     </div>
-    <body class="tabela">
-        <!-- Alerta -->
-        <header id="navbar" onload="javascript: alertar(resultado)">
-            <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-            <h2> Break Fest </h2>
-            <nav>
-                <ul id="navbar-list">
-                    <div class="drop-down">
-                        <div id="dropDown" class="drop-down__button">
-                            <a>Meu Painel</a>
-                        </div>
 
-                        <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
-                        <div class="drop-down__menu-box">
-                            <ul class="drop-down__menu">
-                                <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
-                                <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
-                                <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
-                                <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
-                                <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a> 
-                            </ul>
+    <div class="modal fade" id="modalFrete" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="tudoCentral">
+                        <h2> Gerenciador de fretes </h2>
+                        <hr>
+                        <div class="container table-responsive py-5"> 
+                            <table class="table table-bordered table-hover">
+                                <thead class="tabelinha">
+                                    <tr>
+                                        <th scope="col">Bairro</th>
+                                        <th scope="col">Valor</th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>       
+                                    <tr>
+                                        <td>Vorstard</td>
+                                        <td>R$12,50</td>
+                                        <td><a style="color: blueviolet;" href="#">Alterar</a></td>
+                                        <td><a style="color: red;" href="#">Excluir</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                            <form action="recebefrete.jsp" method="post">
+                                <input type="hidden" value="<%%>">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o bairro aqui</option>
+                                    <option value="nada">Bairros futuros</option>
+                                </select>
+                                <br><br>
+                                <div class="valor"><p>R$</p>
+                                    <input type="number" placeholder="Informe o preço">
+                                </div>
+                                <br>
+                                <button type="submit">Salvar</button>
+                            </form>
                         </div>
                     </div>
-                    <!-- Essa opção será para sair da página, será levado para a página de login -->
-                    <li><a href="login.jsp">Sair</a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- partial:index.partial.html -->
-        <div class="container table-responsive py-5"> 
-            <table class="table table-bordered table-hover">
-                <thead class="tabelinha">
-                    <tr>
-                        <th scope="col">Pedido</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Preço Total</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (Pedido p : pedidos) {%>
-                    <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                        <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
-                        <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
-                    </tr>
-                    <% }%>
-                </tbody>
-            </table>
-            <form id="theForm" name="theForm" action="consultarpedidojuridico_1.jsp" method="post">
-                <input type="hidden" id="custId" name="custId" value="3487">
-            </form>
+                </div>
+            </div>
         </div>
-        <!-- JS para Menu -->
-        <script src="scripts/bairros.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='https://unpkg.com/popper.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
-    </body>
+        <body class="tabela">
+            <!-- Alerta -->
+            <header id="navbar" onload="javascript: alertar(resultado)">
+                <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+                <h2> Break Fest </h2>
+                <nav>
+                    <ul id="navbar-list">
+                        <div class="drop-down">
+                            <div id="dropDown" class="drop-down__button">
+                                <a>Meu Painel</a>
+                            </div>
+
+                            <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
+                            <div class="drop-down__menu-box">
+                                <ul class="drop-down__menu">
+                                    <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
+                                    <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
+                                    <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
+                                    <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a> 
+                                    <a href="#" data-toggle="modal" data-target="#modalFrete"><li class="drop-down__item">Frete</li></a>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Essa opção será para sair da página, será levado para a página de login -->
+                        <li><a href="login.jsp">Sair</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- partial:index.partial.html -->
+            <div class="container table-responsive py-5"> 
+                <table class="table table-bordered table-hover">
+                    <thead class="tabelinha">
+                        <tr>
+                            <th scope="col">Pedido</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Preço Total</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (Pedido p : pedidos) {%>
+                        <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
+                            <%out.write(String.valueOf(p.getIdPedido()));%>
+                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
+                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
+                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
+                            <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
+                        </tr>
+                        <% }%>
+                    </tbody>
+                </table>
+                <form id="theForm" name="theForm" action="consultarpedidojuridico_1.jsp" method="post">
+                    <input type="hidden" id="custId" name="custId" value="3487">
+                </form>
+            </div>
+            <!-- JS para Menu -->
+            <script src="scripts/bairros.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+            <script src='https://unpkg.com/popper.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+        </body>
 </html>

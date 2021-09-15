@@ -94,3 +94,7 @@ select {
     font-weight: bold;
     color:#995a1a;
 }
+
+.tabelinha td:hover, .tabelinha td:active, .tabelinha td:checked, .tabelinha td:focus, .tabelinha td:target, .tabelinha td:hover  {
+    background-color: #FFF;
+}

@@ -77,3 +77,73 @@ ao longo do lado direito ou esquerdo do menu.*/
 #navbar-list li a:hover {
     border-bottom: 1px solid #FFF!important;
 }
+
+/* Para melhor centralização das coisas */
+
+#tudoCentral {
+    margin: auto;
+    align-content: center;
+    text-align: center;
+}
+
+#tudoCentral h2, #tudoCentral select { 
+    padding-right: 8%;
+}
+
+#tudoCentral h2 {
+    font-size: 27px;
+}
+
+#tudoCentral select {
+    outline: none;
+    box-shadow: 0 0 0 0;
+    border-bottom: 2px solid #995a1a;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    border-bottom-left-radius: 2px; 
+    border-bottom-right-radius: 2px;
+    margin-right: 2.5%;
+    width: 215px;
+}
+
+#tudoCentral button {
+    margin-right: 38.4%;
+    margin-top: 25px;
+    text-align: center;
+    width: 25%;
+    height: 31px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 0;
+    border-radius: 4px;
+}
+
+#tudoCentral button:hover {
+    background-color: black;
+}
+
+.valor {
+    display: inline-flex;
+}
+
+.valor input {
+    width: 200px;
+    border-bottom-left-radius: 0;
+}
+
+.valor p {
+    text-decoration: none;
+    margin: 0;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-bottom: 2px solid #995a1a;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    border-bottom-left-radius: 2px; 
+}

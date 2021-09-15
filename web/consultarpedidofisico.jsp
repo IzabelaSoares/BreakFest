@@ -260,7 +260,7 @@
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
             <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-            <h2> Break Fest </h2>
+            <h2 style="padding: 0; margin: 0; font-size: 30px;">Break Fest</h2>
             <nav>
                 <ul id="navbar-list">
                     <div class="drop-down">
