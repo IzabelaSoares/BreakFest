@@ -114,6 +114,7 @@
                             <input type="text" class="form-control col-sm-8" id="dadoscard" readonly style="height: 50px; border-left: none; border-radius: 5px; color:#194a91;" 
                                    value="<%out.write(numeroCartao);%>">
                             <input type="hidden" id="verificarNumero" value="<% out.write(numeroCartao); %>">
+                            <input type="hidden" id="cpf" name="cpf" value="<% out.write(cpf); %>">
                         </div><br>
                         <button id="btnAdicionar" style="display: none; position: relative; left: 10%" type="submit" class="button" onclick="cartaoCredito()">Adicionar Cartão</button>
                         <button id="btnAlterar" style="position: relative; left: 10%" type="submit" class="button" onclick="cartaoCredito()">Alterar Cartão</button>

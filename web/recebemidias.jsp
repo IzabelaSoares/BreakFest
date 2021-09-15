@@ -16,7 +16,7 @@
     pj.setInstagram(String.valueOf(request.getSession().getAttribute("instagram")));
     pj.setImagem(String.valueOf(request.getSession().getAttribute("localizacao")));
     pj.setCnpj(cnpj);
-    
+
     //se cadastrar midias der certo
     if(pj.cadastrarMidias()){
         request.getSession().setAttribute("resultado", "MidiasCadastradas");

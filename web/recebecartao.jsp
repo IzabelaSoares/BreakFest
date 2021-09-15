@@ -8,13 +8,9 @@
 <%@page import="dominio.Cartao"%>
 <%  //instancia o cartão = card
     Cartao card = new Cartao();
-    
-    //instancia o PessoaFisica = pf
-    PessoaFisica pf = new PessoaFisica();
 
-    //Pega o cpf e 
-    String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
-    String cpf = pf.procuraCpf(fkemail);
+    //Pega o cpf
+    String cpf = request.getParameter("cpf");
     
     //Passar os parametros do HTML
     card.setFkcpf(cpf);
