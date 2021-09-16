@@ -422,3 +422,10 @@ button:hover, button:active, button:focus {
     box-shadow: 0 0 0 0;
     background-color: #7a4814;
 }
+
+.pagamento-titulo{
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
+}
