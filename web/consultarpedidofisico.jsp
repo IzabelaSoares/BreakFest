@@ -224,6 +224,7 @@
                             <!-- Inicio do Formulário do Cartão --->
                             <div class="form-container">
                                 <form action="recebecartao.jsp" method="post">
+                                    <input type="hidden" name="cpf" value="<%out.write(cpf);%>">
                                     <div class="field-container">
                                         <br><br>
                                         <label for="name">Nome Impresso no Cartão</label>
