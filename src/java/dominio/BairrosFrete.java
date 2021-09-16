@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BairrosFrete {
@@ -41,11 +42,39 @@ public class BairrosFrete {
     }
     
     //consulta todos os bairros da padaria
-    public List<BairrosFrete> consultarBairros(String cnpj){
+    public List<String> consultarBairros(String cnpj){
+        //cria uma lista
+        List<String> lista = new ArrayList<>();
+        //comando de execução de banco de dados
+        String sql = "SELECT bairros FROM pessoajuridica WHERE cnpj = ?";
+        //conecta com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando com os dados
+            PreparedStatement stm = con.prepareStatement(sql);     
+            stm.setString(1, cnpj);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                String bairros = rs.getString("bairros");
+                List<String> bairro = new ArrayList<>(Arrays.asList(bairros.split(",")));
+                for(int i=0; i < bairro.size(); i++){
+                    lista.add(bairro.get(i));
+                }
+           }
+        } catch (SQLException ex) {
+          System.out.println("Erro:" + ex.getMessage());
+        }
+        
+        return lista;
+        
+    }
+    
+    //consulta todos os bairros e fretes da padaria
+    public List<BairrosFrete> consultarBairrosFretes(String cnpj){
         //cria uma lista
         List<BairrosFrete> lista = new ArrayList<>();
         //comando de execução de banco de dados
-        String sql = "SELECT * FROM bairrosfrete WHERE fkcnpj = ?";
+        String sql = "SELECT * FROM bairrofrete WHERE fkcnpj = ?";
         //conecta com o banco
         Connection con = Conexao.conectar();
         try{

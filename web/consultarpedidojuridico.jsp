@@ -58,13 +58,17 @@
             //Pegar o cpf dela
             String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
             String cnpj = pj.procuraCnpj(fkemail);
+            
+            request.getSession().setAttribute("cnpj", cnpj);
 
             //Pesquisar pedidos para pessoa juridica
             Pedido pedido = new Pedido();
             List<Pedido> pedidos = pedido.consultarPedidosUsuarioJuridico(cnpj);
 
             BairrosFrete bairro = new BairrosFrete();
-            List<BairrosFrete> bairros = bairro.consultarBairros(cnpj);
+            List<String> bairros = bairro.consultarBairros(cnpj);
+            
+            List<BairrosFrete> bairrosfretes = bairro.consultarBairrosFretes(cnpj);
 
             //Formatação para data
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -327,24 +331,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>       
+                                    <% for (BairrosFrete bf : bairrosfretes) {%>
                                     <tr>
-                                        <td>Vorstard</td>
-                                        <td>R$12,50</td>
+                                        <td><%out.write(bf.getBairroAtendimento());%></td>
+                                        <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: blueviolet;" href="#">Alterar</a></td>
                                         <td><a style="color: red;" href="#">Excluir</a></td>
                                     </tr>
+                                    <% }%>
                                 </tbody>
                             </table>
                         </div>
                             <form action="recebefrete.jsp" method="post">
-                                <input type="hidden" value="<%%>">
-                                <select>
-                                    <option value="" selected disabled hidden>Selecione o bairro aqui</option>
-                                    <option value="nada">Bairros futuros</option>
-                                </select>
+                                <label>Bairros</label> <br/>
+                                    <select name="bairros" id="bairros">
+                                        <option value="NA" selected disabled hidden>Selecione aqui seu o bairro</option>
+                                        <% for (String b : bairros) { %>  
+                                        <option value="<% out.write(b);%>">
+                                            <% out.write(b); %>
+                                        </option>
+                                        <%}%>
+                                    </select>
                                 <br><br>
                                 <div class="valor"><p>R$</p>
-                                    <input type="number" placeholder="Informe o preço">
+                                    <input type="number" name="frete" placeholder="Informe o preço">
                                 </div>
                                 <br>
                                 <button type="submit">Salvar</button>

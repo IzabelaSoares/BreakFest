@@ -7,19 +7,19 @@
 <%@page import="java.util.*"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%  //instancia a barirrosfrete = bf
+<% request.setCharacterEncoding("UTF-8");
+    
+    //instancia a barirrosfrete = bf
     BairrosFrete bf = new BairrosFrete();
-    
-    //transforma os bairros em um array
-    String bairro = request.getParameter("bairros");
-    List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(",")));
-    
-    //cria um loop para adicionar os bairros de atendimento da padaria e o valor do frete
-    for(int i=0; i < bairros.size(); i++){
-        bf.setFkCnpj(request.getParameter("cnpj"));
-        bf.setBairroAtendimento(bairros.get(i));
-        bf.setFrete(Float.parseFloat("0"));
 
-        bf.cadastrarBairroFrete();
-    }  
+    //seta os dados do HTML para a classe
+    bf.setFkCnpj(String.valueOf(request.getSession().getAttribute("cnpj")));
+    bf.setBairroAtendimento(request.getParameter("bairros"));
+    bf.setFrete(Float.parseFloat(request.getParameter("frete")));
+
+    //se cadastrar frete deu certo
+    if (bf.cadastrarBairroFrete()){
+        response.sendRedirect("consultarpedidojuridico.jsp");
+    }
+
 %>
