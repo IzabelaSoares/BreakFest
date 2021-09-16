@@ -190,7 +190,7 @@
     </div>
     <!-- Inicio da NavBar de cima -->
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -237,7 +237,8 @@
                                 %>
                                 <td>
                                     <form action="produtospadariacomprar.jsp" method="post"
-                                          id="<%out.write(String.valueOf(tudo.getCnpj()));%>" <% request.getSession().setAttribute("fkcnpj", tudo.getCnpj()); %>>
+                                          id="<%out.write(String.valueOf(tudo.getCnpj()));%>">
+                                        <input type="hidden" name="fkcnpj" value="<%out.write(String.valueOf(tudo.getCnpj()));%>">
                                         <div class="wsk-cp-product">
                                             <div>
                                                 <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">

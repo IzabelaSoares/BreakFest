@@ -3,7 +3,6 @@
     Created on : 04/09/2021, 09:18:51
     Author     : Izabela
 --%>
-<%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.List"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.PessoaFisica"%>
@@ -65,7 +64,7 @@
     <!-- Alerta -->
 
     <header id="navbar" onload="javascript: alertar(resultado)">
-         <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -94,7 +93,7 @@
     <!-- Instanciamento de classes e método em Java  -->
     <%
         //Instanciar a Pessoa Juridica para Consultar os produtos dela
-        String cnpj = String.valueOf(request.getSession().getAttribute("fkcnpj"));;
+        String cnpj = request.getParameter("fkcnpj");
 
         //Instanciar a Produto
         Produto novo = new Produto();
@@ -272,7 +271,7 @@
                     <tbody id="table">
                         <tr>                           
                             <!-- Inicio Lista de Produtos -->
-                                    <% for (Produto n : produto) { %>
+                            <% for (Produto n : produto) { %>
                             <td>                                
                                 <!-- Inicio Produto Individual-->
                                 <div class="col">

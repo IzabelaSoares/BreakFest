@@ -251,7 +251,7 @@
             response.sendRedirect("produtospadariacomprar.jsp");
         }
         
-        response.sendRedirect("consultarpedidofisico.jsp");
+//        response.sendRedirect("consultarpedidofisico.jsp");
     }else{
         request.getSession().setAttribute("fkcnpj", fkcnpj);
         request.getSession().setAttribute("resultado", "CarrinhoVazio");
