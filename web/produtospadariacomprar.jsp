@@ -99,10 +99,6 @@
         //Instanciar a Produto
         Produto novo = new Produto();
         List<Produto> produto = novo.consultarProdutosPadaria(cnpj);
-        
-        //Instanciando padaria para pegar o sobre
-//        PessoaJuridica pj = new PessoaJuridica();
-//        pj = pj.consultarConta(cnpj);
 
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -268,8 +264,6 @@
         <!-- Container de Produto -->
         <div class="container">
             <div class="row"><br>
-                <h1>Sobre padaria:</h1><br>  
-                <!-- <p> <% //out.write(pj.getSobrepadaria()); %> -->             <hr>
                 <h1>Selecione produtos</h1>
                 <br>
                 <input id="search" type="text" placeholder="Procure um produto..."><br>
