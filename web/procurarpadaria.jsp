@@ -3,26 +3,41 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <!-- Título -->
         <meta charset="UTF-8">
         <title>Break Fest</title>
-        
+
+        <!-- CSS, JS e BootStrap do cartão de crédito -->
+        <link rel="stylesheet" href="styles/cartaoestilo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <script src="scripts/cartao-de-credito.js"></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+
+        <!-- Navbar Usuário -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+        <script src="scripts/navbar-usuario.js"></script>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+
+        <!-- Search/Barra de Pesquisa -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'> 
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script src="scripts/galeria-de-produtos.js"></script>
+
         <!-- Imagem -->
         <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
         <meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="400" />
-        
+
         <!-- Link da página "util" em css -->
         <link href="styles/util.css" rel="stylesheet">
-        
+
         <!-- Imagem do Cuppa -->
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
-        
-        <!-- Bootstrap -->
-        <meta property="og:image:height" content="300" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-        
+
         <!-- Link do Cloud Flare -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="styles/procurarpadaria.css">
 
@@ -33,68 +48,64 @@
 
         %>
     </head>
+    <!-- Inicio da NavBar de cima -->
+    <header id="navbar">
+        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <h2> Break Fest </h2>
+        <nav>
+            <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->
+            <ul id="navbar-list">
+                <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
+                <li><a href="tipopessoa.jsp">Cadastro</a></li>
+                <li><a id="login" href="login.jsp">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Fim da NavBar de cima -->
+
+
     <body>
-        <!-- Inicio da NavBar de cima -->
-        <header id="navbar">
-            <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
-            <h2> Break Fest </h2>
-            <nav>
-                <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->
-                <ul id="navbar-list">
-                    <li><a href="https://projetobreakfest.carrd.co/">Sobre Nós</a></li>
-                    <li><a href="tipopessoa.jsp">Cadastro</a></li>
-                    <li><a id="login" href="login.jsp">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Fim da NavBar de cima -->
-        
-        <!-- inicio camadas de divs -->
-        <div class="for-title">
-            <div class="container text-center">
-                <h1>Abaixo você encontrará todas</h1>
-                <h1>as nossas padarias cadastradas</h1>
-                <br><br>
-            </div>
+        <!-- Barra de Pesquisa -->
+        <div style="padding-top: 40px; text-align: center;">
+            <input id="search" type="text" class="col-sm-8" style="height: 50px" placeholder="Procure por um produto ou estabelecimento"><br>
         </div>
-        <div class="shell">
+        <!-- inicio camadas de divs -->
+        <div class="shell" style="margin-top: 0;">
             <div class="container">
                 <div class="row">
-
+                    <br>
                     <!-- inicio tabela -->
-                    <table>
+                    <table style="margin-top: 30px;">
                         <tbody>
                             <tr>
-                                
                                 <!-- inicio padaria -->
-                                <% for (PessoaJuridica tudo : listageral) { %>
+                                <% for (PessoaJuridica tudo : listageral) {
+                                        String imagem = tudo.getImagem();
+                                        if (imagem == "" || imagem == null || imagem == " ") {
+                                            imagem = "imagens\\imagem-perfil\\default.jpg";
+                                        }
+                                %>
                                 <td>
                                     <form action="produtospadariacomprar.jsp" method="post"
                                           id="<%out.write(String.valueOf(tudo.getCnpj()));%>" <% request.getSession().setAttribute("fkcnpj", tudo.getCnpj()); %>>
                                         <div class="wsk-cp-product">
                                             <div>
                                                 <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                    <img src="imagens/pad1.jpg" alt="Padaria" class="" style="max-height: 100%; max-width: 100%"/>
+                                                    <img src="<%out.write(String.valueOf(imagem));%>" alt="Padaria" class="" style="height: 220px; width: 220px;"/>
                                                 </div>
                                                 <div class="wsk-cp-text">
                                                     <div class="midias">
                                                         <div class="title-product" style="height: 50px;"
                                                              onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                            <h3> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
+                                                            <h3 style="padding-top: 10px;"> <%out.write(String.valueOf(tudo.getNomeFantasia()));%> </h3>
                                                             <input type="hidden" id="padaria" name="padaria" 
                                                                    value="<%out.write(String.valueOf(tudo.getCnpj()));%>">
                                                         </div>
-                                                    </div>
-                                                    <div class="description-prod" style="height: 70px;"
-                                                         onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">
-                                                        <p><%out.write(String.valueOf(tudo.getSobrepadaria()));%></p>
                                                     </div>
                                                     <div class="card-footer">
                                                         <div class="wcf-left" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');"> 
                                                             <%out.write(String.valueOf(tudo.getBairro()));%>
                                                         </div>
-
-
                                                         <div>
                                                             <p>
                                                                 <a id="referencia-facebook" target="_blank" href="<%out.write(String.valueOf(tudo.getFacebook())); %>">
@@ -126,5 +137,9 @@
                 document.getElementById(id).submit();
             }
         </script>
-</body>
+        <!-- JS para Menu -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://unpkg.com/popper.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+    </body>
 </html>

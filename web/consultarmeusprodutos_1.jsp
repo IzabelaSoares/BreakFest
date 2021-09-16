@@ -18,6 +18,7 @@
         <script src="scripts/navbar-usuario.js"></script>
         <link rel="stylesheet" href="styles/navbar-usuario.css"/>
 
+        <!-- Estilo para cadastro de produtos -->
         <link rel="stylesheet" href="styles/cadastro-produto.css"/>
 
         <!-- Título e imports padrão -->

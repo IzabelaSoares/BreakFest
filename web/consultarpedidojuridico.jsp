@@ -408,7 +408,7 @@
                     <tbody>
                         <% for (Pedido p : pedidos) {%>
                         <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                            <%out.write(String.valueOf(p.getIdPedido()));%>
+                            <th scope="row"><%out.write(String.valueOf(p.getIdPedido()));%></th>
                             <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
                             <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
                             <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>

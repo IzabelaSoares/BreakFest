@@ -109,7 +109,7 @@
                                     <i class="fa fa-credit-card fa-2x" style="color: rgb(240, 62, 61); background-color: #e9ecef !important;"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control col-sm-8" id="dadoscard" readonly style="height: 50px; border-left: none; border-radius: 5px; color:#194a91;" 
+                            <input type="text" class="form-control col-sm-8" id="dadoscard" readonly style="height: 50px; border-left: none; border-radius: 0px 5px 5px 0px; color:#194a91;" 
                                    value="<%out.write(numeroCartao);%>">
                             <input type="hidden" id="verificarNumero" value="<% out.write(numeroCartao); %>">
                         </div><br>
