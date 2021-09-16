@@ -3,6 +3,7 @@
     Created on : 04/09/2021, 09:18:51
     Author     : Izabela
 --%>
+<%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.List"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.PessoaFisica"%>
@@ -98,6 +99,9 @@
         //Instanciar a Produto
         Produto novo = new Produto();
         List<Produto> produto = novo.consultarProdutosPadaria(cnpj);
+        
+        PessoaJuridica pj = new PessoaJuridica();
+        pj = pj.consultarConta(cnpj);
 
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -263,6 +267,9 @@
         <!-- Container de Produto -->
         <div class="container">
             <div class="row"><br>
+                <h1>Sobre padaria:</h1><br>  
+                <p> <% out.write(pj.getSobrepadaria()); %>
+                <hr>
                 <h1>Selecione produtos</h1>
                 <br>
                 <input id="search" type="text" placeholder="Procure um produto..."><br>
@@ -271,7 +278,7 @@
                     <tbody id="table">
                         <tr>                           
                             <!-- Inicio Lista de Produtos -->
-                            <% for (Produto n : produto) { %>
+                                    <% for (Produto n : produto) { %>
                             <td>                                
                                 <!-- Inicio Produto Individual-->
                                 <div class="col">
