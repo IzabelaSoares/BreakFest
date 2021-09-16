@@ -2,16 +2,17 @@
   Página de Referência: Procurarpadaria
   Desenvolvido por: Ricardo
   Documentado por: Jefferson Teixeira
-  Data da ultima Revisão: 13/09/2021 
+  Data da ultima Revisão: 16/09/2021 
  */
 
 /*Import da fonte*/
 @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
 
-/*Fonte e cor do fundo do corpo.*/
+/*Fonte, transformar letras maiusculas e cor do fundo do corpo.*/
 body{
   font-family: 'Muli', sans-serif;
   background: #FFF;
+  text-transform: capitalize;
 }
 
 /*Cor e formatação de underline dos links e parágrafos.*/
@@ -82,7 +83,15 @@ td{
     height: 20px;
 }
 
+/*Cor de Fundo do Card da Padaria*/
 .card-footer {
     background-color: #f2f2f2;
 }
 
+/*Titulo da Padaria*/
+h3{
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
+}

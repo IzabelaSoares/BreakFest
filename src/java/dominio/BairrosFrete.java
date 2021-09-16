@@ -62,10 +62,8 @@ public class BairrosFrete {
            }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
-        }
-        
-        return lista;
-        
+        }       
+        return lista;   
     }
     
     //área de getters e setters
