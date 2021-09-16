@@ -65,7 +65,7 @@
     <!-- Alerta -->
 
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+         <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -100,8 +100,9 @@
         Produto novo = new Produto();
         List<Produto> produto = novo.consultarProdutosPadaria(cnpj);
         
-        PessoaJuridica pj = new PessoaJuridica();
-        pj = pj.consultarConta(cnpj);
+        //Instanciando padaria para pegar o sobre
+//        PessoaJuridica pj = new PessoaJuridica();
+//        pj = pj.consultarConta(cnpj);
 
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -268,8 +269,7 @@
         <div class="container">
             <div class="row"><br>
                 <h1>Sobre padaria:</h1><br>  
-                <p> <% out.write(pj.getSobrepadaria()); %>
-                <hr>
+                <!-- <p> <% //out.write(pj.getSobrepadaria()); %> -->             <hr>
                 <h1>Selecione produtos</h1>
                 <br>
                 <input id="search" type="text" placeholder="Procure um produto..."><br>

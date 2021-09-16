@@ -41,7 +41,7 @@
         
     <!-- Inicio da NavBar de cima -->
     <header id="navbar">
-        <a href="index.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <!-- Painel padrão com as opções de Sobre nós, cadastro e login -->

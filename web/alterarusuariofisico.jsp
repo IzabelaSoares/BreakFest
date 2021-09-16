@@ -61,7 +61,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+         <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
