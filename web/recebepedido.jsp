@@ -19,7 +19,7 @@
     //Dados de Padaria e Cliente
     String fkcnpj = request.getParameter("fkcnpj");
     String fkcpf = request.getParameter("fkcpf");
-    
+
     //Recorrencia, Status e DiaSemana
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
     String status = "PAGAMENTO APROVADO";
@@ -27,16 +27,16 @@
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
     Time horaEmissao = Time.valueOf(dtf.format(LocalTime.now()));
-    
+
     //Data do Pedido
-    Date dataAtual = new Date(System.currentTimeMillis()); 
-    SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd"); 
+    Date dataAtual = new Date(System.currentTimeMillis());
+    SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
     String dataPedido = formatarDate.format(dataAtual);
-    
+
     //Instanciar Pessoa Fisica 
     PessoaFisica pf = new PessoaFisica();
     pf = pf.consultarConta(fkcpf);
-    
+
     //Pegar os Dados de Endereço
     String cep = pf.getCep();
     String uf = pf.getEstado();
@@ -45,26 +45,26 @@
     String rua = pf.getRua();
     Integer numero = pf.getNumero();
     String complemento = pf.getComplemento();
-    
+
     //JSON 
     String produto = request.getParameter("produtos");
     String preco = request.getParameter("preco-unitario");
     String quantidade = request.getParameter("quantidade");
- 
-    if(produto != ""){
+
+    if (produto != "") {
         //Produto para Array
-        String s = produto.substring(0, produto.length()-2) + "";
-        String z = s.substring(1);    
+        String s = produto.substring(0, produto.length() - 2) + "";
+        String z = s.substring(1);
         String[] produtoArray = z.split(",");
 
         //Preco para Array
-        String h = preco.substring(0, preco.length()-2) + "";
-        String j = h.substring(1);    
+        String h = preco.substring(0, preco.length() - 2) + "";
+        String j = h.substring(1);
         String[] precoArray = j.split(",");
 
         //Quantidade para Array
-        String x = quantidade.substring(0, quantidade.length()-2) + "";
-        String r = x.substring(1);    
+        String x = quantidade.substring(0, quantidade.length() - 2) + "";
+        String r = x.substring(1);
         String[] quantidadeArray = r.split(",");
 
         //variáveis de auxílio para recorrência
@@ -73,16 +73,16 @@
 
         //Total da Compra
         Double totalCompra = 0.00;
-        for(int i = 0; i < precoArray.length; i++){
+        for (int i = 0; i < precoArray.length; i++) {
             int quant = Integer.valueOf(quantidadeArray[i]);
             double precoUn = Double.valueOf(precoArray[i]);
             totalCompra += (precoUn * quant);
         }
 
         //Instanciar Pedido
-        Pedido novo =  new Pedido();
+        Pedido novo = new Pedido();
         String obs = request.getParameter("observacao");
-        if(obs == null){
+        if (obs == null) {
             obs = "";
         }
 
@@ -105,38 +105,38 @@
 
         //instancia cartão
         Cartao card = new Cartao();
-    
+
         //se tem cartão cadastrado, continua o pedido
-        if (card.verificaDados(fkcpf)){
+        if (card.verificaDados(fkcpf)) {
             //verifica se há recorrencia
-            if (recorrencia){  
-            //setar os dados para a tabela de diasemana
-            String horaPedido = String.valueOf(request.getParameter("horario"));
-            Time hora = Time.valueOf(horaPedido+ ":00");
-            novo.setHora(hora);    
-                
-            //COMEÇA A EXECUTAR A REPETIÇÃO
+            if (recorrencia) {
+                //setar os dados para a tabela de diasemana
+                String horaPedido = String.valueOf(request.getParameter("horario"));
+                Time hora = Time.valueOf(horaPedido + ":00");
+                novo.setHora(hora);
+
+                //COMEÇA A EXECUTAR A REPETIÇÃO
                 //separa os dias da semana em um array
                 String semana = dias;
                 List<String> dia = new ArrayList<>(Arrays.asList(semana.split(",")));
-                for (int d = 0; d < dia.size(); d++){
+                for (int d = 0; d < dia.size(); d++) {
                     //verifica o dia da semana para gerar a nova data
-                    if(dia.get(d).contains("Segunda")){
+                    if (dia.get(d).contains("Segunda")) {
                         diasemana = 1;
                         diaSemana = "Segunda";
-                    }else if (dia.get(d).contains("Terça")){
+                    } else if (dia.get(d).contains("Terça")) {
                         diasemana = 2;
                         diaSemana = "Terça";
-                    }else if (dia.get(d).contains("Quarta")){
+                    } else if (dia.get(d).contains("Quarta")) {
                         diasemana = 3;
                         diaSemana = "Quarta";
-                    }else if (dia.get(d).contains("Quinta")){
+                    } else if (dia.get(d).contains("Quinta")) {
                         diasemana = 4;
                         diaSemana = "Quinta";
-                    }else if (dia.get(d).contains("Sexta")){
+                    } else if (dia.get(d).contains("Sexta")) {
                         diasemana = 5;
                         diaSemana = "Sexta";
-                    }else if (dia.get(d).contains("Sábado")){
+                    } else if (dia.get(d).contains("Sábado")) {
                         diasemana = 6;
                         diaSemana = "Sábado";
                     }
@@ -145,10 +145,10 @@
 
                     //passa o parametro para cadastrar o pedido
                     novo.setDataPedido(novaData);
-                    novo.setObservacao("Este pedido possui recorrência para "+ dias.replace(",", ", ") 
-                                +", com horário à ser emitido às: "+ hora +". OBS:\n"+ obs);
+                    novo.setObservacao("Este pedido possui recorrência para " + dias.replace(",", ", ")
+                            + ", com horário à ser emitido às: " + hora + ". OBS:\n" + obs);
 
-                    if(novo.cadastrarPedido()){       
+                    if (novo.cadastrarPedido()) {
                         //Instanciar pedido
                         Pedido produtos = new Pedido();
 
@@ -166,7 +166,7 @@
                         Double precoTotal = 0.00;
 
                         //Inserir os Produtos na Tabela de Produto
-                        for(int i = 0; i < produtoArray.length; i++){
+                        for (int i = 0; i < produtoArray.length; i++) {
                             //Dados para tabela produtos pedido
                             produtos.setIdPedido(fkPedido);
                             produtos.setProduto(produtoArray[i]);
@@ -179,34 +179,36 @@
                             produtos.setPrecoTotal(precoTotal);
 
                             //inserir no database
-                            produtos.cadastrarProdutosPedido(); 
+                            produtos.cadastrarProdutosPedido();
                         }
-
-
                     }
-
-                   // response.sendRedirect("procurarpadaria.jsp");
-
                 }
-            }else{
+                response.sendRedirect("consultarpedidofisico.jsp");
+            } else {
                 dias = null;
-                if(dias == null){
-                    switch(novo.verificaDiaSemana()){
-                        case 1: novo.setDia("Segunda");
-                                break;
-                        case 2: novo.setDia("Terça");
-                                break;
-                        case 3: novo.setDia("Quarta");
-                                break;
-                        case 4: novo.setDia("Quinta");
-                                break;
-                        case 5: novo.setDia("Sexta");
-                                break;
-                        case 6: novo.setDia("Sábado");
-                                break;
+                if (dias == null) {
+                    switch (novo.verificaDiaSemana()) {
+                        case 1:
+                            novo.setDia("Segunda");
+                            break;
+                        case 2:
+                            novo.setDia("Terça");
+                            break;
+                        case 3:
+                            novo.setDia("Quarta");
+                            break;
+                        case 4:
+                            novo.setDia("Quinta");
+                            break;
+                        case 5:
+                            novo.setDia("Sexta");
+                            break;
+                        case 6:
+                            novo.setDia("Sábado");
+                            break;
                     }
 
-                    if(novo.cadastrarPedido()){
+                    if (novo.cadastrarPedido()) {
                         //Instanciar pedido
                         Pedido produtos = new Pedido();
 
@@ -224,7 +226,7 @@
                         Double precoTotal = 0.00;
 
                         //Inserir os Produtos na Tabela de Produto
-                        for(int i = 0; i < produtoArray.length; i++){
+                        for (int i = 0; i < produtoArray.length; i++) {
                             //Dados para tabela produtos pedido
                             produtos.setIdPedido(fkPedido);
                             produtos.setProduto(produtoArray[i]);
@@ -242,20 +244,20 @@
 
                         request.getSession().setAttribute("resultado", "PedidoCadastrado");
                         response.sendRedirect("consultarpedidofisico.jsp");
-                    }   
+                    } else {
+                        response.sendRedirect("consultarpedidofisico.jsp");
+                    }
                 }
             }
-        }else{
+        } else {
             request.getSession().setAttribute("fkcnpj", fkcnpj);
             request.getSession().setAttribute("resultado", "NecessitaCartao");
             response.sendRedirect("produtospadariacomprar.jsp");
         }
-        
-//        response.sendRedirect("consultarpedidofisico.jsp");
-    }else{
+
+    } else {
         request.getSession().setAttribute("fkcnpj", fkcnpj);
         request.getSession().setAttribute("resultado", "CarrinhoVazio");
-        response.sendRedirect("produtospadariacomprar.jsp");    
+        response.sendRedirect("produtospadariacomprar.jsp");
     }
-
 %>

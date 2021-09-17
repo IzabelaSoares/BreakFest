@@ -3,6 +3,7 @@
     Created on : 04/09/2021, 09:18:51
     Author     : Izabela
 --%>
+<%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.List"%>
 <%@page import="dominio.Produto"%>
 <%@page import="dominio.PessoaFisica"%>
@@ -64,7 +65,7 @@
     <!-- Alerta -->
 
     <header id="navbar" onload="javascript: alertar(resultado)">
-        <a href="index_1.html"><img src="imagens/cuppa-inicio.gif" alt="Cuppa"></a>
+        <a href="index_1.html"><img src="Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -102,6 +103,9 @@
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
+        PessoaJuridica pj = new PessoaJuridica();
+        pj = pj.consultarConta(cnpj);
+        
         //Instanciar a Pessoa Fisica
         PessoaFisica pf = new PessoaFisica();
 
@@ -263,6 +267,10 @@
         <!-- Container de Produto -->
         <div class="container">
             <div class="row"><br>
+                <div class="nomesobre">
+                <h1><% out.write(pj.getNomeFantasia()); %></h1>
+                <p style="text-transform: capitalize; font-weight: bold; font-size: 22px;"><% out.write(pj.getSobrepadaria()); %></p><br>
+                </div>
                 <h1>Selecione produtos</h1>
                 <br>
                 <input id="search" type="text" placeholder="Procure um produto..."><br>
