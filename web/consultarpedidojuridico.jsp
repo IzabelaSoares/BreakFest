@@ -60,6 +60,7 @@
             String cnpj = pj.procuraCnpj(fkemail);
             
             request.getSession().setAttribute("cnpj", cnpj);
+            request.getSession().setAttribute("usuario", fkemail);
 
             //Pesquisar pedidos para pessoa juridica
             Pedido pedido = new Pedido();
@@ -336,7 +337,10 @@
                                         <td><%out.write(bf.getBairroAtendimento());%></td>
                                         <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: blueviolet;" href="#">Alterar</a></td>
-                                        <td><a style="color: red;" href="#">Excluir</a></td>
+                                        <td><a style="color: red; cursor: pointer;" onClick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
+                                        <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
+                                            <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
+                                        </form>
                                     </tr>
                                     <% }%>
                                 </tbody>
@@ -348,8 +352,8 @@
                                     <select name="bairros" id="bairros">
                                         <option value="NA" selected disabled hidden>Selecione aqui seu o bairro</option>
                                         <% for (String b : bairros) { %>  
-                                        <option value="<% out.write(b);%>">
-                                            <% out.write(b); %>
+                                        <option value="<%out.write(b);%>">
+                                            <%out.write(b); %>
                                         </option>
                                         <%}%>
                                     </select>

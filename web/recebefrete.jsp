@@ -15,11 +15,10 @@
     //seta os dados do HTML para a classe
     bf.setFkCnpj(request.getParameter("cnpj"));
     bf.setBairroAtendimento(request.getParameter("bairros"));
-    String frete = request.getParameter("frete");
-    bf.setFrete(Float.parseFloat(frete));
+    bf.setFrete(Float.parseFloat(request.getParameter("frete")));
 
     //se cadastrar frete deu certo
-    if (bf.cadastrarBairroFrete()){
+    if (bf.alterarFrete()){
         response.sendRedirect("consultarpedidojuridico.jsp");
     }else{
         response.sendRedirect("consultarpedidojuridico.jsp");

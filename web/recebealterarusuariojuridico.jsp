@@ -3,6 +3,7 @@
     Created on : 27/08/2021, 14:50:15
     Author     : Maria
 --%>
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -40,6 +41,25 @@
 
     //se cadastrar pessoa e o login dela
     if (pj.alterarDados(oldCnpj) && login.alterarUsuario(oldCnpj)) {
+        //instancia a classe bairros frete = bf
+        BairrosFrete bf = new BairrosFrete();
+
+        //transforma os bairros em um array
+        String bairro = request.getParameter("bairros");
+        List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(", ")));
+
+        //cria um loop que percorre os bairros e os cadastra
+        for(int i=0; i < bairros.size(); i++){
+            //se o bairro não estiver cadastrado naquele cnpj, cadastra ele
+            if(bf.verificaExistenciaBairro(bairros.get(i), oldCnpj) == null){
+                bf.setFkCnpj(oldCnpj);
+                bf.setBairroAtendimento(bairros.get(i));
+                bf.setFrete(0);
+                
+                bf.cadastrarBairroFrete();
+            }
+        }
+        
         request.getSession().setAttribute("resultado", "CadastroAlterado");
         response.sendRedirect("alterarusuariojuridico.jsp");     
     } else {

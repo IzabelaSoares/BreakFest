@@ -330,6 +330,46 @@ public class PessoaJuridica {
         return true;
     }
     
+    //consultar conta especifica dados para chave-pix
+    public String consultaListaBairros(String pCnpj){
+        String sql = "select bairros from pessoajuridica where cnpj = ?";
+        Connection con = Conexao.conectar();
+        String listaBairros = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, pCnpj);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+               listaBairros = rs.getString("bairros");
+            } 
+        } catch (SQLException ex) {
+                System.out.println("Erro:" + ex.getMessage());
+            }       
+        return listaBairros;       
+    }
+    
+    //cadastra nova lista de bairros
+    public boolean cadastrarBairros(){
+        //comando de execução de banco de dados
+        String sql = "update pessoajuridica set bairros=? " 
+                   + "where cnpj = ?";
+        //conectando com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando sql com os dados
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, this.bairros);
+            stm.setString(2, this.cnpj);
+            //executando comando
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro: "+ex.getMessage());
+            return false;
+        }
+        
+        return true;
+    }
+    
     //getters e setters
     public String getRazaoSocial() {
         return razaoSocial;

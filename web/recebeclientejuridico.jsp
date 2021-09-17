@@ -3,6 +3,7 @@
     Created on : 06/08/2021, 14:11:58
     Author     : Maria
 --%>
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="dominio.UsuarioJuridico"%>
@@ -21,10 +22,6 @@
     //variáveis mais utilizadas
     String email = request.getParameter("email");
     String cnpj = request.getParameter("cnpj").replaceAll("[^0-9]+", "");
-    
-    //transforma os bairros em um array
-    String bairro = request.getParameter("bairros");
-    List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(",")));
         
     //se o email já existir no banco de dados
     if(login.verificaExistencia(email) || pj.verificaExistenciaFisica(email)){
@@ -60,6 +57,24 @@
 
         //se cadastrar pessoa e o login dela
         if (pj.cadastrarConta() && login.cadastrarUsuario()) {
+            //instancia a classe bairros frete = bf
+            BairrosFrete bf = new BairrosFrete();
+            
+            //transforma os bairros em um array
+            String bairro = request.getParameter("bairros");
+            List<String> bairros = new ArrayList<>(Arrays.asList(bairro.split(", ")));
+            
+            //cria um loop que percorre os bairros e os cadastra
+            for(int i=0; i < bairros.size(); i++){
+                //passa os parâmetros para a classe BairroFrete
+                bf.setFkCnpj(cnpj);
+                bf.setBairroAtendimento(bairros.get(i));
+                bf.setFrete(0);
+                
+                //cadastra bairro e frete
+                bf.cadastrarBairroFrete();
+            }
+            
             request.getSession().setAttribute("resultado", "UsuarioCadastrado");
             response.sendRedirect("login.jsp");
         } else {
@@ -68,5 +83,4 @@
             response.sendRedirect("login.jsp");
         }
     }
-%>      
-</html>
+%>
