@@ -45,13 +45,13 @@
                     
                     <!-- E-mail -->
                     <div class="single-input">
-                        <input type="text" class="input" id="nome" required>
+                        <input type="text" class="input" id="nome" name='email' required>
                         <label for="nome">E-mail</label>
                     </div>
                     
                     <!-- Senha -->
                     <div class="single-input">
-                        <input type="password" class="input" id="senha" required>
+                        <input type="password" class="input" id="senha" name='senhanova' required>
                         <label for="senha">Senha</label>
                     </div>
                     
