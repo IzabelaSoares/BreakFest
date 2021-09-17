@@ -383,11 +383,11 @@
                                                         <!-- Cabeçalho dos Produtos -->
                                                         <thead class="thead-light">
                                                             <tr>
-                                                                <th style='width:200px' scope="col">Produto</th>      
-                                                                <th style='width:150px' scope="col">Preço Unitário</th>
-                                                                <th style='width:100px' scope="col">Quantidade</th>
-                                                                <th style='width:150px' scope="col">Preço Total</th>
-                                                                <th style='width:100px' scope="col">Excluir</th>
+                                                                <th class="align-middle" style='width:180px' scope="col">Produto</th>      
+                                                                <th class="align-middle" style='width:100px' scope="col">Preço Unitário</th>
+                                                                <th class="align-middle" style='width:150px' scope="col">&nbsp;&nbsp;&nbsp;&nbsp;Quantidade</th>
+                                                                <th class="align-middle" style='width:100px' scope="col">Preço Total</th>
+                                                                <th class="align-middle" style='width:100px' scope="col">Excluir</th>
                                                             </tr>
                                                         </thead>
                                                         <!-- Produtos do Pedido -->

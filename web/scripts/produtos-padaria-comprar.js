@@ -171,24 +171,26 @@ function displayCart() {
         quantidade += cartArray[i].count + ",";
         precoUn += cartArray[i].price + ",";
         //converter dados de ponto para virgula
-        let preco = cartArray[i].price.toFixed(2);  
+        let preco = cartArray[i].price.toFixed(2);
         preco = preco.toString().replace(".", ",");
         let ptotal = cartArray[i].total
         ptotal = ptotal.toString().replace(".", ",");
         //tablerow com todos os dados para o usuário
         output += "<div><tr style='margin-top: 0'>"
-                + "<td style='width:200px'>" + cartArray[i].name + "</td>"
-                + "<td style='width:150px'> R$ " + preco + "</td>"
-                + "<td style='width:100px'> " + cartArray[i].count + " un </td>"
-                + "<td style='width:150px'> R$ " + ptotal + "</td>"
-                + "<td style='width:100px; height:50px'><button class='delete-item btn btn-danger btn-sm' data-name=" + cartArray[i].name + ">X</button></td>"
+                + "<td style='width:180px; height:67px'>" + cartArray[i].name + "</td>"
+                + "<td style='width:100px; height:67px'> R$ " + preco + "</td>"
+                + "<td><div class='input-group' style='width:130px'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+                + "<input type='number' min='1' max='99' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+                + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+                + "<td style='width:100px; height:67px'> R$ " + ptotal + "</td>"
+                + "<td style='width:100px; height:67px'>&nbsp;&nbsp;&nbsp;&nbsp;<button class='delete-item btn btn-danger btn-sm' data-name=" + cartArray[i].name + ">X</button></td>"
                 + "</tr></div>";
     }
     //dados para o front end
     $('.show-cart').html(output); //aqui lança os dados na tabela html
     $('.total-cart').html(shoppingCart.totalCart().toFixed(2).toString().replace(".", ",")); //aqui marca total do preço
     $('.total-count').html(shoppingCart.totalCount().toString().replace(".", ","));//aqui marca a quantidade de produto
-    
+
     //dados para o back end em formato JSON
     document.getElementById("produtos").value = JSON.stringify(produto);
     document.getElementById("quantidade").value = JSON.stringify(quantidade);
@@ -239,4 +241,6 @@ displayCart();
  + "<td>" + cartArray[i].total + "</td>"
  + "</tr>";
  * 
+ * 
+ * + "<td style='width:150px'> " + cartArray[i].count + " un </td>"
  */
