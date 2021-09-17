@@ -13,12 +13,15 @@
     BairrosFrete bf = new BairrosFrete();
 
     //seta os dados do HTML para a classe
-    bf.setFkCnpj(String.valueOf(request.getSession().getAttribute("cnpj")));
+    bf.setFkCnpj(request.getParameter("cnpj"));
     bf.setBairroAtendimento(request.getParameter("bairros"));
-    bf.setFrete(Float.parseFloat(request.getParameter("frete")));
+    String frete = request.getParameter("frete");
+    bf.setFrete(Float.parseFloat(frete));
 
     //se cadastrar frete deu certo
     if (bf.cadastrarBairroFrete()){
+        response.sendRedirect("consultarpedidojuridico.jsp");
+    }else{
         response.sendRedirect("consultarpedidojuridico.jsp");
     }
 

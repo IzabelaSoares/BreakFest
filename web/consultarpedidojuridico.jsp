@@ -343,6 +343,7 @@
                             </table>
                         </div>
                             <form action="recebefrete.jsp" method="post">
+                                <input type="hidden" name="cnpj" value="<% out.write(cnpj); %>">
                                 <label>Bairros</label> <br/>
                                     <select name="bairros" id="bairros">
                                         <option value="NA" selected disabled hidden>Selecione aqui seu o bairro</option>
@@ -410,7 +411,7 @@
                         <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                             <th scope="row"><%out.write(String.valueOf(p.getIdPedido()));%></th>
                             <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
+                            <td data-toggle="modal" data-target="#modalPedido">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
                             <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                             <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
                         </tr>

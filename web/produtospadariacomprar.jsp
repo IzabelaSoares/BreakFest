@@ -343,7 +343,7 @@
                                             <p class="card-text" style="height: 130px;">
                                                 <% out.write(n.getDescricao()); %>
                                             </p>
-                                            <p class="card-text">R$ <% out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0"); %></p>
+                                            <p class="card-text">R$ <% out.write(String.format("%.2f", n.getPreco()).replace(".", ",")); %></p>
                                             <a href="#" class="add-to-cart btn btn-primary"
                                                data-name="<% out.write(n.getTitulo()); %>" 
                                                data-price="<% out.write(String.valueOf(n.getPreco()) + "0"); %>" >

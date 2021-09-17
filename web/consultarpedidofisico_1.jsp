@@ -326,8 +326,8 @@
                                                     <tr>
                                                         <th scope="row"><% out.write(i.getProduto()); %></th>
                                                         <td><% out.write(String.valueOf(i.getQuantidade())); %> un</td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoUn()).replace(".", ",") + "0"); %></td>
-                                                        <td>R$ <% out.write(String.valueOf(i.getPrecoTotal()).replace(".", ",") + "0"); %></td>
+                                                        <td>R$ <% out.write(String.format("%.2f", i.getPrecoUn()).replace(".", ",")); %></td>
+                                                        <td>R$ <% out.write(String.format("%.2f", i.getPrecoTotal()).replace(".", ",")); %></td>
                                                     </tr>
                                                     <% }%>
                                                 </tbody>
@@ -414,7 +414,7 @@
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
                         <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td><%out.write(p.getNomeFantasia());%></td>
-                        <td>R$ <%out.write(String.valueOf(p.getTotalCompra()).replace(".", ",") + "0");%></td>
+                        <td>R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
                         <td><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
                         <td><%out.write(String.valueOf(p.getStatus()));%></td>
                     </tr>

@@ -3,6 +3,9 @@
     Created on : 27/08/2021, 14:50:15
     Author     : Maria
 --%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@page import="dominio.UsuarioJuridico"%>
 <%@page import="dominio.PessoaJuridica"%>
@@ -30,7 +33,7 @@
     pj.setComplemento(request.getParameter("complemento"));
     pj.setSobrepadaria(request.getParameter("sobre"));
     pj.setBairros(request.getParameter("bairros"));
-
+    
     //passa os valores do HMTL para a classe UsuarioJuridico
     login.setEmail(request.getParameter("email"));
     login.setSenha(request.getParameter("senha"));
@@ -38,7 +41,7 @@
     //se cadastrar pessoa e o login dela
     if (pj.alterarDados(oldCnpj) && login.alterarUsuario(oldCnpj)) {
         request.getSession().setAttribute("resultado", "CadastroAlterado");
-        response.sendRedirect("perfil.jsp");     
+        response.sendRedirect("alterarusuariojuridico.jsp");     
     } else {
         //erro no cadastro
         request.getSession().setAttribute("resultado", "CadastroNaoAlterado");

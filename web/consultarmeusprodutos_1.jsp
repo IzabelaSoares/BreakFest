@@ -584,7 +584,7 @@
                                                     <input maxlength="500" style="height:40px; width:177px; box-shadow:none; 
                                                            border-bottom: 2px solid #995a1a; border-left: 0; border-top: 0; 
                                                            border-right: 0; border-radius: 2px; outline:none;" type="text"
-                                                           value="<% out.write(String.valueOf(individual.getPreco()).replace(".",",") + "0"); %>"
+                                                           value="<% out.write(String.format("%.2f", individual.getPreco()).replace(".",",")); %>"
                                                            id="preco" name="preco" placeholder="2,99" required>
                                                 </div>
                                             </div>

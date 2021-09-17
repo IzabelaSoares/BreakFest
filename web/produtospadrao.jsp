@@ -491,7 +491,7 @@
                             <td><input type="hidden" name="descricao" value="<%out.write(n.getDescricao());%>"><%out.write(n.getDescricao());%></td>
                             <td name="tamanho" class="tamanho"><%out.write(n.getTamanho()); %> </td>
                             <td name="unidadedemedida" class="unidade"><%out.write(n.getUnidadeDeMedida()); %> </td>
-                            <td name="preco" class="preco">R$ <%out.write(String.valueOf(n.getPreco()).replace(".", ",") + "0");%></td>
+                            <td name="preco" class="preco">R$ <%out.write(String.format("%.2f", n.getPreco()).replace(".", ","));%></td>
                         </tr>
 
                         <%}%>
