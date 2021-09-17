@@ -100,7 +100,6 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <!-- Div de Dados do Cartão de Crédito -->
-                    <!-- Div de Dados do Cartão de Crédito -->
                     <div class="payment-title">
                         <p class="pagamento-titulo">Dados de Pagamento</p>
                     </div>
@@ -261,7 +260,7 @@
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
-             <a href="index_1.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+             <a href="index_1.jsp"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
             <h2 style="padding: 0; margin: 0; font-size: 30px;">Break Fest</h2>
             <nav>
                 <ul id="navbar-list">
@@ -312,8 +311,7 @@
                 <input type="hidden" id="custId" name="custId" value="3487">
             </form>
         </div>   
-
-        <!-- JS para Menu -->
+        <!-- JS para Modal -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <script src='https://unpkg.com/popper.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>

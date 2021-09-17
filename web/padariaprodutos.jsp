@@ -1,4 +1,4 @@
-<%-- 
+<%-- PÁGINA EM DESUSO
     Document   : padariaprodutos
     Created on : 27/08/2021, 10:44:44
     Author     : Izabela
@@ -8,7 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
     <head>
         <!-- Link do Cloud Flare -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
@@ -28,8 +28,8 @@
         <!-- Script da galeria-de-produtos -->
         <script src="scripts/galeria-de-produtos.js"></script>
         
-        <!-- Instanciamento de classes e método em Java  -->
-        <%
+        <%  //Instanciamento de classes e método em Java
+            
             //Instanciar a Pessoa Fisica
             PessoaJuridica pj = new PessoaJuridica();
 

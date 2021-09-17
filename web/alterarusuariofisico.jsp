@@ -61,7 +61,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
     <!-- Inicio da NavBar de cima nessa página terá o painel com as opções de cadastro, pedidos e pagamentos. -->
     <!-- Alerta -->
     <header id="navbar" onload="javascript: alertar(resultado)">
-         <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+         <a href="index_1.jsp"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
         <nav>
             <ul id="navbar-list">
@@ -260,6 +260,7 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
                             <!-- Inicio do Formulário do Cartão --->
                             <div class="form-container" style="padding-top: 0; margin-top: 0; margin-bottom: 30px">
                                 <form action="recebecartao.jsp" method="post">
+                                    <input type="hidden" name="cpf" value="<%out.write(cpf);%>">
                                     <div class="field-container">
                                         <br><br>
                                         <label for="name">Nome Impresso no Cartão</label>
