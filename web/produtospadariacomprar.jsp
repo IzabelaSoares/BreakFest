@@ -159,7 +159,6 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <!-- Div de Dados do Cartão de Crédito -->
-                        <!-- Div de Dados do Cartão de Crédito -->
                         <div class="payment-title">
                             <p class="pagamento-titulo">Dados de Pagamento</p>
                         </div>

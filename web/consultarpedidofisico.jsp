@@ -66,21 +66,21 @@
 
         //formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         //Instanciar Cartao e verificar dados
         Cartao cartao = new Cartao();
-        
+
         //Iniciar variavel do numero
         String numeroCartao;
-        
+
         //Verificar se há dados cadastrados
         if (cartao.verificaDados(cpf)) {
-            
+
             cartao = cartao.consultarNumero(cpf);
             //Verificar dados do Cartão
             String numero = cartao.getNumero();
             char[] s = numero.toCharArray();
-            
+
             if (s.length < 10) {
                 numeroCartao = "Sem Dados Cadastrados";
             } else {
@@ -89,7 +89,7 @@
                 }
                 numeroCartao = "Cartão de Crédito      " + String.valueOf(s);
             }
-        }else{
+        } else {
             numeroCartao = "Sem Dados Cadastrados";
         }
 
@@ -260,7 +260,7 @@
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
-             <a href="index_1.jsp"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+            <a href="index_1.jsp"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
             <h2 style="padding: 0; margin: 0; font-size: 30px;">Break Fest</h2>
             <nav>
                 <ul id="navbar-list">
@@ -284,25 +284,48 @@
         </header>
         <!-- Lista dos Pedidos Realizados -->
         <div class="container py-5"> 
+            <dl class="row d-flex justify-content-end">
+                <dd class="col-sm-auto">
+                    <input id="search" class="form-control" type="text" placeholder="Procure por um pedido...">
+                </dd>
+            </dl>
             <table class="table table-bordered table-hover">
                 <thead class="tabelinha">
                     <tr>
                         <th scope="col">Pedido</th>
-                        <th scope="col">Padaria</th>
+                        <th scope="col">Estabelecimento</th>
                         <th scope="col">Preço Total</th>
                         <th scope="col">Data</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
-                <tbody>
-
+                <tbody id="table">
                     <% for (Pedido p : pedidos) {%>
                     <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                        <th scope="row" ><%out.write(String.valueOf(p.getIdPedido()));%></th>
+                        <th scope="row" >#<%out.write(String.valueOf(p.getIdPedido()));%></th>
                         <td><%out.write(p.getNomeFantasia());%></td>
                         <td>R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
                         <td><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
-                        <td><%out.write(String.valueOf(p.getStatus()));%></td>
+                        <td>
+                            <%  String icone = "";
+                                String status = p.getStatus();
+                                if (status.contains("Preparo")){
+                                    icone = "class='fas fa-hat-chef fa-lg' style='color: gray;'";
+                                }else if(status.contains("aminho")){
+                                    icone = "class='fas fa-biking fa-lg' style='color: black;'";
+                                }else if(status.contains("Entregue")){
+                                    icone = "class='fas fa-check fa-lg' style='color: green;'";
+                                }else if(status.contains("Cancelado")){
+                                    icone = "class='fas fa-times fa-lg' style='color: red;'";
+                                }else if(status.contains("Aprovado")){
+                                    icone = "class='fas fa-receipt fa-lg' style='color: green'";    
+                                }else if(status.contains("Pendente")){
+                                    icone = "class='fas fa-exclamation fa-lg' style='color: rgb(246,190,0)'";
+                                }                                
+                            %>
+                            <i <%out.write(icone);%> aria-hidden="true"></i>
+                            <%out.write(String.valueOf(p.getStatus()));%>
+                        </td>
                     </tr>
                     <% }%>
                 </tbody>               

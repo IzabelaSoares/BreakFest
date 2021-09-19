@@ -30,6 +30,13 @@ function mNOME(nome) {
 }
 //Ler os elementos automaticamente conforme o usuário digita
 window.onload = function () {
+    //barra de pesquisa
+    $("#search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
     //chamar modal de pedido na tela de consulta
     $('#modalPedido').modal('show');
     //Chamar a mascara de nome conforme for escrevendo

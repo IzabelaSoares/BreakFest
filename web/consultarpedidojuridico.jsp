@@ -42,11 +42,13 @@
 
         <!-- Link da página "midias" em css -->
         <link rel="stylesheet" href="styles/midias.css">
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <!--        <link rel="stylesheet" href="styles/cartaoestilo.css">-->
-        <script src="scripts/cartao-de-credito.js"></script>
-
+        
+        <!-- Search/Barra de Pesquisa -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'> 
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script src="scripts/pedido-juridico.js"></script>
+        <script src="https://kit-pro.fontawesome.com/releases/v5.10.1/js/pro.min.js" data-auto-fetch-svg></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 
 
@@ -58,7 +60,7 @@
             //Pegar o cpf dela
             String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
             String cnpj = pj.procuraCnpj(fkemail);
-            
+
             request.getSession().setAttribute("cnpj", cnpj);
             request.getSession().setAttribute("usuario", fkemail);
 
@@ -68,7 +70,7 @@
 
             BairrosFrete bairro = new BairrosFrete();
             List<String> bairros = bairro.consultarBairros(cnpj);
-            
+
             List<BairrosFrete> bairrosfretes = bairro.consultarBairrosFretes(cnpj);
 
             //Formatação para data
@@ -338,98 +340,121 @@
                                         <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: blueviolet;" href="#">Alterar</a></td>
                                         <td><a style="color: red; cursor: pointer;" onClick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
-                                        <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
-                                            <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
-                                        </form>
-                                    </tr>
-                                    <% }%>
+                                <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
+                                    <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
+                                </form>
+                                </tr>
+                                <% }%>
                                 </tbody>
                             </table>
                         </div>
-                            <form action="recebefrete.jsp" method="post">
-                                <input type="hidden" name="cnpj" value="<% out.write(cnpj); %>">
-                                <label>Bairros</label> <br/>
-                                    <select name="bairros" id="bairros">
-                                        <option value="NA" selected disabled hidden>Selecione aqui seu o bairro</option>
-                                        <% for (String b : bairros) { %>  
-                                        <option value="<%out.write(b);%>">
-                                            <%out.write(b); %>
-                                        </option>
-                                        <%}%>
-                                    </select>
-                                <br><br>
-                                <div class="valor"><p>R$</p>
-                                    <input type="number" name="frete" placeholder="Informe o preço">
-                                </div>
-                                <br>
-                                <button type="submit">Salvar</button>
-                            </form>
-                        </div>
+                        <form action="recebefrete.jsp" method="post">
+                            <input type="hidden" name="cnpj" value="<% out.write(cnpj); %>">
+                            <label>Bairros</label> <br/>
+                            <select name="bairros" id="bairros">
+                                <option value="NA" selected disabled hidden>Selecione aqui seu o bairro</option>
+                                <% for (String b : bairros) { %>  
+                                <option value="<%out.write(b);%>">
+                                    <%out.write(b); %>
+                                </option>
+                                <%}%>
+                            </select>
+                            <br><br>
+                            <div class="valor"><p>R$</p>
+                                <input type="number" name="frete" placeholder="Informe o preço">
+                            </div>
+                            <br>
+                            <button type="submit">Salvar</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <body class="tabela">
-            <!-- Alerta -->
-            <header id="navbar" onload="javascript: alertar(resultado)">
-                <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
-                <h2> Break Fest </h2>
-                <nav>
-                    <ul id="navbar-list">
-                        <div class="drop-down">
-                            <div id="dropDown" class="drop-down__button">
-                                <a>Meu Painel</a>
-                            </div>
-
-                            <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
-                            <div class="drop-down__menu-box">
-                                <ul class="drop-down__menu">
-                                    <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
-                                    <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
-                                    <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
-                                    <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
-                                    <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a> 
-                                    <a href="#" data-toggle="modal" data-target="#modalFrete"><li class="drop-down__item">Frete</li></a>
-                                </ul>
-                            </div>
+    </div>
+    <body class="tabela">
+        <!-- Alerta -->
+        <header id="navbar" onload="javascript: alertar(resultado)">
+            <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+            <h2> Break Fest </h2>
+            <nav>
+                <ul id="navbar-list">
+                    <div class="drop-down">
+                        <div id="dropDown" class="drop-down__button">
+                            <a>Meu Painel</a>
                         </div>
-                        <!-- Essa opção será para sair da página, será levado para a página de login -->
-                        <li><a href="login.jsp">Sair</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <!-- partial:index.partial.html -->
-            <div class="container table-responsive py-5"> 
-                <table class="table table-bordered table-hover">
-                    <thead class="tabelinha">
-                        <tr>
-                            <th scope="col">Pedido</th>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Preço Total</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for (Pedido p : pedidos) {%>
-                        <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                            <th scope="row"><%out.write(String.valueOf(p.getIdPedido()));%></th>
-                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                            <td data-toggle="modal" data-target="#modalPedido">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
-                            <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
-                            <td><%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button></td>
-                        </tr>
-                        <% }%>
-                    </tbody>
-                </table>
-                <form id="theForm" name="theForm" action="consultarpedidojuridico_1.jsp" method="post">
-                    <input type="hidden" id="custId" name="custId" value="3487">
-                </form>
-            </div>
-            <!-- JS para Menu -->
-            <script src="scripts/bairros.js"></script>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-            <script src='https://unpkg.com/popper.js'></script>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
-        </body>
+
+                        <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
+                        <div class="drop-down__menu-box">
+                            <ul class="drop-down__menu">
+                                <a href="alterarusuariojuridico.jsp"><li class="drop-down__item">Cadastro</li></a>
+                                <a href="consultarpedidofisico.jsp"><li class="drop-down__item">Pedidos</li></a>
+                                <a href="#" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
+                                <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
+                                <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a> 
+                                <a href="#" data-toggle="modal" data-target="#modalFrete"><li class="drop-down__item">Frete</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Essa opção será para sair da página, será levado para a página de login -->
+                    <li><a href="login.jsp">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Inicio Tabela -->
+        <div class="container table-responsive py-5"> 
+            <dl class="row d-flex justify-content-end">
+                <dd class="col-sm-auto">
+                    <input id="search" class="form-control" type="text" placeholder="Procure por um pedido...">
+                </dd>
+            </dl>
+            <table class="table table-bordered table-hover">
+                <thead class="tabelinha">
+                    <tr>
+                        <th scope="col">Pedido</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Preço Total</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+                    <% for (Pedido p : pedidos) {%>
+                    <tr onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
+                        <th scope="row"><%out.write(String.valueOf(p.getIdPedido()));%></th>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
+                        <td data-toggle="modal" data-target="#modalPedido">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
+                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
+                        <td> <%  String icone = "";
+                            String status = p.getStatus();
+                            if (status.contains("Preparo")) {
+                                icone = "class='fas fa-hat-chef fa-lg' style='color: gray;'";
+                            } else if (status.contains("aminho")) {
+                                icone = "class='fas fa-biking fa-lg' style='color: black;'";
+                            } else if (status.contains("Entregue")) {
+                                icone = "class='fas fa-check fa-lg' style='color: green;'";
+                            } else if (status.contains("Cancelado")) {
+                                icone = "class='fas fa-times fa-lg' style='color: red;'";
+                            } else if (status.contains("Aprovado")) {
+                                icone = "class='fas fa-receipt fa-lg' style='color: green'";
+                            } else if (status.contains("Pendente")) {
+                                icone = "class='fas fa-exclamation fa-lg' style='color: rgb(246,190,0)'";
+                            }
+                            %>
+                            <i <%out.write(icone);%> aria-hidden="true"></i>
+                            <%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>
+                        </td>
+                    </tr>
+                    <% }%>
+                </tbody>
+            </table>
+            <form id="theForm" name="theForm" action="consultarpedidojuridico_1.jsp" method="post">
+                <input type="hidden" id="custId" name="custId" value="3487">
+            </form>
+        </div>
+        <!-- JS para Menu -->
+        <script src="scripts/bairros.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://unpkg.com/popper.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+    </body>
 </html>

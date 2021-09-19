@@ -32,13 +32,16 @@
         <!-- Título e imports -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+        <!-- Sweet Alert -->
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
-        <!-- CSS, JS e BootStrap do cartão de crédito -->
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <!-- Search/Barra de Pesquisa -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'> 
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script src="scripts/pedido-juridico.js"></script>
+        <script src="https://kit-pro.fontawesome.com/releases/v5.10.1/js/pro.min.js" data-auto-fetch-svg></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 
 
@@ -59,10 +62,7 @@
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         %>
-    </head>
-    <!-- modal de pagamento -->
-    
-    
+    </head>  
     <!-- Modal para ver dados do pedido especifico -->
     <%   String fkId = request.getParameter("custId");
         Integer valor = Integer.valueOf(fkId);
@@ -163,13 +163,8 @@
     </div>
     <!-- JS para passar parametros de consulta do pedido -->
     <script>
-            window.onload = function () {
-                $('#modalPedido').modal('show');
-            };
-            function acionar(parametro) {
-                document.getElementById('custId').value = parametro
-                document.theForm.submit();
-            }
+ 
+
     </script>
     <!-- Modal Alterar Status do Pedido -->
     <div class="modal fade" id="modalEditarStatus" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -180,7 +175,7 @@
                         <h2>Mude o status do pedido aqui:</h2>
                         <div class="forSelect">
                             <select id="statusPedido" name="status">
-                                <option value="Em Preparado">Em preparo</option>
+                                <option value="Em Preparo">Em preparo</option>
                                 <option value="Pedido à Caminho">A caminho</option>
                                 <option value="Pedido Entregue">Entregue</option>
                                 <option value="Pedido Cancelado">Cancelar Pedido</option>
@@ -195,7 +190,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- modal de midias --> 
     <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -262,7 +257,7 @@
     <body class="tabela">
         <!-- Alerta -->
         <header id="navbar" onload="javascript: alertar(resultado)">
-             <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
+            <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
             <h2> Break Fest </h2>
             <nav>
                 <ul id="navbar-list">
@@ -270,7 +265,6 @@
                         <div id="dropDown" class="drop-down__button">
                             <a>Meu Painel</a>
                         </div>
-
                         <!-- Painel da navbar com as opção de cadastro, pedidos e pagamentos. -->
                         <div class="drop-down__menu-box">
                             <ul class="drop-down__menu">
@@ -282,14 +276,18 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Essa opção será para sair da página, será levado para a página de login -->
                     <li><a href="login.jsp">Sair</a></li>
                 </ul>
             </nav>
         </header>
-        <!-- partial:index.partial.html -->
+        <!-- Inicio Tabela -->
         <div class="container table-responsive py-5"> 
+            <dl class="row d-flex justify-content-end">
+                <dd class="col-sm-auto">
+                    <input id="search" class="form-control" type="text" placeholder="Procure por um pedido...">
+                </dd>
+            </dl>
             <table class="table table-bordered table-hover">
                 <thead class="tabelinha">
                     <tr>
@@ -300,22 +298,40 @@
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table">
                     <% for (Pedido p : pedidos) {%>
                     <tr>
-                        <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(String.valueOf(p.getIdPedido()));%></th>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(p.getNome());%></td>
-                        <td data-toggle="modal" data-target="#modalPedido">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
-                        <td data-toggle="modal" data-target="#modalPedido"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
-                        <td><%out.write(String.valueOf(p.getStatus()));%>
-                            <button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>
+                        <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
+                            <%out.write(String.valueOf(p.getIdPedido()));%>
+                        </th>
+                        <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(p.getNome());%></td>
+                        <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
+                        <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(String.valueOf(formato.format(p.getDataPedido())));%></td>
+                        <td> <%  String icone = "";
+                            String status = p.getStatus();
+                            if (status.contains("Preparo")) {
+                                icone = "class='fas fa-hat-chef fa-lg' style='color: gray;'";
+                            } else if (status.contains("aminho")) {
+                                icone = "class='fas fa-biking fa-lg' style='color: black;'";
+                            } else if (status.contains("Entregue")) {
+                                icone = "class='fas fa-check fa-lg' style='color: green;'";
+                            } else if (status.contains("Cancelado")) {
+                                icone = "class='fas fa-times fa-lg' style='color: red;'";
+                            } else if (status.contains("Aprovado")) {
+                                icone = "class='fas fa-receipt fa-lg' style='color: green'";
+                            } else if (status.contains("Pendente")) {
+                                icone = "class='fas fa-exclamation fa-lg' style='color: rgb(246,190,0)'";
+                            }
+                            %>
+                            <i <%out.write(icone);%> aria-hidden="true"></i>
+                            <%out.write(String.valueOf(p.getStatus()));%><button data-toggle="modal" data-target="#modalEditarStatus">Alterar</button>
                         </td>
                     </tr>
                     <% }%>
                 </tbody>
             </table>
             <form id="theForm" name="theForm" action="consultarpedidojuridico_1.jsp" method="post">
-                <input type="hidden" id="custId" name="custId" value="3487">
+                <input type="hidden" id="custId" name="custId" value="">
             </form>
         </div>
         <!-- JS para Menu -->
