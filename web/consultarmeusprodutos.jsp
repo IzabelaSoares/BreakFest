@@ -465,7 +465,6 @@
                     <!-- Input de importar os produtos -->
                     <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
                     <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Cadastrar Produto</button> &nbsp
-                    <a href="consultarmeusprodutos.jsp"><button class="botao" type="button">Meus Produtos</button></a> &nbsp
                     <a href="produtospadrao.jsp"><button class="botao" type="button">Importar Produtos</button></a>
                 </form>
             </div>

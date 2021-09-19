@@ -34,7 +34,7 @@
 
         //se o último insert de produto padrão der certo
         if (result){
-            response.sendRedirect("alterarusuariojuridico.jsp");
+            response.sendRedirect("consultarmeusprodutos.jsp");
         }else{
             response.sendRedirect("produtospadrao.jsp");
         }

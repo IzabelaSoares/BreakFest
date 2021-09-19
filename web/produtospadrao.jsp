@@ -458,7 +458,7 @@
                     <!-- Input de importar os produtos -->
                     <input type="hidden" id="produtos-teste" name="produtosteste" value="">  
                     <button class="botao" data-toggle="modal" data-target="#modalNovoProduto" type="button">Cadastrar Produto</button> &nbsp
-                    <a href="consultarmeusprodutos.jsp"><button onclick="<!-- puxar o cnpj e os produtos aqui -->" class="botao" type="button">Meus Produtos</button></a> &nbsp
+                    <a href="consultarmeusprodutos.jsp"><button class="botao" type="button">Meus Produtos</button></a> &nbsp
                     <button id="botao-importar" onclick="importar()" class="botao" type="submit">Importar Produtos</button>
                 </form>
             </div>
