@@ -58,11 +58,14 @@
     width: 100%;
 }
 
-/*Tamanho da letra,margem esquerda e margem interna do título nível 3.*/
-h3 {
-    font-size: 40px;
-    margin-left: 15px;
-    padding-bottom: 15px;
+/*Definições do titulo do modal*/
+#pagamento-titulo{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
+    margin-bottom: 30px;
 }
 
 /*Sombra,borda inferior e contorno do textarea,input,select e botão quando 
@@ -72,3 +75,14 @@ textarea:focus, input:focus, select:focus, button:active, button:hover, button:f
     border-bottom: 2px solid #995a1a;
     outline: 0;
 } 
+
+/*Tamanho,margem,cor,cor de fundo e margens.*/
+.botao {
+    widht: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: #995a1a;
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
