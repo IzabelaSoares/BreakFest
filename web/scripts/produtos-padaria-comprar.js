@@ -179,7 +179,7 @@ function displayCart() {
         output += "<div><tr style='margin-top: 0'>"
                 + "<td style='width:180px; height:67px'>" + cartArray[i].name + "</td>"
                 + "<td style='width:100px; height:67px'> R$ " + preco + "</td>"
-                + "<td><div class='input-group' style='width:130px'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+                + "<td style='height:67px'><div class='input-group' style='width:130px'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
                 + "<input type='number' min='1' max='99' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
                 + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
                 + "<td style='width:100px; height:67px'> R$ " + ptotal + "</td>"

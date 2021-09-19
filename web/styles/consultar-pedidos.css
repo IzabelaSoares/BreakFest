@@ -33,6 +33,14 @@ table {
     text-transform: capitalize;
 }
 
+/*Deixar celula com o numero do pedido em negrito*/
+.negrito{
+    font-weight: bold;
+}
+
+.tabela-principal th{
+    max-height: 70px;
+}
 /*Borda arredondada,posição,lado esquerdo,tamanho,borda,cor do fundo e cor.*/
 button {
     border-radius: 6px;
