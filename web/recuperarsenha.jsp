@@ -40,7 +40,7 @@
                 <!-- Recuperar senha -->
                 <div class="container">
                     <div class="quadrado">
-                    <h2 id="title">Recuperar senha</h2>
+                    <h2 id="title">Nova senha</h2>
                     </div>
                     
                     <!-- E-mail -->

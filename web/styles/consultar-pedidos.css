@@ -67,9 +67,12 @@ select:hover, select:active, select:focus, select:active, select:checked, select
     box-shadow: 0 0 0 0;
 }
 
-/*Margem interna.*/
-h2 {
-    padding-left: 7%;
+/*Titulo do modal de Frete*/
+#titulo-frete {
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
 }
 
 /*Margens internas.*/

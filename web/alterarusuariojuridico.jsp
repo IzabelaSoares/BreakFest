@@ -60,7 +60,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     </head>
 
-    <!-- Inicio da NavBar de cima -->
+    <!-- Inicio da NavBar -->
     <header id="navbar" onload="javascript: alertar(resultado)">
         <a href="index.html"><img src="imagens/Break Fest Animated Logo in.gif" alt="Cuppa"></a>
         <h2> Break Fest </h2>
@@ -88,8 +88,6 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Instanciamento de classes e método em Java  -->
     <%
         //Instanciar a Pessoa Juridica
         PessoaJuridica pj = new PessoaJuridica();
@@ -127,8 +125,8 @@
         }
 
     %>
-    <!-- Fim da NavBar de cima -->
-    <!-- modal de pagamento -->
+    <!-- Fim da NavBar-->
+    <!-- Modal de Midias -->
     <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -183,8 +181,8 @@
                         </form>
                     </section>
                     <!-- Scripts do Cloud Flare e Mídias -->
-                    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script><script  src="scripts/midias.js"></script>
-                    <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
+                    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.6.0/alpine.js'></script>
+                    <script  src="scripts/midias.js"></script>
                 </div>
             </div>
         </div>
@@ -234,8 +232,6 @@
                             <br><br>
                         </div>
                     </div>
-
-
                     <!-- Cadastro de Pagamento -->
                     <div id="divpagamento" style="display: none">
                         <h3 id="pagamento-titulo">Como deseja receber seu pagamento?</h3>
@@ -249,7 +245,6 @@
                                         <option value="deposito">Depósito Bancário</option>
                                     </select>
                                     <br><br>
-
                                     <!-- PIX -->
                                     <div id="pix-pagamento" style="display:none;">           
                                         <label for="pix_metodo">Escolha sua Chave Pix</label><br>
@@ -260,7 +255,6 @@
                                             <option value="telefone">Telefone</option>
                                         </select>
                                         <br>
-
                                         <!-- Input de CPNJ -->
                                         <div id="cnpj-pagamento" style="display:none; margin-top: 20px">
                                             <label for="chave-cnpj">Informe seu CNPJ</label>
@@ -279,7 +273,6 @@
                                                 <button type="submit" class="btn botao" >Salvar Preferência</button>
                                             </div>
                                         </div>
-
                                         <!-- Input do E-mail -->
                                         <div id="email-pagamento" style="display:none; margin-top: 20px">
                                             <label for="chave-telefone">Informe seu E-mail</label>
@@ -298,7 +291,6 @@
                                                 <button type="submit" class="btn botao" >Salvar Preferência</button>
                                             </div>
                                         </div>
-
                                         <!-- Input do Telefone -->
                                         <div id="telefone-pagamento" style="display:none; margin-top: 20px">
                                             <label for="chave-telefone">Informe seu Telefone</label>
@@ -317,18 +309,13 @@
                                                 <button type="submit" class="btn botao" >Salvar Preferência</button>
                                             </div>
                                         </div>
-
-
                                     </div>  
-
                                     <!-- Depósito Bancário -->
-
                                     <!-- Input do CNPJ -->
                                     <div id="deposito-pagamento" style="display:none">
                                         <label for="conta-cnpj">Informe o CNPJ</label>
                                         <input name="cnpj" type="text" id="conta-cnpj" placeholder="XX.XXX.XXX/XXXX-XX"> 
                                         <br><br>
-
                                         <!-- Input do banco -->
                                         <label>Banco</label> <br/>
                                         <select name="banco" id="bankaccount" required >
@@ -339,14 +326,11 @@
                                             </option>
                                             <%}%> 
                                         </select>
-
                                         <br><br>
-
                                         <!-- Input do número da conta -->
                                         <label for="conta-bancaria">Conta Bancaria</label>
                                         <input name="conta" type="text" id="conta-bancaria" placeholder="Informe o número da conta"> 
                                         <br><br>
-
                                         <!-- Input do tipo da conta -->
                                         <label>Tipo da Conta</label> <br>
                                         <select name="tipo-conta" id="accounttype">
@@ -355,12 +339,10 @@
                                             <option value="corrente">Corrente</option>
                                         </select> 
                                         <br><br>
-
                                         <!-- Input do número da agência -->
                                         <label for="agencia">Agência</label>
                                         <input name="agencia" type="text" id="agencia" placeholder="Informe a agência">
                                         <br><br>
-
                                         <!-- Input do dia de recebimento -->
                                         <label for="dia">Selecione o dia que deseja receber o pagamento</label> <br>
                                         <select name="dia" id="dia" required >
@@ -374,8 +356,6 @@
                                             <button type="submit" class="btn botao" >Salvar Preferência</button>
                                         </div>
                                     </div>
-
-
                                 </form>
                             </div>
                         </div>
@@ -384,7 +364,7 @@
             </div>
         </div>
     </div>
-
+<!-- Corpo da Página -->
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">

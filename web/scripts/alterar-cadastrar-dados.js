@@ -12,6 +12,18 @@ function acionar(parametro) {
     document.getElementById('custId').value = parametro
     document.theForm.submit();
 }
+//Alterar ou Cadastrar Frete
+function alterarFrete(bairro) {
+    document.getElementById('bairros').value = bairro;
+    var cadastro = document.getElementById("divfrete");
+    cadastro.style.display = "block";    
+}
+
+//Resetar Cadastro e Alteração de Frete
+function resetarFrete(){
+    var cadastro = document.getElementById("divfrete");
+    cadastro.style.display = "none";
+}
 
 //Alterar ou Cadastrar uma Preferencia de Pagamento
 function preferenciaPagamento() {
