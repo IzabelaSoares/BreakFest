@@ -59,7 +59,7 @@
 }
 
 /*Definições do titulo do modal*/
-#pagamento-titulo{
+#pagamento-titulo, #dados-pagamento, #titulo-midias{
     font-size: 20px;
     text-transform: capitalize;
     font-family: 'Muli', sans-serif;
