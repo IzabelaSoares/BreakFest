@@ -315,6 +315,24 @@ function alertar(parametro) {
         });
     }
     
+    //Sucesso ao alterar status do pedido
+    else if (parametro === "StatusAterado") {
+        Swal.fire({
+            title: 'Status alterado!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }    
+    //Erro ao alterar status do pedido
+    else if (parametro === "StatusNaoAlterado") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Status não salvo',
+            text: 'Algo deu errado no cadastro do seu pedido.'
+        });
+    }
+    
     //Erro ao cadastrar pedido
     else if (parametro === "CarrinhoVazio") {
         Swal.fire({
