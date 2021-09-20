@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebedeletafrete
-    Created on : 17/09/2021, 14:36:48
-    Author     : Maria
+    Documento       : recebedeletafrete
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="java.util.*"%>
 <%@page import="dominio.PessoaJuridica"%>

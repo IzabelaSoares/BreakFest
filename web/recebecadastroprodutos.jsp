@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebecadastrodeproduto
-    Created on : 19/08/2021, 13:56:42
-    Author     : Maria
+    Documento       : recebecadastrodeproduto
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>

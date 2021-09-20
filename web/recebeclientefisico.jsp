@@ -1,5 +1,7 @@
 <%-- 
-    Author     : Ricardo, Izabela e Maria
+    Documento       : recebeclientefisico
+    Desenvolvido por: Maria Clara Peron, Ricardo Schvanbach e Izabela Soares
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.Cartao"%>
 <%@page import="dominio.UsuarioFisico"%>

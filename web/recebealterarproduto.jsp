@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebealterarproduto
-    Created on : 15/09/2021, 13:54:50
-    Author     : Maria
+    Documento       : recebealterarproduto
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>

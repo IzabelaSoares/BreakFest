@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebedeletarproduto
-    Created on : 13/09/2021, 13:42:32
-    Author     : Maria
+    Documento       : recebedeletarproduto
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

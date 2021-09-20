@@ -1,9 +1,8 @@
 <%-- 
-    Document   : recebelogin
-    Created on : 09/08/2021, 14:47:04
-    Author     : Maria
+    Documento       : recebelogin
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
-
 <%@page import="dominio.Pix"%>
 <%@page import="dominio.Deposito"%>
 <%@page import="dominio.PessoaJuridica"%>

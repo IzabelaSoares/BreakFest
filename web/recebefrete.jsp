@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebefrete
-    Created on : 08/09/2021, 15:40:09
-    Author     : Maria
+    Documento       : recebefrete
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.BairrosFrete"%>
 <%@page import="java.util.*"%>

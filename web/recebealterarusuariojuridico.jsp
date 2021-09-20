@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebealterausuariojuridico
-    Created on : 27/08/2021, 14:50:15
-    Author     : Maria
+    Documento       : recebealterausuariojuridico
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.BairrosFrete"%>
 <%@page import="java.util.Arrays"%>

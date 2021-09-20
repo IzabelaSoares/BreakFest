@@ -1,8 +1,8 @@
 <%-- 
-    Document   : recebepedido
-    Created on : 05/09/2021, 14:17:20
-    Author     : Izabela e Maria
---%>
+    Documento       : recebepedido
+    Desenvolvido por: Maria Clara Peron e Izabela Soares
+    Documentado por : Maria Clara Peron
+--%> 
 <%@page import="java.time.LocalTime"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
