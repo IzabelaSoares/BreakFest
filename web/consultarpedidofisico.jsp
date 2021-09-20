@@ -69,6 +69,8 @@
 
         //Instanciar Cartao e verificar dados
         Cartao cartao = new Cartao();
+        
+        request.getSession().setAttribute("pag", "fisico");
 
         //Iniciar variavel do numero
         String numeroCartao;
