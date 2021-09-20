@@ -577,7 +577,7 @@
                     <% for (Pedido p : pedidos) {%>
                     <tr>
                         <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                            <%out.write(String.valueOf(p.getIdPedido()));%>
+                            #<%out.write(String.valueOf(p.getIdPedido()));%>
                         </th>
                         <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(p.getNome());%></td>
                         <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
