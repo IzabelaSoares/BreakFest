@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : tipopessoa
+    Desenvolvido por: Jefferson Teixeira e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

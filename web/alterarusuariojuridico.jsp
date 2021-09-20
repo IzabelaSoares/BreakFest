@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : alterarusuariojuridico
+    Desenvolvido por: Izabela Maria Soares e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page import="dominio.Deposito"%>
 <%@page import="dominio.Pix"%>
 <%@page import="java.util.List"%>

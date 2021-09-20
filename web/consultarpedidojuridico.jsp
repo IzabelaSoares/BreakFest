@@ -1,7 +1,7 @@
 <%-- 
-    Document   : consultarpedidojuridico
-    Created on : 8 de set. de 2021, 16:08:19
-    Author     : Ricardo Natal Schvambach
+    Documento       : consultarpedidojuridico
+    Desenvolvido por: Izabela Maria Soares, Maria Clara Peron e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page import="dominio.Banco"%>

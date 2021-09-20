@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : procurarpadaria
+    Desenvolvido por: Izabela Maria Soares e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page import="java.util.List"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

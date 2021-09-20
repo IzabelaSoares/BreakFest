@@ -1,8 +1,9 @@
 <%-- 
-    Document   : produtospadariacomprar
-    Created on : 04/09/2021, 09:18:51
-    Author     : Izabela
+    Documento       : produtospadariacomprar
+    Desenvolvido por: Izabela Maria Soares e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
+
 <%@page import="dominio.Cartao"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.List"%>

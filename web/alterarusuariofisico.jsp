@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : alterarusuariofisico
+    Desenvolvido por: Izabela Maria Soares,Jefferson Teixeira e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page import="dominio.Cartao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="dominio.PessoaFisica"%>
