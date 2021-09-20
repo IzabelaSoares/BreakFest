@@ -66,6 +66,8 @@
         //Formatação para data
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
+        request.getSession().setAttribute("pag", "fisico");
+        
         //Instanciar Cartao e verificar dados
         Cartao cartao = new Cartao();
         

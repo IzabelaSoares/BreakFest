@@ -79,6 +79,7 @@
 
             List<BairrosFrete> bairrosfretes = bairro.consultarBairrosFretes(cnpj);
             
+            request.getSession().setAttribute("pag", "juridico");
 
             //Dados das Midias
             PessoaJuridica midias = new PessoaJuridica();

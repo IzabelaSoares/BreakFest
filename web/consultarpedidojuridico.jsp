@@ -70,6 +70,8 @@
             //Setar usuário e senha para essa sessão
             request.getSession().setAttribute("cnpj", cnpj);
             request.getSession().setAttribute("usuario", fkemail);
+            
+            request.getSession().setAttribute("pag", "juridico");
 
             //Pesquisar pedidos para pessoa juridica
             Pedido pedido = new Pedido();
@@ -97,7 +99,7 @@
             if (instagram == null) {
                 instagram = "";
             } else if (facebook == null) {
-                facebook = "";
+                facebook = ""; 
             }
 
         %>
