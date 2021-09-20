@@ -1,7 +1,7 @@
 <%-- 
-    Document   : consultarpedidofisico
-    Created on : 8 de set. de 2021, 13:37:54
-    Author     : Ricardo Natal Schvambach
+    Documento       : consultarpedidofisico
+    Desenvolvido por: Izabela Maria Soares, Maria Clara Peron e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page import="dominio.Cartao"%>

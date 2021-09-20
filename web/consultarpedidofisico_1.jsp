@@ -1,7 +1,7 @@
 <%-- 
-    Document   : consultarpedidofisico
-    Created on : 8 de set. de 2021, 13:37:54
-    Author     : Izabela Maria Soares
+    Documento       : consultarpedidofisico_1
+    Desenvolvido por: Izabela Maria Soares,Maria Clara Peron e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page import="dominio.Cartao"%>
@@ -22,7 +22,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         <script src="scripts/navbar-usuario.js"></script>
-        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
+        <link rel="stylesheet" href="navbar-usuario.css"/>
 
         <link rel="stylesheet" href="styles/consulta-pedido-fisico.css"/>
         <!-- CSS para utilização alheia -->
@@ -403,7 +403,7 @@
         <div class="container py-5"> 
             <dl class="row d-flex justify-content-end">
                 <dd class="col-sm-auto">
-                    <input id="search" class="form-control" type="text" placeholder="Procure por um pedido...">
+                    <input style="box-shadow: 0 0 0 0; outline: 0;" id="search" class="form-control" type="text" placeholder="Procure por um pedido...">
                 </dd>
             </dl>
             <table class="table table-bordered table-hover">

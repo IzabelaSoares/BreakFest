@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastroproduto
-    Created on : 18/08/2021, 03:18:21
-    Author     : Izabela
+    Documento       : cadastroproduto
+    Desenvolvido por: Izabela Maria Soares,Maria Clara Peron e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

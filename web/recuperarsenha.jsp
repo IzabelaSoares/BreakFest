@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recuperarsenha
-    Created on : 11 de ago. de 2021, 14:02:59
-    Author     : Ricardo.Schvambach e Maria
+    Documento       : recuperarsenha
+    Desenvolvido por: Yan Claus Fructuoso e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

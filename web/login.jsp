@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : login
+    Desenvolvido por: Yan Claus Fructuoso e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- Head igualitário para quase todas as telas -->

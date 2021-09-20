@@ -1,3 +1,9 @@
+<%-- 
+    Documento       : index
+    Desenvolvido por: Yan Claus Fructuoso e Ricardo Natal
+    Documentado por : Jefferson Teixeira
+--%>
+
 <%@page import="dominio.Cartao"%>
 <%@page import="dominio.PessoaFisica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

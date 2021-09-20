@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastrojuridico
-    Created on : 27 de jul. de 2021, 14:53:33
-    Author     : Ricardo.Schvambach
+    Documento       : cadastrojuridico
+    Desenvolvido por: Izabela Maria Soares e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

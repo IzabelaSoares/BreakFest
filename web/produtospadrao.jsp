@@ -1,8 +1,9 @@
 <%-- 
-    Document   : produtospadrao
-    Created on : 16/08/2021, 16:46:19
-    Author     : Izabela
+    Documento       : produtospadrao
+    Desenvolvido por: Izabela Maria Soares e Ricardo Natal
+    Documentado por : Jefferson Teixeira
 --%>
+
 <%@page import="dominio.Banco"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Produto"%>
