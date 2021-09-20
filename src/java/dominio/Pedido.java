@@ -148,7 +148,7 @@ public class Pedido {
                      "FROM public.pedido pedido, public.pessoafisica pessoafisica, " +
                      "public.pessoajuridica pessoajuridica " +
                      "WHERE pedido.fkcpf = pessoafisica.cpf AND pedido.fkcnpj = pessoajuridica.cnpj " +
-                     "AND fkcnpj ='"+ pFkCnpj +"'";
+                     "AND fkcnpj ='"+ pFkCnpj +"' order by datapedido";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {
@@ -198,7 +198,7 @@ public class Pedido {
                      "FROM public.pedido pedido, public.pessoafisica pessoafisica, " +
                      "public.pessoajuridica pessoajuridica " +
                      "WHERE pedido.fkcpf = pessoafisica.cpf AND pedido.fkcnpj = pessoajuridica.cnpj " +
-                     "AND fkcpf ='"+ pFkCpf +"'";
+                     "AND fkcpf ='"+ pFkCpf +"' order by datapedido";
         //conectando com o banco
         Connection con = Conexao.conectar();
         try {

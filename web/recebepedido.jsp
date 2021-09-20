@@ -22,7 +22,7 @@
 
     //Recorrencia, Status e DiaSemana
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
-    String status = "PAGAMENTO APROVADO";
+    String status = "Pagamento Aprovado";
     String dias = request.getParameter("dias");
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
