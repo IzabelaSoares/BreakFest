@@ -493,7 +493,7 @@
                                         <td><%out.write(bf.getBairroAtendimento());%></td>
                                         <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: #14a3db; cursor: pointer;" onclick="alterarFrete('<%out.write(bf.getBairroAtendimento());%>');">Alterar</a></td>
-                                        <td><a style="color: red; cursor: pointer;" href="" onClick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
+                                        <td><a style="color: red; cursor: pointer;" onclick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
                                 <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
                                     <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
                                 </form>

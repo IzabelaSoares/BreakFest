@@ -133,7 +133,6 @@
                 <div class="modal-body" style="padding: 50px">
                     <section class="container max-w-xl mx-auto flex flex-col py-8">
                         <h3 id="titulo-midias" style="text-align: center">Informações Adicionais</h3>
-
                         <!-- Form com as informações -->
                         <form action="RecebeImagemPerfil" method="post" enctype="multipart/form-data" class="form-midias">
                             <label for="instagram">Link para o Instagram</label>
@@ -399,7 +398,7 @@
                                         <td><%out.write(bf.getBairroAtendimento());%></td>
                                         <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: #14a3db; cursor: pointer;" onclick="alterarFrete('<%out.write(bf.getBairroAtendimento());%>');">Alterar</a></td>
-                                        <td><a style="color: red; cursor: pointer;" href="" onClick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
+                                        <td><a style="color: red; cursor: pointer;" onclick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
                                 <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
                                     <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
                                 </form>
