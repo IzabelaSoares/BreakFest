@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebeclientejuridico
-    Created on : 06/08/2021, 14:11:58
-    Author     : Maria
+    Documento       : recebeclientejuridico
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.BairrosFrete"%>
 <%@page import="java.util.*"%>

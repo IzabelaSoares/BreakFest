@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebealterarstatus
-    Created on : 11/09/2021, 18:05:53
-    Author     : Maria
+    Documento       : recebealterarstatus
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.Pedido"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

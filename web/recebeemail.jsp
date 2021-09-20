@@ -1,9 +1,8 @@
 <%-- 
-    Document   : recebeemail
-    Created on : 12/08/2021, 14:43:20
-    Author     : Maria
+    Documento       : recebeemail
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
-
 <%@page import="dominio.UsuarioJuridico"%>
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="dominio.EnviarEmail"%>

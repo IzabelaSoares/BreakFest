@@ -1,7 +1,7 @@
 <%-- 
-    Document   : recebealterausuariofisico
-    Created on : 27/08/2021, 14:12:25
-    Author     : Maria
+    Documento       : recebealterausuariofisico
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="java.sql.Date"%>
 <%@page import="dominio.UsuarioFisico"%>

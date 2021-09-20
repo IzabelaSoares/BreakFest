@@ -1,8 +1,8 @@
 <%-- 
-    Document   : recebepagamento
-    Created on : 16/08/2021, 04:40:57
-    Author     : Izabela e Maria Clara
---%>
+    Documento       : recebepagamento
+    Desenvolvido por: Maria Clara Peron e Izabela Soares
+    Documentado por : Maria Clara Peron
+--%> 
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="dominio.Pix"%>
 <%@page import="dominio.Deposito"%>

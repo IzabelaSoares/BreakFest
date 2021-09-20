@@ -1,8 +1,8 @@
 <%-- 
-    Document   : recebepedido
-    Created on : 05/09/2021, 14:17:20
-    Author     : Izabela e Maria
---%>
+    Documento       : recebepedido
+    Desenvolvido por: Maria Clara Peron e Izabela Soares
+    Documentado por : Maria Clara Peron
+--%> 
 <%@page import="java.time.LocalTime"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
@@ -22,7 +22,7 @@
 
     //Recorrencia, Status e DiaSemana
     Boolean recorrencia = Boolean.parseBoolean(request.getParameter("recorrencia"));
-    String status = "PAGAMENTO APROVADO";
+    String status = "Pagamento Aprovado";
     String dias = request.getParameter("dias");
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");

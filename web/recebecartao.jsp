@@ -1,9 +1,8 @@
 <%-- 
-    Document   : recebecartao
-    Created on : 09/08/2021, 13:58:18
-    Author     : Maria
+    Documento       : recebecartao
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
 --%>
-
 <%@page import="dominio.PessoaFisica"%>
 <%@page import="dominio.Cartao"%>
 <%  //instancia o cartão = card

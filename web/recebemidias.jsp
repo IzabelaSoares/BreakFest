@@ -1,8 +1,8 @@
 <%-- 
-    Document   : recebemidias
-    Created on : 23/08/2021, 14:55:00
-    Author     : Maria
---%>
+    Documento       : recebemidias
+    Desenvolvido por: Maria Clara Peron
+    Documentado por : Maria Clara Peron
+--%> 
 <%@page import="dominio.PessoaJuridica"%>
 <%  //instancia o pessoajuridica = pj
     PessoaJuridica pj = new PessoaJuridica();

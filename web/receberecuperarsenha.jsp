@@ -1,7 +1,7 @@
-<%-- 
-    Document   : receberecuperarsenha
-    Created on : 11/08/2021, 14:52:08
-    Author     : Maria
+<%--
+    Documento       : receberecuperarsenha
+    Desenvolvido por: Maria Clara Peron e Izabela Soares
+    Documentado por : Maria Clara Peron
 --%>
 <%@page import="dominio.UsuarioFisico"%>
 <%@page import="dominio.UsuarioJuridico"%>

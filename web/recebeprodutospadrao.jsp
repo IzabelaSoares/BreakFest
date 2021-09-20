@@ -1,8 +1,8 @@
 <%-- 
-    Document   : recebeprodutospardra
-    Created on : 23/08/2021, 13:44:57
-    Author     : Maria
---%>
+    Documento       : recebeprodutospardra
+    Desenvolvido por: Maria Clara Peron e Izabela Soares
+    Documentado por : Maria Clara Peron
+--%> 
 <%@page import="java.sql.Array"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.*"%>
