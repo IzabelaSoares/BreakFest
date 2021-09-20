@@ -493,7 +493,7 @@
                                         <td><%out.write(bf.getBairroAtendimento());%></td>
                                         <td><%out.write(String.valueOf(bf.getFrete()));%></td>
                                         <td><a style="color: #14a3db; cursor: pointer;" onclick="alterarFrete('<%out.write(bf.getBairroAtendimento());%>');">Alterar</a></td>
-                                        <td><a style="color: red; cursor: pointer;" href="" onClick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
+                                        <td><a style="color: red; cursor: pointer;" onclick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
                                 <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
                                     <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
                                 </form>
@@ -577,7 +577,7 @@
                     <% for (Pedido p : pedidos) {%>
                     <tr>
                         <th scope="row" onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">
-                            <%out.write(String.valueOf(p.getIdPedido()));%>
+                            #<%out.write(String.valueOf(p.getIdPedido()));%>
                         </th>
                         <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')"><%out.write(p.getNome());%></td>
                         <td onclick="acionar('<%out.write(String.valueOf(p.getIdPedido()));%>')">R$ <%out.write(String.format("%.2f", p.getTotalCompra()).replace(".", ","));%></td>
