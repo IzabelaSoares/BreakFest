@@ -35,50 +35,61 @@ public class RecebeImagemPerfil extends HttpServlet {
             
             //para salvar a imagem especificamente
             Part part = request.getPart("photo");
-
+            
             //Pegar o nome do arquivo
             String nomeArquivo = part.getSubmittedFileName().toLowerCase();
-
-            //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
-            if (nomeArquivo.contains(".png")) {
-                nomeArquivo = cnpj + ".png";
-            } else if (nomeArquivo.contains(".jpg")) {
-                nomeArquivo = cnpj + ".jpg";
-            } else if (nomeArquivo.contains(".jpeg")) {
-                nomeArquivo = cnpj + ".jpeg";
-            }
-
-            //Definir os parametros de path e Input do arquivo
-            String path = getServletContext().getRealPath("imagens/imagem-perfil" + File.separator + nomeArquivo).replaceAll("\\\\build", "");
-            InputStream esse = part.getInputStream(); //faz o input do arquivo
-
-            //Instanciar classe Imagem para a Pasta
-            ImagemPasta pasta = new ImagemPasta();
-
-            //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
-            if (pasta.inserirArquivo(esse, path)) {
-
-                //Instanciar a classe Imagem para o SQL
-                ImagemPerfil novo = new ImagemPerfil();
-
-                //Mandar os Dados para o banco de 
-                String localizacao = "imagens/imagem-perfil/" + nomeArquivo;
-                novo.setLocalizacao(localizacao);
-                novo.setFkCnpj(fkcnpj);
-
-                //Inserir no database
-                novo.incluirImagemPerfil();
-
+            
+            //se não houver imagem a ser alterado, apenas redireciona para alterar as midias
+            if(nomeArquivo == ""){
                 //Tudo certo ele vai mandar para o recebe midias
                 request.getSession().setAttribute("instagram", instagram);
                 request.getSession().setAttribute("facebook", facebook);
-                request.getSession().setAttribute("localizacao", localizacao);
+                request.getSession().setAttribute("existenteimg", "naotem");
                 response.sendRedirect("recebemidias.jsp");
+                
+            }else{
+                //Alterar o nome do arquivo (cnpj + tipo do arquivo) para salvar ele
+                if (nomeArquivo.contains(".png")) {
+                    nomeArquivo = cnpj + ".png";
+                } else if (nomeArquivo.contains(".jpg")) {
+                    nomeArquivo = cnpj + ".jpg";
+                } else if (nomeArquivo.contains(".jpeg")) {
+                    nomeArquivo = cnpj + ".jpeg";
+                }
 
-            } else {
+                //Definir os parametros de path e Input do arquivo
+                String path = getServletContext().getRealPath("imagens/imagem-perfil" + File.separator + nomeArquivo).replaceAll("\\\\build", "");
+                InputStream esse = part.getInputStream(); //faz o input do arquivo
 
-                //Colocar aqui link da página recarregada e mensagem de erro
-                response.sendRedirect("midias.jsp");
+                //Instanciar classe Imagem para a Pasta
+                ImagemPasta pasta = new ImagemPasta();
+
+                //Se inserir na pasta do projeto, ai ele insere no sql a localizacao          
+                if (pasta.inserirArquivo(esse, path)) {
+
+                    //Instanciar a classe Imagem para o SQL
+                    ImagemPerfil novo = new ImagemPerfil();
+
+                    //Mandar os Dados para o banco de 
+                    String localizacao = "imagens/imagem-perfil/" + nomeArquivo;
+                    novo.setLocalizacao(localizacao);
+                    novo.setFkCnpj(fkcnpj);
+
+                    //Inserir no database
+                    novo.incluirImagemPerfil();
+
+                    //Tudo certo ele vai mandar para o recebe midias
+                    request.getSession().setAttribute("instagram", instagram);
+                    request.getSession().setAttribute("facebook", facebook);
+                    request.getSession().setAttribute("localizacao", localizacao);
+                    request.getSession().setAttribute("existenteimg", "tem");
+                    response.sendRedirect("recebemidias.jsp");
+
+                } else {
+
+                    //Colocar aqui link da página recarregada e mensagem de erro
+                    response.sendRedirect("alterarusuariojuridico.jsp");
+                }
             }
 
         }

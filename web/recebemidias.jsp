@@ -12,10 +12,13 @@
     String cnpj = pj.procuraCnpj(fkemail);
     
     //manda os valores para a classe
+    pj.setCnpj(cnpj);
     pj.setFacebook(String.valueOf(request.getSession().getAttribute("facebook")));
     pj.setInstagram(String.valueOf(request.getSession().getAttribute("instagram")));
-    pj.setImagem(String.valueOf(request.getSession().getAttribute("localizacao")));
-    pj.setCnpj(cnpj);
+    String img = String.valueOf(request.getSession().getAttribute("existenteimg"));
+    if(img == "tem"){
+        pj.setImagem(String.valueOf(request.getSession().getAttribute("localizacao")));
+    }
 
     //se cadastrar midias der certo
     if(pj.cadastrarMidias()){

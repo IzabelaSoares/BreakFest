@@ -26,10 +26,10 @@
     
     //verifica se o usuário já possui algum tipo de pagamento cadastrado para saber 
     //se é necessário um insert ou update no banco
-    if (pix.verificaDados(fkcnpj) == true || dep.verificaDados(fkcnpj) == true){
-        at = "update";
-    }else{
+    if (pix.verificaDados(fkemail) == false && dep.verificaDados(fkemail) == false){
         at = "insert";
+    }else{
+        at = "update";
     }
     
     //se for pix
