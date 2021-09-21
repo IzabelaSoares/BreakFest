@@ -21,8 +21,7 @@ public class Banco {
     //consulta as agências
     public List<Banco> consultarGeral(){
         List<Banco> lista = new ArrayList<>();
-        String sql = "SELECT banco, numero"
-                   + " FROM banco";
+        String sql = "SELECT banco, numero FROM banco";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
@@ -35,10 +34,8 @@ public class Banco {
            }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());
-        }
-        
-        return lista;
-        
+        }       
+        return lista;        
     }
     
     //área de getters e setters

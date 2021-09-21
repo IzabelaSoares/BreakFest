@@ -4,6 +4,7 @@
     Documentado por : Jefferson Teixeira
 --%>
 
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="dominio.Deposito"%>
 <%@page import="dominio.Pix"%>
 <%@page import="java.util.List"%>
@@ -85,6 +86,7 @@
                             <a href="#" onclick="resetarPagamento()" data-toggle="modal" data-target="#modalPagamento"><li class="drop-down__item">Pagamentos</li></a>
                             <a href="#" data-toggle="modal" data-target="#modalMidias"><li class="drop-down__item">Midias</li></a>
                             <a href="consultarmeusprodutos.jsp"><li class="drop-down__item">Produtos</li></a>
+                            <a href="#" onclick="resetarFrete()" data-toggle="modal" data-target="#modalFrete"><li class="drop-down__item">Frete</li></a>
                         </ul>
                     </div>
                 </div>
@@ -113,6 +115,11 @@
         //Instanciar banco para escolher o pagamento.
         Banco lista = new Banco();
         List<Banco> listabanco = lista.consultarGeral();
+
+        //Instanciar os Bairros e verificar o bairro
+        BairrosFrete bairro = new BairrosFrete();
+        List<String> bairros = bairro.consultarBairros(cnpj);
+        List<BairrosFrete> bairrosfretes = bairro.consultarBairrosFretes(cnpj);
 
         //Dados das Midias
         PessoaJuridica midias = new PessoaJuridica();
@@ -370,7 +377,64 @@
             </div>
         </div>
     </div>
-<!-- Corpo da Página -->
+    <!-- Modal de Frete --> 
+    <div class="modal fade" id="modalFrete" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="tudoCentral" style="margin-top: 30px;">
+                        <h2 id="titulo-frete"> Gerenciador de fretes </h2>
+                        <div class="container table-responsive py-5" style="margin-top: 0"> 
+                            <table class="table table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Bairro</th>
+                                        <th scope="col">Valor</th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>       
+                                    <% for (BairrosFrete bf : bairrosfretes) {%>
+                                    <tr>
+                                        <td><%out.write(bf.getBairroAtendimento());%></td>
+                                        <td><%out.write(String.valueOf(bf.getFrete()));%></td>
+                                        <td><a style="color: #14a3db; cursor: pointer;" onclick="alterarFrete('<%out.write(bf.getBairroAtendimento());%>');">Alterar</a></td>
+                                        <td><a style="color: red; cursor: pointer;" onclick="document.getElementById('<%out.write(String.valueOf(bf.getId()));%>').submit();">Excluir</a></td>
+                                <form action="recebedeletafrete.jsp" id="<%out.write(String.valueOf(bf.getId()));%>" >
+                                    <input type="hidden" name="id" value="<%out.write(String.valueOf(bf.getId())); %>">
+                                </form>
+                                </tr>
+                                <% }%>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="divfrete" style="display:none">
+                            <div class="d-flex justify-content-center">
+                                <form action="recebefrete.jsp" method="post" >
+                                    <input type="hidden" name="cnpj" value="<% out.write(cnpj); %>">
+                                    <dl class="row">
+                                        <dd class="col-sm-4">Bairro</dd>
+                                        <dt class="col-sm-6">
+                                            <input class="form-control" value="" id="bairros" name="bairros" type="text" readonly>
+                                        </dt>
+                                    </dl>
+                                    <dl class="row">
+                                        <dd class="col-sm-4">Preço</dd>
+                                        <dt class="col-sm-6">
+                                            <input class="form-control" min="0" max="20" name="frete" type="number" required placeholder="Informe o preço">
+                                        </dt>
+                                    </dl>
+                                    <button type="submit">Salvar</button><br><br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Corpo da Página -->
     <body class="form-v10">
         <div class="page-content">
             <div class="form-v10-content">
