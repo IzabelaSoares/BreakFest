@@ -411,9 +411,9 @@
                                                         <dd class="col-sm-4">Total Produtos</dd>
                                                         <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                         <dd class="col-sm-4">Frete </dd>								
-                                                        <dt class="col-sm-8">R$ <%out.write(String.valueOf(frete));%> </dt>
+                                                        <dt class="col-sm-8">R$ <%out.write(String.format("%.2f", frete).replace(".", ","));%> </dt>
                                                         <dd class="col-sm-4">Valor Total </dd>
-                                                        <dt class="col-sm-8">R$ <%out.write(String.valueOf(frete));%><span class="total-cart"></span></dt>
+                                                        <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                     </dl>
                                                     <dl class="row">
                                                         <dt class="col-sm-12">Deseja agendar esse pedido para mais dias?</dt>
