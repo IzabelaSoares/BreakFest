@@ -429,10 +429,11 @@
                                                         <div class="combo js-csv">
                                                             <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="listbox1" class="input-wrapper">
                                                                 <input
+                                                                    style="height: 38px; width: 500px;"
                                                                     aria-autocomplete="list"
                                                                     name="dias"
                                                                     id="combo1"
-                                                                    class="form-select col-sm-12"
+                                                                    class="col-sm-12"
                                                                     type="text">
                                                             </div>
                                                             <div class="combo-menu" role="listbox" aria-multiselectable="true" id="listbox1"></div>
