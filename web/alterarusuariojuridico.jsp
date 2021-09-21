@@ -50,7 +50,7 @@
         <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
 
         <!-- Script do Alerta -->
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script><script src="./script.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 

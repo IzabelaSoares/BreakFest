@@ -14,10 +14,7 @@
         <!-- Script de alerta -->
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
-        
-        <!-- Link da página 'recuperarsenha' em css -->
-        <link href="styles/recuperarsenha.css" rel="stylesheet">
-        
+       
         <!-- Fonte -->
         <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap" rel="stylesheet">
         
@@ -28,42 +25,41 @@
         <title>Break Fest</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
+        <!-- Script do Alerta -->
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script src="scripts/alertas-erro.js"></script>
+        
+        <!-- CSS E JS principais-->
+        <link href="styles/recuperar-senha.css" rel="stylesheet">
+        <script src="scripts/recuperar-senha.js"></script>
     </head>
     <!-- Alerta -->
     <body onload="javascript: alertar(resultado)" class="imagem">
-    <!-- Fim da NavBar de cima -->
-        
+    <!-- Fim da NavBar de cima -->       
          <div>  
             <!-- Inicio do Form -->
-            <form action="receberecuperarsenha.jsp" method="post">
-                
+            <form name="theForm" action="receberecuperarsenha.jsp" method="post">                
                 <!-- Recuperar senha -->
                 <div class="container">
                     <div class="quadrado">
                     <h2 id="title">Nova senha</h2>
-                    </div>
-                    
+                    </div>                    
                     <!-- E-mail -->
                     <div class="single-input">
-                        <input type="text" class="input" id="nome" name='email' required>
-                        <label for="nome">E-mail</label>
-                    </div>
-                    
+                        <input type="text" placeholder="E-mail" class="input" id="nome" name='email' required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>                       
+                    </div>                   
                     <!-- Senha -->
                     <div class="single-input">
-                        <input type="password" class="input" id="senha" name='senhanova' required>
-                        <label for="senha">Senha</label>
+                        <input type="password" placeholder="Senha" class="input" name="senhanova" id="senha" minlength="8" required>                       
                     </div>
-                    
                     <!-- Confirmar senha -->
                     <div class="single-input">
-                        <input type="password" class="input" id="confirmsenha" required>
-                        <label for="confirmsenha">Confirmar senha</label>
+                        <input type="password" placeholder="Confirmar senha" class="input" id="checksenha" name="confirmsenha" minlength="8" required>                    
                     </div>
-                    
+                    <p id="alertPassword"></p>
                     <!-- Botão de senha -->
                     <div class="single-input">
-                        <button type="submit">Salvar</button>
+                        <button onclick="recuperarSenha();">Salvar</button>
                     </div>
                 </div>
             </form>
