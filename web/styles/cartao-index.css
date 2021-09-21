@@ -1,0 +1,431 @@
+/* 
+  Página de Referência: Dadoscartaocredito
+  Desenvolvido por: Izabela e Ricardo
+  Documentado por: Jefferson Teixeira
+  Data da ultima Revisão: 13/09/2021 
+ */
+ 
+ /*Import da fonte.*/
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;700&display=swap');
+
+/*Margem interna,margem externa e largura.*/
+form {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/*Margem externa,margem interna,cor de fundo,indicadores,posicionamento no eixo 
+cruzado,estabelecedor o valor align-self,alinhador os elementos ao longo do 
+eixo principal,e fonte.*/
+.centrocartao {
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    min-height: 100vh;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    font-family: 'Raleway';
+}
+
+/*Margem interna,tamanho da fonte e alinhador de elemento.*/
+.payment-title {
+    padding-top: 20px;
+    font-size: 35px;
+    text-align: center;
+}
+
+/*Posicionamento baseado em colunas e linha.*/
+.form-container .field-container:first-of-type {
+    grid-area: name;
+}
+
+/*Posicionamento baseado em colunas e linha.*/
+.form-container .field-container:nth-of-type(2) {
+    grid-area: number;
+}
+
+/*Posicionamento baseado em colunas e linha.*/
+.form-container .field-container:nth-of-type(3) {
+    grid-area: expiration;
+}
+
+/*Posicionamento baseado em colunas e linha.*/
+.form-container .field-container:nth-of-type(4) {
+    grid-area: security;
+}
+
+/*Alterador da propriedade padrão da box model.*/
+.field-container input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*Posição.*/
+.field-container {
+    position: relative;
+}
+
+/*Altura,indicador,duas propriedades em um só lugar,largura maxíma,margem 
+interna e cor.*/
+.form-container {
+    height: 500px;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 90px 90px 90px;
+    grid-template-areas: "name name""number number""expiration security";
+    max-width: 400px;
+    padding: 20px;
+    color: #707070;
+}
+
+/*Margem interna e tamanho da fonte.*/
+label {
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+
+/*Margem,margem interna,tamanho da fonte,largura,borda arredondada e borda.*/
+input {
+    margin-top: 3px;
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #bcbcbc;
+}
+
+/*Contorno e sombra.*/
+input:focus, input:active, input:hover {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+/*Altura,posição,lado direito,espaço em cima e largura.*/
+.ccicon {
+    height: 38px;
+    position: absolute;
+    right: 6px;
+    top: 47px;
+    width: 60px;
+}
+
+/*Animação.*/
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+/*Largura,tamanho maxímo e margem interna.*/
+.container-cartao {
+    width: 80%;
+    max-width: 400px;
+    max-height: 251px;
+    height: 54vw;
+    padding: 20px;
+}
+
+/*Posição,lado direito e espaço em cima.*/
+#ccsingle {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+
+/*Largura e altura maxíma.*/
+#ccsingle svg {
+    width: 100px;
+    max-height: 60px;
+}
+
+/*Largura,sombra e borda arredondada.*/
+.creditcard svg#cardfront,
+.creditcard svg#cardback {
+    width: 100%;
+    -webkit-box-shadow: 1px 5px 6px 0px black;
+    box-shadow: 1px 5px 6px 0px black;
+    border-radius: 22px;
+}
+
+/*Quando o mouse,elemento deve ser retirado do seu fluxo normal e colocado ao 
+longo do lado direito ou esquerdo,tamanho da fonte,cor,margem interna,cor de 
+fundo,borda arredondada e transparência.*/
+#generatecard{
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    color: #fff;
+    padding: 2px 4px;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: default;
+    float:right;
+    opacity: 0%;
+}
+
+/*Animação.*/
+.creditcard .lightcolor,
+.creditcard .darkcolor {
+    -webkit-transition: fill .5s;
+    transition: fill .5s;
+}
+
+.creditcard .lightblue {
+    fill: #03A9F4;
+}
+
+.creditcard .lightbluedark {
+    fill: #0288D1;
+}
+
+.creditcard .red {
+    fill: #ef5350;
+}
+
+.creditcard .reddark {
+    fill: #d32f2f;
+}
+
+.creditcard .purple {
+    fill: #ab47bc;
+}
+
+.creditcard .purpledark {
+    fill: #7b1fa2;
+}
+
+.creditcard .cyan {
+    fill: #26c6da;
+}
+
+.creditcard .cyandark {
+    fill: #0097a7;
+}
+
+.creditcard .green {
+    fill: #66bb6a;
+}
+
+.creditcard .greendark {
+    fill: #388e3c;
+}
+
+.creditcard .lime {
+    fill: #d4e157;
+}
+
+.creditcard .limedark {
+    fill: #afb42b;
+}
+
+.creditcard .yellow {
+    fill: #ffeb3b;
+}
+
+.creditcard .yellowdark {
+    fill: #f9a825;
+}
+
+.creditcard .orange {
+    fill: #ff9800;
+}
+
+.creditcard .orangedark {
+    fill: #ef6c00;
+}
+
+.creditcard .grey {
+    fill: #bdbdbd;
+}
+
+.creditcard .greydark {
+    fill: #616161;
+}
+
+/* FRONT OF CARD */
+#svgname {
+    text-transform: uppercase;
+}
+
+#cardfront .st2 {
+    fill: #FFFFFF;
+}
+
+/*Fonte.*/
+#cardfront .st3 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+}
+
+#cardfront .st4 {
+    font-size: 54.7817px;
+}
+
+#cardfront .st5 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+#cardfront .st6 {
+    font-size: 33.1112px;
+}
+
+#cardfront .st7 {
+    opacity: 0.6;
+    fill: #FFFFFF;
+}
+
+#cardfront .st8 {
+    font-size: 24px;
+}
+
+#cardfront .st9 {
+    font-size: 36.5498px;
+}
+
+#cardfront .st10 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+#cardfront .st11 {
+    font-size: 16.1716px;
+}
+
+#cardfront .st12 {
+    fill: #4C4C4C;
+}
+
+#cardback .st0 {
+    fill: none;
+    stroke: #0F0F0F;
+    stroke-miterlimit: 10;
+}
+
+#cardback .st2 {
+    fill: #111111;
+}
+
+#cardback .st3 {
+    fill: #F2F2F2;
+}
+
+#cardback .st4 {
+    fill: #D8D2DB;
+}
+
+#cardback .st5 {
+    fill: #C4C4C4;
+}
+
+#cardback .st6 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+#cardback .st7 {
+    font-size: 27px;
+}
+
+#cardback .st8 {
+    opacity: 0.6;
+}
+
+#cardback .st9 {
+    fill: #FFFFFF;
+}
+
+#cardback .st10 {
+    font-size: 24px;
+}
+
+#cardback .st11 {
+    fill: #EAEAEA;
+}
+
+#cardback .st12 {
+    font-family: 'Rock Salt', cursive;
+}
+
+#cardback .st13 {
+    font-size: 37.769px;
+}
+
+/*Animação.*/
+.container-cartao {
+    perspective: 1000px;
+}
+
+.creditcard {
+    width: 100%;
+    max-width: 400px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.6s;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    transition: transform 0.6s, -webkit-transform 0.6s;
+    cursor: pointer;
+}
+
+.creditcard .front,
+.creditcard .back {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    color: #47525d;
+}
+
+.creditcard .back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.creditcard.flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/*Margens,tamanho,bordas,sombra,cor de fundo e cor.*/
+.button {
+    margin-top: 10px;
+    margin-left: 110px;
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    background: #995a1a;
+    color:white;
+}
+
+/*Contorno,sombra e cor de fundo.*/
+button:hover, button:active, button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    background-color: #7a4814;
+}
+
+.pagamento-titulo{
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+    color:#995a1a;
+}

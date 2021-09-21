@@ -29,6 +29,7 @@
 
     <!-- Link da página "util" em css -->
     <link href="styles/util.css" rel="stylesheet">
+    <link href="styles/cartao-index.css" rel="stylesheet">
 
     <!-- Imagem do Cuppa -->
     <link rel="shortcut icon" href="imagens/cuppa.ico" type="image/x-icon">
@@ -44,7 +45,7 @@
 
     <!-- CSS, JS e BootStrap do cartão de crédito -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/cartaoestilo.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script src="scripts/cartao-de-credito.js"></script>
@@ -53,7 +54,6 @@
     <!-- Modal Cartão de Crédito -->
     <script src="https://kit-pro.fontawesome.com/releases/v5.10.1/js/pro.min.js" data-auto-fetch-svg></script>
     <script src="scripts/alterar-cadastrar-dados.js"></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
 </head>
 <%
     //Instanciar a Pessoa Fisica
@@ -118,7 +118,7 @@
                 <!-- Inicio Div Cartão de Crédito-->
                 <div id="divcartao">
                     <div class="centrocartao d-flex justify-content-center"  >
-                        <div class="container preload">
+                        <div class="container-cartao preload">
                             <div class="creditcard">
                                 <div class="front" style="margin-left: 20px">
                                     <div id="ccsingle"></div>
@@ -343,6 +343,7 @@
         <h2>Mande-nos uma mensagem!</h2>
         <p>Caso tenha alguma sujestão de melhora, alguma reclamação ou um elogio :)</p>
         <br>
+        <div style="position:relative; left: 35%;">
         <form action="" method="post">
             <input type="text" name="nome" placeholder="Informe seu nome:">
             <input type="email" name="email" placeholder="Informe seu e-mail:">
@@ -350,6 +351,7 @@
             <input type="submit" value="Enviar">
             <input type="reset" value="Limpar">
         </form>
+        </div>
         <p><span class="detail">Break Fest - Entra21</span></p>
     </footer>
     <!-- Footer terminado-->
