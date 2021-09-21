@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="en" >
     <head>
+         <head>
         <meta charset="UTF-8">
         <!-- Título e Favicon -->
         <title>Break Fest</title>
@@ -22,9 +23,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
         <script src="scripts/navbar-usuario.js"></script>
-        <link rel="stylesheet" href="navbar-usuario.css"/>
+        <link rel="stylesheet" href="styles/navbar-usuario.css"/>
 
+        <!-- Estilo principal -->
         <link rel="stylesheet" href="styles/consulta-pedido-fisico.css"/>
+
+        <!-- Modal Cartão de Crédito -->
+        <script src="https://kit-pro.fontawesome.com/releases/v5.10.1/js/pro.min.js" data-auto-fetch-svg></script>
+        <script src="scripts/alterar-cadastrar-dados.js"></script>
+
         <!-- CSS para utilização alheia -->
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
         <link href="styles/consultar-pedidos.css" rel="stylesheet">
@@ -33,24 +40,19 @@
         <!-- Título e imports -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <!-- Modal Cartão de Crédito -->
-        <script src="https://kit-pro.fontawesome.com/releases/v5.10.1/js/pro.min.js" data-auto-fetch-svg></script>
-        <script src="scripts/alterar-cadastrar-dados.js"></script>
-
         <!-- Sweet Alerts -->
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script src="scripts/alertas-erro.js"></script>
         <script> var resultado = "${sessionScope.resultado}"</script><%request.getSession().setAttribute("resultado", null);%>
 
-        <!-- CSS e BootStrap do cartão de crédito -->
+        <!-- CSS, JS e BootStrap do cartão de crédito -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/cartaoestilo.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         <script src="scripts/cartao-de-credito.js"></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
-
-    </head>
+   </head>
     <%
         //Instanciar a Pessoa Fisica
         PessoaFisica pf = new PessoaFisica();
@@ -351,8 +353,8 @@
                                                             <div class="forSelect">
                                                                 <select name="status">
                                                                     <option value="NA" selected disabled hidden>Selecione aqui</option>
-                                                                    <option value="Entregue">Pedido Entregue</option>
-                                                                    <option value="Cancelado">Cancelar Pedido</option>
+                                                                    <option value="Pedido Entregue">Pedido Entregue</option>
+                                                                    <option value="Pedido Cancelado">Cancelar Pedido</option>
                                                                 </select>  
                                                             </div>
                                                             <% request.getSession().setAttribute("idped", fkId); %>

@@ -553,7 +553,6 @@
                             <input type="text" maxlength="80" name="complemento" id="complemento" value="<% out.write(String.valueOf(consulta.getComplemento())); %>"
                                    placeholder="Complemento (opcional)">
                         </div>
-
                         <!-- Input dos bairros que ela deseja atender -->
                         <div class="form-row">
                             <div class="combo js-csv">
