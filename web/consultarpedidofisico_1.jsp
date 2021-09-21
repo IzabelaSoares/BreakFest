@@ -353,8 +353,8 @@
                                                             <div class="forSelect">
                                                                 <select name="status">
                                                                     <option value="NA" selected disabled hidden>Selecione aqui</option>
-                                                                    <option value="Entregue">Pedido Entregue</option>
-                                                                    <option value="Cancelado">Cancelar Pedido</option>
+                                                                    <option value="Pedido Entregue">Pedido Entregue</option>
+                                                                    <option value="Pedido Cancelado">Cancelar Pedido</option>
                                                                 </select>  
                                                             </div>
                                                             <% request.getSession().setAttribute("idped", fkId); %>
