@@ -4,6 +4,7 @@
     Documentado por : Jefferson Teixeira
 --%>
 
+<%@page import="dominio.PessoaFisica"%>
 <%@page import="java.util.List"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,7 +49,7 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="styles/procurarpadaria.css">
 
         <!-- Instanciamento de classes e método em Java  -->
-        <%
+        <%  
             PessoaJuridica pj = new PessoaJuridica();
             List<PessoaJuridica> listageral = pj.consultarGeral();
 

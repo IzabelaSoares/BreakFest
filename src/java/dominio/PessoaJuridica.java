@@ -187,7 +187,7 @@ public class PessoaJuridica {
     //consulta todos exceto o BreakFest
     public List<PessoaJuridica> consultarGeral(){
         List<PessoaJuridica> lista = new ArrayList<>();
-        String sql = "SELECT* FROM pessoajuridica WHERE cnpj != 'XX.XXX.XXX/0001-XX'";
+        String sql = "SELECT * FROM pessoajuridica WHERE cnpj != 'XX.XXX.XXX/0001-XX'";
         Connection con = Conexao.conectar();
         try{
             PreparedStatement stm = con.prepareStatement(sql);     
@@ -212,6 +212,45 @@ public class PessoaJuridica {
                 padaria.setInstagram(rs.getString("instagram"));
                 padaria.setFacebook(rs.getString("facebook"));
                 lista.add(padaria);
+           }
+        } catch (SQLException ex) {
+          System.out.println("Erro:" + ex.getMessage());
+        }
+        
+        return lista;
+        
+    }
+    
+    //consulta todos exceto o BreakFest
+    public List<PessoaJuridica> consultarGeralBairro(String bairro){
+        List<PessoaJuridica> lista = new ArrayList<>();
+        String sql = "SELECT * FROM pessoajuridica WHERE cnpj != 'XX.XXX.XXX/0001-XX'";
+        Connection con = Conexao.conectar();
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);     
+            ResultSet rs = stm.executeQuery();
+            while(rs.next()){
+                PessoaJuridica padaria = new PessoaJuridica();
+                padaria.setCnpj(rs.getString("cnpj"));
+                padaria.setRazaoSocial(rs.getString("razaosocial"));
+                padaria.setNomeFantasia(rs.getString("nomefantasia"));
+                padaria.setEmail(rs.getString("email"));
+                padaria.setTelefone(rs.getString("telefone"));
+                padaria.setCep(rs.getString("cep")); 
+                padaria.setEstado(rs.getString("estado"));
+                padaria.setCidade(rs.getString("cidade"));
+                padaria.setBairro(rs.getString("bairro"));
+                padaria.setRua(rs.getString("rua"));
+                padaria.setNumero(rs.getInt("numero"));
+                padaria.setComplemento(rs.getString("complemento"));
+                padaria.setImagem(rs.getString("imagem"));
+                padaria.setSobrepadaria(rs.getString("sobrepadaria"));
+                padaria.setBairros(rs.getString("bairros"));
+                padaria.setInstagram(rs.getString("instagram"));
+                padaria.setFacebook(rs.getString("facebook"));
+                if(padaria.getBairros().contains(bairro)){
+                    lista.add(padaria);
+                }
            }
         } catch (SQLException ex) {
           System.out.println("Erro:" + ex.getMessage());

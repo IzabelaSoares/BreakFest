@@ -54,17 +54,21 @@
 
 
         <%  //Instanciamento de classes e método em Java
-
-            //Instanciar Pessoa Juridica
-            PessoaJuridica pj = new PessoaJuridica();
-            List<PessoaJuridica> listageral = pj.consultarGeral();
-
+            
             //Instanciar a Pessoa Fisica
             PessoaFisica pf = new PessoaFisica();
 
             //Pegar o cpf dela
             String fkemail = String.valueOf(request.getSession().getAttribute("usuario"));
             String cpf = pf.procuraCpf(fkemail);
+            
+            //Instanciar uma nova pessoa fisica e consultar os dados através do cpf
+            PessoaFisica consulta = new PessoaFisica();
+            consulta = consulta.consultarConta(cpf);
+            
+            //Instanciar Pessoa Juridica
+            PessoaJuridica pj = new PessoaJuridica();
+            List<PessoaJuridica> listageral = pj.consultarGeralBairro(consulta.getBairro());
 
             //Instanciar Cartao e verificar dados
             Cartao cartao = new Cartao();

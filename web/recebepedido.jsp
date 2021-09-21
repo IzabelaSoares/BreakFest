@@ -3,6 +3,7 @@
     Desenvolvido por: Maria Clara Peron e Izabela Soares
     Documentado por : Maria Clara Peron
 --%> 
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="java.time.LocalTime"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
@@ -37,6 +38,9 @@
     PessoaFisica pf = new PessoaFisica();
     pf = pf.consultarConta(fkcpf);
 
+    //Instanciar BairrosFrete
+    BairrosFrete bf = new BairrosFrete();
+    
     //Pegar os Dados de Endereço
     String cep = pf.getCep();
     String uf = pf.getEstado();
@@ -78,7 +82,8 @@
             double precoUn = Double.valueOf(precoArray[i]);
             totalCompra += (precoUn * quant);
         }
-
+        totalCompra += (bf.consultarFrete(bairro, fkcnpj));
+        
         //Instanciar Pedido
         Pedido novo = new Pedido();
         String obs = request.getParameter("observacao");

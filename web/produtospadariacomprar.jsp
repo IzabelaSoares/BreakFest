@@ -4,6 +4,7 @@
     Documentado por : Jefferson Teixeira
 --%>
 
+<%@page import="dominio.BairrosFrete"%>
 <%@page import="dominio.Cartao"%>
 <%@page import="dominio.PessoaJuridica"%>
 <%@page import="java.util.List"%>
@@ -124,6 +125,10 @@
         PessoaFisica consulta = new PessoaFisica();
         consulta = consulta.consultarConta(cpf);
 
+        //instancia BairrosFrete, procura o valor o frete e adiciona ao valor final
+        BairrosFrete bf = new BairrosFrete();
+        float frete = bf.consultarFrete(consulta.getBairro(), cnpj);
+        
         //Instanciar Cartao e verificar dados
         Cartao cartao = new Cartao();
 
@@ -406,9 +411,9 @@
                                                         <dd class="col-sm-4">Total Produtos</dd>
                                                         <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                         <dd class="col-sm-4">Frete </dd>								
-                                                        <dt class="col-sm-8">R$ 0,00</dt>
+                                                        <dt class="col-sm-8">R$ <%out.write(String.valueOf(frete));%> </dt>
                                                         <dd class="col-sm-4">Valor Total </dd>
-                                                        <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
+                                                        <dt class="col-sm-8">R$ <%out.write(String.valueOf(frete));%><span class="total-cart"></span></dt>
                                                     </dl>
                                                     <dl class="row">
                                                         <dt class="col-sm-12">Deseja agendar esse pedido para mais dias?</dt>

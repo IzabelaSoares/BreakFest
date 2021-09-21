@@ -108,6 +108,31 @@ public class BairrosFrete {
         
     }
     
+    //consulta todos o frete do bairro
+    public float consultarFrete(String bairro, String cnpj){
+        //cria uma lista
+        float frete=0;
+        //comando de execução de banco de dados
+        String sql = "SELECT frete FROM bairrofrete WHERE bairro=? and fkcnpj = ?";
+        //conecta com o banco
+        Connection con = Conexao.conectar();
+        try{
+            //preparando o comando com os dados
+            PreparedStatement stm = con.prepareStatement(sql);     
+            stm.setString(1, bairro);
+            stm.setString(2, cnpj);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                frete = rs.getFloat("frete");
+           }
+        } catch (SQLException ex) {
+          System.out.println("Erro:" + ex.getMessage());
+        }
+        
+        return frete;
+        
+    }
+    
     //consulta todos os bairros e fretes da padaria
     public List<BairrosFrete> consultarBairrosFretes(String cnpj){
         //cria uma lista
