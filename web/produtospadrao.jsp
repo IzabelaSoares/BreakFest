@@ -393,7 +393,7 @@
                         <div class="input-group mb-3 justify-content-center">
                             <div class="input-group-prepend">
                                 <span class="input-group-append bg-white">
-                                    <button class="btn" style=" height: 50px; background-color: #e9ecef !important; border-radius: 5px 0px 0px 5px;" type="button">
+                                    <button class="btn" style=" width: 78px; height: 50px; background-color: #e9ecef !important; border-radius: 5px 0px 0px 5px; padding: 0;" type="button">
                                         <i class="far fa-money-bill-alt fa-2x" style="color: #006400;"></i>
                                     </button>
                                 </span>       
@@ -405,7 +405,7 @@
                         </div><br>
                         <div style="position: relative; left: 50px">
                             <button id="btnAdicionar" style="display: none; background-color: #995a1a; border-color: #995a1a; width: 150px; height: 50px;" type="submit" class="btn btn-primary" onclick="preferenciaPagamento()">Adicionar Preferência</button>
-                            <button id="btnAlterar" style="background-color: #995a1a; border-color: #995a1a; width: 150px; height: 50px;" type="submit" class="btn btn-primary" onclick="preferenciaPagamento()">Alterar Preferência</button>
+                            <button id="btnAlterar" style="margin-left: 20%; background-color: #995a1a; border-color: #995a1a; width: 150px; height: 50px;" type="submit" class="btn btn-primary" onclick="preferenciaPagamento()">Alterar Preferência</button>
                             <br><br>
                         </div>
                     </div>
@@ -547,7 +547,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div id="tudoCentral" style="margin-top: 30px;">
-                        <h2 id="titulo-frete"> Gerenciador de fretes </h2>
+                        <h2 id="titulo-frete" style="margin-left: 19px; font-weight: bold; color: #995a1a;"> Gerenciador de fretes </h2>
                         <div class="container table-responsive py-5" style="margin-top: 0"> 
                             <table class="table table-bordered">
                                 <thead class="thead-light">
@@ -613,12 +613,12 @@
             </div>
             <br>
             <input id="search" type="text" placeholder="Procure um produto ou informe uma categoria aqui..."><br>        
-            <h1>Selecione produtos</h1><br>
+            <h1 style="margin-left: 30px; font-weight: bold; color: #995a1a;">Selecione produtos</h1><br>
             <div class="borda">
                 <table class="table table-image">
                     <thead class="tabelaThead">
                         <tr>
-                            <th class="check align-middle"><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
+                            <th><input type="checkbox" id="cc" onclick="javascript:checkAll(this)"/></th>
                             <th class="titulo align-middle" >Imagem</th>
                             <th class="titulo align-middle" >Produto</th>
                             <th class="titulo align-middle" >Categoria</th>
