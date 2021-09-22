@@ -354,12 +354,12 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
 
                         <!-- Input da senha -->
                         <div class="form-row">
-                            <input type="password" name="senha" id="senha" placeholder="Informe sua senha ou Informe uma nova senha" minlength="8">
+                            <input type="password" name="senha" id="senha" placeholder="Informe sua senha ou Informe uma nova senha" minlength="8" required>
                         </div>
 
                         <!-- Confirmação de senha -->
                         <div class="form-row">
-                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha atual ou confirmar senha nova" minlength="8">
+                            <input type="password" name="checksenha" id="checksenha" placeholder="Confirmar senha atual ou confirmar senha nova" minlength="8" required>
                             <p id="alertPassword"></p>
                         </div>
 
