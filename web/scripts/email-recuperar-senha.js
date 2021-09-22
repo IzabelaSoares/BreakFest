@@ -12,14 +12,23 @@ function recuperarSenha() {
         title: 'Informe seu email',
         html:
                 '<form name="theForm" action="recebeemail.jsp" method="post">' +
-                '<input name="email" id="swal-input1" class="swal2-input">' +
+                '<input name="email" id="swal-input1" class="swal2-input" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" required>' +
                 '</form>',
         showCloseButton: true,
         focusConfirm: false,
         confirmButtonText: 'Recuperar Senha!',
     }).then((result) => {
         if (result.isConfirmed) {
-            document.theForm.submit();
+            let email = document.getElementById('swal-input1').value;
+            if (email.includes('@') && email.includes('.com')) {
+                document.theForm.submit();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ops...',
+                    text: 'Email inválido!'
+                });
+            }
         }
     })
 }
