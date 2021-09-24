@@ -1,6 +1,6 @@
 <%-- 
     Documento       : login
-    Desenvolvido por: Yan Claus Fructuoso e Ricardo Natal
+    Desenvolvido por: Yan Claus Fructuoso e  Ricardo Natal
     Documentado por : Jefferson Teixeira
 --%>
 
