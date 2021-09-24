@@ -6,9 +6,9 @@ import java.sql.SQLException;
 public class Conexao {
     public static Connection conectar(){
         Connection con = null;
-        String url = "jdbc:postgresql://localhost:5432/breakfest";
+        String url = "jdbc:postgresql://breakfest.c2q2okru5re1.us-east-2.rds.amazonaws.com:5432/breakfest";
         String user = "postgres";
-        String password = "admin"; 
+        String password = "projetobreakfest"; 
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, password);
