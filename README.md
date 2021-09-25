@@ -81,10 +81,10 @@ E com essa facilidade, os benefícios são:
         </a>
       </td>
     <td align="center">
-      <a href="https://github.com/IzabelaSoares">
+      <a href="##">
       <img src="https://media-exp1.licdn.com/dms/image/D4E35AQF925K3wlkvQg/profile-framedphoto-shrink_800_800/0/1632253668269?e=1632697200&v=beta&t=9xZtZ2mTTRmI14dc3kMZmXkqGRFtgP9TrzSjOfhDuII" width="100px;" alt="Foto do Marcelo Santos"/>
         <sub>
-          <h3>Yan Claus</h3>
+          <h3>Yan Fructuoso</h3>
         </sub>
           <div align="center">
             <a href="https://www.linkedin.com/in/yan-claus-fructuoso-b78b01211/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
