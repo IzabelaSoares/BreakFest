@@ -38,7 +38,7 @@ E com essa facilidade, os benefícios são:
       </td>
     <td align="center">
       <a href="https://github.com/JeffersonTeixeira21">
-      <img src="https://media-exp1.licdn.com/dms/image/D4D35AQGe5DmGVVO92g/profile-framedphoto-shrink_800_800/0/1631822617535?e=1632697200&v=beta&t=djqVir02MEYKmnk2rCHQ8Ls8W7v14MUeuSrMUg0Qy-8" width="100px;" alt="Foto do Marcelo Santos"/>
+      <img src="https://projetobreakfest.carrd.co/assets/images/image03.jpg?v=f3642ba9" width="100px;" alt="Foto do Marcelo Santos"/>
         <sub>
           <h3>Jefferson Teixeira</h3>
         </sub>
@@ -82,7 +82,7 @@ E com essa facilidade, os benefícios são:
       </td>
     <td align="center">
       <a href="##">
-      <img src="https://media-exp1.licdn.com/dms/image/D4E35AQF925K3wlkvQg/profile-framedphoto-shrink_800_800/0/1632253668269?e=1632697200&v=beta&t=9xZtZ2mTTRmI14dc3kMZmXkqGRFtgP9TrzSjOfhDuII" width="100px;" alt="Foto do Marcelo Santos"/>
+      <img src="https://projetobreakfest.carrd.co/assets/images/image09.jpg?v=f3642ba9" width="100px;" alt="Foto do Marcelo Santos"/>
         <sub>
           <h3>Yan Fructuoso</h3>
         </sub>
