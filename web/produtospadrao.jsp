@@ -123,7 +123,8 @@
         //verificar se as midias estão nulas
         if (instagram == null) {
             instagram = "";
-        } else if (facebook == null) {
+        } 
+        if (facebook == null) {
             facebook = "";
         }
 
