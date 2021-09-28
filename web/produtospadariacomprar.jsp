@@ -154,6 +154,9 @@
         } else {
             numeroCartao = "Sem Dados Cadastrados";
         }
+        
+        String pag = request.getRequestURI();
+        request.getSession().setAttribute("pagina", pag);
     %>
     <!-- Fim da NavBar de cima -->
 

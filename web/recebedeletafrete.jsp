@@ -51,12 +51,12 @@
         
         //cadastra nova lista de bairros
         if(pj.cadastrarBairros()){
-            response.sendRedirect("consultarpedidojuridico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }else{
-            response.sendRedirect("consultarpedidojuridico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }
     }else{
-        response.sendRedirect("consultarpedidojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
     
 %>

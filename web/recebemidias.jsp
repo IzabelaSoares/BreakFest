@@ -23,10 +23,10 @@
     //se cadastrar midias der certo
     if(pj.cadastrarMidias()){
         request.getSession().setAttribute("resultado", "MidiasCadastradas");
-        response.sendRedirect("alterarusuariojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }else{
         //erro no  cadastro
         request.getSession().setAttribute("resultado", "MidiasNaoCadastradas");
-        response.sendRedirect("alterarusuariojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %>

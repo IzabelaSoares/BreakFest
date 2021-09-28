@@ -43,9 +43,9 @@
     //se cadastrar produto
     if (prdt.cadastrarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");
-        response.sendRedirect("consultarmeusprodutos.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     } else {
         request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
-        response.sendRedirect("consultarmeusprodutos.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %> 

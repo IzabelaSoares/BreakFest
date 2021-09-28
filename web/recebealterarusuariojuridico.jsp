@@ -61,10 +61,10 @@
         }
         
         request.getSession().setAttribute("resultado", "CadastroAlterado");
-        response.sendRedirect("alterarusuariojuridico.jsp");     
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina"))); 
     } else {
         //erro no cadastro
         request.getSession().setAttribute("resultado", "CadastroNaoAlterado");
-        response.sendRedirect("alterarusuariojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %>

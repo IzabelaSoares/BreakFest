@@ -23,20 +23,20 @@
         //se cadastrar cartao
         if (card.cadastrarCartao()) {
             request.getSession().setAttribute("resultado", "CartaoSalvo");
-            response.sendRedirect("alterarusuariofisico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         } else {
             request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
-            response.sendRedirect("alterarusuariofisico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }
     //se existir dados só altera
     }else{
         //se cadastrar cartao
         if (card.alterarCartao()) {
             request.getSession().setAttribute("resultado", "CartaoSalvo");
-            response.sendRedirect("alterarusuariofisico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         } else {
             request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
-            response.sendRedirect("alterarusuariofisico.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }
     }
     

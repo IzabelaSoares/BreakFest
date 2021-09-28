@@ -95,6 +95,9 @@
         }else{
             numeroCartao = "Sem Dados Cadastrados";
         }
+        
+        String pag = request.getRequestURI();
+        request.getSession().setAttribute("pagina", pag);   
 
     %>
     <!-- modal de pagamento -->

@@ -134,6 +134,8 @@ Página sem Navbar e sem footer de dúvidas pois é uma simples tela de cadastro
             numeroCartao = "Sem Dados Cadastrados";
         }
 
+        String pag = request.getRequestURI();
+        request.getSession().setAttribute("pagina", pag);
     %>
     <!-- modal de pagamento -->
     <div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">

@@ -38,10 +38,10 @@
     //se o email já está sendo utilizado no cadastro fisico ou juridico não faz cadastro
     if(pf.alterarDados() && login.alterarUsuario()) {
         request.getSession().setAttribute("resultado", "CadastroAlterado");
-        response.sendRedirect("procurarpadaria.jsp");     
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));    
     //se não der certo
     }else{
         request.getSession().setAttribute("resultado", "CadastroNaoAlterado");
-        response.sendRedirect("alterarusuariofisico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %>  

@@ -98,6 +98,8 @@
                 facebook = "";
             }
 
+            String pag = request.getRequestURI();
+            request.getSession().setAttribute("pagina", pag);
         %>
     </head>  
     <%  //Dados do pedido individual

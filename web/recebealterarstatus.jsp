@@ -18,18 +18,11 @@
     //se alterar status der certo
     if(p.alterarStatus()){
         request.getSession().setAttribute("resultado", "StatusAterado");
-        if(pag == "juridico"){
-            response.sendRedirect("consultarpedidojuridico.jsp");
-        }else{
-            response.sendRedirect("consultarpedidofisico.jsp");
-        }
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }else{
         request.getSession().setAttribute("resultado", "StatusNaoAterado");
-        if(pag == "juridico"){
-            response.sendRedirect("consultarpedidojuridico.jsp");
-        }else{
-            response.sendRedirect("consultarpedidofisico.jsp");
-        }
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+
     }
     
 %>

@@ -131,6 +131,9 @@
         if (facebook == null) {
             facebook = "";
         }
+        
+        String pag = request.getRequestURI();
+        request.getSession().setAttribute("pagina", pag);
     %>
     <!-- Fim da NavBar de cima -->
     <!-- Modal de Midias -->

@@ -138,6 +138,8 @@
             facebook = "";
         }
 
+        String pag = request.getRequestURI();
+        request.getSession().setAttribute("pagina", pag);
     %>
     <!-- Fim da NavBar-->
     <!-- Modal de Midias -->

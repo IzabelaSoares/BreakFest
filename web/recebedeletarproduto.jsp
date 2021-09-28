@@ -12,7 +12,10 @@
     
     if(prdt.excluirProduto()){
         request.getSession().setAttribute("resultado", "ProdutoExcluido");
-        response.sendRedirect("consultarmeusprodutos.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+    }else{
+        request.getSession().setAttribute("resultado", "ProdutoNaoExcluido");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
     
 %>

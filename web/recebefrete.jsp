@@ -19,9 +19,9 @@
 
     //se cadastrar frete deu certo
     if (bf.alterarFrete()){
-        response.sendRedirect("consultarpedidojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }else{
-        response.sendRedirect("consultarpedidojuridico.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 
 %>

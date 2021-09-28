@@ -44,17 +44,17 @@
         //se alterara o produto e a imagem
         if(prdt.alterarProdutoEImagem()){
             request.getSession().setAttribute("resultado", "ProdutoSalvo");
-            response.sendRedirect("consultarmeusprodutos.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }else{
             request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
-            response.sendRedirect("consultarmeusprodutos.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }
     //se alterar produto
     }else if (prdt.alterarProduto()) {
         request.getSession().setAttribute("resultado", "ProdutoSalvo");
-        response.sendRedirect("consultarmeusprodutos.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     } else {
         request.getSession().setAttribute("resultado", "ProdutoNaoSalvo");
-        response.sendRedirect("consultarmeusprodutos.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %>

@@ -102,7 +102,9 @@
             if (facebook == null) {
                 facebook = ""; 
             }
-
+            
+            String pag = request.getRequestURI();
+            request.getSession().setAttribute("pagina", pag);
         %>
     </head>
     <!-- Modal Alterar Status do Pedido -->

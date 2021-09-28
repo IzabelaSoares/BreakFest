@@ -34,12 +34,12 @@
 
         //se o último insert de produto padrão der certo
         if (result){
-            response.sendRedirect("consultarmeusprodutos.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }else{
-            response.sendRedirect("produtospadrao.jsp");
+            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
         }
     }else{
         request.getSession().setAttribute("resultado", "SemProdutos");
-        response.sendRedirect("produtospadrao.jsp");
+        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
     }
 %>

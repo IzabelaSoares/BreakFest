@@ -63,20 +63,20 @@
             //se cadastrar pix
             if (pix.cadastrarPix()) {
                 request.getSession().setAttribute("resultado", "PreferenciaSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             } else {
                 request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             }
         }else{
             //se alterar pix
             pix.setFkCnpj(fkcnpj);
             if (pix.alterarpix()) {
                 request.getSession().setAttribute("resultado", "PreferenciaSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             } else {
                 request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             }
         }
     //se for depósito
@@ -100,22 +100,22 @@
             //se cadastrar depósito
             if (dep.cadastrarDeposito()) {
                 request.getSession().setAttribute("resultado", "PreferenciaSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             } else {
                 //erro no cadastro
                 request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             }
         }else{
             //se alterar depósito
             dep.setFkCnpj(fkcnpj);
             if (dep.alterarDeposito()) {
                 request.getSession().setAttribute("resultado", "PreferenciaSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             } else {
                 //erro no cadastro
                 request.getSession().setAttribute("resultado", "PreferenciaNaoSalva");
-                response.sendRedirect("alterarusuariojuridico.jsp");
+                response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
             }
         }
     }
