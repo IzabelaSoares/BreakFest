@@ -1,7 +1,7 @@
 /* global idproduto, cardArray */
 /* 
  * Página de Referência: Comprar Produtos
- * Dependencias: JSON e Biblioteca JQuery do Javascript
+ * Dependencias: AJAX, JSON e Biblioteca JQuery do Javascript
  * Desenvolvido por: Izabela Maria Alves Soares
  * Documentado por: Izabela Maria Alves Soares
  * Data da ultima Revisão: 13/09/2021 
@@ -156,6 +156,9 @@ $('.clear-cart').click(function () {
     displayCart();
 });
 
+//pegar o valor do frete
+var frete = Number(document.getElementById('frete-compra').value);
+
 //mostrar no modal de compras
 function displayCart() {
     //variaveis para o backend
@@ -173,7 +176,7 @@ function displayCart() {
         //converter dados de ponto para virgula
         let preco = cartArray[i].price.toFixed(2);
         preco = preco.toString().replace(".", ",");
-        let ptotal = cartArray[i].total
+        let ptotal = cartArray[i].total;
         ptotal = ptotal.toString().replace(".", ",");
         //tablerow com todos os dados para o usuário
         output += "<div><tr style='margin-top: 0'>"
@@ -188,7 +191,8 @@ function displayCart() {
     }
     //dados para o front end
     $('.show-cart').html(output); //aqui lança os dados na tabela html
-    $('.total-cart').html(shoppingCart.totalCart().toFixed(2).toString().replace(".", ",")); //aqui marca total do preço
+    $('.total-produtos').html(shoppingCart.totalCart().toFixed(2).toString().replace(".", ",")); //aqui marca total dos produtos
+    $('.total-cart').html(Number(shoppingCart.totalCart() + frete).toFixed(2).toString().replace(".", ",")); //aqui marca total do preço
     $('.total-count').html(shoppingCart.totalCount().toString().replace(".", ","));//aqui marca a quantidade de produto
 
     //dados para o back end em formato JSON

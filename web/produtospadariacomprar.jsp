@@ -412,9 +412,9 @@
                                                     <!--Informações de Preço do Pedido -->
                                                     <dl class="row">
                                                         <dd class="col-sm-4">Total Produtos</dd>
-                                                        <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
+                                                        <dt class="col-sm-8">R$ <span class="total-produtos"></span></dt>
                                                         <dd class="col-sm-4">Frete </dd>								
-                                                        <dt class="col-sm-8">R$ <%out.write(String.format("%.2f", frete).replace(".", ","));%> </dt>
+                                                        <dt class="col-sm-8">R$ <%out.write(String.format("%.2f", frete).replace(".", ","));%></dt>
                                                         <dd class="col-sm-4">Valor Total </dd>
                                                         <dt class="col-sm-8">R$ <span class="total-cart"></span></dt>
                                                     </dl>
@@ -458,7 +458,7 @@
                                                         <input type="hidden" id="quantidade" name="quantidade" value="">
                                                         <input type="hidden" id="preco-total" name="preco-total" value="">
                                                         <input type="hidden" id="total-compra" name="total-compra" value="">                      
-
+                                                        <input type="hidden" id="frete-compra" name="frete-compra" value="<% out.write(String.valueOf(frete));%>">  
                                                         <!-- Fim Inputs hidden para passar os dados para o jsp -->
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                                         <button type="submit" class="btn btn-primary">Comprar agora</button>
