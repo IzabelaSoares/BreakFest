@@ -18,10 +18,10 @@
     //se alterar status der certo
     if(p.alterarStatus()){
         request.getSession().setAttribute("resultado", "StatusAterado");
-        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+        response.sendRedirect("consultarpedidojuridico.jsp");
     }else{
         request.getSession().setAttribute("resultado", "StatusNaoAterado");
-        response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+        response.sendRedirect("consultarpedidojuridico.jsp");
 
     }
     

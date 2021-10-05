@@ -11,6 +11,8 @@
     //Pega o cpf
     String cpf = request.getParameter("cpf");
     
+    request.getSession().setAttribute("cnpj", request.getSession().getAttribute("cnpj"));
+    
     //Passar os parametros do HTML
     card.setFkcpf(cpf);
     card.setNome(request.getParameter("cardname"));
