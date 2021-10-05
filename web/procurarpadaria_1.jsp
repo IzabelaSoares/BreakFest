@@ -311,7 +311,7 @@
                                 <td>
                                     <form action="produtospadariacomprar.jsp" method="post"
                                           id="<%out.write(String.valueOf(tudo.getCnpj()));%>">
-                                        <input type="hidden" name="fkcnpj" value="<%request.getSession().setAttribute("fkcnpj", String.valueOf(tudo.getCnpj())); %>">
+                                        <input type="hidden" name="fkcnpj" value="<% out.write(String.valueOf(tudo.getCnpj())); %>">
                                         <div class="wsk-cp-product">
                                             <div>
                                                 <div class="wsk-cp-img" onclick="redirecionar('<%out.write(String.valueOf(tudo.getCnpj()));%>');">

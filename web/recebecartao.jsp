@@ -11,7 +11,11 @@
     //Pega o cpf
     String cpf = request.getParameter("cpf");
     
-    request.getSession().setAttribute("cnpj", request.getSession().getAttribute("cnpj"));
+    String redPag = String.valueOf(request.getSession().getAttribute("pagina"));
+    
+    if(redPag.contains("produtospadariacomprar.jsp")){  
+        redPag = "procurarpadaria_1.jsp";
+    }
     
     //Passar os parametros do HTML
     card.setFkcpf(cpf);
@@ -25,20 +29,20 @@
         //se cadastrar cartao
         if (card.cadastrarCartao()) {
             request.getSession().setAttribute("resultado", "CartaoSalvo");
-            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+            response.sendRedirect(redPag);
         } else {
             request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
-            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+            response.sendRedirect(redPag);
         }
     //se existir dados só altera
     }else{
         //se cadastrar cartao
         if (card.alterarCartao()) {
             request.getSession().setAttribute("resultado", "CartaoSalvo");
-            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+            response.sendRedirect(redPag);
         } else {
             request.getSession().setAttribute("resultado", "CartaoNaoSalvo");
-            response.sendRedirect(String.valueOf(request.getSession().getAttribute("pagina")));
+            response.sendRedirect(redPag);
         }
     }
     

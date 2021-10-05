@@ -102,8 +102,8 @@
     <%  //Instanciamento de classes e método em Java
 
         //Instanciar a Pessoa Juridica para Consultar os produtos dela
-        String cnpj = String.valueOf(request.getSession().getAttribute("fkcnpj"));
-
+        String cnpj = request.getParameter("fkcnpj");
+        
         //Instanciar a Produto
         Produto novo = new Produto();
         List<Produto> produto = novo.consultarProdutosPadaria(cnpj);
@@ -157,7 +157,7 @@
         
         String pag = request.getRequestURI();
         request.getSession().setAttribute("pagina", pag);
-        request.getSession().setAttribute("cnpj", cnpj);
+        
     %>
     <!-- Fim da NavBar de cima -->
 
